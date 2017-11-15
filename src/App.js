@@ -17,8 +17,8 @@ class App extends Component {
       width: 400,
       height: 200,
       speed: 3,
-      primaryColor: '#333',
-      secondaryColor: '#999',
+      primaryColor: '#f3f3f3',
+      secondaryColor: '#ecebeb',
       tool: Tools.Rectangle,
       draw: DEFAULTDRAW,
     }
@@ -60,62 +60,66 @@ class App extends Component {
           <LiveEditor />
           <LiveError />
         </LiveProvider>
-        <p>
-          width:
-          <input
-            type="number"
-            value={this.state.width}
-            onChange={e => this.setState({ width: e.target.value })}
-          />
-        </p>
-        <p>
-          height:
-          <input
-            type="number"
-            value={this.state.height}
-            onChange={e => this.setState({ height: e.target.value })}
-          />
-        </p>
-        <p>
-          speed:
-          <input
-            type="number"
-            value={this.state.speed}
-            onChange={e => this.setState({ speed: e.target.value })}
-          />
-        </p>
-        <p>
-          primaryColor:
-          <input
-            type="color"
-            value={this.state.primaryColor}
-            onChange={e => this.setState({ primaryColor: e.target.value })}
-          />
-        </p>
-        <p>
-          secondaryColor:
-          <input
-            type="color"
-            value={this.state.secondaryColor}
-            onChange={e => this.setState({ secondaryColor: e.target.value })}
-          />
-        </p>
-        <button onClick={() => this.setState({ tool: Tools.Select })}>Select</button>
-        <button onClick={() => this.setState({ tool: Tools.Rectangle })}>Rectangle</button>
-        <button onClick={() => this.setState({ tool: Tools.Circle })}>Circle</button>
-        <div className="wysiwyg">
-          <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
-            <LivePreview className="wysiwyg__preview" />
-          </LiveProvider>
-          <SketchField
-            width={`${this.state.width}px`}
-            height={`${this.state.height}px`}
-            tool={this.state.tool}
-            lineWidth={0}
-            color="black"
-            ref={c => (this._sketch = c)}
-            className="wysiwyg__sketch"
-          />
+        <div className="bottom">
+          <div className="editor">
+            <p>
+              width:
+              <input
+                type="number"
+                value={this.state.width}
+                onChange={e => this.setState({ width: e.target.value })}
+              />
+            </p>
+            <p>
+              height:
+              <input
+                type="number"
+                value={this.state.height}
+                onChange={e => this.setState({ height: e.target.value })}
+              />
+            </p>
+            <p>
+              speed:
+              <input
+                type="number"
+                value={this.state.speed}
+                onChange={e => this.setState({ speed: e.target.value })}
+              />
+            </p>
+            <p>
+              primaryColor:
+              <input
+                type="color"
+                value={this.state.primaryColor}
+                onChange={e => this.setState({ primaryColor: e.target.value })}
+              />
+            </p>
+            <p>
+              secondaryColor:
+              <input
+                type="color"
+                value={this.state.secondaryColor}
+                onChange={e => this.setState({ secondaryColor: e.target.value })}
+              />
+            </p>
+            <button onClick={() => this.setState({ tool: Tools.Select })}>Select</button>
+            <button onClick={() => this.setState({ tool: Tools.Rectangle })}>Rectangle</button>
+            <button onClick={() => this.setState({ tool: Tools.Circle })}>Circle</button>
+          </div>
+          <div className="wysiwyg">
+            <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
+              <LivePreview className="wysiwyg__preview" />
+            </LiveProvider>
+            <SketchField
+              width={`${this.state.width}px`}
+              height={`${this.state.height}px`}
+              tool={this.state.tool}
+              lineWidth={0}
+              color="black"
+              ref={c => (this._sketch = c)}
+              className="wysiwyg__sketch"
+            />
+          </div>
         </div>
       </div>
     )

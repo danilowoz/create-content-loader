@@ -1,5 +1,15 @@
+.bottom {
+  display: flex;
+  margin: 2em;
+}
+
+.editor {
+  width: 30%;
+}
+
 .wysiwyg {
   position: relative;
+  width: 50%;
 }
 
 .wysiwyg__sketch {
