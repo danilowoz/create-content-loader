@@ -16,66 +16,105 @@ class App extends Component {
     this.state = {
       width: 400,
       height: 200,
+      speed: 3,
+      primaryColor: '#333',
+      secondaryColor: '#999',
       tool: Tools.Rectangle,
       draw: DEFAULTDRAW,
     }
-    this._draw = this._draw.bind(this)
+    this._RenderCanvas = this._RenderCanvas.bind(this)
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const self = this
+    this._sketch._fc.on({
+      'after:render': () => self._RenderCanvas(),
+    })
+  }
 
-  _draw() {
+  _RenderCanvas() {
     const draw = cleanSVG(this._sketch._fc.toSVG())
     this.setState({ draw })
   }
 
   render() {
+    const { width, height, speed, primaryColor, secondaryColor, tool, draw } = this.state
+
     const Mycode = `
-    const MyLoader = () => (
-      <ContentLoader
-        height={${this.state.height}}
-        width={${this.state.width}}
-        // speed={1}
-        primaryColor={"#333"}
-        secondaryColor={"#999"}
-      >
-      ${this.state.draw}
-      </ContentLoader>
-    )
-  `
+      const MyLoader = () => (
+        <ContentLoader
+          height={${height}}
+          width={${width}}
+          speed={${speed}}
+          primaryColor={"${primaryColor}"}
+          secondaryColor={"${secondaryColor}"}
+        >
+          ${draw}
+        </ContentLoader>
+      )
+    `
     return (
       <div className="App">
         <p>import ContentLoader, {(Rect, Circle)} from "react-content-loader";</p>
         <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
           <LiveEditor />
           <LiveError />
-          <LivePreview />
         </LiveProvider>
-
-        <SketchField
-          style={{ border: '1px solid red' }}
-          width={`${this.state.width}px`}
-          height={`${this.state.height}px`}
-          tool={this.state.tool}
-          fillColor="#000"
-          color="black"
-          ref={c => (this._sketch = c)}
-        />
-
-        <div>
-          <button onClick={this._draw}>Draw</button>
-          <button onClick={() => this.setState({ tool: Tools.Select })}>Select</button>
-          <button onClick={() => this.setState({ tool: Tools.Rectangle })}>Rectangle</button>
-          <button onClick={() => this.setState({ tool: Tools.Circle })}>Circle</button>
+        <p>
           width:
           <input
+            type="number"
             value={this.state.width}
             onChange={e => this.setState({ width: e.target.value })}
           />
+        </p>
+        <p>
           height:
           <input
+            type="number"
             value={this.state.height}
             onChange={e => this.setState({ height: e.target.value })}
+          />
+        </p>
+        <p>
+          speed:
+          <input
+            type="number"
+            value={this.state.speed}
+            onChange={e => this.setState({ speed: e.target.value })}
+          />
+        </p>
+        <p>
+          primaryColor:
+          <input
+            type="color"
+            value={this.state.primaryColor}
+            onChange={e => this.setState({ primaryColor: e.target.value })}
+          />
+        </p>
+        <p>
+          secondaryColor:
+          <input
+            type="color"
+            value={this.state.secondaryColor}
+            onChange={e => this.setState({ secondaryColor: e.target.value })}
+          />
+        </p>
+        <button onClick={() => this.setState({ tool: Tools.Select })}>Select</button>
+        <button onClick={() => this.setState({ tool: Tools.Rectangle })}>Rectangle</button>
+        <button onClick={() => this.setState({ tool: Tools.Circle })}>Circle</button>
+        <div className="wysiwyg">
+          <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
+            <LivePreview className="wysiwyg__preview" />
+          </LiveProvider>
+          <SketchField
+            width={`${this.state.width}px`}
+            height={`${this.state.height}px`}
+            tool={this.state.tool}
+            lineWidth={0}
+            color="black"
+            ref={c => (this._sketch = c)}
+            className="wysiwyg__sketch"
           />
         </div>
       </div>
