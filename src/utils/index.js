@@ -1,4 +1,4 @@
-export const cleanStyle = style => {
+export const removeStyle = style => {
   const regexStyle = /(style=".*?")/gm
   const newStyle = style.replace(regexStyle, '')
   return newStyle
@@ -10,5 +10,5 @@ export const cleanSVG = svg => {
     .match(regex)[0]
     .replace('</defs>', '')
     .replace('</svg>', '')
-  return cleanStyle(newSvg)
+  return removeStyle(newSvg)
 }

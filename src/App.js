@@ -5,9 +5,13 @@ import { SketchField, Tools } from 'react-sketch'
 import { cleanSVG } from './utils'
 import './App.css'
 
-const DEFAULTDRAW = `<Circle x={195} y={30} radius={30} />
-        <Rect x={50} y={80} height={10} radius={5} width={300} />
-        <Rect x={75} y={100} height={10} radius={5} width={250} />`
+const DEFAULTDRAW = `
+<rect x="0" y="0" rx="5" ry="5" width="70" height="70"></rect>
+<rect x="80" y="17" rx="4" ry="4" width="300" height="13"></rect>
+<rect x="80" y="40" rx="3" ry="3" width="250" height="10"></rect>
+<rect x="0" y="80" rx="3" ry="3" width="350" height="10"></rect>
+<rect x="0" y="100" rx="3" ry="3" width="400" height="10"></rect>
+<rect x="0" y="120" rx="3" ry="3" width="360" height="10"></rect>`
 
 class App extends Component {
   constructor() {
@@ -16,7 +20,7 @@ class App extends Component {
     this.state = {
       width: 400,
       height: 200,
-      speed: 3,
+      speed: 2,
       primaryColor: '#f3f3f3',
       secondaryColor: '#ecebeb',
       tool: Tools.Rectangle,
@@ -27,6 +31,16 @@ class App extends Component {
 
   componentDidMount() {
     const self = this
+
+    // window.fabric.loadSVGFromString(this.state.draw, (obj, opt) => {
+    //   const util = window.fabric.util.groupSVGElements(obj, opt)
+    //   this._sketch._fc
+    //     .add(util)
+    //     .centerObject(util)
+    //     .renderAll()
+    //   util.setCoords()
+    // })
+
     this._sketch._fc.on({
       'after:render': () => self._RenderCanvas(),
     })
