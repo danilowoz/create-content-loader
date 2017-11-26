@@ -10,7 +10,7 @@
     "react-dom": "^16.1.1",
     "react-live": "^1.7.1",
     "react-scripts": "1.0.17",
-    "react-sketch": "^0.3.3"
+    "react-sketch": "^0.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
