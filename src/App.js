@@ -25,8 +25,10 @@ class App extends Component {
       secondaryColor: '#ecebeb',
       tool: Tools.Rectangle,
       draw: DEFAULTDRAW,
+      activeItem: false,
     }
     this._RenderCanvas = this._RenderCanvas.bind(this)
+    this._RemoveItem = this._RemoveItem.bind(this)
   }
 
   componentDidMount() {
@@ -43,6 +45,8 @@ class App extends Component {
 
     this._sketch._fc.on({
       'after:render': () => self._RenderCanvas(),
+      'object:selected': () => self.setState({ activeItem: true }),
+      'selection:cleared': () => self.setState({ activeItem: false }),
     })
   }
 
@@ -51,8 +55,22 @@ class App extends Component {
     this.setState({ draw })
   }
 
+  _RemoveItem() {
+    const canvas = this._sketch._fc
+    canvas.remove(canvas.getActiveObject())
+  }
+
   render() {
-    const { width, height, speed, primaryColor, secondaryColor, tool, draw } = this.state
+    const {
+      width,
+      height,
+      speed,
+      primaryColor,
+      secondaryColor,
+      tool,
+      draw,
+      activeItem,
+    } = this.state
 
     const Mycode = `
       const MyLoader = () => (
@@ -117,6 +135,7 @@ class App extends Component {
               />
             </p>
             <button onClick={() => this.setState({ tool: Tools.Select })}>Select</button>
+            {activeItem && <button onClick={this._RemoveItem}>Remove current item</button>}
             <button onClick={() => this.setState({ tool: Tools.Rectangle })}>Rectangle</button>
             <button onClick={() => this.setState({ tool: Tools.Circle })}>Circle</button>
           </div>
