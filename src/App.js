@@ -2,16 +2,17 @@ import React, { Component } from 'react'
 import ContentLoader, { Rect, Circle } from 'react-content-loader'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { SketchField, Tools } from 'react-sketch'
-import { cleanSVG } from './utils'
+import { cleanSVG, SVGtoFabric } from './utils'
 import './App.css'
 
-const DEFAULTDRAW = `
-<rect x="0" y="0" rx="5" ry="5" width="70" height="70"></rect>
-<rect x="80" y="17" rx="4" ry="4" width="300" height="13"></rect>
-<rect x="80" y="40" rx="3" ry="3" width="250" height="10"></rect>
-<rect x="0" y="80" rx="3" ry="3" width="350" height="10"></rect>
-<rect x="0" y="100" rx="3" ry="3" width="400" height="10"></rect>
-<rect x="0" y="120" rx="3" ry="3" width="360" height="10"></rect>`
+const DEFAULTDRAW = `<rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
+
+            <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
+            <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
+            
+            <rect x="0" y="80" rx="3" ry="3" width="350" height="10" />
+            <rect x="0" y="100" rx="3" ry="3" width="400" height="10" />
+            <rect x="0" y="120" rx="3" ry="3" width="360" height="10" />`
 
 class App extends Component {
   constructor() {
@@ -29,19 +30,31 @@ class App extends Component {
     }
     this._RenderCanvas = this._RenderCanvas.bind(this)
     this._RemoveItem = this._RemoveItem.bind(this)
+    this._Events = this._Events.bind(this)
+    this._SVGtoCanvas = this._SVGtoCanvas.bind(this)
   }
 
   componentDidMount() {
-    const self = this
+    this._Events()
+    this._SVGtoCanvas()
+  }
 
-    // window.fabric.loadSVGFromString(this.state.draw, (obj, opt) => {
-    //   const util = window.fabric.util.groupSVGElements(obj, opt)
-    //   this._sketch._fc
-    //     .add(util)
-    //     .centerObject(util)
-    //     .renderAll()
-    //   util.setCoords()
-    // })
+  _SVGtoCanvas() {
+    const canvas = this._sketch._fc
+
+    const arrFabric = SVGtoFabric(this.state.draw)
+    console.log(arrFabric)
+
+    arrFabric.forEach(a => {
+      const rect = new window.fabric.Rect(a)
+      canvas.add(rect)
+    })
+
+    canvas.renderAll()
+  }
+
+  _Events() {
+    const self = this
 
     this._sketch._fc.on({
       'after:render': () => self._RenderCanvas(),
@@ -51,8 +64,10 @@ class App extends Component {
   }
 
   _RenderCanvas() {
-    const draw = cleanSVG(this._sketch._fc.toSVG())
-    this.setState({ draw })
+    if (this._sketch) {
+      const draw = cleanSVG(this._sketch._fc.toSVG())
+      this.setState({ draw })
+    }
   }
 
   _RemoveItem() {
@@ -61,16 +76,7 @@ class App extends Component {
   }
 
   render() {
-    const {
-      width,
-      height,
-      speed,
-      primaryColor,
-      secondaryColor,
-      tool,
-      draw,
-      activeItem,
-    } = this.state
+    const { width, height, speed, primaryColor, secondaryColor, draw, activeItem } = this.state
 
     const Mycode = `
       const MyLoader = () => (
@@ -138,6 +144,7 @@ class App extends Component {
             {activeItem && <button onClick={this._RemoveItem}>Remove current item</button>}
             <button onClick={() => this.setState({ tool: Tools.Rectangle })}>Rectangle</button>
             <button onClick={() => this.setState({ tool: Tools.Circle })}>Circle</button>
+            <button onClick={this._RenderCanvas}>Render</button>
           </div>
           <div className="wysiwyg">
             <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
