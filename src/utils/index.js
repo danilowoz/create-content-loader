@@ -31,7 +31,8 @@ export const SVGtoFabric = svg => {
         newObj.width = Number(item.getAttribute('width'))
         newObj.height = Number(item.getAttribute('height'))
         newObj.fill = 'transparent'
-        newObj.radius = 6
+        newObj.ry = Number(item.getAttribute('ry'))
+        newObj.rx = Number(item.getAttribute('rx'))
       } else if (s.includes('<circle ')) {
         newObj.type = 'circle'
         newObj.left = Number(item.getAttribute('cx')) - Number(item.getAttribute('r'))
