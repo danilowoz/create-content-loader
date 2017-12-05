@@ -2,17 +2,9 @@ import React, { Component } from 'react'
 import ContentLoader, { Rect, Circle } from 'react-content-loader'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { SketchField, Tools } from 'react-sketch'
-import { cleanSVG, SVGtoFabric } from './utils'
+import { cleanSVG, SVGtoFabric, getReactInfo } from './utils'
+import { facebook, instagram, code, bulletList } from './utils/presets'
 import './App.css'
-
-const DEFAULTDRAW = `<rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
-
-            <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
-            <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
-            
-            <rect x="0" y="80" rx="3" ry="3" width="350" height="10" />
-            <rect x="0" y="100" rx="3" ry="3" width="400" height="10" />
-            <rect x="0" y="120" rx="3" ry="3" width="360" height="10" />`
 
 class App extends Component {
   constructor() {
@@ -24,8 +16,8 @@ class App extends Component {
       speed: 2,
       primaryColor: '#f3f3f3',
       secondaryColor: '#ecebeb',
-      tool: Tools.Rectangle,
-      draw: DEFAULTDRAW,
+      draw: facebook,
+      tool: Tools.Select,
       activeItem: false,
     }
     this._RenderCanvas = this._RenderCanvas.bind(this)
@@ -39,15 +31,25 @@ class App extends Component {
     this._SVGtoCanvas()
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.draw !== this.state.draw) {
+      // this._SVGtoCanvas()
+    }
+  }
+
   _SVGtoCanvas() {
     const canvas = this._sketch._fc
-
     const arrFabric = SVGtoFabric(this.state.draw)
-    console.log(arrFabric)
 
     arrFabric.forEach(a => {
-      const rect = new window.fabric.Rect(a)
-      canvas.add(rect)
+      let draw
+      if (a.type === 'rect') {
+        draw = new window.fabric.Rect(a)
+      } else if (a.type === 'circle') {
+        draw = new window.fabric.Circle(a)
+      }
+
+      canvas.add(draw)
     })
 
     canvas.renderAll()
@@ -97,9 +99,17 @@ class App extends Component {
         <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
           <LiveEditor />
           <LiveError />
+          <LiveError />
         </LiveProvider>
         <div className="bottom">
           <div className="editor">
+            <p>
+              style
+              <button onClick={() => this.setState({ draw: facebook })}>facebook</button>
+              <button onClick={() => this.setState({ draw: instagram })}>instagram</button>
+              <button onClick={() => this.setState({ draw: code })}>code</button>
+              <button onClick={() => this.setState({ draw: bulletList })}>bulletList</button>
+            </p>
             <p>
               width:
               <input
@@ -109,19 +119,19 @@ class App extends Component {
               />
             </p>
             <p>
-              height:
-              <input
-                type="number"
-                value={this.state.height}
-                onChange={e => this.setState({ height: e.target.value })}
-              />
-            </p>
-            <p>
               speed:
               <input
                 type="number"
                 value={this.state.speed}
                 onChange={e => this.setState({ speed: e.target.value })}
+              />
+            </p>
+            <p>
+              height:
+              <input
+                type="number"
+                value={this.state.height}
+                onChange={e => this.setState({ height: e.target.value })}
               />
             </p>
             <p>
@@ -148,7 +158,10 @@ class App extends Component {
           </div>
           <div className="wysiwyg">
             <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
-              <LivePreview className="wysiwyg__preview" />
+              <LivePreview
+                className="wysiwyg__preview"
+                style={{ width: `${this.state.width}px`, height: `${this.state.height}px` }}
+              />
             </LiveProvider>
             <SketchField
               width={`${this.state.width}px`}
