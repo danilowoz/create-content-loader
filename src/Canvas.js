@@ -52,6 +52,7 @@ class Canvas extends Component {
     this._sketch._fc.on({
       'after:render': () => self._RenderCanvas(),
       'object:selected': () => self.props._HandleSeletedItem(true),
+      'object:added': item => (item.target.lockUniScaling = true),
       'selection:cleared': () => self.props._HandleSeletedItem(false),
     })
   }

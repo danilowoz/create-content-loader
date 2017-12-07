@@ -4,15 +4,6 @@ export const removeStyle = style => {
   return newStyle
 }
 
-// export const cleanSVG = svg => {
-//   const regex = /<\/defs>([^\n]*\n+)+(.*)/gm
-//   const newSvg = svg
-//     .match(regex)[0]
-//     .replace('</defs>', '')
-//     .replace('</svg>', '')
-//   return removeStyle(newSvg)
-// }
-
 export const JsonToSVG = json => {
   const arr = json.objects
   let svg = ''
@@ -22,8 +13,8 @@ export const JsonToSVG = json => {
       svg += `          <rect x="${a.left}" y="${a.top}" rx="${a.rx}" ry="${a.ry}" width="${a.width *
         a.scaleX}" height="${a.height * a.scaleY}"${rotate} /> \n`
     } else if (a.type === 'circle') {
-      svg += `          <circle cx="${a.left + a.radius}" cy="${a.top +
-        a.radius}" r="${a.radius}" /> \n`
+      svg += `          <circle cx="${a.left + a.radius * a.scaleY}" cy="${a.top +
+        a.radius * a.scaleY}" r="${a.radius * a.scaleX}" /> \n`
     }
   })
 
@@ -41,10 +32,6 @@ export const SVGtoFabric = svg => {
     const newObj = {}
 
     if (item !== null) {
-      // const transform = item.getAttribute('transform')
-      // const transformX = !!transform ? transform.match(/translate\((.*?) (.*?)\)/)[1] : 0
-      // const transformY = !!transform ? transform.match(/translate\((.*?) (.*?)\)/)[2] : 0
-
       if (s.includes('<rect ')) {
         newObj.type = 'rect'
         newObj.left = Number(item.getAttribute('x'))
@@ -54,14 +41,14 @@ export const SVGtoFabric = svg => {
         newObj.fill = 'transparent'
         newObj.ry = Number(item.getAttribute('ry'))
         newObj.rx = Number(item.getAttribute('rx'))
-        newObj.centeredRotation = true
       } else if (s.includes('<circle ')) {
         newObj.type = 'circle'
-        newObj.left = Number(item.getAttribute('cx')) - Number(item.getAttribute('r'))
+        newObj.left = Number(item.getAttribute('cx')) - Number(item.getAttribute('r') / 2)
         newObj.top = Number(item.getAttribute('cy')) - Number(item.getAttribute('r'))
         newObj.fill = 'transparent'
         newObj.radius = Number(item.getAttribute('r'))
-        newObj.centeredRotation = true
+        newObj.lockRotation = true
+        newObj.lockUniScaling = true
       }
 
       return newObj
