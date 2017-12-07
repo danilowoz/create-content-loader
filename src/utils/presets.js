@@ -1,8 +1,3 @@
-export const test = `<rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
-                    <circle cx="100" cy="100" r="30" />
-
-                    `
-
 export const facebook = `<rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
 
      <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />

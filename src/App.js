@@ -4,7 +4,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
 
 import { getReactInfo } from './utils'
-import { facebook, instagram, code, bulletList, test } from './utils/presets'
+import { facebook, instagram, code, bulletList } from './utils/presets'
 import Canvas from './Canvas'
 import Config from './Config'
 import ReactIcon from './assets/react.svg'
@@ -18,7 +18,7 @@ class App extends Component {
     speed: 2,
     primaryColor: '#f3f3f3',
     secondaryColor: '#ecebeb',
-    draw: test,
+    draw: facebook,
     tool: Tools.Select,
     activeItem: false,
     renderCanvas: true,
@@ -92,23 +92,42 @@ ${draw}
               incididunt ut labore et dolore magna aliqua.
             </h2>
           </div>
-          <div className="app-editor">
-            <span className="app-editor__tab">
-              <span />
-            </span>
-            <pre className="prism-code">
-              <span className="token comment">// 1. First setup de package</span>
-              <br />
-              <span className="token keyword">import</span> ContentLoader{' '}
-              <span className="token keyword">from</span>
-              <span className="token string">"react-content-loader"</span>
-              <br />
-              <br />
-              <span className="token comment">// 2. Then copy your loader</span>
-              <br />
-            </pre>
-            <LiveEditor onChange={this._HandleEditor} />
-            <LiveError />
+
+          <div>
+            <div className="app-editor">
+              <span className="app-editor__tab">
+                <span />
+              </span>
+              <pre className="prism-code">
+                <span className="token comment">// 1. First setup de package</span>
+                <br />
+                <span className="token keyword">import</span> ContentLoader{' '}
+                <span className="token keyword">from</span>
+                <span className="token string">"react-content-loader"</span>
+                <br />
+                <br />
+                <span className="token comment">// 2. Then copy your loader</span>
+                <br />
+              </pre>
+              <LiveEditor onChange={this._HandleEditor} />
+              <LiveError />
+            </div>
+
+            <div className="app-assign">
+              <h2>
+                Made with <img src={ReactIcon} alt="React" /> and{' '}
+                <img src={HeartIcon} alt="Heart" /> by{' '}
+                <a href="https://github.com/danilowoz/" target="_blank">
+                  @danilowoz
+                </a>
+              </h2>
+              <p>
+                Do you have any questions?{' '}
+                <a href="https://github.com/danilowoz/react-content-loader">
+                  Read the documentaion.
+                </a>
+              </p>
+            </div>
           </div>
 
           <div>
@@ -124,27 +143,12 @@ ${draw}
                 />
               </Canvas>
             )}
+            <Config
+              {...this.state}
+              _HandleInput={this._HandleInput}
+              _HandlePreset={this._HandlePreset}
+            />
           </div>
-
-          <div className="app-assign">
-            <h2>
-              Made with <img src={ReactIcon} alt="React" /> and <img src={HeartIcon} alt="Heart" />{' '}
-              by{' '}
-              <a href="https://github.com/danilowoz/" target="_blank">
-                @danilowoz
-              </a>
-            </h2>
-            <p>
-              Do you have any questions?{' '}
-              <a href="https://github.com/danilowoz/react-content-loader">Read the documentaion.</a>
-            </p>
-          </div>
-
-          <Config
-            {...this.state}
-            _HandleInput={this._HandleInput}
-            _HandlePreset={this._HandlePreset}
-          />
         </div>
       </LiveProvider>
     )
