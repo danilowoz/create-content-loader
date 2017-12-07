@@ -23,19 +23,18 @@ class App extends Component {
     focusEditor: false,
   }
 
-  componentDidMount() {
-    const pre = document.querySelector('pre')
+  // componentDidMount() {
+  //   const pre = document.querySelector('pre')
 
-    pre.addEventListener('focus', () => {
-      console.log('componentDidMount: focus')
-      // this.setState({ focusEditor: true })
-    })
-    pre.addEventListener('blur', () => {
-      console.log('componentDidMount: blur')
-      // window.getSelection().removeAllRanges()
-      // this.setState({ focusEditor: false })
-    })
-  }
+  //   pre.addEventListener('focus', () => {
+  //     // console.log('componentDidMount: focus')
+  //     // this.setState({ focusEditor: true })
+  //   })
+  //   pre.addEventListener('blur', () => {
+  //     // console.log('componentDidMount: blur')
+  //     // this.setState({ focusEditor: false })
+  //   })
+  // }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.renderCanvas === false && this.state.focusEditor === false) {

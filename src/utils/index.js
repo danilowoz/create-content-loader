@@ -1,9 +1,3 @@
-export const removeStyle = style => {
-  const regexStyle = /(style=".*?")/gm
-  const newStyle = style.replace(regexStyle, '')
-  return newStyle
-}
-
 export const JsonToSVG = json => {
   const arr = json.objects
   let svg = ''
@@ -38,15 +32,15 @@ export const SVGtoFabric = svg => {
         newObj.top = Number(item.getAttribute('y'))
         newObj.width = Number(item.getAttribute('width'))
         newObj.height = Number(item.getAttribute('height'))
-        newObj.fill = 'transparent'
         newObj.ry = Number(item.getAttribute('ry'))
         newObj.rx = Number(item.getAttribute('rx'))
+        newObj.fill = 'transparent'
       } else if (s.includes('<circle ')) {
         newObj.type = 'circle'
-        newObj.left = Number(item.getAttribute('cx')) - Number(item.getAttribute('r') / 2)
+        newObj.left = Number(item.getAttribute('cx')) - Number(item.getAttribute('r'))
         newObj.top = Number(item.getAttribute('cy')) - Number(item.getAttribute('r'))
-        newObj.fill = 'transparent'
         newObj.radius = Number(item.getAttribute('r'))
+        newObj.fill = 'transparent'
         newObj.lockRotation = true
         newObj.lockUniScaling = true
       }
@@ -56,6 +50,19 @@ export const SVGtoFabric = svg => {
   })
 
   return obj.filter(e => e !== undefined)
+}
+
+export const CanvasAddedProp = target => {
+  const newTarget = target
+
+  if (newTarget && newTarget.type === 'circle') {
+    newTarget.lockUniScaling = true
+    newTarget.lockRotation = true
+    newTarget.angle = 0
+    newTarget.originY = 'top'
+  }
+
+  return newTarget
 }
 
 export const getReactInfo = component => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { SketchField, Tools } from 'react-sketch'
-import { SVGtoFabric, JsonToSVG } from './utils'
+import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
 
 class Canvas extends Component {
   constructor(props) {
@@ -51,8 +51,10 @@ class Canvas extends Component {
 
     this._sketch._fc.on({
       'after:render': () => self._RenderCanvas(),
-      'object:selected': () => self.props._HandleSeletedItem(true),
-      'object:added': item => (item.target.lockUniScaling = true),
+      'object:selected': item =>
+        (item.target = CanvasAddedProp(item.target)) || self.props._HandleSeletedItem(true),
+      'object:added': item => (item.target = CanvasAddedProp(item.target)),
+      'object:moving': item => (item.target = CanvasAddedProp(item.target)),
       'selection:cleared': () => self.props._HandleSeletedItem(false),
     })
   }
