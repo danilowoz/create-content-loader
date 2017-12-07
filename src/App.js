@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ContentLoader, { Rect, Circle } from 'react-content-loader'
+import ContentLoader from 'react-content-loader'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
 
@@ -22,19 +22,6 @@ class App extends Component {
     renderCanvas: true,
     focusEditor: false,
   }
-
-  // componentDidMount() {
-  //   const pre = document.querySelector('pre')
-
-  //   pre.addEventListener('focus', () => {
-  //     // console.log('componentDidMount: focus')
-  //     // this.setState({ focusEditor: true })
-  //   })
-  //   pre.addEventListener('blur', () => {
-  //     // console.log('componentDidMount: blur')
-  //     // this.setState({ focusEditor: false })
-  //   })
-  // }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.renderCanvas === false && this.state.focusEditor === false) {
@@ -76,33 +63,53 @@ class App extends Component {
     const name = e.target.name
     const value = e.target.value
 
-    this.setState({ [name]: value })
+    this.setState({ [name]: value, renderCanvas: false })
   }
 
   render() {
     const { width, height, speed, primaryColor, secondaryColor, draw, renderCanvas } = this.state
 
-    const Mycode = `
-      const MyLoader = () => (
-        <ContentLoader
-          height={${height}}
-          width={${width}}
-          speed={${speed}}
-          primaryColor={"${primaryColor}"}
-          secondaryColor={"${secondaryColor}"}
-        >
+    const Mycode = `const MyLoader = () => (
+  <ContentLoader
+    height={${height}}
+    width={${width}}
+    speed={${speed}}
+    primaryColor={"${primaryColor}"}
+    secondaryColor={"${secondaryColor}"}
+  >
 ${draw}
-        </ContentLoader>
-      )
-    `
+  </ContentLoader>
+)`
     return (
-      <div className="App">
-        <p>import ContentLoader, {(Rect, Circle)} from "react-content-loader";</p>
-        <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
-          <LiveEditor onChange={this._HandleEditor} />
-          <LiveError />
+      <LiveProvider code={Mycode} scope={{ ContentLoader }}>
+        <div className="App">
+          <div className="app-header">
+            <h1>Creator of React content loader</h1>
+            <h2>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor<br />
+              incididunt ut labore et dolore magna aliqua.
+            </h2>
+          </div>
+          <div className="app-editor">
+            <span className="app-editor__tab">
+              <span />
+            </span>
+            <pre className="prism-code">
+              <span className="token comment">// 1. First setup de package</span>
+              <br />
+              <span className="token keyword">import</span> ContentLoader{' '}
+              <span className="token keyword">from</span>
+              <span className="token string">"react-content-loader"</span>
+              <br />
+              <br />
+              <span className="token comment">// 2. Then copy your loader</span>
+              <br />
+            </pre>
+            <LiveEditor onChange={this._HandleEditor} />
+            <LiveError />
+          </div>
 
-          <div className="wysiwyg">
+          <div className="app-canvas">
             <LivePreview
               className="wysiwyg__preview"
               style={{ width: `${this.state.width}px`, height: `${this.state.height}px` }}
@@ -117,14 +124,19 @@ ${draw}
               />
             )}
           </div>
-        </LiveProvider>
 
-        <Config
-          {...this.state}
-          _HandleInput={this._HandleInput}
-          _HandlePreset={this._HandlePreset}
-        />
-      </div>
+          <div className="">
+            <p>Made with REACT and LOVE by @danilowoz</p>
+            <p>You have any question? Read the documentaion.</p>
+          </div>
+
+          <Config
+            {...this.state}
+            _HandleInput={this._HandleInput}
+            _HandlePreset={this._HandlePreset}
+          />
+        </div>
+      </LiveProvider>
     )
   }
 }

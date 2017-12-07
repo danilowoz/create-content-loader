@@ -4,10 +4,10 @@ export const JsonToSVG = json => {
   arr.forEach(a => {
     if (a.type === 'rect') {
       const rotate = a.angle ? ` transform="rotate(${a.angle}, ${a.left}, ${a.top})"` : ''
-      svg += `          <rect x="${a.left}" y="${a.top}" rx="${a.rx}" ry="${a.ry}" width="${a.width *
+      svg += `    <rect x="${a.left}" y="${a.top}" rx="${a.rx}" ry="${a.ry}" width="${a.width *
         a.scaleX}" height="${a.height * a.scaleY}"${rotate} /> \n`
     } else if (a.type === 'circle') {
-      svg += `          <circle cx="${a.left + a.radius * a.scaleY}" cy="${a.top +
+      svg += `    <circle cx="${a.left + a.radius * a.scaleY}" cy="${a.top +
         a.radius * a.scaleY}" r="${a.radius * a.scaleX}" /> \n`
     }
   })

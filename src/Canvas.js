@@ -75,7 +75,7 @@ class Canvas extends Component {
           lineWidth={0}
           color="black"
           ref={c => (this._sketch = c)}
-          className="wysiwyg__sketch"
+          className="app-canvas__sketch"
         />
       </div>
     )
