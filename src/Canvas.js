@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { SketchField, Tools } from 'react-sketch'
+import classnames from 'classnames'
+
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
+import selectIcon from './assets/select.svg'
+import trashtIcon from './assets/trash.svg'
+import rectIcon from './assets/rect.svg'
+import circleIcon from './assets/circle.svg'
 
 class Canvas extends Component {
   constructor(props) {
@@ -52,7 +58,7 @@ class Canvas extends Component {
     this._sketch._fc.on({
       'after:render': () => self._RenderCanvas(),
       'object:selected': item =>
-        (item.target = CanvasAddedProp(item.target)) || self.props._HandleSeletedItem(true),
+        (item.target = CanvasAddedProp(item.target)) && self.props._HandleSeletedItem(true),
       'object:added': item => (item.target = CanvasAddedProp(item.target)),
       'object:moving': item => (item.target = CanvasAddedProp(item.target)),
       'selection:cleared': () => self.props._HandleSeletedItem(false),
@@ -60,14 +66,27 @@ class Canvas extends Component {
   }
 
   render() {
-    const { _HandleTool, width, height, activeItem, tool } = this.props
-    return (
-      <div>
-        <button onClick={() => _HandleTool(Tools.Select)}>Select</button>
-        {activeItem && <button onClick={this._RemoveItem}>Remove current item</button>}
-        <button onClick={() => _HandleTool(Tools.Rectangle)}>Rectangle</button>
-        <button onClick={() => _HandleTool(Tools.Circle)}>Circle</button>
-        <button onClick={this._RenderCanvas}>Render</button>
+    const { _HandleTool, width, height, activeItem, tool, children } = this.props
+    return [
+      <div className="app-handlers">
+        <button className={} onClick={() => _HandleTool(Tools.Select)}>
+          <img src={selectIcon} alt="select tool"/>
+        </button>
+        <button onClick={() => _HandleTool(Tools.Rectangle)}>
+          <img src={rectIcon} alt="rect tool" />
+        </button>
+        <button onClick={() => _HandleTool(Tools.Circle)}>
+          <img src={circleIcon} alt="circle tool" />
+        </button>
+        {activeItem && (
+          <button className="app-handler__trash" onClick={this._RemoveItem}>
+            <img src={trashtIcon} alt="remove item" />
+          </button>
+        )}
+      </div>,
+
+      <div className="app-canvas">
+        {children}
         <SketchField
           width={`${width}px`}
           height={`${height}px`}
@@ -77,8 +96,8 @@ class Canvas extends Component {
           ref={c => (this._sketch = c)}
           className="app-canvas__sketch"
         />
-      </div>
-    )
+      </div>,
+    ]
   }
 }
 

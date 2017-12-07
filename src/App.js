@@ -109,19 +109,18 @@ ${draw}
             <LiveError />
           </div>
 
-          <div className="app-canvas">
-            <LivePreview
-              className="wysiwyg__preview"
-              style={{ width: `${this.state.width}px`, height: `${this.state.height}px` }}
-            />
-
+          <div>
             {renderCanvas && (
               <Canvas
                 {...this.state}
                 _HandleDraw={this._HandleDraw}
                 _HandleSeletedItem={this._HandleSeletedItem}
                 _HandleTool={this._HandleTool}
-              />
+              >
+                <LivePreview
+                  style={{ width: `${this.state.width}px`, height: `${this.state.height}px` }}
+                />
+              </Canvas>
             )}
           </div>
 

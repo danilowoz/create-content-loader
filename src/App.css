@@ -78,13 +78,32 @@ body {
   border: 1px solid #40ad36;
 }
 
+/* Canvas */
 .app-canvas {
   position: relative;
-  width: 50%;
 }
 
 .app-canvas__sketch {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+/* Handlers */
+.app-handlers {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 0.5em;
+}
+
+.app-handlers button {
+  background: none;
+  border: 0;
+  outline: 0;
+  margin-right: 1em;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.app-handler__trash {
+  float: right;
 }
