@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ContentLoader, { Rect, Circle } from 'react-content-loader'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
+
+import { getReactInfo } from './utils'
 import { facebook, instagram, code, bulletList } from './utils/presets'
 import Canvas from './Canvas'
 import Config from './Config'
@@ -17,19 +19,38 @@ class App extends Component {
     draw: facebook,
     tool: Tools.Select,
     activeItem: false,
-    showCanvas: true,
+    renderCanvas: true,
+    focusEditor: false,
+  }
+
+  componentDidMount() {
+    const pre = document.querySelector('pre')
+
+    pre.addEventListener('focus', () => {
+      console.log('focus')
+      this.setState({ focusEditor: true })
+    })
+    pre.addEventListener('blur', () => {
+      console.log('blur')
+      // window.getSelection().removeAllRanges()
+      this.setState({ focusEditor: false })
+    })
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.showCanvas === false) {
-      this.setState({
-        showCanvas: true,
-      })
+    if (this.state.renderCanvas === false && this.state.focusEditor === false) {
+      this.setState({ renderCanvas: true })
     }
   }
 
-  _HandleEditor = draw => {
+  _HandleDraw = draw => {
     this.setState({ draw })
+  }
+
+  _HandleEditor = editor => {
+    const state = getReactInfo(editor)
+    state.renderCanvas = false
+    this.setState(state)
   }
 
   _HandleSeletedItem = activeItem => {
@@ -49,7 +70,7 @@ class App extends Component {
       bulletList,
     }
     const draw = presents[value]
-    this.setState({ draw, showCanvas: false })
+    this.setState({ draw, renderCanvas: false })
   }
 
   _HandleInput = e => {
@@ -60,7 +81,7 @@ class App extends Component {
   }
 
   render() {
-    const { width, height, speed, primaryColor, secondaryColor, draw, showCanvas } = this.state
+    const { width, height, speed, primaryColor, secondaryColor, draw, renderCanvas } = this.state
 
     const Mycode = `
       const MyLoader = () => (
@@ -71,7 +92,7 @@ class App extends Component {
           primaryColor={"${primaryColor}"}
           secondaryColor={"${secondaryColor}"}
         >
-          ${draw}
+${draw}
         </ContentLoader>
       )
     `
@@ -79,35 +100,31 @@ class App extends Component {
       <div className="App">
         <p>import ContentLoader, {(Rect, Circle)} from "react-content-loader";</p>
         <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
-          <LiveEditor />
+          <LiveEditor onChange={this._HandleEditor} />
           <LiveError />
-        </LiveProvider>
-
-        <div className="bottom">
-          <Config
-            {...this.state}
-            _HandleInput={this._HandleInput}
-            _HandlePreset={this._HandlePreset}
-          />
 
           <div className="wysiwyg">
-            <LiveProvider code={Mycode} scope={{ ContentLoader, Rect, Circle }}>
-              <LivePreview
-                className="wysiwyg__preview"
-                style={{ width: `${this.state.width}px`, height: `${this.state.height}px` }}
-              />
-            </LiveProvider>
+            <LivePreview
+              className="wysiwyg__preview"
+              style={{ width: `${this.state.width}px`, height: `${this.state.height}px` }}
+            />
 
-            {showCanvas && (
+            {renderCanvas && (
               <Canvas
                 {...this.state}
-                _HandleEditor={this._HandleEditor}
+                _HandleDraw={this._HandleDraw}
                 _HandleSeletedItem={this._HandleSeletedItem}
                 _HandleTool={this._HandleTool}
               />
             )}
           </div>
-        </div>
+        </LiveProvider>
+
+        <Config
+          {...this.state}
+          _HandleInput={this._HandleInput}
+          _HandlePreset={this._HandlePreset}
+        />
       </div>
     )
   }

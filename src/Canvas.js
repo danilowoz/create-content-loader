@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { SketchField, Tools } from 'react-sketch'
-import { cleanSVG, SVGtoFabric } from './utils'
+import { SVGtoFabric, JsonToSVG } from './utils'
 
 class Canvas extends Component {
   constructor(props) {
@@ -15,11 +15,6 @@ class Canvas extends Component {
     this._Events()
     this._SVGtoCanvas()
   }
-
-  // componentWillUpdate(nextProps) {
-  //   debugger
-  //   this._SVGtoCanvas()
-  // }
 
   _SVGtoCanvas = () => {
     const canvas = this._sketch._fc
@@ -41,8 +36,8 @@ class Canvas extends Component {
 
   _RenderCanvas = () => {
     if (this._sketch) {
-      const draw = cleanSVG(this._sketch._fc.toSVG())
-      this.props._HandleEditor(draw)
+      const draw = JsonToSVG(this._sketch._fc.toJSON())
+      this.props._HandleDraw(draw)
     }
   }
 
