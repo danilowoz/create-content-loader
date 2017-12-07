@@ -18,8 +18,9 @@ export const JsonToSVG = json => {
   let svg = ''
   arr.forEach(a => {
     if (a.type === 'rect') {
-      const rotate = a.angle ? ` transform="rotate(${a.angle})"` : ''
-      svg += `          <rect x="${a.left}" y="${a.top}" rx="${a.rx}" ry="${a.ry}" width="${a.width}" height="${a.height}"${rotate} /> \n`
+      const rotate = a.angle ? ` transform="rotate(${a.angle}, ${a.left}, ${a.top})"` : ''
+      svg += `          <rect x="${a.left}" y="${a.top}" rx="${a.rx}" ry="${a.ry}" width="${a.width *
+        a.scaleX}" height="${a.height * a.scaleY}"${rotate} /> \n`
     } else if (a.type === 'circle') {
       svg += `          <circle cx="${a.left + a.radius}" cy="${a.top +
         a.radius}" r="${a.radius}" /> \n`
@@ -53,12 +54,14 @@ export const SVGtoFabric = svg => {
         newObj.fill = 'transparent'
         newObj.ry = Number(item.getAttribute('ry'))
         newObj.rx = Number(item.getAttribute('rx'))
+        newObj.centeredRotation = true
       } else if (s.includes('<circle ')) {
         newObj.type = 'circle'
         newObj.left = Number(item.getAttribute('cx')) - Number(item.getAttribute('r'))
         newObj.top = Number(item.getAttribute('cy')) - Number(item.getAttribute('r'))
         newObj.fill = 'transparent'
         newObj.radius = Number(item.getAttribute('r'))
+        newObj.centeredRotation = true
       }
 
       return newObj

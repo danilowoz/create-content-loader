@@ -4,7 +4,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
 
 import { getReactInfo } from './utils'
-import { facebook, instagram, code, bulletList } from './utils/presets'
+import { facebook, instagram, code, bulletList, test } from './utils/presets'
 import Canvas from './Canvas'
 import Config from './Config'
 import './App.css'
@@ -16,7 +16,7 @@ class App extends Component {
     speed: 2,
     primaryColor: '#f3f3f3',
     secondaryColor: '#ecebeb',
-    draw: facebook,
+    draw: test,
     tool: Tools.Select,
     activeItem: false,
     renderCanvas: true,
@@ -27,13 +27,13 @@ class App extends Component {
     const pre = document.querySelector('pre')
 
     pre.addEventListener('focus', () => {
-      console.log('focus')
-      this.setState({ focusEditor: true })
+      console.log('componentDidMount: focus')
+      // this.setState({ focusEditor: true })
     })
     pre.addEventListener('blur', () => {
-      console.log('blur')
+      console.log('componentDidMount: blur')
       // window.getSelection().removeAllRanges()
-      this.setState({ focusEditor: false })
+      // this.setState({ focusEditor: false })
     })
   }
 
