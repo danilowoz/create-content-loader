@@ -67,17 +67,28 @@ class Canvas extends Component {
 
   render() {
     const { _HandleTool, width, height, activeItem, tool, children } = this.props
+
     return [
-      <div className="app-handlers">
-        <button className={} onClick={() => _HandleTool(Tools.Select)}>
-          <img src={selectIcon} alt="select tool"/>
+      <div className="app-handlers" key="handlers">
+        <button
+          className={classnames({ 'app-handlers__active': tool === 'select' })}
+          onClick={() => _HandleTool(Tools.Select)}
+        >
+          <img src={selectIcon} alt="select tool" />
         </button>
-        <button onClick={() => _HandleTool(Tools.Rectangle)}>
+        <button
+          className={classnames({ 'app-handlers__active': tool === 'rectangle' })}
+          onClick={() => _HandleTool(Tools.Rectangle)}
+        >
           <img src={rectIcon} alt="rect tool" />
         </button>
-        <button onClick={() => _HandleTool(Tools.Circle)}>
+        <button
+          className={classnames({ 'app-handlers__active': tool === 'circle' })}
+          onClick={() => _HandleTool(Tools.Circle)}
+        >
           <img src={circleIcon} alt="circle tool" />
         </button>
+
         {activeItem && (
           <button className="app-handler__trash" onClick={this._RemoveItem}>
             <img src={trashtIcon} alt="remove item" />
@@ -85,7 +96,7 @@ class Canvas extends Component {
         )}
       </div>,
 
-      <div className="app-canvas">
+      <div className="app-canvas" key="canvas">
         {children}
         <SketchField
           width={`${width}px`}

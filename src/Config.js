@@ -10,7 +10,7 @@ const Config = ({
   primaryColor,
   secondaryColor,
 }) => (
-  <div>
+  <div className="app-config">
     <p>
       style
       <button value="facebook" onClick={_HandlePreset}>

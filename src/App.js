@@ -7,6 +7,8 @@ import { getReactInfo } from './utils'
 import { facebook, instagram, code, bulletList, test } from './utils/presets'
 import Canvas from './Canvas'
 import Config from './Config'
+import ReactIcon from './assets/react.svg'
+import HeartIcon from './assets/heart.png'
 import './App.css'
 
 class App extends Component {
@@ -124,9 +126,18 @@ ${draw}
             )}
           </div>
 
-          <div className="">
-            <p>Made with REACT and LOVE by @danilowoz</p>
-            <p>You have any question? Read the documentaion.</p>
+          <div className="app-assign">
+            <h2>
+              Made with <img src={ReactIcon} alt="React" /> and <img src={HeartIcon} alt="Heart" />{' '}
+              by{' '}
+              <a href="https://github.com/danilowoz/" target="_blank">
+                @danilowoz
+              </a>
+            </h2>
+            <p>
+              Do you have any questions?{' '}
+              <a href="https://github.com/danilowoz/react-content-loader">Read the documentaion.</a>
+            </p>
           </div>
 
           <Config
