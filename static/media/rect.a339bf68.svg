@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>rect</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 30 30 30 30 0 0 0"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-862.000000, -227.000000)">
+            <g id="rect" transform="translate(862.009766, 227.000000)">
+                <polygon id="Fill-1" fill="#000000" points="23.8493333 3.15733333 24.8493333 3.15733333 24.8493333 0 23.8493333 0"></polygon>
+                <polygon id="Fill-2" fill="#000000" points="5.15133333 3.15733333 6.15066667 3.15733333 6.15066667 0 5.15133333 0"></polygon>
+                <polygon id="Fill-3" fill="#000000" points="5.15133333 30 6.15066667 30 6.15066667 26.8426667 5.15133333 26.8426667"></polygon>
+                <polygon id="Fill-4" fill="#000000" points="23.8493333 30 24.8493333 30 24.8493333 26.842 23.8493333 26.842"></polygon>
+                <polygon id="Fill-5" fill="#000000" points="0 6.15 3.15666667 6.15 3.15666667 5.15 0 5.15"></polygon>
+                <polygon id="Fill-6" fill="#000000" points="0 24.8486667 3.15666667 24.8486667 3.15666667 23.8486667 0 23.8486667"></polygon>
+                <g id="Group-12">
+                    <path d="M6.48406667,6.4834 L6.48406667,23.5154 L23.5167333,23.5154 L23.5160667,6.4834 L6.48406667,6.4834 Z M5.65073333,25.1820667 C5.19006667,25.1820667 4.8174,24.8094 4.8174,24.3487333 L4.8174,5.65006667 C4.8174,5.19006667 5.19073333,4.81673333 5.65073333,4.81673333 L24.3494,4.81673333 C24.8094,4.81673333 25.1827333,5.19006667 25.1827333,5.65006667 L25.1834,24.3487333 C25.1834,24.5700667 25.0954,24.7820667 24.9394,24.9380667 C24.7827333,25.0940667 24.5707333,25.1820667 24.3500667,25.1820667 L5.65073333,25.1820667 Z" id="Fill-7" fill="#000000"></path>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-10"></g>
+                    <polygon id="Fill-9" fill="#000000" mask="url(#mask-2)" points="26.8433333 24.8486667 29.9993333 24.8486667 29.9993333 23.8486667 26.8433333 23.8486667"></polygon>
+                    <polygon id="Fill-11" fill="#000000" mask="url(#mask-2)" points="26.8426667 6.15066667 30 6.15066667 30 5.15066667 26.8426667 5.15066667"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
