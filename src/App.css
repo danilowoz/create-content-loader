@@ -58,6 +58,7 @@ body {
   padding-bottom: 1em;
   display: block;
 }
+
 .app-editor__tab span,
 .app-editor__tab:before,
 .app-editor__tab:after {
@@ -87,6 +88,7 @@ body {
 /* Canvas */
 .app-canvas {
   position: relative;
+  min-height: 18em;
 }
 
 .app-canvas__sketch {
@@ -99,6 +101,7 @@ body {
   border: 1px solid #fff;
   transition: border 0.3s ease;
 }
+
 .app-canvas__sketch:hover {
   border: 1px solid #f5f5f5;
 }
@@ -110,24 +113,32 @@ body {
   margin-bottom: 1em;
 }
 
+.app-handlers > * {
+  margin-right: 1em;
+}
+
 .app-handlers button {
   background: none;
   border: 0;
   outline: 0;
-  margin-right: 1em;
-  width: 3.6em;
+  cursor: pointer;
+}
+
+.app-handlers__tool {
+  vertical-align: middle;
+  width: 3.4em;
   cursor: pointer;
   opacity: 0.4;
   transition: opacity 0.3s ease;
 }
 
-.app-handlers button img {
+.app-handlers__tool img {
   width: 100%;
   height: auto;
 }
 
-.app-handlers button:hover,
-.app-handlers .app-handlers__active {
+.app-handlers__tool:hover,
+.app-handlers__tool.app-handlers__active {
   opacity: 1;
 }
 
@@ -137,27 +148,59 @@ body {
   opacity: 1;
 }
 
+.app-handlers .app-handlers__div {
+  border-left: 1px solid #f0f0f0;
+  line-height: 2.3em;
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #a5a5a5;
+  display: inline-block;
+  height: 2em;
+  padding-left: 1em;
+  vertical-align: middle;
+}
+
+.app-handlers .app-handlers__preset {
+  line-height: 1.4;
+  color: #a5a5a5;
+  font-weight: 600;
+  font-size: 0.8em;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 0.5em;
+  transition: color 0.3s ease;
+}
+
+.app-handlers .app-handlers__preset:hover {
+  color: #000;
+}
+
 /* Config */
 .app-config {
-  margin-top: 1em;
+  margin-top: 2em;
+  padding-top: 2em;
   border-top: 1px solid #f0f0f0;
   display: flex;
   flex-wrap: wrap;
 }
 
-.app-config p {
-  padding: 1em 0;
-  margin: 0;
-  border-bottom: 1px solid #f5f5f5;
+.app-config__col {
+  min-width: 25%;
 }
 
-.app-config label,
-.app-config span {
+.app-config p {
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+.app-config label {
   margin-right: 1em;
   display: inline-block;
   font-weight: 300;
-  color: #686768;
+  color: #a5a5a5;
   min-width: 3em;
+  font-size: 0.9em;
+  vertical-align: middle;
 }
 
 .app-config button {
@@ -165,10 +208,10 @@ body {
   margin-right: 1em;
   cursor: pointer;
   display: inline-block;
+  vertical-align: middle;
   padding: 0.2em 0.6em;
   font-size: 0.9em;
   font-weight: 600;
-  color: #a5a5a5;
   outline: 0;
   transition: background 0.3s ease;
 }
@@ -181,18 +224,11 @@ body {
   border: 0;
   font-size: 1em;
   height: 1.5em;
-  width: 3.5em;
-  text-align: center;
-  font-weight: 600;
-  color: #a5a5a5;
-}
-
-.app-config__presets {
-  width: 100%;
-}
-
-.app-config__col {
-  width: 50%;
+  font-weight: 300;
+  color: #000;
+  width: 4em;
+  display: inline-block;
+  outline: 0;
 }
 
 /* Assign */
@@ -222,8 +258,7 @@ body {
   margin: 0;
 }
 
-.app-assign img,
-.app-assign iframe {
+.app-assign img {
   display: inline-block;
   height: 1.1em;
   width: auto;

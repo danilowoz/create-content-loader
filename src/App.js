@@ -51,6 +51,7 @@ class App extends Component {
 
   _HandlePreset = e => {
     const value = e.target.value
+    const height = e.target.dataset.height
     const presents = {
       facebook,
       instagram,
@@ -58,7 +59,7 @@ class App extends Component {
       bulletList,
     }
     const draw = presents[value]
-    this.setState({ draw, renderCanvas: false })
+    this.setState({ draw, height, renderCanvas: false })
   }
 
   _HandleInput = e => {
@@ -143,17 +144,14 @@ ${draw}
                 _HandleDraw={this._HandleDraw}
                 _HandleSeletedItem={this._HandleSeletedItem}
                 _HandleTool={this._HandleTool}
+                _HandlePreset={this._HandlePreset}
               >
                 <LivePreview
                   style={{ width: `${this.state.width}px`, height: `${this.state.height}px` }}
                 />
               </Canvas>
             )}
-            <Config
-              {...this.state}
-              _HandleInput={this._HandleInput}
-              _HandlePreset={this._HandlePreset}
-            />
+            <Config {...this.state} _HandleInput={this._HandleInput} />
           </div>
         </div>
       </LiveProvider>

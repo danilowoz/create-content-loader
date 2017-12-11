@@ -66,27 +66,53 @@ class Canvas extends Component {
   }
 
   render() {
-    const { _HandleTool, width, height, activeItem, tool, children } = this.props
+    const { _HandlePreset, _HandleTool, width, height, activeItem, tool, children } = this.props
 
     return [
       <div className="app-handlers" key="handlers">
         <button
-          className={classnames({ 'app-handlers__active': tool === 'select' })}
+          className={classnames('app-handlers__tool', {
+            'app-handlers__active': tool === 'select',
+          })}
           onClick={() => _HandleTool(Tools.Select)}
         >
           <img src={selectIcon} alt="select tool" />
         </button>
         <button
-          className={classnames({ 'app-handlers__active': tool === 'rectangle' })}
+          className={classnames('app-handlers__tool', {
+            'app-handlers__active': tool === 'rectangle',
+          })}
           onClick={() => _HandleTool(Tools.Rectangle)}
         >
           <img src={rectIcon} alt="rect tool" />
         </button>
         <button
-          className={classnames({ 'app-handlers__active': tool === 'circle' })}
+          className={classnames('app-handlers__tool', {
+            'app-handlers__active': tool === 'circle',
+          })}
           onClick={() => _HandleTool(Tools.Circle)}
         >
           <img src={circleIcon} alt="circle tool" />
+        </button>
+
+        <div className="app-handlers__div">Presets:</div>
+
+        <button className="app-handlers__preset" value="facebook" onClick={_HandlePreset}>
+          facebook
+        </button>
+        <button
+          className="app-handlers__preset"
+          value="instagram"
+          data-height="475"
+          onClick={_HandlePreset}
+        >
+          instagram
+        </button>
+        <button className="app-handlers__preset" value="code" onClick={_HandlePreset}>
+          code
+        </button>
+        <button className="app-handlers__preset" value="bulletList" onClick={_HandlePreset}>
+          bulletList
         </button>
 
         {activeItem && (
