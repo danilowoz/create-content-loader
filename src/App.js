@@ -89,8 +89,17 @@ ${draw}
           <div className="app-header">
             <h1>Creator of React Content Loader</h1>
             <h2>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor<br />
-              incididunt ut labore et dolore magna aliqua.
+              Have you heard about{' '}
+              <a href="https://github.com/danilowoz/react-content-loader">react-content-loader</a>?
+              It's React component that uses SVG to<br />
+              create loaders which simulates the structure of the content that will be loaded.<br />
+              <br />
+              <strong>
+                So now you can use this tool to create your loader easily.<br />
+                <small>
+                  You just need to draw using the canvas or code using the live editing!
+                </small>
+              </strong>
             </h2>
           </div>
 
