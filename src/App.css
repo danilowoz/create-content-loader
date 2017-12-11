@@ -22,9 +22,12 @@ body {
 
 .app-header h1 {
   font-size: 1.6em;
-  color: #637cc3;
   font-weight: 600;
   margin-top: 0;
+  color: #a5a5a5;
+}
+.app-header h1 strong {
+  color: #637cc3;
 }
 
 .app-header h2 {
@@ -144,7 +147,7 @@ body {
 
 .app-handlers .app-handler__trash {
   float: right;
-  width: 3em;
+  width: 2.8em;
   opacity: 1;
 }
 
@@ -155,13 +158,13 @@ body {
   font-weight: 300;
   color: #a5a5a5;
   display: inline-block;
-  height: 2em;
+  height: 2.2em;
   padding-left: 1em;
   vertical-align: middle;
 }
 
 .app-handlers .app-handlers__preset {
-  line-height: 1.4;
+  line-height: 1.3;
   color: #a5a5a5;
   font-weight: 600;
   font-size: 0.8em;

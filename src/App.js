@@ -87,7 +87,9 @@ ${draw}
       <LiveProvider code={Mycode} scope={{ ContentLoader }}>
         <div className="App">
           <div className="app-header">
-            <h1>Creator of React Content Loader</h1>
+            <h1>
+              Creator <strong>React Content Loader</strong>
+            </h1>
             <h2>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor<br />
               incididunt ut labore et dolore magna aliqua.
@@ -118,19 +120,23 @@ ${draw}
               <h2>
                 Made with <img src={ReactIcon} alt="React" /> and{' '}
                 <img src={HeartIcon} alt="Heart" /> by{' '}
-                <a href="https://github.com/danilowoz">@danilowoz</a>
+                <a href="https://github.com/danilowoz" target="_blank">
+                  @danilowoz
+                </a>
               </h2>
               <p>
                 Do you have any questions?{' '}
-                <a href="https://github.com/danilowoz/react-content-loader">
+                <a href="https://github.com/danilowoz/react-content-loader" target="_blank">
                   Read the documentation.
                 </a>
               </p>
               <br />
               <p className="app-assign__stars">
                 Do you like?
-                <a href="https://github.com/danilowoz/react-content-loader">react-content-loader</a>
-                <a href="https://github.com/danilowoz/creator-react-content-loader">
+                <a href="https://github.com/danilowoz/react-content-loader" target="_blank">
+                  react-content-loader
+                </a>
+                <a href="https://github.com/danilowoz/creator-react-content-loader" target="_blank">
                   creator-react-content-loader
                 </a>
               </p>
