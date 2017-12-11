@@ -30,6 +30,15 @@ body {
   color: #637cc3;
 }
 
+.app-header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-header a:hover {
+  text-decoration: underline;
+}
+
 .app-header h2 {
   font-size: 1em;
   line-height: 1.6;
