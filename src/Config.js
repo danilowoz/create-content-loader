@@ -11,8 +11,8 @@ const Config = ({
   secondaryColor,
 }) => (
   <div className="app-config">
-    <p>
-      style
+    <p className="app-config__presets">
+      <label>presets:</label>
       <button value="facebook" onClick={_HandlePreset}>
         facebook
       </button>
@@ -26,27 +26,45 @@ const Config = ({
         bulletList
       </button>
     </p>
-    <p>
-      width:
-      <input type="number" name="width" value={width} onChange={_HandleInput} />
-    </p>
-    <p>
-      height:
-      <input type="number" name="height" value={height} onChange={_HandleInput} />
-    </p>
-    <p>
-      speed:
-      <input type="number" name="speed" value={speed} onChange={_HandleInput} />
-    </p>
-
-    <p>
-      primaryColor:
-      <input type="color" name="primaryColor" value={primaryColor} onChange={_HandleInput} />
-    </p>
-    <p>
-      secondaryColor:
-      <input type="color" name="secondaryColor" value={secondaryColor} onChange={_HandleInput} />
-    </p>
+    <div className="app-config__col">
+      <p>
+        <label for="width">width:</label>
+        <input type="number" id="width" name="width" value={width} onChange={_HandleInput} />
+        <span>px</span>
+      </p>
+      <p>
+        <label for="height">height:</label>
+        <input type="number" id="height" name="height" value={height} onChange={_HandleInput} />
+        <span>px</span>
+      </p>
+      <p>
+        <label for="speed">speed:</label>
+        <input type="number" id="speed" name="speed" value={speed} onChange={_HandleInput} />
+        <span>s</span>
+      </p>
+    </div>
+    <div className="app-config__col">
+      <p>
+        <label for="primaryColor">primaryColor:</label>
+        <input
+          type="color"
+          id="primaryColor"
+          name="primaryColor"
+          value={primaryColor}
+          onChange={_HandleInput}
+        />
+      </p>
+      <p>
+        <label for="secondaryColor">secondaryColor:</label>
+        <input
+          type="color"
+          id="secondaryColor"
+          name="secondaryColor"
+          value={secondaryColor}
+          onChange={_HandleInput}
+        />
+      </p>
+    </div>
   </div>
 )
 

@@ -23,10 +23,12 @@ body {
 .app-header h1 {
   font-size: 1.6em;
   color: #637cc3;
+  font-weight: 600;
+  margin-top: 0;
 }
 
 .app-header h2 {
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 1.6;
   color: #686768;
   font-weight: 300;
@@ -139,6 +141,58 @@ body {
 .app-config {
   margin-top: 1em;
   border-top: 1px solid #f0f0f0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.app-config p {
+  padding: 1em 0;
+  margin: 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.app-config label,
+.app-config span {
+  margin-right: 1em;
+  display: inline-block;
+  font-weight: 300;
+  color: #686768;
+  min-width: 3em;
+}
+
+.app-config button {
+  border: 1px solid #f5f5f5;
+  margin-right: 1em;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #a5a5a5;
+  outline: 0;
+  transition: background 0.3s ease;
+}
+
+.app-config button:hover {
+  background: #f5f5f5;
+}
+
+.app-config input {
+  border: 0;
+  font-size: 1em;
+  height: 1.5em;
+  width: 3.5em;
+  text-align: center;
+  font-weight: 600;
+  color: #a5a5a5;
+}
+
+.app-config__presets {
+  width: 100%;
+}
+
+.app-config__col {
+  width: 50%;
 }
 
 /* Assign */
@@ -157,7 +211,7 @@ body {
 
 .app-assign h2 {
   font-size: 1.1em;
-  font-weight: 300;
+  font-weight: 600;
   margin-bottom: 0.4em;
   letter-spacing: 0.5px;
 }
@@ -168,10 +222,18 @@ body {
   margin: 0;
 }
 
-.app-assign img {
+.app-assign img,
+.app-assign iframe {
   display: inline-block;
   height: 1.1em;
   width: auto;
   position: relative;
   top: 0.2em;
+}
+
+.app-assign__stars a {
+  margin-left: 1em;
+  color: #637cc3;
+  font-weight: 600;
+  display: inline-block;
 }
