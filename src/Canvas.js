@@ -97,7 +97,12 @@ class Canvas extends Component {
 
         <div className="app-handlers__div">Presets:</div>
 
-        <button className="app-handlers__preset" value="facebook" onClick={_HandlePreset}>
+        <button
+          className="app-handlers__preset"
+          value="facebook"
+          data-height="200"
+          onClick={_HandlePreset}
+        >
           facebook
         </button>
         <button
@@ -108,10 +113,20 @@ class Canvas extends Component {
         >
           instagram
         </button>
-        <button className="app-handlers__preset" value="code" onClick={_HandlePreset}>
+        <button
+          className="app-handlers__preset"
+          value="code"
+          data-height="200"
+          onClick={_HandlePreset}
+        >
           code
         </button>
-        <button className="app-handlers__preset" value="bulletList" onClick={_HandlePreset}>
+        <button
+          className="app-handlers__preset"
+          value="bulletList"
+          data-height="200"
+          onClick={_HandlePreset}
+        >
           bulletList
         </button>
 
