@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 20" style="enable-background:new 0 0 16 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF002B;}
+	.st1{filter:url(#Adobe_OpacityMaskFilter);}
+	.st2{fill:#FFFFFF;}
+	.st3{mask:url(#mask-2);fill:#FF002B;}
+</style>
+<title>trash</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1">
+	<g id="Desktop" transform="translate(-1196.000000, -234.000000)">
+		<g id="trash" transform="translate(1196.266797, 234.000000)">
+			<path id="Fill-1" class="st0" d="M12.7,4.4L12.2,18c0,0.1-0.1,0.2-0.2,0.2H3.2C3.1,18.1,3,18.1,3,18L2.5,4.4c0-0.5-0.5-0.9-1-0.9
+				c-0.5,0-0.9,0.5-0.9,1L1.2,18c0,1.1,0.9,2,2,2H12c1.1,0,2-0.9,2-2l0.5-13.6c0-0.5-0.4-0.9-0.9-1C13.1,3.4,12.7,3.9,12.7,4.4"/>
+			<path id="Fill-3" class="st0" d="M6.9,7.1v9.1c0,0.4,0.3,0.7,0.7,0.7s0.7-0.3,0.7-0.7V7.1c0-0.4-0.3-0.7-0.7-0.7S6.9,6.7,6.9,7.1
+				"/>
+			<path id="Fill-5" class="st0" d="M3.9,7.1l0.3,9.1c0,0.4,0.3,0.7,0.7,0.6c0.4,0,0.7-0.3,0.6-0.7L5.2,7c0-0.4-0.3-0.7-0.7-0.6
+				C4.1,6.4,3.9,6.7,3.9,7.1"/>
+			<path id="Fill-7" class="st0" d="M10,7l-0.3,9.1c0,0.4,0.3,0.7,0.6,0.7c0.4,0,0.7-0.3,0.7-0.6l0.3-9.1c0-0.4-0.3-0.7-0.6-0.7
+				C10.3,6.4,10,6.7,10,7"/>
+			<path id="Fill-9" class="st0" d="M0.9,4.7h13.3c0.5,0,0.9-0.4,0.9-0.9s-0.4-0.9-0.9-0.9H0.9C0.4,2.8,0,3.2,0,3.7S0.4,4.7,0.9,4.7
+				"/>
+			<g id="Group-13" transform="translate(4.000000, 0.000000)">
+				<g id="Clip-12">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="7.1" height="3.3">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0" y="0" width="7.1" height="3.3" id="mask-2">
+					<g class="st1">
+						<polygon id="path-1" class="st2" points="7.2,0 0,0 0,3.3 7.2,3.3 						"/>
+					</g>
+				</mask>
+				<path id="Fill-11" class="st3" d="M1.8,3.3l0.3-1.1c0-0.2,0.3-0.3,0.4-0.3h2.1C4.8,1.9,5,2,5.1,2.2l0.3,1.1l1.8-0.5L6.9,1.7
+					C6.7,0.8,5.7,0,4.7,0H2.5c-1,0-2,0.8-2.2,1.7L0,2.8L1.8,3.3z"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>
