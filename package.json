@@ -1,6 +1,6 @@
 {
-  "name": "creator-react-content-loader",
-  "homepage": "https://danilowoz.github.io/creator-react-content-loader",
+  "name": "create-react-content-loader",
+  "homepage": "https://danilowoz.github.io/create-react-content-loader",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

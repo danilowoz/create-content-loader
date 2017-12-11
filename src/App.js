@@ -88,7 +88,7 @@ ${draw}
         <div className="App">
           <div className="app-header">
             <h1>
-              Creator <strong>React Content Loader</strong>
+              create <strong>React Content Loader</strong>
             </h1>
             <h2>
               Have you heard about{' '}
@@ -145,8 +145,8 @@ ${draw}
                 <a href="https://github.com/danilowoz/react-content-loader" target="_blank">
                   react-content-loader
                 </a>
-                <a href="https://github.com/danilowoz/creator-react-content-loader" target="_blank">
-                  creator-react-content-loader
+                <a href="https://github.com/danilowoz/create-react-content-loader" target="_blank">
+                  create-react-content-loader
                 </a>
               </p>
             </div>
