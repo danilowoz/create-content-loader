@@ -88,7 +88,7 @@ ${draw}
         <div className="App">
           <div className="app-header">
             <h1>
-              create <strong>React Content Loader</strong>
+              Create <strong>React Content Loader</strong>
             </h1>
             <h2>
               Have you heard about{' '}
