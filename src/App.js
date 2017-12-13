@@ -111,7 +111,7 @@ ${draw}
                 <span />
               </span>
               <pre className="prism-code">
-                <span className="token comment">// 1. Setup de package</span>
+                <span className="token comment">// 1. Set up de package</span>
                 <br />
                 <span className="token keyword">import</span> ContentLoader{' '}
                 <span className="token keyword">from</span>
@@ -142,10 +142,22 @@ ${draw}
               <br />
               <p className="app-assign__stars">
                 Do you like?
-                <a href="https://github.com/danilowoz/react-content-loader" target="_blank">
+                <a
+                  class="github-button"
+                  href="https://github.com/danilowoz/react-content-loader"
+                  data-icon="octicon-star"
+                  data-show-count="true"
+                  aria-label="Star danilowoz/react-content-loader on GitHub"
+                >
                   react-content-loader
                 </a>
-                <a href="https://github.com/danilowoz/create-react-content-loader" target="_blank">
+                <a
+                  class="github-button"
+                  href="https://github.com/danilowoz/create-react-content-loader"
+                  data-icon="octicon-star"
+                  data-show-count="true"
+                  aria-label="Star danilowoz/create-react-content-loader on GitHub"
+                >
                   create-react-content-loader
                 </a>
               </p>

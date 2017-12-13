@@ -278,9 +278,9 @@ body {
   top: 0.2em;
 }
 
-.app-assign__stars a {
+.app-assign__stars iframe {
   margin-left: 1em;
-  color: #637cc3;
-  font-weight: 600;
   display: inline-block;
+  position: relative;
+  top: 4px;
 }
