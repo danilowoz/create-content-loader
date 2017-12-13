@@ -109,7 +109,7 @@ ${draw}
                 <span />
               </span>
               <pre className="prism-code">
-                <span className="token comment">// 1. Setup de package</span>
+                <span className="token comment">// 1. Set up de package</span>
                 <br />
                 <span className="token keyword">import</span> ContentLoader{' '}
                 <span className="token keyword">from</span>
