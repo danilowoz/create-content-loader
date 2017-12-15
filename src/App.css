@@ -97,6 +97,13 @@ body {
   border: 1px solid #40ad36;
 }
 
+.react-live-error {
+  padding: 0.5em;
+  border-radius: 0.25rem;
+  background-color: rgba(206, 17, 38, 0.05);
+  color: #f85955;
+}
+
 /* Canvas */
 .app-canvas {
   position: relative;

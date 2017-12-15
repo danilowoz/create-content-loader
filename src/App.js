@@ -122,8 +122,9 @@ ${draw}
                 <br />
               </pre>
               <LiveEditor onChange={this._HandleEditor} />
-              <LiveError />
             </div>
+
+            <LiveError />
 
             <div className="app-assign">
               <h2>
