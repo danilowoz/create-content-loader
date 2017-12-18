@@ -111,10 +111,10 @@ ${draw}
                 <span />
               </span>
               <pre className="prism-code">
-                <span className="token comment">// 1. Set up de package</span>
+                <span className="token comment">// 1. Set up the package</span>
                 <br />
                 <span className="token keyword">import</span> ContentLoader{' '}
-                <span className="token keyword">from</span>
+                <span className="token keyword">from </span>
                 <span className="token string">"react-content-loader"</span>
                 <br />
                 <br />
