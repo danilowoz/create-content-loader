@@ -137,7 +137,12 @@ class Canvas extends Component {
         )}
       </div>,
 
-      <div className="app-canvas" key="canvas">
+      <div
+        className={classnames('app-canvas', {
+          'app-canvas__draw': tool === 'rectangle' || tool === 'circle',
+        })}
+        key="canvas"
+      >
         {children}
         <SketchField
           width={`${width}px`}
