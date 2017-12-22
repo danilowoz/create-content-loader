@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ContentLoader from 'react-content-loader'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
+import { debounce } from 'throttle-debounce'
 
 import { getReactInfo } from './utils'
 import { facebook, instagram, code, bulletList } from './utils/presets'
@@ -35,10 +36,14 @@ class App extends Component {
     this.setState({ draw })
   }
 
-  _HandleEditor = editor => {
-    const state = getReactInfo(editor)
-    state.renderCanvas = false
-    this.setState(state)
+  _HandleEditor = (editor, error) => {
+    const hasError = this.editor.state.error === undefined
+
+    if (hasError) {
+      const state = getReactInfo(editor)
+      state.renderCanvas = false
+      this.setState(state)
+    }
   }
 
   _HandleSeletedItem = activeItem => {
@@ -84,7 +89,7 @@ ${draw}
   </ContentLoader>
 )`
     return (
-      <LiveProvider code={Mycode} scope={{ ContentLoader }}>
+      <LiveProvider code={Mycode} scope={{ ContentLoader }} ref={r => (this.editor = r)}>
         <div className="App">
           <div className="app-header">
             <h1>
@@ -121,7 +126,7 @@ ${draw}
                 <span className="token comment">// 2. Then copy your loader</span>
                 <br />
               </pre>
-              <LiveEditor onChange={this._HandleEditor} />
+              <LiveEditor onChange={debounce(500, this._HandleEditor)} />
             </div>
 
             <LiveError />
@@ -130,13 +135,23 @@ ${draw}
               <h2>
                 Made with <img src={ReactIcon} alt="React" /> and{' '}
                 <img src={HeartIcon} alt="Heart" /> by{' '}
-                <a href="https://github.com/danilowoz" target="_blank">
+                <a
+                  href="https://github.com/danilowoz"
+                  target="_blank"
+                  without
+                  rel="noopener noreferrer"
+                >
                   @danilowoz
                 </a>
               </h2>
               <p>
                 Do you have any questions?{' '}
-                <a href="https://github.com/danilowoz/react-content-loader" target="_blank">
+                <a
+                  href="https://github.com/danilowoz/react-content-loader"
+                  target="_blank"
+                  without
+                  rel="noopener noreferrer"
+                >
                   Read the documentation.
                 </a>
               </p>
@@ -144,20 +159,26 @@ ${draw}
               <p className="app-assign__stars">
                 Do you like?
                 <a
-                  class="github-button"
+                  className="github-button"
                   href="https://github.com/danilowoz/react-content-loader"
                   data-icon="octicon-star"
                   data-show-count="true"
                   aria-label="Star danilowoz/react-content-loader on GitHub"
+                  target="_blank"
+                  without
+                  rel="noopener noreferrer"
                 >
                   react-content-loader
                 </a>
                 <a
-                  class="github-button"
+                  className="github-button"
                   href="https://github.com/danilowoz/create-react-content-loader"
                   data-icon="octicon-star"
                   data-show-count="true"
                   aria-label="Star danilowoz/create-react-content-loader on GitHub"
+                  target="_blank"
+                  without
+                  rel="noopener noreferrer"
                 >
                   create-react-content-loader
                 </a>

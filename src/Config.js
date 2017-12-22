@@ -4,21 +4,21 @@ const Config = ({ _HandleInput, width, height, speed, size, primaryColor, second
   <div className="app-config">
     <div className="app-config__col">
       <p>
-        <label for="width">width:</label>
+        <label htmlFor="width">width:</label>
         <input type="number" id="width" name="width" value={width} onChange={_HandleInput} />
       </p>
       <p>
-        <label for="height">height:</label>
+        <label htmlFor="height">height:</label>
         <input type="number" id="height" name="height" value={height} onChange={_HandleInput} />
       </p>
       <p>
-        <label for="speed">speed:</label>
+        <label htmlFor="speed">speed:</label>
         <input type="number" id="speed" name="speed" value={speed} onChange={_HandleInput} />
       </p>
     </div>
     <div className="app-config__col">
       <p>
-        <label for="primaryColor">primaryColor:</label>
+        <label htmlFor="primaryColor">primaryColor:</label>
         <input
           type="color"
           id="primaryColor"
@@ -28,7 +28,7 @@ const Config = ({ _HandleInput, width, height, speed, size, primaryColor, second
         />
       </p>
       <p>
-        <label for="secondaryColor">secondaryColor:</label>
+        <label htmlFor="secondaryColor">secondaryColor:</label>
         <input
           type="color"
           id="secondaryColor"
