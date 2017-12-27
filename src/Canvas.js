@@ -28,13 +28,13 @@ class Canvas extends Component {
 
     arrFabric.forEach(a => {
       let draw
-      if (a.type === 'rect') {
+      if (a && a.type === 'rect') {
         draw = new window.fabric.Rect(a)
-      } else if (a.type === 'circle') {
+      } else if (a && a.type === 'circle') {
         draw = new window.fabric.Circle(a)
       }
 
-      canvas.add(draw)
+      draw && canvas.add(draw)
     })
 
     canvas.renderAll()
@@ -58,10 +58,10 @@ class Canvas extends Component {
     this._sketch._fc.on({
       'after:render': () => self._RenderCanvas(),
       'object:selected': item =>
-        (item.target = CanvasAddedProp(item.target)) && self.props._HandleSeletedItem(true),
+        (item.target = CanvasAddedProp(item.target)) && self.props._HandleSelectedItem(true),
       'object:added': item => (item.target = CanvasAddedProp(item.target)),
       'object:moving': item => (item.target = CanvasAddedProp(item.target)),
-      'selection:cleared': () => self.props._HandleSeletedItem(false),
+      'selection:cleared': () => self.props._HandleSelectedItem(false),
     })
   }
 
