@@ -46,7 +46,7 @@ class App extends Component {
     }
   }
 
-  _HandleSeletedItem = activeItem => {
+  _HandleSelectedItem = activeItem => {
     this.setState({ activeItem })
   }
 
@@ -98,7 +98,7 @@ ${draw}
             <h2>
               Have you heard about{' '}
               <a href="https://github.com/danilowoz/react-content-loader">react-content-loader</a>?
-              It's React component that uses SVG to<br />
+              It&#39;s React component that uses SVG to<br />
               create loaders which simulates the structure of the content that will be loaded.<br />
               <br />
               <strong>
@@ -116,14 +116,14 @@ ${draw}
                 <span />
               </span>
               <pre className="prism-code">
-                <span className="token comment">// 1. Set up the package</span>
+                <span className="token comment">{`// 1. Set up the package`}</span>
                 <br />
                 <span className="token keyword">import</span> ContentLoader{' '}
                 <span className="token keyword">from </span>
                 <span className="token string">"react-content-loader"</span>
                 <br />
                 <br />
-                <span className="token comment">// 2. Then copy your loader</span>
+                <span className="token comment">{`// 2. Then copy your loader`}</span>
                 <br />
               </pre>
               <LiveEditor onChange={debounce(500, this._HandleEditor)} />
@@ -138,7 +138,7 @@ ${draw}
                 <a
                   href="https://github.com/danilowoz"
                   target="_blank"
-                  without
+                  without=""
                   rel="noopener noreferrer"
                 >
                   @danilowoz
@@ -149,7 +149,7 @@ ${draw}
                 <a
                   href="https://github.com/danilowoz/react-content-loader"
                   target="_blank"
-                  without
+                  without=""
                   rel="noopener noreferrer"
                 >
                   Read the documentation.
@@ -165,7 +165,7 @@ ${draw}
                   data-show-count="true"
                   aria-label="Star danilowoz/react-content-loader on GitHub"
                   target="_blank"
-                  without
+                  without=""
                   rel="noopener noreferrer"
                 >
                   react-content-loader
@@ -177,7 +177,7 @@ ${draw}
                   data-show-count="true"
                   aria-label="Star danilowoz/create-react-content-loader on GitHub"
                   target="_blank"
-                  without
+                  without=""
                   rel="noopener noreferrer"
                 >
                   create-react-content-loader
@@ -191,7 +191,7 @@ ${draw}
               <Canvas
                 {...this.state}
                 _HandleDraw={this._HandleDraw}
-                _HandleSeletedItem={this._HandleSeletedItem}
+                _HandleSelectedItem={this._HandleSelectedItem}
                 _HandleTool={this._HandleTool}
                 _HandlePreset={this._HandlePreset}
               >

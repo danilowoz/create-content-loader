@@ -47,6 +47,7 @@ export const SVGtoFabric = svg => {
 
       return newObj
     }
+	return {}
   })
 
   return obj.filter(e => e !== undefined)
