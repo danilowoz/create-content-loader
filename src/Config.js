@@ -23,7 +23,7 @@ const Config = ({ _HandleInput, width, height, speed, size, primaryColor, second
           type="color"
           id="primaryColor"
           name="primaryColor"
-          value={primaryColor}
+          defaultValue={primaryColor}
           onChange={_HandleInput}
         />
       </p>
@@ -33,7 +33,7 @@ const Config = ({ _HandleInput, width, height, speed, size, primaryColor, second
           type="color"
           id="secondaryColor"
           name="secondaryColor"
-          value={secondaryColor}
+          defaultValue={secondaryColor}
           onChange={_HandleInput}
         />
       </p>
