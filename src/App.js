@@ -68,10 +68,10 @@ class App extends Component {
   }
 
   _HandleInput = e => {
-    this._DebouncedStateUpdate(e.target.name, e.target.value)
+    this.__DebouncedHandleInput(e.target.name, e.target.value)
   }
 
-  _DebouncedStateUpdate = debounce(250, (name, value) => {
+  __DebouncedHandleInput = debounce(250, (name, value) => {
     this.setState({ [name]: value, renderCanvas: false })
   })
 
