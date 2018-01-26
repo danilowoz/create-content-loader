@@ -1,11 +1,9 @@
-export const facebook = `<rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
-
-     <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
-     <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
-     
-     <rect x="0" y="80" rx="3" ry="3" width="350" height="10" />
-     <rect x="0" y="100" rx="3" ry="3" width="400" height="10" />
-     <rect x="0" y="120" rx="3" ry="3" width="360" height="10" />`
+export const facebook = `<rect x="70" y="15" rx="4" ry="4" width="117" height="6.4" />
+    <rect x="70" y="35" rx="3" ry="3" width="85" height="6.4" />
+    <rect x="0" y="80" rx="3" ry="3" width="350" height="6.4" />
+    <rect x="0" y="100" rx="3" ry="3" width="380" height="6.4" />
+    <rect x="0" y="120" rx="3" ry="3" width="201" height="6.4" />
+    <circle cx="30" cy="30" r="30" />`
 
 export const instagram = `<circle cx="30" cy="30" r="30" />
 
