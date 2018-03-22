@@ -127,7 +127,7 @@ ${draw}
                 <span className="token comment">{`// 2. Then copy your loader`}</span>
                 <br />
               </pre>
-              <LiveEditor onChange={debounce(500, this._HandleEditor)} className="live-editor" />
+              <LiveEditor onChange={debounce(500, this._HandleEditor)} />
             </div>
 
             <LiveError />

@@ -57,11 +57,6 @@ body {
   margin-bottom: 4em;
 }
 
-.live-editor {
-  overflow: scroll;
-  width: 555px;
-}
-
 .token.comment {
   color: hsl(0, 0%, 38%) !important;
 }
@@ -69,6 +64,8 @@ body {
 .prism-code {
   background: none !important;
   padding: 0 !important;
+  overflow: scroll;
+  width: 555px;
 }
 
 .app-editor__tab {
