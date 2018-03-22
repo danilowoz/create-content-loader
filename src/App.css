@@ -181,6 +181,7 @@ body {
   float: right;
   width: 2.8em;
   opacity: 1;
+  margin: 1px;
 }
 
 .app-handlers .app-handlers__div {
