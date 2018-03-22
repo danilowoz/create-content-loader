@@ -97,6 +97,18 @@ body {
   border: 1px solid #40ad36;
 }
 
+.copy-to-clipboard {
+  float: right;
+  margin-top: -40px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+.app-editor:hover .copy-to-clipboard {
+  display: inline;
+}
+
 .react-live-error {
   padding: 0.5em;
   border-radius: 0.25rem;

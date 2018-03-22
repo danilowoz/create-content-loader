@@ -3,6 +3,7 @@ import ContentLoader from 'react-content-loader'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
 import { debounce } from 'throttle-debounce'
+import Clipboard from 'clipboard';
 
 import { getReactInfo } from './utils'
 import { facebook, instagram, code, bulletList } from './utils/presets'
@@ -24,6 +25,14 @@ class App extends Component {
     activeItem: false,
     renderCanvas: true,
     focusEditor: false,
+  }
+
+  componentDidMount() {
+    this.clipboard = new Clipboard('.copy-to-clipboard');
+  }
+
+  componentWillUnmount() {
+    this.clipboard.destroy();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -116,6 +125,7 @@ ${draw}
               <span className="app-editor__tab">
                 <span />
               </span>
+              <span className="copy-to-clipboard" data-clipboard-text={Mycode}>Copy to Clipboard</span>
               <pre className="prism-code">
                 <span className="token comment">{`// 1. Set up the package`}</span>
                 <br />
