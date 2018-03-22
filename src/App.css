@@ -57,6 +57,11 @@ body {
   margin-bottom: 4em;
 }
 
+.live-editor {
+  overflow: scroll;
+  width: 555px;
+}
+
 .token.comment {
   color: hsl(0, 0%, 38%) !important;
 }
