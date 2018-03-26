@@ -97,6 +97,26 @@ body {
   border: 1px solid #40ad36;
 }
 
+.copy-to-clipboard {
+  float: right;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .2s ease;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  color: #999;
+  letter-spacing: 2px;
+  margin-top: -35px;
+}
+
+.app-editor:hover .copy-to-clipboard {
+  opacity: 1;
+}
+
+.copy-to-clipboard:active {
+  transform: translateY(1px);
+}
+
 .react-live-error {
   padding: 0.5em;
   border-radius: 0.25rem;
@@ -169,6 +189,7 @@ body {
   float: right;
   width: 2.8em;
   opacity: 1;
+  margin: 1px;
 }
 
 .app-handlers .app-handlers__div {
