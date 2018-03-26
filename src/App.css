@@ -64,6 +64,8 @@ body {
 .prism-code {
   background: none !important;
   padding: 0 !important;
+  overflow: scroll;
+  max-width: 40vw;
 }
 
 .app-editor__tab {
