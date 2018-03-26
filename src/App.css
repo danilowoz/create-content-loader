@@ -65,7 +65,7 @@ body {
   background: none !important;
   padding: 0 !important;
   overflow: scroll;
-  width: 555px;
+  max-width: 40vw;
 }
 
 .app-editor__tab {
