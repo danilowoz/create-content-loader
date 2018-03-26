@@ -98,6 +98,10 @@ class App extends Component {
 ${draw}
   </ContentLoader>
 )`
+
+    const CopyCodeToClipboard = `import ContentLoader from "react-content-loader"
+
+${Mycode}`
     return (
       <LiveProvider code={Mycode} scope={{ ContentLoader }} ref={r => (this.editor = r)}>
         <div className="App">
@@ -125,7 +129,7 @@ ${draw}
               <span className="app-editor__tab">
                 <span />
               </span>
-              <span className="copy-to-clipboard" data-clipboard-text={Mycode}>Copy to Clipboard</span>
+              <span className="copy-to-clipboard" data-clipboard-text={CopyCodeToClipboard}>Copy to Clipboard</span>
               <pre className="prism-code">
                 <span className="token comment">{`// 1. Set up the package`}</span>
                 <br />
