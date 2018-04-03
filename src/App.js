@@ -11,12 +11,14 @@ import template, { ReactImport, VueImport } from './utils/template'
 import Canvas from './Canvas'
 import Config from './Config'
 import ReactIcon from './assets/react.svg'
-import HeartIcon from './assets/heart.png'
+import VueIcon from './assets/vue.svg'
+import Header from './Header'
+import Footer from './Footer'
 import './App.css'
 
 class App extends Component {
   state = {
-    framework: 'vue',
+    framework: 'react',
     width: 400,
     height: 200,
     speed: 2,
@@ -117,28 +119,27 @@ class App extends Component {
         transformCode={code => VueToReact(code, framework)}
       >
         <div className="App">
-          <div className="app-header">
-            <h1>
-              Create <strong>React Content Loader</strong>
-            </h1>
-            <h2>
-              Have you heard about{' '}
-              <a href="https://github.com/danilowoz/react-content-loader">react-content-loader</a>?
-              It&#39;s React component that uses SVG to<br />
-              create loaders which simulates the structure of the content that will be loaded.<br />
-              <br />
-              <strong>
-                So now you can use this tool to create your loader easily.<br />
-                <small>
-                  You just need to draw using the canvas or code using the live editing!
-                </small>
-              </strong>
-            </h2>
-          </div>
+          <Header />
 
           <div>
-            <button onClick={() => this._HandleFramework('react')}>React</button>
-            <button onClick={() => this._HandleFramework('vue')}>Vue</button>
+            <button
+              className={`handle-framework ${framework === 'react' ? 'current' : ''}`}
+              onClick={() => this._HandleFramework('react')}
+            >
+              <img src={ReactIcon} alt="React" /> <span>React</span>
+            </button>
+
+            <button
+              className={`handle-framework handle-framework--vue ${
+                framework === 'vue' ? 'current' : ''
+              }`}
+              onClick={() => this._HandleFramework('vue')}
+            >
+              <img src={VueIcon} alt="Vue" /> <span>Vue</span>
+            </button>
+            <a href="https://github.com/egoist/vue-content-loader" target="_blank">
+              by @egoist
+            </a>
             <div className="app-editor">
               <span className="app-editor__tab">
                 <span />
@@ -156,59 +157,7 @@ class App extends Component {
 
             <LiveError />
 
-            <div className="app-assign">
-              <h2>
-                Made with <img src={ReactIcon} alt="React" /> and{' '}
-                <img src={HeartIcon} alt="Heart" /> by{' '}
-                <a
-                  href="https://github.com/danilowoz"
-                  target="_blank"
-                  without=""
-                  rel="noopener noreferrer"
-                >
-                  @danilowoz
-                </a>
-              </h2>
-              <p>
-                Do you have any questions?{' '}
-                <a
-                  href="https://github.com/danilowoz/react-content-loader"
-                  target="_blank"
-                  without=""
-                  rel="noopener noreferrer"
-                >
-                  Read the documentation.
-                </a>
-              </p>
-              <br />
-              <p className="app-assign__stars">
-                Do you like?
-                <a
-                  className="github-button"
-                  href="https://github.com/danilowoz/react-content-loader"
-                  data-icon="octicon-star"
-                  data-show-count="true"
-                  aria-label="Star danilowoz/react-content-loader on GitHub"
-                  target="_blank"
-                  without=""
-                  rel="noopener noreferrer"
-                >
-                  react-content-loader
-                </a>
-                <a
-                  className="github-button"
-                  href="https://github.com/danilowoz/create-react-content-loader"
-                  data-icon="octicon-star"
-                  data-show-count="true"
-                  aria-label="Star danilowoz/create-react-content-loader on GitHub"
-                  target="_blank"
-                  without=""
-                  rel="noopener noreferrer"
-                >
-                  create-react-content-loader
-                </a>
-              </p>
-            </div>
+            <Footer />
           </div>
 
           <div>

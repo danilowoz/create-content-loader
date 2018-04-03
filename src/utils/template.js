@@ -16,12 +16,11 @@ ${data.draw}
   </ContentLoader>
 )`
   } else if (type === 'vue') {
-    return `// 1. Copy your loader
-<template>
+    return `<template>
   <content-loader
-    height={${data.height}}
-    width={${data.width}}
-    speed={${data.speed}}
+    height=${data.height}
+    width=${data.width}
+    speed=${data.speed} 
     primaryColor="${data.primaryColor}"
     secondaryColor="${data.secondaryColor}"
   >

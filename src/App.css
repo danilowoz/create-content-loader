@@ -22,12 +22,84 @@ body {
 
 .app-header h1 {
   font-size: 1.6em;
-  font-weight: 600;
+  font-weight: normal;
   margin-top: 0;
   color: #a5a5a5;
 }
 .app-header h1 strong {
   color: #637cc3;
+}
+
+.app-header_framework {
+  display: inline-block;
+  width: 2.6em;
+  height: 1em;
+  overflow: hidden;
+  position: relative;
+  transition: width .7s ease;
+}
+
+.app-header_framework.vue {
+  width: 1.7em;
+}
+
+.app-header_framework span {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.app-header_framework .vue {
+  color: #42b983;
+}
+
+.app-header_framework .active {
+  animation: flipInX 1.5s ease forwards;
+  opacity: 1;
+}
+
+@keyframes flipInX {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipOutX {
+  from {
+    transform: perspective(400px);
+  }
+
+  30% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    opacity: 0;
+  }
 }
 
 .app-header a {
@@ -219,6 +291,62 @@ body {
 
 .app-handlers .app-handlers__preset:hover {
   color: #000;
+}
+
+.handle-framework {
+  background: none;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  border-right: 1px solid #eee;
+  align-items: center;
+  font-size: 0.9em;
+  padding-right: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  opacity: .5;
+  transition: all .3s ease;
+  color: #686768;
+}
+
+.handle-framework--vue {
+  border-right: 0;
+  margin-right: 0;
+}
+
+.handle-framework--vue + a {
+  color: #686768;
+  font-size: 0.9em;
+  position: relative;
+  top: -0.3em;
+  text-decoration: none;
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+.handle-framework--vue.current + a,
+.handle-framework--vue:hover + a {
+  opacity: .5;
+}
+
+.handle-framework--vue.current + a {
+  opacity: .8;
+}
+
+.handle-framework--vue + a:hover {
+  opacity: .5;
+  text-decoration: underline;
+}
+
+.handle-framework.current {
+  opacity: 1;
+}
+
+.handle-framework img {
+  height: 1.3em;
+  margin-right: .8em;
 }
 
 /* Config */
