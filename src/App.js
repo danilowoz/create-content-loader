@@ -5,7 +5,7 @@ import { Tools } from 'react-sketch'
 import { debounce } from 'throttle-debounce'
 import Clipboard from 'clipboard'
 
-import { getReactInfo } from './utils'
+import { getReactInfo, VueToReact } from './utils'
 import { facebook, instagram, code, bulletList } from './utils/presets'
 import template, { ReactImport, VueImport } from './utils/template'
 import Canvas from './Canvas'
@@ -110,7 +110,12 @@ class App extends Component {
     const CopyCodeToClipboard = template({ ...optMycode, importDeclaration: true })
 
     return (
-      <LiveProvider code={Mycode} scope={{ ContentLoader }} ref={r => (this.editor = r)}>
+      <LiveProvider
+        code={Mycode}
+        scope={{ ContentLoader }}
+        ref={r => (this.editor = r)}
+        transformCode={code => VueToReact(code, framework)}
+      >
         <div className="App">
           <div className="app-header">
             <h1>

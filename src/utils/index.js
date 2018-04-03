@@ -1,3 +1,5 @@
+import template from './template'
+
 export const JsonToSVG = json => {
   const arr = json.objects
   let svg = ''
@@ -81,4 +83,15 @@ export const getReactInfo = (component, framework) => {
   obj.draw = component.match(regexCollection[framework])[1].trim()
 
   return obj
+}
+
+export const VueToReact = (code, framework) => {
+  if (framework === 'vue') {
+    const data = getReactInfo(code, framework)
+    const reactCode = template({ data, type: 'react' })
+
+    return reactCode
+  }
+
+  return code
 }
