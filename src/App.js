@@ -3,10 +3,11 @@ import ContentLoader from 'react-content-loader'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
 import { debounce } from 'throttle-debounce'
-import Clipboard from 'clipboard';
+import Clipboard from 'clipboard'
 
 import { getReactInfo } from './utils'
 import { facebook, instagram, code, bulletList } from './utils/presets'
+import template, { ReactImport, VueImport } from './utils/template'
 import Canvas from './Canvas'
 import Config from './Config'
 import ReactIcon from './assets/react.svg'
@@ -15,6 +16,7 @@ import './App.css'
 
 class App extends Component {
   state = {
+    framework: 'vue',
     width: 400,
     height: 200,
     speed: 2,
@@ -28,11 +30,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.clipboard = new Clipboard('.copy-to-clipboard');
+    this.clipboard = new Clipboard('.copy-to-clipboard')
   }
 
   componentWillUnmount() {
-    this.clipboard.destroy();
+    this.clipboard.destroy()
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -41,15 +43,18 @@ class App extends Component {
     }
   }
 
+  _HandleFramework = framework => {
+    this.setState({ framework })
+  }
+
   _HandleDraw = draw => {
     this.setState({ draw })
   }
 
   _HandleEditor = (editor, error) => {
     const hasError = this.editor.state.error === undefined
-
     if (hasError) {
-      const state = getReactInfo(editor)
+      const state = getReactInfo(editor, this.state.framework)
       state.renderCanvas = false
       this.setState(state)
     }
@@ -85,23 +90,25 @@ class App extends Component {
   })
 
   render() {
-    const { width, height, speed, primaryColor, secondaryColor, draw, renderCanvas } = this.state
+    const {
+      width,
+      height,
+      speed,
+      primaryColor,
+      secondaryColor,
+      draw,
+      framework,
+      renderCanvas,
+    } = this.state
 
-    const Mycode = `const MyLoader = () => (
-  <ContentLoader
-    height={${height}}
-    width={${width}}
-    speed={${speed}}
-    primaryColor={"${primaryColor}"}
-    secondaryColor={"${secondaryColor}"}
-  >
-${draw}
-  </ContentLoader>
-)`
+    const optMycode = {
+      data: { width, height, speed, primaryColor, secondaryColor, draw },
+      type: framework,
+      importDeclaration: false,
+    }
+    const Mycode = template(optMycode)
+    const CopyCodeToClipboard = template({ ...optMycode, importDeclaration: true })
 
-    const CopyCodeToClipboard = `import ContentLoader from "react-content-loader"
-
-${Mycode}`
     return (
       <LiveProvider code={Mycode} scope={{ ContentLoader }} ref={r => (this.editor = r)}>
         <div className="App">
@@ -125,23 +132,21 @@ ${Mycode}`
           </div>
 
           <div>
+            <button onClick={() => this._HandleFramework('react')}>React</button>
+            <button onClick={() => this._HandleFramework('vue')}>Vue</button>
             <div className="app-editor">
               <span className="app-editor__tab">
                 <span />
               </span>
-              <span className="copy-to-clipboard" data-clipboard-text={CopyCodeToClipboard}>Copy to Clipboard</span>
-              <pre className="prism-code">
-                <span className="token comment">{`// 1. Set up the package`}</span>
-                <br />
-                <span className="token keyword">import</span> ContentLoader{' '}
-                <span className="token keyword">from </span>
-                <span className="token string">"react-content-loader"</span>
-                <br />
-                <br />
-                <span className="token comment">{`// 2. Then copy your loader`}</span>
-                <br />
-              </pre>
+              <span className="copy-to-clipboard" data-clipboard-text={CopyCodeToClipboard}>
+                Copy to Clipboard
+              </span>
+
+              {framework === 'react' && <ReactImport />}
+
               <LiveEditor onChange={debounce(500, this._HandleEditor)} />
+
+              {framework === 'vue' && <VueImport />}
             </div>
 
             <LiveError />
