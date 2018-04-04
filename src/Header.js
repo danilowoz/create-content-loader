@@ -6,7 +6,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    const intervalId = setInterval(this.timer, 4000)
+    const intervalId = setInterval(this.timer, 3000)
     this.setState({ intervalId })
   }
 

@@ -18,13 +18,13 @@ import './App.css'
 
 class App extends Component {
   state = {
-    framework: 'react',
-    width: 400,
-    height: 200,
-    speed: 2,
-    primaryColor: '#f3f3f3',
-    secondaryColor: '#ecebeb',
-    draw: facebook,
+    framework: localStorage.getItem('framework') || 'react',
+    width: localStorage.getItem('width') || 400,
+    height: localStorage.getItem('height') || 160,
+    speed: localStorage.getItem('speed') || 2,
+    primaryColor: localStorage.getItem('primaryColor') || '#f3f3f3',
+    secondaryColor: localStorage.getItem('secondaryColor') || '#ecebeb',
+    draw: localStorage.getItem('draw') || facebook,
     tool: Tools.Select,
     activeItem: false,
     renderCanvas: true,
@@ -39,10 +39,16 @@ class App extends Component {
     this.clipboard.destroy()
   }
 
+  setLocalStorage = () => {
+    Object.keys(this.state).map(item => localStorage.setItem(item, this.state[item]))
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (this.state.renderCanvas === false && this.state.focusEditor === false) {
       this.setState({ renderCanvas: true })
     }
+
+    this.setLocalStorage()
   }
 
   _HandleFramework = framework => {
@@ -81,6 +87,13 @@ class App extends Component {
     }
     const draw = presents[value]
     this.setState({ draw, height, renderCanvas: false })
+  }
+
+  _ResetColors = () => {
+    this.setState({
+      primaryColor: '#f3f3f3',
+      secondaryColor: '#ecebeb',
+    })
   }
 
   _HandleInput = e => {
@@ -137,7 +150,11 @@ class App extends Component {
             >
               <img src={VueIcon} alt="Vue" /> <span>Vue</span>
             </button>
-            <a href="https://github.com/egoist/vue-content-loader" target="_blank">
+            <a
+              href="https://github.com/egoist/vue-content-loader"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               by @egoist
             </a>
             <div className="app-editor">
@@ -174,7 +191,11 @@ class App extends Component {
                 />
               </Canvas>
             )}
-            <Config {...this.state} _HandleInput={this._HandleInput} />
+            <Config
+              {...this.state}
+              _HandleInput={this._HandleInput}
+              _ResetColors={this._ResetColors}
+            />
           </div>
         </div>
       </LiveProvider>

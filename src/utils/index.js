@@ -75,10 +75,9 @@ const regexCollection = {
 
 export const getReactInfo = (component, framework) => {
   const obj = {}
-  obj.width = Number(component.match(/width={?(.+?)}? /, 's')[1].replace(/"/g, ''))
-  obj.height = Number(component.match(/height={?(.+?)}? /, 's')[1].replace(/"/g, ''))
-  obj.speed = Number(component.match(/speed={?(.+?)}? /, 's')[1].replace(/"/g, ''))
-  debugger
+  obj.width = Number(component.match(/width=({(.*?)}|([0-9]+))/)[1])
+  obj.height = Number(component.match(/height=({(.*?)}|([0-9]+))/)[1])
+  obj.speed = Number(component.match(/speed=({(.*?)}|([0-9]+))/)[1])
   obj.primaryColor = component.match(/primaryColor="(.*?)"/)[1]
   obj.secondaryColor = component.match(/secondaryColor="(.*?)"/)[1]
   obj.draw = component.match(regexCollection[framework])[1].trim()
