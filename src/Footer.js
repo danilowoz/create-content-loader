@@ -39,15 +39,15 @@ const Footer = () => (
       </a>
       <a
         className="github-button"
-        href="https://github.com/danilowoz/create-react-content-loader"
+        href="https://github.com/danilowoz/create-content-loader"
         data-icon="octicon-star"
         data-show-count="true"
-        aria-label="Star danilowoz/create-react-content-loader on GitHub"
+        aria-label="Star danilowoz/create-content-loader on GitHub"
         target="_blank"
         without=""
         rel="noopener noreferrer"
       >
-        create-react-content-loader
+        create-content-loader
       </a>
     </p>
   </div>
