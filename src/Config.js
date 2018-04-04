@@ -1,8 +1,17 @@
 import React from 'react'
 
-const Config = ({ _HandleInput, width, height, speed, size, primaryColor, secondaryColor }) => (
+const Config = ({
+  _HandleInput,
+  _ResetColors,
+  width,
+  height,
+  speed,
+  size,
+  primaryColor,
+  secondaryColor,
+}) => (
   <div className="app-config">
-    <div className="app-config__col">
+    <div>
       <p>
         <label htmlFor="width">width:</label>
         <input type="number" id="width" name="width" value={width} onChange={_HandleInput} />
@@ -15,8 +24,7 @@ const Config = ({ _HandleInput, width, height, speed, size, primaryColor, second
         <label htmlFor="speed">speed:</label>
         <input type="number" id="speed" name="speed" value={speed} onChange={_HandleInput} />
       </p>
-    </div>
-    <div className="app-config__col">
+
       <p>
         <label htmlFor="primaryColor">primaryColor:</label>
         <input
@@ -29,6 +37,7 @@ const Config = ({ _HandleInput, width, height, speed, size, primaryColor, second
       </p>
       <p>
         <label htmlFor="secondaryColor">secondaryColor:</label>
+        {console.log(primaryColor, secondaryColor)}
         <input
           type="color"
           id="secondaryColor"
@@ -37,6 +46,7 @@ const Config = ({ _HandleInput, width, height, speed, size, primaryColor, second
           onChange={_HandleInput}
         />
       </p>
+      <button onClick={_ResetColors}>Reset colors</button>
     </div>
   </div>
 )

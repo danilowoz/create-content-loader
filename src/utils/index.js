@@ -1,3 +1,5 @@
+import template from './template'
+
 export const JsonToSVG = json => {
   const arr = json.objects
   let svg = ''
@@ -47,7 +49,7 @@ export const SVGtoFabric = svg => {
 
       return newObj
     }
-	return {}
+    return {}
   })
 
   return obj.filter(e => e !== undefined)
@@ -66,18 +68,30 @@ export const CanvasAddedProp = target => {
   return newTarget
 }
 
-export const getReactInfo = component => {
+const regexCollection = {
+  react: /const MyLoader = \(\) => \([\s\S]*?<ContentLoader[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/,
+  vue: /<template>[\s\S]*?<content-loader[\s\S]*?height=.*[\s\S]*?width=.*[\s\S]*?speed=.*[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>((.|\s)*)<\/content-loader>[\s\S]*?<\/template>[\s\S]*?/,
+}
+
+export const getReactInfo = (component, framework) => {
   const obj = {}
-  obj.width = Number(component.match(/width={(.*?)}/)[1])
-  obj.height = Number(component.match(/height={(.*?)}/)[1])
-  obj.speed = Number(component.match(/speed={(.*?)}/)[1])
-  obj.primaryColor = component.match(/primaryColor={"(.*?)"}/)[1]
-  obj.secondaryColor = component.match(/secondaryColor={"(.*?)"}/)[1]
-  obj.draw = component
-    .match(
-      /const MyLoader = \(\) => \([\s\S]*?<ContentLoader[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor={.*}[\s\S]*?secondaryColor={.*}[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/
-    )[1]
-    .trim()
+  obj.width = Number(component.match(/width=({(.*?)}|([0-9]+))/)[1])
+  obj.height = Number(component.match(/height=({(.*?)}|([0-9]+))/)[1])
+  obj.speed = Number(component.match(/speed=({(.*?)}|([0-9]+))/)[1])
+  obj.primaryColor = component.match(/primaryColor="(.*?)"/)[1]
+  obj.secondaryColor = component.match(/secondaryColor="(.*?)"/)[1]
+  obj.draw = component.match(regexCollection[framework])[1].trim()
 
   return obj
+}
+
+export const VueToReact = (code, framework) => {
+  if (framework === 'vue') {
+    const data = getReactInfo(code, framework)
+    const reactCode = template({ data, type: 'react' })
+
+    return reactCode
+  }
+
+  return code
 }

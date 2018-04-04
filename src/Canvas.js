@@ -100,7 +100,7 @@ class Canvas extends Component {
         <button
           className="app-handlers__preset"
           value="facebook"
-          data-height="200"
+          data-height="160"
           onClick={_HandlePreset}
         >
           facebook
@@ -116,7 +116,7 @@ class Canvas extends Component {
         <button
           className="app-handlers__preset"
           value="code"
-          data-height="200"
+          data-height="160"
           onClick={_HandlePreset}
         >
           code
@@ -124,7 +124,7 @@ class Canvas extends Component {
         <button
           className="app-handlers__preset"
           value="bulletList"
-          data-height="200"
+          data-height="160"
           onClick={_HandlePreset}
         >
           bulletList
@@ -136,7 +136,6 @@ class Canvas extends Component {
           </button>
         )}
       </div>,
-
       <div
         className={classnames('app-canvas', {
           'app-canvas__draw': tool === 'rectangle' || tool === 'circle',
