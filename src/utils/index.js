@@ -70,14 +70,14 @@ export const CanvasAddedProp = target => {
 
 const regexCollection = {
   react: /const MyLoader = \(\) => \([\s\S]*?<ContentLoader[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/,
-  vue: /<template>[\s\S]*?<content-loader[\s\S]*?height=.*[\s\S]*?width=.*[\s\S]*?speed=.*[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>((.|\s)*)<\/content-loader>[\s\S]*?<\/template>[\s\S]*?/,
+  vue: /<template>[\s\S]*?<content-loader[\s\S]*?:height=".*"[\s\S]*?:width=".*"[\s\S]*?:speed=".*"[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>((.|\s)*)<\/content-loader>[\s\S]*?<\/template>[\s\S]*?/,
 }
 
 export const getReactInfo = (component, framework) => {
   const obj = {}
-  obj.width = Number(component.match(/width=({(.*?)}|([0-9]+))/)[1])
-  obj.height = Number(component.match(/height=({(.*?)}|([0-9]+))/)[1])
-  obj.speed = Number(component.match(/speed=({(.*?)}|([0-9]+))/)[1])
+  obj.width = Number(component.match(/width=({(.*?)}|"(.*?)")/)[3])
+  obj.height = Number(component.match(/height=({(.*?)}|"(.*?)")/)[3])
+  obj.speed = Number(component.match(/speed=({(.*?)}|"(.*?)")/)[3])
   obj.primaryColor = component.match(/primaryColor="(.*?)"/)[1]
   obj.secondaryColor = component.match(/secondaryColor="(.*?)"/)[1]
   obj.draw = component.match(regexCollection[framework])[1].trim()

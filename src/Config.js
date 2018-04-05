@@ -37,7 +37,6 @@ const Config = ({
       </p>
       <p>
         <label htmlFor="secondaryColor">secondaryColor:</label>
-        {console.log(primaryColor, secondaryColor)}
         <input
           type="color"
           id="secondaryColor"
