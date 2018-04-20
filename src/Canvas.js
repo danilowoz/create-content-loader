@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import { SketchField, Tools } from 'react-sketch'
-import classnames from 'classnames'
+import React, { Component } from "react"
+import { SketchField, Tools } from "react-sketch"
+import classnames from "classnames"
 
-import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
-import selectIcon from './assets/select.svg'
-import trashtIcon from './assets/trash.svg'
-import rectIcon from './assets/rect.svg'
-import circleIcon from './assets/circle.svg'
+import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from "./utils"
+import selectIcon from "./assets/select.svg"
+import trashtIcon from "./assets/trash.svg"
+import rectIcon from "./assets/rect.svg"
+import circleIcon from "./assets/circle.svg"
 
 class Canvas extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      showCanvas: true,
+      showCanvas: true
     }
   }
 
@@ -28,9 +28,9 @@ class Canvas extends Component {
 
     arrFabric.forEach(a => {
       let draw
-      if (a && a.type === 'rect') {
+      if (a && a.type === "rect") {
         draw = new window.fabric.Rect(a)
-      } else if (a && a.type === 'circle') {
+      } else if (a && a.type === "circle") {
         draw = new window.fabric.Circle(a)
       }
 
@@ -56,39 +56,49 @@ class Canvas extends Component {
     const self = this
 
     this._sketch._fc.on({
-      'after:render': () => self._RenderCanvas(),
-      'object:selected': item =>
-        (item.target = CanvasAddedProp(item.target)) && self.props._HandleSelectedItem(true),
-      'object:added': item => (item.target = CanvasAddedProp(item.target)),
-      'object:moving': item => (item.target = CanvasAddedProp(item.target)),
-      'selection:cleared': () => self.props._HandleSelectedItem(false),
+      "after:render": () => self._RenderCanvas(),
+      "object:selected": item =>
+        (item.target = CanvasAddedProp(item.target)) &&
+        self.props._HandleSelectedItem(true),
+      "object:added": item => (item.target = CanvasAddedProp(item.target)),
+      "object:moving": item => (item.target = CanvasAddedProp(item.target)),
+      "selection:cleared": () => self.props._HandleSelectedItem(false)
     })
   }
 
   render() {
-    const { _HandlePreset, _HandleTool, width, height, activeItem, tool, children } = this.props
+    const {
+      _HandlePreset,
+      _HandleTool,
+      width,
+      height,
+      activeItem,
+      tool,
+      children,
+      guideline
+    } = this.props
 
     return [
       <div className="app-handlers" key="handlers">
         <button
-          className={classnames('app-handlers__tool', {
-            'app-handlers__active': tool === 'select',
+          className={classnames("app-handlers__tool", {
+            "app-handlers__active": tool === "select"
           })}
           onClick={() => _HandleTool(Tools.Select)}
         >
           <img src={selectIcon} alt="select tool" />
         </button>
         <button
-          className={classnames('app-handlers__tool', {
-            'app-handlers__active': tool === 'rectangle',
+          className={classnames("app-handlers__tool", {
+            "app-handlers__active": tool === "rectangle"
           })}
           onClick={() => _HandleTool(Tools.Rectangle)}
         >
           <img src={rectIcon} alt="rect tool" />
         </button>
         <button
-          className={classnames('app-handlers__tool', {
-            'app-handlers__active': tool === 'circle',
+          className={classnames("app-handlers__tool", {
+            "app-handlers__active": tool === "circle"
           })}
           onClick={() => _HandleTool(Tools.Circle)}
         >
@@ -137,22 +147,27 @@ class Canvas extends Component {
         )}
       </div>,
       <div
-        className={classnames('app-canvas', {
-          'app-canvas__draw': tool === 'rectangle' || tool === 'circle',
+        className={classnames("app-canvas", {
+          "app-canvas__draw": tool === "rectangle" || tool === "circle"
         })}
         key="canvas"
       >
-        {children}
-        <SketchField
-          width={`${width}px`}
-          height={`${height}px`}
-          tool={tool}
-          lineWidth={0}
-          color="black"
-          ref={c => (this._sketch = c)}
-          className="app-canvas__sketch"
-        />
-      </div>,
+        <div
+          className="app-canvas__guideline"
+          style={{ backgroundImage: `url(${guideline})` }}
+        >
+          {children}
+          <SketchField
+            width={`${width}px`}
+            height={`${height}px`}
+            tool={tool}
+            lineWidth={0}
+            color="black"
+            ref={c => (this._sketch = c)}
+            className="app-canvas__sketch"
+          />
+        </div>
+      </div>
     ]
   }
 }

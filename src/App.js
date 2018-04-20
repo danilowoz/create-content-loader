@@ -1,38 +1,39 @@
-import React, { Component } from 'react'
-import ContentLoader from 'react-content-loader'
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import { Tools } from 'react-sketch'
-import { debounce } from 'throttle-debounce'
-import Clipboard from 'clipboard'
+import React, { Component } from "react"
+import ContentLoader from "react-content-loader"
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
+import { Tools } from "react-sketch"
+import { debounce } from "throttle-debounce"
+import Clipboard from "clipboard"
 
-import { getReactInfo, VueToReact } from './utils'
-import { facebook, instagram, code, bulletList } from './utils/presets'
-import template, { ReactImport, VueImport } from './utils/template'
-import Canvas from './Canvas'
-import Config from './Config'
-import ReactIcon from './assets/react.svg'
-import VueIcon from './assets/vue.svg'
-import Header from './Header'
-import Footer from './Footer'
-import './App.css'
+import { getReactInfo, VueToReact } from "./utils"
+import { facebook, instagram, code, bulletList } from "./utils/presets"
+import template, { ReactImport, VueImport } from "./utils/template"
+import Canvas from "./Canvas"
+import Config from "./Config"
+import ReactIcon from "./assets/react.svg"
+import VueIcon from "./assets/vue.svg"
+import Header from "./Header"
+import Footer from "./Footer"
+import "./App.css"
 
 class App extends Component {
   state = {
-    framework: localStorage.getItem('framework') || 'react',
-    width: localStorage.getItem('width') || 400,
-    height: localStorage.getItem('height') || 160,
-    speed: localStorage.getItem('speed') || 2,
-    primaryColor: localStorage.getItem('primaryColor') || '#f3f3f3',
-    secondaryColor: localStorage.getItem('secondaryColor') || '#ecebeb',
-    draw: localStorage.getItem('draw') || facebook,
+    framework: localStorage.getItem("framework") || "react",
+    width: localStorage.getItem("width") || 400,
+    height: localStorage.getItem("height") || 160,
+    speed: localStorage.getItem("speed") || 2,
+    primaryColor: localStorage.getItem("primaryColor") || "#f3f3f3",
+    secondaryColor: localStorage.getItem("secondaryColor") || "#ecebeb",
+    draw: localStorage.getItem("draw") || facebook,
     tool: Tools.Select,
     activeItem: false,
     renderCanvas: true,
     focusEditor: false,
+    guideline: localStorage.getItem("guideline") || ""
   }
 
   componentDidMount() {
-    this.clipboard = new Clipboard('.copy-to-clipboard')
+    this.clipboard = new Clipboard(".copy-to-clipboard")
   }
 
   componentWillUnmount() {
@@ -40,7 +41,9 @@ class App extends Component {
   }
 
   setLocalStorage = () => {
-    Object.keys(this.state).map(item => localStorage.setItem(item, this.state[item]))
+    Object.keys(this.state).map(item =>
+      localStorage.setItem(item, this.state[item])
+    )
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -83,7 +86,7 @@ class App extends Component {
       facebook,
       instagram,
       code,
-      bulletList,
+      bulletList
     }
     const draw = presents[value]
     this.setState({ draw, height, renderCanvas: false })
@@ -91,8 +94,8 @@ class App extends Component {
 
   _ResetColors = () => {
     this.setState({
-      primaryColor: '#f3f3f3',
-      secondaryColor: '#ecebeb',
+      primaryColor: "#f3f3f3",
+      secondaryColor: "#ecebeb"
     })
   }
 
@@ -100,9 +103,9 @@ class App extends Component {
     this.__DebouncedHandleInput(e.target.name, e.target.value)
   }
 
-  __DebouncedHandleInput = debounce(250, (name, value) => {
-    this.setState({ [name]: value, renderCanvas: false })
-  })
+  __DebouncedHandleInput = (name, value) => {
+    debounce(500, this.setState({ [name]: value, renderCanvas: false }))
+  }
 
   render() {
     const {
@@ -113,16 +116,19 @@ class App extends Component {
       secondaryColor,
       draw,
       framework,
-      renderCanvas,
+      renderCanvas
     } = this.state
 
     const optMycode = {
       data: { width, height, speed, primaryColor, secondaryColor, draw },
       type: framework,
-      importDeclaration: false,
+      importDeclaration: false
     }
     const Mycode = template(optMycode)
-    const CopyCodeToClipboard = template({ ...optMycode, importDeclaration: true })
+    const CopyCodeToClipboard = template({
+      ...optMycode,
+      importDeclaration: true
+    })
 
     return (
       <LiveProvider
@@ -136,17 +142,19 @@ class App extends Component {
 
           <div>
             <button
-              className={`handle-framework ${framework === 'react' ? 'current' : ''}`}
-              onClick={() => this._HandleFramework('react')}
+              className={`handle-framework ${
+                framework === "react" ? "current" : ""
+              }`}
+              onClick={() => this._HandleFramework("react")}
             >
               <img src={ReactIcon} alt="React" /> <span>React</span>
             </button>
 
             <button
               className={`handle-framework handle-framework--vue ${
-                framework === 'vue' ? 'current' : ''
+                framework === "vue" ? "current" : ""
               }`}
-              onClick={() => this._HandleFramework('vue')}
+              onClick={() => this._HandleFramework("vue")}
             >
               <img src={VueIcon} alt="Vue" /> <span>Vue</span>
             </button>
@@ -161,15 +169,18 @@ class App extends Component {
               <span className="app-editor__tab">
                 <span />
               </span>
-              <span className="copy-to-clipboard" data-clipboard-text={CopyCodeToClipboard}>
+              <span
+                className="copy-to-clipboard"
+                data-clipboard-text={CopyCodeToClipboard}
+              >
                 Copy to Clipboard
               </span>
 
-              {framework === 'react' && <ReactImport />}
+              {framework === "react" && <ReactImport />}
 
               <LiveEditor onChange={debounce(500, this._HandleEditor)} />
 
-              {framework === 'vue' && <VueImport />}
+              {framework === "vue" && <VueImport />}
             </div>
 
             <LiveError />
@@ -187,7 +198,10 @@ class App extends Component {
                 _HandlePreset={this._HandlePreset}
               >
                 <LivePreview
-                  style={{ width: `${this.state.width}px`, height: `${this.state.height}px` }}
+                  style={{
+                    width: `${this.state.width}px`,
+                    height: `${this.state.height}px`
+                  }}
                 />
               </Canvas>
             )}

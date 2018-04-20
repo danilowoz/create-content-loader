@@ -1,14 +1,18 @@
-import template from './template'
+import template from "./template"
 
 export const JsonToSVG = json => {
   const arr = json.objects
-  let svg = ''
+  let svg = ""
   arr.forEach(a => {
-    if (a.type === 'rect') {
-      const rotate = a.angle ? ` transform="rotate(${a.angle}, ${a.left}, ${a.top})"` : ''
-      svg += `    <rect x="${a.left}" y="${a.top}" rx="${a.rx}" ry="${a.ry}" width="${a.width *
-        a.scaleX}" height="${a.height * a.scaleY}"${rotate} /> \n`
-    } else if (a.type === 'circle') {
+    if (a.type === "rect") {
+      const rotate = a.angle
+        ? ` transform="rotate(${a.angle}, ${a.left}, ${a.top})"`
+        : ""
+      svg += `    <rect x="${a.left}" y="${a.top}" rx="${a.rx}" ry="${
+        a.ry
+      }" width="${a.width * a.scaleX}" height="${a.height *
+        a.scaleY}"${rotate} /> \n`
+    } else if (a.type === "circle") {
       svg += `    <circle cx="${a.left + a.radius * a.scaleY}" cy="${a.top +
         a.radius * a.scaleY}" r="${a.radius * a.scaleX}" /> \n`
     }
@@ -18,31 +22,33 @@ export const JsonToSVG = json => {
 }
 
 export const createNode = html => {
-  return new DOMParser().parseFromString(html, 'text/html').body.firstChild
+  return new DOMParser().parseFromString(html, "text/html").body.firstChild
 }
 
 export const SVGtoFabric = svg => {
-  const arr = svg.split('\n')
+  const arr = svg.split("\n")
   const obj = arr.map(s => {
     const item = createNode(s)
     const newObj = {}
 
     if (item !== null) {
-      if (s.includes('<rect ')) {
-        newObj.type = 'rect'
-        newObj.left = Number(item.getAttribute('x'))
-        newObj.top = Number(item.getAttribute('y'))
-        newObj.width = Number(item.getAttribute('width'))
-        newObj.height = Number(item.getAttribute('height'))
-        newObj.ry = Number(item.getAttribute('ry'))
-        newObj.rx = Number(item.getAttribute('rx'))
-        newObj.fill = 'transparent'
-      } else if (s.includes('<circle ')) {
-        newObj.type = 'circle'
-        newObj.left = Number(item.getAttribute('cx')) - Number(item.getAttribute('r'))
-        newObj.top = Number(item.getAttribute('cy')) - Number(item.getAttribute('r'))
-        newObj.radius = Number(item.getAttribute('r'))
-        newObj.fill = 'transparent'
+      if (s.includes("<rect ")) {
+        newObj.type = "rect"
+        newObj.left = Number(item.getAttribute("x"))
+        newObj.top = Number(item.getAttribute("y"))
+        newObj.width = Number(item.getAttribute("width"))
+        newObj.height = Number(item.getAttribute("height"))
+        newObj.ry = Number(item.getAttribute("ry"))
+        newObj.rx = Number(item.getAttribute("rx"))
+        newObj.fill = "transparent"
+      } else if (s.includes("<circle ")) {
+        newObj.type = "circle"
+        newObj.left =
+          Number(item.getAttribute("cx")) - Number(item.getAttribute("r"))
+        newObj.top =
+          Number(item.getAttribute("cy")) - Number(item.getAttribute("r"))
+        newObj.radius = Number(item.getAttribute("r"))
+        newObj.fill = "transparent"
         newObj.lockRotation = true
         newObj.lockUniScaling = true
       }
@@ -58,11 +64,11 @@ export const SVGtoFabric = svg => {
 export const CanvasAddedProp = target => {
   const newTarget = target
 
-  if (newTarget && newTarget.type === 'circle') {
+  if (newTarget && newTarget.type === "circle") {
     newTarget.lockUniScaling = true
     newTarget.lockRotation = true
     newTarget.angle = 0
-    newTarget.originY = 'top'
+    newTarget.originY = "top"
   }
 
   return newTarget
@@ -70,14 +76,14 @@ export const CanvasAddedProp = target => {
 
 const regexCollection = {
   react: /const MyLoader = \(\) => \([\s\S]*?<ContentLoader[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/,
-  vue: /<template>[\s\S]*?<content-loader[\s\S]*?:height=".*"[\s\S]*?:width=".*"[\s\S]*?:speed=".*"[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>((.|\s)*)<\/content-loader>[\s\S]*?<\/template>[\s\S]*?/,
+  vue: /<template>[\s\S]*?<content-loader[\s\S]*?:height=".*"[\s\S]*?:width=".*"[\s\S]*?:speed=".*"[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>((.|\s)*)<\/content-loader>[\s\S]*?<\/template>[\s\S]*?/
 }
 
 export const getReactInfo = (component, framework) => {
   const obj = {}
-  obj.width = Number(component.match(/width=({(.*?)}|"(.*?)")/)[3])
-  obj.height = Number(component.match(/height=({(.*?)}|"(.*?)")/)[3])
-  obj.speed = Number(component.match(/speed=({(.*?)}|"(.*?)")/)[3])
+  obj.width = Number(component.match(/width=({(.*?)}|"(.*?)")/)[2])
+  obj.height = Number(component.match(/height=({(.*?)}|"(.*?)")/)[2])
+  obj.speed = Number(component.match(/speed=({(.*?)}|"(.*?)")/)[2])
   obj.primaryColor = component.match(/primaryColor="(.*?)"/)[1]
   obj.secondaryColor = component.match(/secondaryColor="(.*?)"/)[1]
   obj.draw = component.match(regexCollection[framework])[1].trim()
@@ -86,9 +92,9 @@ export const getReactInfo = (component, framework) => {
 }
 
 export const VueToReact = (code, framework) => {
-  if (framework === 'vue') {
+  if (framework === "vue") {
     const data = getReactInfo(code, framework)
-    const reactCode = template({ data, type: 'react' })
+    const reactCode = template({ data, type: "react" })
 
     return reactCode
   }

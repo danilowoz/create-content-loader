@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 /* Grid */
@@ -36,7 +36,7 @@ body {
   height: 1em;
   overflow: hidden;
   position: relative;
-  transition: width .7s ease;
+  transition: width 0.7s ease;
 }
 
 .app-header_framework.vue {
@@ -148,7 +148,7 @@ body {
 .app-editor__tab span,
 .app-editor__tab:before,
 .app-editor__tab:after {
-  content: '';
+  content: "";
   height: 12px;
   width: 12px;
   border-radius: 100%;
@@ -175,7 +175,7 @@ body {
   float: right;
   cursor: pointer;
   opacity: 0;
-  transition: opacity .2s ease;
+  transition: opacity 0.2s ease;
   text-transform: uppercase;
   font-size: 0.6em;
   color: #999;
@@ -202,21 +202,44 @@ body {
 .app-canvas {
   position: relative;
   min-height: 8em;
+  transition: all 0.3s ease;
+}
+
+.app-canvas:hover {
+  background-image: -webkit-repeating-radial-gradient(
+    top center,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.08) 1px,
+    transparent 1px,
+    transparent 100%
+  );
+  background-size: 20px 20px;
+}
+
+.app-canvas__guideline {
+  background-repeat: no-repeat;
 }
 
 .app-canvas__sketch {
   position: absolute;
   left: 0;
   top: 0;
-}
-
-.app-canvas__sketch {
-  border: 1px solid #fff;
+  border: 1px solid transparent;
   transition: border 0.3s ease;
+  border-radius: 3px;
 }
 
-.app-canvas__sketch:hover {
+.app-canvas:hover .app-canvas__sketch {
   border: 1px solid #f5f5f5;
+}
+
+.react-live-preview {
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.app-canvas:hover .react-live-preview {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .app-canvas__draw .upper-canvas {
@@ -304,10 +327,10 @@ body {
   align-items: center;
   font-size: 0.9em;
   padding-right: 1em;
-  margin-right: .8em;
+  margin-right: 0.8em;
   margin-bottom: 1em;
-  opacity: .5;
-  transition: all .3s ease;
+  opacity: 0.5;
+  transition: all 0.3s ease;
   color: #686768;
 }
 
@@ -323,20 +346,20 @@ body {
   top: -0.3em;
   text-decoration: none;
   opacity: 0;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .handle-framework--vue.current + a,
 .handle-framework--vue:hover + a {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .handle-framework--vue.current + a {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .handle-framework--vue + a:hover {
-  opacity: .5;
+  opacity: 0.5;
   text-decoration: underline;
 }
 
@@ -346,7 +369,7 @@ body {
 
 .handle-framework img {
   height: 1.3em;
-  margin-right: .8em;
+  margin-right: 0.8em;
 }
 
 /* Config */
@@ -371,7 +394,7 @@ body {
 }
 
 .app-config label {
-  margin-right: .4em;
+  margin-right: 0.4em;
   display: block;
   font-weight: 300;
   color: #a5a5a5;
@@ -411,13 +434,21 @@ body {
   padding: 0;
 }
 
-input[type=color]::-webkit-color-swatch {
+input[type="color"]::-webkit-color-swatch {
   border: 0;
   border-radius: 2px;
   position: relative;
   top: 4px;
 }
 
+.app-config .app-config__guideline {
+  width: 100%;
+}
+
+.app-config .app-config__guideline input {
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+}
 
 /* Assign */
 .app-assign {
