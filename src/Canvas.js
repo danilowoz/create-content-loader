@@ -152,21 +152,17 @@ class Canvas extends Component {
         })}
         key="canvas"
       >
-        <div
-          className="app-canvas__guideline"
-          style={{ backgroundImage: `url(${guideline})` }}
-        >
-          {children}
-          <SketchField
-            width={`${width}px`}
-            height={`${height}px`}
-            tool={tool}
-            lineWidth={0}
-            color="black"
-            ref={c => (this._sketch = c)}
-            className="app-canvas__sketch"
-          />
-        </div>
+        {guideline && <img src={guideline} className="app-canvas__guideline" />}
+        {children}
+        <SketchField
+          width={`${width}px`}
+          height={`${height}px`}
+          tool={tool}
+          lineWidth={0}
+          color="black"
+          ref={c => (this._sketch = c)}
+          className="app-canvas__sketch"
+        />
       </div>
     ]
   }

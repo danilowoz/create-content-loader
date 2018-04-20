@@ -107,6 +107,23 @@ class App extends Component {
     debounce(500, this.setState({ [name]: value, renderCanvas: false }))
   }
 
+  componentDidCatch(error, info) {
+    this.setState({
+      framework: "react",
+      width: 400,
+      height: 160,
+      speed: 2,
+      primaryColor: "#f3f3f3",
+      secondaryColor: "#ecebeb",
+      draw: facebook,
+      tool: Tools.Select,
+      activeItem: false,
+      renderCanvas: true,
+      focusEditor: false,
+      guideline: ""
+    })
+  }
+
   render() {
     const {
       width,

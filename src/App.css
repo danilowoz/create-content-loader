@@ -118,6 +118,10 @@ body {
   font-weight: 300;
 }
 
+.app-header__loader {
+  max-width: 570px;
+}
+
 /* Editor */
 .app-editor {
   background: #151515;
@@ -203,6 +207,7 @@ body {
   position: relative;
   min-height: 8em;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .app-canvas:hover {
@@ -217,13 +222,25 @@ body {
 }
 
 .app-canvas__guideline {
-  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.app-canvas:hover .app-canvas__guideline {
+  opacity: 1;
 }
 
 .app-canvas__sketch {
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 1;
   border: 1px solid transparent;
   transition: border 0.3s ease;
   border-radius: 3px;
@@ -236,10 +253,13 @@ body {
 .react-live-preview {
   transition: all 0.3s ease;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 .app-canvas:hover .react-live-preview {
-  background: rgba(255, 255, 255, 0.7);
+  background: #fff;
+  opacity: 0.9;
 }
 
 .app-canvas__draw .upper-canvas {
