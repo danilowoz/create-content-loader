@@ -1,12 +1,30 @@
 import React, { Component } from "react"
 import { SketchField, Tools } from "react-sketch"
 import classnames from "classnames"
+import { Tooltip } from "react-tippy"
 
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from "./utils"
 import selectIcon from "./assets/select.svg"
 import trashtIcon from "./assets/trash.svg"
+import undoIcon from "./assets/undo.svg"
+import redoIcon from "./assets/redo.svg"
 import rectIcon from "./assets/rect.svg"
 import circleIcon from "./assets/circle.svg"
+
+import "./tippy.css"
+
+const Tip = ({ title, children }) => (
+  <Tooltip
+    title={title}
+    arrow
+    distance={25}
+    trigger="mouseenter"
+    animation="shift"
+    size="small"
+  >
+    {children}
+  </Tooltip>
+)
 
 class Canvas extends Component {
   constructor(props) {
@@ -45,6 +63,18 @@ class Canvas extends Component {
     if (this._sketch) {
       const draw = JsonToSVG(this._sketch._fc.toJSON())
       this.props._HandleDraw(draw)
+    }
+  }
+
+  _RedoDraw = () => {
+    if (this._sketch) {
+      this._sketch.redo()
+    }
+  }
+
+  _UndoDraw = () => {
+    if (this._sketch) {
+      this._sketch.undo()
     }
   }
 
@@ -88,7 +118,8 @@ class Canvas extends Component {
       activeItem,
       tool,
       children,
-      guideline
+      guideline,
+      draw
     } = this.props
 
     return [
@@ -99,7 +130,9 @@ class Canvas extends Component {
           })}
           onClick={() => _HandleTool(Tools.Select)}
         >
-          <img src={selectIcon} alt="select tool" />
+          <Tip title="Select tool">
+            <img src={selectIcon} alt="select tool" />
+          </Tip>
         </button>
         <button
           className={classnames("app-handlers__tool", {
@@ -107,7 +140,9 @@ class Canvas extends Component {
           })}
           onClick={() => _HandleTool(Tools.Rectangle)}
         >
-          <img src={rectIcon} alt="rect tool" />
+          <Tip title="Rect tool">
+            <img src={rectIcon} alt="rect tool" />
+          </Tip>
         </button>
         <button
           className={classnames("app-handlers__tool", {
@@ -115,7 +150,25 @@ class Canvas extends Component {
           })}
           onClick={() => _HandleTool(Tools.Circle)}
         >
-          <img src={circleIcon} alt="circle tool" />
+          <Tip title="Circle tool">
+            <img src={circleIcon} alt="circle tool" />
+          </Tip>
+        </button>
+
+        <button
+          disabled={!draw}
+          className="app-handlers__tool"
+          onClick={this._UndoDraw}
+        >
+          <Tip title="Undo">
+            <img src={undoIcon} alt="undo" />
+          </Tip>
+        </button>
+
+        <button className="app-handlers__tool" onClick={this._RedoDraw}>
+          <Tip title="Redo">
+            <img src={redoIcon} alt="redo" />
+          </Tip>
         </button>
 
         <div className="app-handlers__div">Presets:</div>
@@ -155,7 +208,9 @@ class Canvas extends Component {
 
         {activeItem && (
           <button className="app-handler__trash" onClick={this._RemoveItem}>
-            <img src={trashtIcon} alt="remove item" />
+            <Tip title="Delete selected item">
+              <img src={trashtIcon} alt="remove item" />
+            </Tip>
           </button>
         )}
       </div>,

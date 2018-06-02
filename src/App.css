@@ -526,3 +526,17 @@ input[type="color"]::-webkit-color-swatch {
   position: relative;
   top: 4px;
 }
+
+.tippy-tooltip {
+  position: relative;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #333;
+  pointer-events: none;
+}
