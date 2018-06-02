@@ -14,7 +14,8 @@
     "react-live": "^1.7.1",
     "react-scripts": "1.0.17",
     "react-sketch": "^0.4.1",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "^1.0.1",
+    "wipe.css": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

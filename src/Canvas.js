@@ -152,7 +152,13 @@ class Canvas extends Component {
         })}
         key="canvas"
       >
-        {guideline && <img src={guideline} className="app-canvas__guideline" />}
+        {guideline && (
+          <img
+            src={guideline}
+            className="app-canvas__guideline"
+            alt="guideline"
+          />
+        )}
         {children}
         <SketchField
           width={`${width}px`}
