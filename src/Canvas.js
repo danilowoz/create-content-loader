@@ -20,6 +20,7 @@ class Canvas extends Component {
   componentDidMount() {
     this._Events()
     this._SVGtoCanvas()
+    this._RemoveByKeyPress()
   }
 
   _SVGtoCanvas = () => {
@@ -45,6 +46,18 @@ class Canvas extends Component {
       const draw = JsonToSVG(this._sketch._fc.toJSON())
       this.props._HandleDraw(draw)
     }
+  }
+
+  _RemoveByKeyPress = () => {
+    document.addEventListener(
+      "keydown",
+      e => {
+        if (e.code === "Backspace") {
+          this._RemoveItem()
+        }
+      },
+      false
+    )
   }
 
   _RemoveItem = () => {
