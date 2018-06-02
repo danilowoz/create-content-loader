@@ -2,12 +2,11 @@ import React, { Component } from "react"
 import { SketchField, Tools } from "react-sketch"
 import classnames from "classnames"
 import { Tooltip } from "react-tippy"
+import ClickOutside from "react-click-outside"
 
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from "./utils"
 import selectIcon from "./assets/select.svg"
 import trashtIcon from "./assets/trash.svg"
-import undoIcon from "./assets/undo.svg"
-import redoIcon from "./assets/redo.svg"
 import rectIcon from "./assets/rect.svg"
 import circleIcon from "./assets/circle.svg"
 
@@ -42,21 +41,23 @@ class Canvas extends Component {
   }
 
   _SVGtoCanvas = () => {
-    const canvas = this._sketch._fc
+    const canvas = this._sketch && this._sketch._fc
     const arrFabric = SVGtoFabric(this.props.draw)
 
-    arrFabric.forEach(a => {
-      let draw
-      if (a && a.type === "rect") {
-        draw = new window.fabric.Rect(a)
-      } else if (a && a.type === "circle") {
-        draw = new window.fabric.Circle(a)
-      }
+    if (canvas) {
+      arrFabric.forEach(a => {
+        let draw
+        if (a && a.type === "rect") {
+          draw = new window.fabric.Rect(a)
+        } else if (a && a.type === "circle") {
+          draw = new window.fabric.Circle(a)
+        }
 
-      draw && canvas.add(draw)
-    })
+        draw && canvas.add(draw)
+      })
 
-    canvas.renderAll()
+      canvas.renderAll()
+    }
   }
 
   _RenderCanvas = () => {
@@ -66,15 +67,11 @@ class Canvas extends Component {
     }
   }
 
-  _RedoDraw = () => {
-    if (this._sketch) {
-      this._sketch.redo()
-    }
-  }
-
-  _UndoDraw = () => {
-    if (this._sketch) {
-      this._sketch.undo()
+  _RemoveSelection = () => {
+    const canvas = this._sketch && this._sketch._fc
+    if (canvas) {
+      canvas.deactivateAll().renderAll()
+      this.props._HandleSelectedItem(false)
     }
   }
 
@@ -91,8 +88,11 @@ class Canvas extends Component {
   }
 
   _RemoveItem = () => {
-    const canvas = this._sketch._fc
-    canvas.remove(canvas.getActiveObject())
+    const canvas = this._sketch && this._sketch._fc
+
+    if (canvas && canvas.getActiveObject()) {
+      canvas.remove(canvas.getActiveObject())
+    }
   }
 
   _Events = () => {
@@ -118,8 +118,7 @@ class Canvas extends Component {
       activeItem,
       tool,
       children,
-      guideline,
-      draw
+      guideline
     } = this.props
 
     return [
@@ -152,22 +151,6 @@ class Canvas extends Component {
         >
           <Tip title="Circle tool">
             <img src={circleIcon} alt="circle tool" />
-          </Tip>
-        </button>
-
-        <button
-          disabled={!draw}
-          className="app-handlers__tool"
-          onClick={this._UndoDraw}
-        >
-          <Tip title="Undo">
-            <img src={undoIcon} alt="undo" />
-          </Tip>
-        </button>
-
-        <button className="app-handlers__tool" onClick={this._RedoDraw}>
-          <Tip title="Redo">
-            <img src={redoIcon} alt="redo" />
           </Tip>
         </button>
 
@@ -228,15 +211,17 @@ class Canvas extends Component {
           />
         )}
         {children}
-        <SketchField
-          width={`${width}px`}
-          height={`${height}px`}
-          tool={tool}
-          lineWidth={0}
-          color="black"
-          ref={c => (this._sketch = c)}
-          className="app-canvas__sketch"
-        />
+        <ClickOutside onClickOutside={this._RemoveSelection}>
+          <SketchField
+            width={`${width}px`}
+            height={`${height}px`}
+            tool={tool}
+            lineWidth={0}
+            color="black"
+            ref={c => (this._sketch = c)}
+            className="app-canvas__sketch"
+          />
+        </ClickOutside>
       </div>
     ]
   }
