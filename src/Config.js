@@ -17,7 +17,7 @@ const Config = ({
         <label htmlFor="guideline">Image guideline:</label>
         <input
           placeholder="Paste a url to set an image as background on canvas"
-          type="text"
+          type="search"
           id="guideline"
           name="guideline"
           value={guideline}

@@ -1,12 +1,29 @@
 import React, { Component } from "react"
 import { SketchField, Tools } from "react-sketch"
 import classnames from "classnames"
+import { Tooltip } from "react-tippy"
+import ClickOutside from "react-click-outside"
 
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from "./utils"
 import selectIcon from "./assets/select.svg"
 import trashtIcon from "./assets/trash.svg"
 import rectIcon from "./assets/rect.svg"
 import circleIcon from "./assets/circle.svg"
+
+import "./tippy.css"
+
+const Tip = ({ title, children }) => (
+  <Tooltip
+    title={title}
+    arrow
+    distance={25}
+    trigger="mouseenter"
+    animation="shift"
+    size="small"
+  >
+    {children}
+  </Tooltip>
+)
 
 class Canvas extends Component {
   constructor(props) {
@@ -20,24 +37,27 @@ class Canvas extends Component {
   componentDidMount() {
     this._Events()
     this._SVGtoCanvas()
+    this._RemoveByKeyPress()
   }
 
   _SVGtoCanvas = () => {
-    const canvas = this._sketch._fc
+    const canvas = this._sketch && this._sketch._fc
     const arrFabric = SVGtoFabric(this.props.draw)
 
-    arrFabric.forEach(a => {
-      let draw
-      if (a && a.type === "rect") {
-        draw = new window.fabric.Rect(a)
-      } else if (a && a.type === "circle") {
-        draw = new window.fabric.Circle(a)
-      }
+    if (canvas) {
+      arrFabric.forEach(a => {
+        let draw
+        if (a && a.type === "rect") {
+          draw = new window.fabric.Rect(a)
+        } else if (a && a.type === "circle") {
+          draw = new window.fabric.Circle(a)
+        }
 
-      draw && canvas.add(draw)
-    })
+        draw && canvas.add(draw)
+      })
 
-    canvas.renderAll()
+      canvas.renderAll()
+    }
   }
 
   _RenderCanvas = () => {
@@ -47,9 +67,32 @@ class Canvas extends Component {
     }
   }
 
+  _RemoveSelection = () => {
+    const canvas = this._sketch && this._sketch._fc
+    if (canvas) {
+      canvas.deactivateAll().renderAll()
+      this.props._HandleSelectedItem(false)
+    }
+  }
+
+  _RemoveByKeyPress = () => {
+    document.addEventListener(
+      "keydown",
+      e => {
+        if (e.code === "Backspace") {
+          this._RemoveItem()
+        }
+      },
+      false
+    )
+  }
+
   _RemoveItem = () => {
-    const canvas = this._sketch._fc
-    canvas.remove(canvas.getActiveObject())
+    const canvas = this._sketch && this._sketch._fc
+
+    if (canvas && canvas.getActiveObject()) {
+      canvas.remove(canvas.getActiveObject())
+    }
   }
 
   _Events = () => {
@@ -86,7 +129,9 @@ class Canvas extends Component {
           })}
           onClick={() => _HandleTool(Tools.Select)}
         >
-          <img src={selectIcon} alt="select tool" />
+          <Tip title="Select tool">
+            <img src={selectIcon} alt="select tool" />
+          </Tip>
         </button>
         <button
           className={classnames("app-handlers__tool", {
@@ -94,7 +139,9 @@ class Canvas extends Component {
           })}
           onClick={() => _HandleTool(Tools.Rectangle)}
         >
-          <img src={rectIcon} alt="rect tool" />
+          <Tip title="Rect tool">
+            <img src={rectIcon} alt="rect tool" />
+          </Tip>
         </button>
         <button
           className={classnames("app-handlers__tool", {
@@ -102,7 +149,9 @@ class Canvas extends Component {
           })}
           onClick={() => _HandleTool(Tools.Circle)}
         >
-          <img src={circleIcon} alt="circle tool" />
+          <Tip title="Circle tool">
+            <img src={circleIcon} alt="circle tool" />
+          </Tip>
         </button>
 
         <div className="app-handlers__div">Presets:</div>
@@ -142,7 +191,9 @@ class Canvas extends Component {
 
         {activeItem && (
           <button className="app-handler__trash" onClick={this._RemoveItem}>
-            <img src={trashtIcon} alt="remove item" />
+            <Tip title="Delete selected item">
+              <img src={trashtIcon} alt="remove item" />
+            </Tip>
           </button>
         )}
       </div>,
@@ -152,17 +203,25 @@ class Canvas extends Component {
         })}
         key="canvas"
       >
-        {guideline && <img src={guideline} className="app-canvas__guideline" />}
+        {guideline && (
+          <img
+            src={guideline}
+            className="app-canvas__guideline"
+            alt="guideline"
+          />
+        )}
         {children}
-        <SketchField
-          width={`${width}px`}
-          height={`${height}px`}
-          tool={tool}
-          lineWidth={0}
-          color="black"
-          ref={c => (this._sketch = c)}
-          className="app-canvas__sketch"
-        />
+        <ClickOutside onClickOutside={this._RemoveSelection}>
+          <SketchField
+            width={`${width}px`}
+            height={`${height}px`}
+            tool={tool}
+            lineWidth={0}
+            color="black"
+            ref={c => (this._sketch = c)}
+            className="app-canvas__sketch"
+          />
+        </ClickOutside>
       </div>
     ]
   }

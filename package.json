@@ -8,13 +8,16 @@
     "clipboard": "^2.0.0",
     "css": "^2.2.1",
     "react": "^16.1.1",
+    "react-click-outside": "tj/react-click-outside",
     "react-content-loader": "^3.0.1",
     "react-css": "^0.0.2",
     "react-dom": "^16.1.1",
     "react-live": "^1.7.1",
     "react-scripts": "1.0.17",
     "react-sketch": "^0.4.1",
-    "throttle-debounce": "^1.0.1"
+    "react-tippy": "^1.2.2",
+    "throttle-debounce": "^1.0.1",
+    "wipe.css": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

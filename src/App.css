@@ -7,10 +7,15 @@ body {
 /* Grid */
 .App {
   margin: 2em;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto 1fr;
-  grid-gap: 0 5em;
+}
+
+@media screen and (min-width: 48em) {
+  .App {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-gap: 0 5em;
+  }
 }
 
 /* Header */
@@ -210,15 +215,27 @@ body {
   overflow: hidden;
 }
 
-.app-canvas:hover {
+.app-canvas:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: -webkit-repeating-radial-gradient(
     top center,
-    rgba(0, 0, 0, 0.08),
-    rgba(0, 0, 0, 0.08) 1px,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
     transparent 1px,
     transparent 100%
   );
   background-size: 20px 20px;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.app-canvas:hover:before {
+  opacity: 1;
 }
 
 .app-canvas__guideline {
@@ -252,13 +269,11 @@ body {
 
 .react-live-preview {
   transition: all 0.3s ease;
-  background: #fff;
   position: relative;
   z-index: 1;
 }
 
 .app-canvas:hover .react-live-preview {
-  background: #fff;
   opacity: 0.9;
 }
 
@@ -510,4 +525,18 @@ input[type="color"]::-webkit-color-swatch {
   display: inline-block;
   position: relative;
   top: 4px;
+}
+
+.tippy-tooltip {
+  position: relative;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #333;
+  pointer-events: none;
 }
