@@ -72,8 +72,9 @@ class Canvas extends Component {
       eventFromOutsideClick &&
       !eventFromOutsideClick.path.includes(this.trashButton)
     const canvas = this._sketch && this._sketch._fc
+    const { activeItem } = this.props
 
-    if (canvas && notClickingOnTrashButton) {
+    if (canvas && notClickingOnTrashButton && activeItem) {
       canvas.deactivateAll().renderAll()
       this.props._HandleSelectedItem(false)
     }
