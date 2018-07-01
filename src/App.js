@@ -4,7 +4,6 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 import { Tools } from "react-sketch"
 import { debounce } from "throttle-debounce"
 import Clipboard from "clipboard"
-// import "wipe.css"
 
 import { getReactInfo, VueToReact } from "./utils"
 import { facebook, instagram, code, bulletList } from "./utils/presets"
