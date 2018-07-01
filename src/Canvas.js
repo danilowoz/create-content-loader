@@ -67,9 +67,13 @@ class Canvas extends Component {
     }
   }
 
-  _RemoveSelection = () => {
+  _RemoveSelection = eventFromOutsideClick => {
+    const notClickingOnTrashButton =
+      eventFromOutsideClick &&
+      !eventFromOutsideClick.path.includes(this.trashButton)
     const canvas = this._sketch && this._sketch._fc
-    if (canvas) {
+
+    if (canvas && notClickingOnTrashButton) {
       canvas.deactivateAll().renderAll()
       this.props._HandleSelectedItem(false)
     }
@@ -190,7 +194,11 @@ class Canvas extends Component {
         </button>
 
         {activeItem && (
-          <button className="app-handler__trash" onClick={this._RemoveItem}>
+          <button
+            className="app-handler__trash"
+            ref={n => (this.trashButton = n)}
+            onClick={this._RemoveItem}
+          >
             <Tip title="Delete selected item">
               <img src={trashtIcon} alt="remove item" />
             </Tip>
@@ -211,7 +219,11 @@ class Canvas extends Component {
           />
         )}
         {children}
-        <ClickOutside onClickOutside={this._RemoveSelection}>
+        <ClickOutside
+          onClickOutside={e => {
+            this._RemoveSelection(e)
+          }}
+        >
           <SketchField
             width={`${width}px`}
             height={`${height}px`}
