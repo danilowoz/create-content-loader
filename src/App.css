@@ -299,6 +299,7 @@ body {
   cursor: pointer;
 }
 
+.app-handler__clone,
 .app-handlers__tool {
   vertical-align: middle;
   width: 3.4em;
@@ -312,6 +313,12 @@ body {
   height: auto;
 }
 
+.app-handler__clone img {
+  width: 100%;
+  height: auto;
+}
+
+.app-handler__clone:hover,
 .app-handlers__tool:hover,
 .app-handlers__tool.app-handlers__active {
   opacity: 1;
@@ -322,6 +329,10 @@ body {
   width: 2.8em;
   opacity: 1;
   margin: 1px;
+}
+
+.app-handlers .app-handler__clone {
+  float: right;
 }
 
 .app-handlers .app-handlers__div {

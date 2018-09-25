@@ -1,16 +1,20 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import { SketchField, Tools } from "react-sketch"
 import classnames from "classnames"
 import { Tooltip } from "react-tippy"
 import ClickOutside from "react-click-outside"
 
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from "./utils"
+
 import selectIcon from "./assets/select.svg"
-import trashtIcon from "./assets/trash.svg"
+import trashIcon from "./assets/trash.svg"
+import cloneIcon from "./assets/clone.svg"
 import rectIcon from "./assets/rect.svg"
 import circleIcon from "./assets/circle.svg"
 
 import "./tippy.css"
+
+const CLONE_OFFSET = 15;
 
 const Tip = ({ title, children }) => (
   <Tooltip
@@ -71,10 +75,13 @@ class Canvas extends Component {
     const notClickingOnTrashButton =
       eventFromOutsideClick &&
       !eventFromOutsideClick.path.includes(this.trashButton)
+    const notClickingOnCloneButton =
+      eventFromOutsideClick &&
+      !eventFromOutsideClick.path.includes(this.cloneButton)
     const canvas = this._sketch && this._sketch._fc
     const { activeItem } = this.props
 
-    if (canvas && notClickingOnTrashButton && activeItem) {
+    if (canvas && notClickingOnTrashButton && notClickingOnCloneButton && activeItem) {
       canvas.deactivateAll().renderAll()
       this.props._HandleSelectedItem(false)
     }
@@ -98,6 +105,20 @@ class Canvas extends Component {
     if (canvas && canvas.getActiveObject()) {
       canvas.remove(canvas.getActiveObject())
     }
+  }
+
+  _CloneItem = () => {
+      const canvas = this._sketch && this._sketch._fc
+
+      if (canvas && canvas.getActiveObject()) {
+          const clone = canvas.getActiveObject().clone()
+          // offset selection slightly to emphasise clone
+          clone.left += CLONE_OFFSET
+          clone.top += CLONE_OFFSET
+
+          canvas.add(clone)
+          canvas.setActiveObject(clone)
+      }
   }
 
   _Events = () => {
@@ -126,117 +147,130 @@ class Canvas extends Component {
       guideline
     } = this.props
 
-    return [
-      <div className="app-handlers" key="handlers">
-        <button
-          className={classnames("app-handlers__tool", {
-            "app-handlers__active": tool === "select"
-          })}
-          onClick={() => _HandleTool(Tools.Select)}
-        >
-          <Tip title="Select tool">
-            <img src={selectIcon} alt="select tool" />
-          </Tip>
-        </button>
-        <button
-          className={classnames("app-handlers__tool", {
-            "app-handlers__active": tool === "rectangle"
-          })}
-          onClick={() => _HandleTool(Tools.Rectangle)}
-        >
-          <Tip title="Rect tool">
-            <img src={rectIcon} alt="rect tool" />
-          </Tip>
-        </button>
-        <button
-          className={classnames("app-handlers__tool", {
-            "app-handlers__active": tool === "circle"
-          })}
-          onClick={() => _HandleTool(Tools.Circle)}
-        >
-          <Tip title="Circle tool">
-            <img src={circleIcon} alt="circle tool" />
-          </Tip>
-        </button>
-
-        <div className="app-handlers__div">Presets:</div>
-
-        <button
-          className="app-handlers__preset"
-          value="facebook"
-          data-height="160"
-          onClick={_HandlePreset}
-        >
-          facebook
-        </button>
-        <button
-          className="app-handlers__preset"
-          value="instagram"
-          data-height="475"
-          onClick={_HandlePreset}
-        >
-          instagram
-        </button>
-        <button
-          className="app-handlers__preset"
-          value="code"
-          data-height="160"
-          onClick={_HandlePreset}
-        >
-          code
-        </button>
-        <button
-          className="app-handlers__preset"
-          value="bulletList"
-          data-height="160"
-          onClick={_HandlePreset}
-        >
-          bulletList
-        </button>
-
-        {activeItem && (
+    return (
+      <Fragment>
+        <div className="app-handlers" key="handlers">
           <button
-            className="app-handler__trash"
-            ref={n => (this.trashButton = n)}
-            onClick={this._RemoveItem}
+            className={classnames("app-handlers__tool", {
+              "app-handlers__active": tool === "select"
+            })}
+            onClick={() => _HandleTool(Tools.Select)}
           >
-            <Tip title="Delete selected item">
-              <img src={trashtIcon} alt="remove item" />
+            <Tip title="Select tool">
+              <img src={selectIcon} alt="select tool" />
             </Tip>
           </button>
-        )}
-      </div>,
-      <div
-        className={classnames("app-canvas", {
-          "app-canvas__draw": tool === "rectangle" || tool === "circle"
-        })}
-        key="canvas"
-      >
-        {guideline && (
-          <img
-            src={guideline}
-            className="app-canvas__guideline"
-            alt="guideline"
-          />
-        )}
-        {children}
-        <ClickOutside
-          onClickOutside={e => {
-            this._RemoveSelection(e)
-          }}
+          <button
+            className={classnames("app-handlers__tool", {
+              "app-handlers__active": tool === "rectangle"
+            })}
+            onClick={() => _HandleTool(Tools.Rectangle)}
+          >
+            <Tip title="Rect tool">
+              <img src={rectIcon} alt="rect tool" />
+            </Tip>
+          </button>
+          <button
+            className={classnames("app-handlers__tool", {
+              "app-handlers__active": tool === "circle"
+            })}
+            onClick={() => _HandleTool(Tools.Circle)}
+          >
+            <Tip title="Circle tool">
+              <img src={circleIcon} alt="circle tool" />
+            </Tip>
+          </button>
+
+          <div className="app-handlers__div">Presets:</div>
+
+          <button
+            className="app-handlers__preset"
+            value="facebook"
+            data-height="160"
+            onClick={_HandlePreset}
+          >
+            facebook
+          </button>
+          <button
+            className="app-handlers__preset"
+            value="instagram"
+            data-height="475"
+            onClick={_HandlePreset}
+          >
+            instagram
+          </button>
+          <button
+            className="app-handlers__preset"
+            value="code"
+            data-height="160"
+            onClick={_HandlePreset}
+          >
+            code
+          </button>
+          <button
+            className="app-handlers__preset"
+            value="bulletList"
+            data-height="160"
+            onClick={_HandlePreset}
+          >
+            bulletList
+          </button>
+
+          {activeItem && (
+            <span>
+              <button
+                className="app-handler__trash"
+                ref={n => (this.trashButton = n)}
+                onClick={this._RemoveItem}
+              >
+                <Tip title="Delete selected item">
+                  <img src={trashIcon} alt="remove item" />
+                </Tip>
+              </button>
+              <button
+                className="app-handler__clone"
+                ref={n => (this.cloneButton = n)}
+                onClick={this._CloneItem}
+              >
+                  <Tip title="Clone tool">
+                      <img src={cloneIcon} alt="clone tool" />
+                  </Tip>
+              </button>
+            </span>
+          )}
+        </div>
+        <div
+          className={classnames("app-canvas", {
+            "app-canvas__draw": tool === "rectangle" || tool === "circle"
+          })}
+          key="canvas"
         >
-          <SketchField
-            width={`${width}px`}
-            height={`${height}px`}
-            tool={tool}
-            lineWidth={0}
-            color="black"
-            ref={c => (this._sketch = c)}
-            className="app-canvas__sketch"
-          />
-        </ClickOutside>
-      </div>
-    ]
+          {guideline && (
+            <img
+              src={guideline}
+              className="app-canvas__guideline"
+              alt="guideline"
+            />
+          )}
+          {children}
+          <ClickOutside
+            onClickOutside={e => {
+              this._RemoveSelection(e)
+            }}
+          >
+            <SketchField
+              width={`${width}px`}
+              height={`${height}px`}
+              tool={tool}
+              lineWidth={0}
+              color="black"
+              ref={c => (this._sketch = c)}
+              className="app-canvas__sketch"
+            />
+          </ClickOutside>
+        </div>
+      </Fragment>
+    )
   }
 }
 
