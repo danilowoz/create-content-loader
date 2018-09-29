@@ -7,7 +7,12 @@ export default ({ data = {}, type = "", importDeclaration = false }) => {
         ? 'import ContentLoader from "react-content-loader"\n\n'
         : ""
     }const MyLoader = props => (
-  <ContentLoader
+  <ContentLoader ${
+    data.rtl
+      ? `
+    rtl`
+      : ""
+  }
     height={${data.height}}
     width={${data.width}}
     speed={${data.speed}}
@@ -69,7 +74,10 @@ export const VueImport = () => (
       <span className="token punctuation">&gt;</span>
     </span>
     <br />
-    <span className="token keyword">{"  "}import </span>
+    <span className="token keyword">
+      {"  "}
+      import{" "}
+    </span>
     <span className="token punctuation">{`{ `}</span>
     ContentLoader
     <span className="token punctuation">{` }`}</span>
@@ -77,15 +85,20 @@ export const VueImport = () => (
     <span className="token string">"vue-content-loader"</span>
     <br />
     <br />
-    <span className="token keyword">{"  "}export</span>
+    <span className="token keyword">
+      {"  "}
+      export
+    </span>
     <span className="token keyword"> default </span>
     <span className="token punctuation">{`{`}</span>
     <br />
-    {"    "}components
+    {"    "}
+    components
     <span className="token punctuation">: </span>
     <span className="token punctuation">{`{`}</span>
     <br />
-    {"      "}ContentLoader
+    {"      "}
+    ContentLoader
     <br />
     <span className="token punctuation">{"    "}}</span>
     <br />

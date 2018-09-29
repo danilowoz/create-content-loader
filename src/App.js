@@ -18,18 +18,19 @@ import "./App.css"
 
 class App extends Component {
   state = {
-    framework: localStorage.getItem("framework") || "react",
-    width: localStorage.getItem("width") || 400,
-    height: localStorage.getItem("height") || 160,
-    speed: localStorage.getItem("speed") || 2,
-    primaryColor: localStorage.getItem("primaryColor") || "#f3f3f3",
-    secondaryColor: localStorage.getItem("secondaryColor") || "#ecebeb",
-    draw: localStorage.getItem("draw") || facebook,
-    tool: Tools.Select,
     activeItem: false,
-    renderCanvas: true,
+    draw: localStorage.getItem("draw") || facebook,
     focusEditor: false,
-    guideline: localStorage.getItem("guideline") || ""
+    framework: localStorage.getItem("framework") || "react",
+    guideline: localStorage.getItem("guideline") || "",
+    height: localStorage.getItem("height") || 160,
+    primaryColor: localStorage.getItem("primaryColor") || "#f3f3f3",
+    renderCanvas: true,
+    rtl: localStorage.getItem("rtl") || "",
+    secondaryColor: localStorage.getItem("secondaryColor") || "#ecebeb",
+    speed: localStorage.getItem("speed") || 2,
+    tool: Tools.Select,
+    width: localStorage.getItem("width") || 400
   }
 
   componentDidMount() {
@@ -99,8 +100,12 @@ class App extends Component {
     })
   }
 
-  _HandleInput = e => {
-    this.__DebouncedHandleInput(e.target.name, e.target.value)
+  _HandleInput = ({ target: { value, name } }) => {
+    this.__DebouncedHandleInput(name, value)
+  }
+
+  _HandleCheckbox = ({ target: { name, checked } }) => {
+    this.__DebouncedHandleInput(name, checked)
   }
 
   __DebouncedHandleInput = (name, value) => {
@@ -109,35 +114,27 @@ class App extends Component {
 
   componentDidCatch(error, info) {
     this.setState({
-      framework: "react",
-      width: 400,
-      height: 160,
-      speed: 2,
-      primaryColor: "#f3f3f3",
-      secondaryColor: "#ecebeb",
-      draw: facebook,
-      tool: Tools.Select,
       activeItem: false,
-      renderCanvas: true,
+      draw: facebook,
       focusEditor: false,
-      guideline: ""
+      framework: "react",
+      guideline: "",
+      height: 160,
+      primaryColor: "#f3f3f3",
+      renderCanvas: true,
+      secondaryColor: "#ecebeb",
+      speed: 2,
+      tool: Tools.Select,
+      width: 400,
+      rtl: false
     })
   }
 
   render() {
-    const {
-      width,
-      height,
-      speed,
-      primaryColor,
-      secondaryColor,
-      draw,
-      framework,
-      renderCanvas
-    } = this.state
+    const { framework, renderCanvas, ...state } = this.state
 
     const optMycode = {
-      data: { width, height, speed, primaryColor, secondaryColor, draw },
+      data: state,
       type: framework,
       importDeclaration: false
     }
@@ -224,6 +221,7 @@ class App extends Component {
             )}
             <Config
               {...this.state}
+              _HandleCheckbox={this._HandleCheckbox}
               _HandleInput={this._HandleInput}
               _ResetColors={this._ResetColors}
             />

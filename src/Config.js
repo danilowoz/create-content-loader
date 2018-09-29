@@ -2,28 +2,49 @@ import React from "react"
 
 const Config = ({
   _HandleInput,
+  _HandleCheckbox,
   _ResetColors,
   width,
   height,
   speed,
   size,
+  rtl,
   primaryColor,
   secondaryColor,
   guideline
 }) => (
   <div className="app-config">
+    <p className="app-config__guideline">
+      <label htmlFor="guideline">
+        <h4 className="properties">Image guideline:</h4>
+      </label>
+      <input
+        placeholder="Paste the url of an image here, to set it as background"
+        type="search"
+        id="guideline"
+        name="guideline"
+        value={guideline}
+        onChange={_HandleInput}
+      />
+    </p>
+
+    <h4 className="properties">Propeties:</h4>
     <div>
-      <p className="app-config__guideline">
-        <label htmlFor="guideline">Image guideline:</label>
-        <input
-          placeholder="Paste a url to set an image as background on canvas"
-          type="search"
-          id="guideline"
-          name="guideline"
-          value={guideline}
-          onChange={_HandleInput}
-        />
+      <p>
+        <label htmlFor="rtl">RTL content:</label>
+        <label htmlFor="rtl" className="toggle">
+          <input
+            type="checkbox"
+            className="toggle-input"
+            checked={rtl}
+            name="rtl"
+            id="rtl"
+            onChange={_HandleCheckbox}
+          />
+          <span className={`toggle-check ${rtl ? "checked" : ""}`} />
+        </label>
       </p>
+
       <p>
         <label htmlFor="width">width:</label>
         <input
@@ -77,7 +98,8 @@ const Config = ({
           onChange={_HandleInput}
         />
       </p>
-      <button onClick={_ResetColors}>Reset colors</button>
+
+      {/* <button onClick={_ResetColors}>Reset colors</button> */}
     </div>
   </div>
 )

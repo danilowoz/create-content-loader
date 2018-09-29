@@ -2,11 +2,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Nunito", sans-serif;
+  min-height: 100vh;
 }
 
 /* Grid */
 .App {
-  margin: 2em;
+  padding: 0 2em;
+  margin: 2em auto;
+  max-width: 120em;
 }
 
 @media screen and (min-width: 48em) {
@@ -480,11 +483,75 @@ body {
   padding: 0;
 }
 
-input[type="color"]::-webkit-color-swatch {
+.app-config input[type="color"]::-webkit-color-swatch {
   border: 0;
   border-radius: 2px;
   position: relative;
   top: 4px;
+}
+
+.app-config input[type="checkbox"] {
+  height: auto;
+  width: auto;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.app-config .properties {
+  margin-bottom: 0;
+  color: #000;
+}
+
+.app-config .toggle {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.app-config .toggle-input {
+  display: none;
+}
+
+.app-config .toggle-check {
+  margin-right: 0.75em;
+  position: relative;
+  margin-top: 0.2em;
+}
+
+.app-config .toggle-check:before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 2.2rem;
+  height: 1.45rem;
+  border-radius: 1rem;
+  background: #f8f8f8;
+  cursor: pointer;
+  background: #eee;
+  transition: all 0.3s ease;
+}
+
+.app-config .toggle-check:after {
+  content: "";
+  display: block;
+  background: #fff;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.02);
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 1.2rem;
+  position: absolute;
+  left: 0.15rem;
+  top: 0.15rem;
+  transition: all 0.3s ease;
+}
+
+.app-config .toggle-check.checked:before {
+  box-shadow: inset 0 0 0 18px #1cd01c;
+}
+
+.app-config .toggle-check.checked:after {
+  left: calc(100% - 1.15rem - 0.15rem);
 }
 
 .app-config .app-config__guideline {
@@ -531,7 +598,7 @@ input[type="color"]::-webkit-color-swatch {
   top: 0.2em;
 }
 
-.app-assign__stars iframe {
+.app-assign__stars span {
   margin-left: 1em;
   display: inline-block;
   position: relative;
