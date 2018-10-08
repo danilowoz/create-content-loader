@@ -14,6 +14,7 @@ import ReactIcon from "./assets/react.svg"
 import VueIcon from "./assets/vue.svg"
 import Header from "./Header"
 import Footer from "./Footer"
+import Showcase from "./Showcase"
 import "./App.css"
 
 class App extends Component {
@@ -227,6 +228,7 @@ class App extends Component {
             />
           </div>
         </div>
+        <Showcase />
       </LiveProvider>
     )
   }

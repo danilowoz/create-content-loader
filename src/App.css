@@ -618,3 +618,30 @@ body {
   background-color: #333;
   pointer-events: none;
 }
+
+.showcase-button {
+  color: #637cc3;
+  letter-spacing: -0.2px;
+  font-size: 1.4em;
+  margin-top: 1em;
+  animation: showcase 5s ease infinite;
+  text-align: center;
+}
+
+@keyframes showcase {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  0% {
+    transform: translateY(0);
+  }
+}
