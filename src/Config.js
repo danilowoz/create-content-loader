@@ -99,7 +99,7 @@ const Config = ({
         />
       </p>
 
-      {/* <button onClick={_ResetColors}>Reset colors</button> */}
+      <button onClick={_ResetColors}>Reset colors</button>
     </div>
   </div>
 )

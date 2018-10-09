@@ -1,0 +1,86 @@
+.showcase {
+  border-top: 1px solid #e6e7eb80;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(255, 255, 255, 1) 40%
+  );
+}
+
+.showcase-button {
+  color: #637cc3;
+  letter-spacing: -0.2px;
+  font-size: 1.4em;
+  padding: 1em 0;
+  animation: showcase 5s ease infinite;
+  text-align: center;
+}
+
+.showcase-button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes showcase {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  0% {
+    transform: translateY(0);
+  }
+}
+
+.showcase-grid {
+  padding: 0 2em;
+  margin: 2em auto;
+  max-width: 120em;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showcase-item {
+  box-sizing: border-box;
+  margin: 15px;
+  padding: 30px;
+  width: calc((100% / 3) - 30px);
+  background-color: #ffffff;
+  border: 1px solid #e6e7eb;
+  border-radius: 4px;
+  box-shadow: 0 3px 4px 0 rgba(75, 84, 94, 0.1);
+}
+
+.showcase-caption {
+  box-sizing: border-box;
+  padding-top: 16px;
+  margin-top: 16px;
+  margin-bottom: -8px;
+  border-top: 1px solid #eee;
+}
+
+.showcase-item h4 {
+  margin: 0;
+  margin-right: 0.7em;
+  font-weight: 300;
+  display: inline-block;
+}
+
+.showcase-item a {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 0.8em;
+  color: #a5a5a5;
+}
+
+.showcase-item a:hover {
+  text-decoration: underline;
+}

@@ -6,11 +6,11 @@
   <a href="https://danilowoz.github.io/create-content-loader/">Access the online tool</a>
 </p>
 
-## Create {React|Vue} content-loader
+## Create React content-loader
 
 **Have you heard about [react-content-loader](https://github.com/danilowoz/react-content-loader)? It's a SVG component to create placeholder loading, like Facebook cards loading or also known as skeleton UI.** So now you can use this [online tool](https://danilowoz.github.io/create-content-loader/) to create your own loader easily. You just need to draw using the canvas or code using the live editing!
 
-Read the documentation of [react-content-loader](https://github.com/danilowoz/react-content-loader) or [vue-content-loader](https://github.com/egoist/vue-content-loader).
+Read the documentation of [react-content-loader](https://github.com/danilowoz/react-content-loader)
 
 ### Available Scripts
 

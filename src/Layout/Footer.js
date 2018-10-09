@@ -1,7 +1,7 @@
 import React from "react"
 
-import ReactIcon from "./assets/react.svg"
-import HeartIcon from "./assets/heart.png"
+import ReactIcon from "../assets/react.svg"
+import HeartIcon from "../assets/heart.png"
 
 const Footer = () => (
   <div className="app-assign">

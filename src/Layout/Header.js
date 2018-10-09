@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import ContentLoader from "react-content-loader"
 
+import "../style/Header.css"
+
 const MyLoader = props => (
   <ContentLoader
     height={122}
@@ -18,7 +20,6 @@ const MyLoader = props => (
 
 class Header extends Component {
   state = {
-    highlight: 0,
     loader: true
   }
 
@@ -30,17 +31,8 @@ class Header extends Component {
     }, 3000)
   }
 
-  componentWillUnmount() {
-    clearInterval(this.state.intervalId)
-  }
-
-  timer = () => {
-    const { highlight } = this.state
-    this.setState({ highlight: highlight === 1 ? 0 : highlight + 1 })
-  }
-
   render() {
-    const { highlight, loader } = this.state
+    const { loader } = this.state
     return (
       <div className="app-header">
         {loader ? (
@@ -48,22 +40,7 @@ class Header extends Component {
         ) : (
           <div>
             <h1>
-              Create{" "}
-              <strong>
-                <div
-                  className={`app-header_framework ${
-                    highlight === 1 ? "vue" : ""
-                  }`}
-                >
-                  <span className={`react ${highlight === 0 ? "active" : ""}`}>
-                    React
-                  </span>
-                  <span className={`vue ${highlight === 1 ? "active" : ""}`}>
-                    Vue
-                  </span>
-                </div>{" "}
-                Content Loader
-              </strong>
+              Create <strong>React Content Loader</strong>
             </h1>
             <h2>
               Have you heard about{" "}
