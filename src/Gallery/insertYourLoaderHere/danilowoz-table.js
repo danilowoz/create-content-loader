@@ -37,7 +37,8 @@ const MyLoader = () => (
 MyLoader.metadata = {
   name: "DaniloWoz",
   github: "danilowoz",
-  description: "Table"
+  description: "Table with width rows dynamic",
+  filename: "danilowoz-table"
 }
 
 export default MyLoader
