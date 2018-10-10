@@ -15,11 +15,8 @@ const Config = ({
 }) => (
   <div className="app-config">
     <p className="app-config__guideline">
-      <label htmlFor="guideline">
-        <h4 className="properties">Image guideline:</h4>
-      </label>
       <input
-        placeholder="Paste the url of an image here, to set it as background"
+        placeholder="Paste an image url here to set it as background"
         type="search"
         id="guideline"
         name="guideline"
@@ -99,7 +96,7 @@ const Config = ({
         />
       </p>
 
-      {/* <button onClick={_ResetColors}>Reset colors</button> */}
+      <button onClick={_ResetColors}>Reset colors</button>
     </div>
   </div>
 )

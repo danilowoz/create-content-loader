@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import ContentLoader from "react-content-loader"
 
+import "../style/Header.css"
+
 const MyLoader = props => (
   <ContentLoader
-    height={122}
+    height={110}
     width={640}
     speed={2}
     primaryColor="#faf9fc"
@@ -18,7 +20,6 @@ const MyLoader = props => (
 
 class Header extends Component {
   state = {
-    highlight: 0,
     loader: true
   }
 
@@ -30,40 +31,16 @@ class Header extends Component {
     }, 3000)
   }
 
-  componentWillUnmount() {
-    clearInterval(this.state.intervalId)
-  }
-
-  timer = () => {
-    const { highlight } = this.state
-    this.setState({ highlight: highlight === 1 ? 0 : highlight + 1 })
-  }
-
   render() {
-    const { highlight, loader } = this.state
+    const { loader } = this.state
     return (
       <div className="app-header">
         {loader ? (
           <MyLoader className="app-header__loader" />
         ) : (
-          <div>
+          <div className="app-header__loaded">
             <h1>
-              Create{" "}
-              <strong>
-                <div
-                  className={`app-header_framework ${
-                    highlight === 1 ? "vue" : ""
-                  }`}
-                >
-                  <span className={`react ${highlight === 0 ? "active" : ""}`}>
-                    React
-                  </span>
-                  <span className={`vue ${highlight === 1 ? "active" : ""}`}>
-                    Vue
-                  </span>
-                </div>{" "}
-                Content Loader
-              </strong>
+              Create <strong>React Content Loader</strong>
             </h1>
             <h2>
               Have you heard about{" "}
@@ -76,6 +53,42 @@ class Header extends Component {
             </h2>
           </div>
         )}
+        <p className="app-assign__stars">
+          <a
+            className="github-button"
+            href="https://github.com/danilowoz/react-content-loader"
+            data-icon="octicon-star"
+            data-show-count="true"
+            aria-label="Star danilowoz/react-content-loader on GitHub"
+            target="_blank"
+            without=""
+            rel="noopener noreferrer"
+          >
+            react-content-loader
+          </a>
+          <a
+            className="github-button"
+            href="https://github.com/danilowoz/create-content-loader"
+            data-icon="octicon-star"
+            data-show-count="true"
+            aria-label="Star danilowoz/create-content-loader on GitHub"
+            target="_blank"
+            without=""
+            rel="noopener noreferrer"
+          >
+            create-content-loader
+          </a>
+
+          <a
+            href="https://github.com/danilowoz"
+            target="_blank"
+            without=""
+            rel="noopener noreferrer"
+            className="app-assign__by"
+          >
+            by @danilowoz
+          </a>
+        </p>
       </div>
     )
   }

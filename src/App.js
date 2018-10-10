@@ -5,23 +5,20 @@ import { Tools } from "react-sketch"
 import { debounce } from "throttle-debounce"
 import Clipboard from "clipboard"
 
-import { getReactInfo, VueToReact } from "./utils"
+import { getReactInfo } from "./utils"
 import { facebook, instagram, code, bulletList } from "./utils/presets"
-import template, { ReactImport, VueImport } from "./utils/template"
+import template, { ReactImport } from "./utils/template"
 import Canvas from "./Canvas"
 import Config from "./Config"
-import ReactIcon from "./assets/react.svg"
-import VueIcon from "./assets/vue.svg"
-import Header from "./Header"
-import Footer from "./Footer"
-import "./App.css"
+import Header from "./Layout/Header"
+import Gallery from "./Gallery"
+import "./style/style.css"
 
 class App extends Component {
   state = {
     activeItem: false,
     draw: localStorage.getItem("draw") || facebook,
     focusEditor: false,
-    framework: localStorage.getItem("framework") || "react",
     guideline: localStorage.getItem("guideline") || "",
     height: localStorage.getItem("height") || 160,
     primaryColor: localStorage.getItem("primaryColor") || "#f3f3f3",
@@ -55,10 +52,6 @@ class App extends Component {
     this.setLocalStorage()
   }
 
-  _HandleFramework = framework => {
-    this.setState({ framework })
-  }
-
   _HandleDraw = draw => {
     this.setState({ draw })
   }
@@ -66,7 +59,7 @@ class App extends Component {
   _HandleEditor = (editor, error) => {
     const hasError = this.editor.state.error === undefined
     if (hasError) {
-      const state = getReactInfo(editor, this.state.framework)
+      const state = getReactInfo(editor)
       state.renderCanvas = false
       this.setState(state)
     }
@@ -117,7 +110,6 @@ class App extends Component {
       activeItem: false,
       draw: facebook,
       focusEditor: false,
-      framework: "react",
       guideline: "",
       height: 160,
       primaryColor: "#f3f3f3",
@@ -131,11 +123,10 @@ class App extends Component {
   }
 
   render() {
-    const { framework, renderCanvas, ...state } = this.state
+    const { renderCanvas, ...state } = this.state
 
     const optMycode = {
       data: state,
-      type: framework,
       importDeclaration: false
     }
     const Mycode = template(optMycode)
@@ -149,36 +140,11 @@ class App extends Component {
         code={Mycode}
         scope={{ ContentLoader }}
         ref={r => (this.editor = r)}
-        transformCode={code => VueToReact(code, framework)}
       >
         <div className="App">
           <Header />
 
           <div>
-            <button
-              className={`handle-framework ${
-                framework === "react" ? "current" : ""
-              }`}
-              onClick={() => this._HandleFramework("react")}
-            >
-              <img src={ReactIcon} alt="React" /> <span>React</span>
-            </button>
-
-            <button
-              className={`handle-framework handle-framework--vue ${
-                framework === "vue" ? "current" : ""
-              }`}
-              onClick={() => this._HandleFramework("vue")}
-            >
-              <img src={VueIcon} alt="Vue" /> <span>Vue</span>
-            </button>
-            <a
-              href="https://github.com/egoist/vue-content-loader"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              by @egoist
-            </a>
             <div className="app-editor">
               <span className="app-editor__tab">
                 <span />
@@ -190,16 +156,12 @@ class App extends Component {
                 Copy to Clipboard
               </span>
 
-              {framework === "react" && <ReactImport />}
+              <ReactImport />
 
-              <LiveEditor onChange={debounce(500, this._HandleEditor)} />
-
-              {framework === "vue" && <VueImport />}
+              <LiveEditor onChange={debounce(1000, this._HandleEditor)} />
             </div>
 
             <LiveError />
-
-            <Footer />
           </div>
 
           <div>
@@ -227,6 +189,8 @@ class App extends Component {
             />
           </div>
         </div>
+
+        <Gallery />
       </LiveProvider>
     )
   }

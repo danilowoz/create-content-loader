@@ -1,5 +1,3 @@
-import template from "./template"
-
 export const JsonToSVG = json => {
   const arr = json.objects
   let svg = ""
@@ -21,9 +19,8 @@ export const JsonToSVG = json => {
   return svg.trimRight()
 }
 
-export const createNode = html => {
-  return new DOMParser().parseFromString(html, "text/html").body.firstChild
-}
+export const createNode = html =>
+  new DOMParser().parseFromString(html, "text/html").body.firstChild
 
 export const SVGtoFabric = svg => {
   const arr = svg.split("\n")
@@ -74,31 +71,18 @@ export const CanvasAddedProp = target => {
   return newTarget
 }
 
-const regexCollection = {
-  react: /const MyLoader = props => \([\s\S]*?<ContentLoader[\s\S]*?rtl[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?{...props}[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/,
-  vue: /<template>[\s\S]*?<content-loader[\s\S]*?:height=".*"[\s\S]*?:width=".*"[\s\S]*?:speed=".*"[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?>((.|\s)*)<\/content-loader>[\s\S]*?<\/template>[\s\S]*?/
-}
+const regexCollection = /const MyLoader = props => \([\s\S]*?<ContentLoader[\s\S]*?rtl[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?{...props}[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/
 
-export const getReactInfo = (component, framework) => {
+export const getReactInfo = component => {
   const obj = {}
-  const indexRegex = framework === "react" ? 2 : 3
-  obj.width = Number(component.match(/width=({(.*?)}|"(.*?)")/)[indexRegex])
-  obj.height = Number(component.match(/height=({(.*?)}|"(.*?)")/)[indexRegex])
-  obj.speed = Number(component.match(/speed=({(.*?)}|"(.*?)")/)[indexRegex])
+  obj.width = Number(component.match(/width=({(.*?)}|"(.*?)")/)[2])
+  obj.height = Number(component.match(/height=({(.*?)}|"(.*?)")/)[2])
+  obj.speed = Number(component.match(/speed=({(.*?)}|"(.*?)")/)[2])
+
+  console.log(Number(component.match(/rtl/)[2]))
   obj.primaryColor = component.match(/primaryColor="(.*?)"/)[1]
   obj.secondaryColor = component.match(/secondaryColor="(.*?)"/)[1]
-  obj.draw = component.match(regexCollection[framework])[1].trim()
+  obj.draw = component.match(regexCollection)[1].trim()
 
   return obj
-}
-
-export const VueToReact = (code, framework) => {
-  if (framework === "vue") {
-    const data = getReactInfo(code, framework)
-    const reactCode = template({ data, type: "react" })
-
-    return reactCode
-  }
-
-  return code
 }

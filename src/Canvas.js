@@ -12,9 +12,9 @@ import cloneIcon from "./assets/clone.svg"
 import rectIcon from "./assets/rect.svg"
 import circleIcon from "./assets/circle.svg"
 
-import "./tippy.css"
+import "./style/tippy.css"
 
-const CLONE_OFFSET = 15;
+const CLONE_OFFSET = 15
 
 const Tip = ({ title, children }) => (
   <Tooltip
@@ -81,7 +81,12 @@ class Canvas extends Component {
     const canvas = this._sketch && this._sketch._fc
     const { activeItem } = this.props
 
-    if (canvas && notClickingOnTrashButton && notClickingOnCloneButton && activeItem) {
+    if (
+      canvas &&
+      notClickingOnTrashButton &&
+      notClickingOnCloneButton &&
+      activeItem
+    ) {
       canvas.deactivateAll().renderAll()
       this.props._HandleSelectedItem(false)
     }
@@ -108,17 +113,17 @@ class Canvas extends Component {
   }
 
   _CloneItem = () => {
-      const canvas = this._sketch && this._sketch._fc
+    const canvas = this._sketch && this._sketch._fc
 
-      if (canvas && canvas.getActiveObject()) {
-          const clone = canvas.getActiveObject().clone()
-          // offset selection slightly to emphasise clone
-          clone.left += CLONE_OFFSET
-          clone.top += CLONE_OFFSET
+    if (canvas && canvas.getActiveObject()) {
+      const clone = canvas.getActiveObject().clone()
+      // offset selection slightly to emphasise clone
+      clone.left += CLONE_OFFSET
+      clone.top += CLONE_OFFSET
 
-          canvas.add(clone)
-          canvas.setActiveObject(clone)
-      }
+      canvas.add(clone)
+      canvas.setActiveObject(clone)
+    }
   }
 
   _Events = () => {
@@ -232,9 +237,9 @@ class Canvas extends Component {
                 ref={n => (this.cloneButton = n)}
                 onClick={this._CloneItem}
               >
-                  <Tip title="Clone tool">
-                      <img src={cloneIcon} alt="clone tool" />
-                  </Tip>
+                <Tip title="Clone tool">
+                  <img src={cloneIcon} alt="clone tool" />
+                </Tip>
               </button>
             </span>
           )}
