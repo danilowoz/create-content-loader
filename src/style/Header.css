@@ -29,8 +29,29 @@
   line-height: 1.6;
   color: #686768;
   font-weight: 300;
+  margin-bottom: 0;
 }
 
 .app-header__loader {
-  max-width: 570px;
+  height: 96px;
+}
+
+.app-header__loaded {
+  height: 102px;
+}
+
+.app-assign__stars {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1em 0;
+}
+.app-assign__stars > * {
+  margin: 0 10px;
+}
+
+.app-assign__by {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.5;
 }

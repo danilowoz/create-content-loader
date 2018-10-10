@@ -22,6 +22,7 @@ const renderItem = item => {
           className="source"
           href={`https://github.com/danilowoz/create-content-loader/blob/master/src/Gallery/insertYourLoaderHere/${filename}.js`}
           target="_blank"
+          rel="noopener noreferrer"
         >
           view source
         </a>
@@ -29,6 +30,18 @@ const renderItem = item => {
     </div>
   )
 }
+
+const NewItem = () => (
+  <div className="showcase-item showcase-item__new">
+    <a
+      href="https://github.com/danilowoz/create-content-loader/wiki/How-to-insert-your-loader-at-gallery"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Insert your loader
+    </a>
+  </div>
+)
 
 export default () => (
   <div className="showcase">
@@ -41,6 +54,8 @@ export default () => (
     </p>
     <div id="gallery" className="showcase-grid">
       {Object.keys(data).map(renderItem)}
+
+      <NewItem />
     </div>
   </div>
 )

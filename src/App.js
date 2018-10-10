@@ -11,7 +11,6 @@ import template, { ReactImport } from "./utils/template"
 import Canvas from "./Canvas"
 import Config from "./Config"
 import Header from "./Layout/Header"
-import Footer from "./Layout/Footer"
 import Gallery from "./Gallery"
 import "./style/style.css"
 
@@ -163,8 +162,6 @@ class App extends Component {
             </div>
 
             <LiveError />
-
-            <Footer />
           </div>
 
           <div>

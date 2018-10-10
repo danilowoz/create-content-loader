@@ -5,7 +5,7 @@ import "../style/Header.css"
 
 const MyLoader = props => (
   <ContentLoader
-    height={122}
+    height={110}
     width={640}
     speed={2}
     primaryColor="#faf9fc"
@@ -38,7 +38,7 @@ class Header extends Component {
         {loader ? (
           <MyLoader className="app-header__loader" />
         ) : (
-          <div>
+          <div className="app-header__loaded">
             <h1>
               Create <strong>React Content Loader</strong>
             </h1>
@@ -53,6 +53,42 @@ class Header extends Component {
             </h2>
           </div>
         )}
+        <p className="app-assign__stars">
+          <a
+            className="github-button"
+            href="https://github.com/danilowoz/react-content-loader"
+            data-icon="octicon-star"
+            data-show-count="true"
+            aria-label="Star danilowoz/react-content-loader on GitHub"
+            target="_blank"
+            without=""
+            rel="noopener noreferrer"
+          >
+            react-content-loader
+          </a>
+          <a
+            className="github-button"
+            href="https://github.com/danilowoz/create-content-loader"
+            data-icon="octicon-star"
+            data-show-count="true"
+            aria-label="Star danilowoz/create-content-loader on GitHub"
+            target="_blank"
+            without=""
+            rel="noopener noreferrer"
+          >
+            create-content-loader
+          </a>
+
+          <a
+            href="https://github.com/danilowoz"
+            target="_blank"
+            without=""
+            rel="noopener noreferrer"
+            className="app-assign__by"
+          >
+            by @danilowoz
+          </a>
+        </p>
       </div>
     )
   }
