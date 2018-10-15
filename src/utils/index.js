@@ -1,18 +1,28 @@
+const toFixed = n => parseFloat(Number(n).toFixed(2))
+
 export const JsonToSVG = json => {
   const arr = json.objects
   let svg = ""
+
   arr.forEach(a => {
     if (a.type === "rect") {
       const rotate = a.angle
-        ? ` transform="rotate(${a.angle}, ${a.left}, ${a.top})"`
+        ? ` transform="rotate(${toFixed(a.angle)}, ${toFixed(
+            a.left
+          )}, ${toFixed(a.top)})"`
         : ""
-      svg += `    <rect x="${a.left}" y="${a.top}" rx="${a.rx}" ry="${
-        a.ry
-      }" width="${a.width * a.scaleX}" height="${a.height *
-        a.scaleY}"${rotate} /> \n`
+
+      svg += `    <rect x="${toFixed(a.left)}" y="${toFixed(a.top)}" rx="${
+        a.rx
+      }" ry="${toFixed(a.ry)}" width="${toFixed(
+        a.width * a.scaleX
+      )}" height="${toFixed(a.height * a.scaleY)}"${rotate} /> \n`
     } else if (a.type === "circle") {
-      svg += `    <circle cx="${a.left + a.radius * a.scaleY}" cy="${a.top +
-        a.radius * a.scaleY}" r="${a.radius * a.scaleX}" /> \n`
+      svg += `    <circle cx="${toFixed(
+        a.left + a.radius * a.scaleY
+      )}" cy="${toFixed(a.top + a.radius * a.scaleY)}" r="${toFixed(
+        a.radius * a.scaleX
+      )}" /> \n`
     }
   })
 
@@ -79,7 +89,6 @@ export const getReactInfo = component => {
   obj.height = Number(component.match(/height=({(.*?)}|"(.*?)")/)[2])
   obj.speed = Number(component.match(/speed=({(.*?)}|"(.*?)")/)[2])
 
-  console.log(Number(component.match(/rtl/)[2]))
   obj.primaryColor = component.match(/primaryColor="(.*?)"/)[1]
   obj.secondaryColor = component.match(/secondaryColor="(.*?)"/)[1]
   obj.draw = component.match(regexCollection)[1].trim()
