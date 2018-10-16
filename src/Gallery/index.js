@@ -48,10 +48,7 @@ export default () => (
     <p className="showcase-button">
       <a href="#gallery">Need inspiration?</a>
     </p>
-    <p className="showcase-legend">
-      See others beautifuls and
-      <br /> more complex loader.
-    </p>
+    <p className="showcase-legend">Be inspired by other amazing loaders</p>
     <div id="gallery" className="showcase-grid">
       {Object.keys(data).map(renderItem)}
 

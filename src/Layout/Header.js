@@ -24,7 +24,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    const intervalId = setInterval(this.timer, 3000)
+    const intervalId = setInterval(this.timer, 1000)
     this.setState({ intervalId })
     setTimeout(() => {
       this.setState({ loader: false })
