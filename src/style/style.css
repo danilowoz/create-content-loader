@@ -44,7 +44,7 @@ body {
 .prism-code {
   background: none !important;
   padding: 0 !important;
-  overflow: scroll;
+  overflow: hidden auto;
   max-width: 40vw;
 }
 
