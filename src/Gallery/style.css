@@ -63,6 +63,7 @@
   margin-right: 0.7em;
   font-weight: 300;
   display: inline-block;
+  width: 70%;
 }
 
 .showcase-item a {
@@ -70,6 +71,7 @@
   font-weight: 300;
   font-size: 0.8em;
   color: #a5a5a5;
+  display: block;
 }
 
 .showcase-item a.source {

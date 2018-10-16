@@ -14,10 +14,13 @@ const renderItem = item => {
       <Component />
 
       <div className="showcase-caption">
-        <h4>{description}</h4>
-        <a href={`https://github.com/${github}`} target="_blank">
-          by {name}
-        </a>
+        <h4>
+          {description}{" "}
+          <a href={`https://github.com/${github}`} target="_blank">
+            by {name}
+          </a>
+        </h4>
+
         <a
           className="source"
           href={`https://github.com/danilowoz/create-content-loader/blob/master/src/Gallery/insertYourLoaderHere/${filename}.js`}
