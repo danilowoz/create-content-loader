@@ -12,6 +12,9 @@ import Canvas from "./Canvas"
 import Config from "./Config"
 import Header from "./Layout/Header"
 import Gallery from "./Gallery"
+
+import ReactIcon from "./assets/react.svg"
+import VueIcon from "./assets/vue.svg"
 import "./style/style.css"
 
 class App extends Component {
@@ -145,6 +148,20 @@ class App extends Component {
           <Header />
 
           <div>
+            <a
+              href="http://danilowoz.com/create-content-loader/"
+              className="handle-framework current"
+            >
+              <img src={ReactIcon} alt="React" /> <span>React</span>
+            </a>
+
+            <a
+              href="http://danilowoz.com/create-vue-content-loader/"
+              className="handle-framework"
+            >
+              <img src={VueIcon} alt="React" /> <span>Vue</span>
+            </a>
+
             <div className="app-editor">
               <span className="app-editor__tab">
                 <span />
