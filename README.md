@@ -1,5 +1,7 @@
 <p align="center">
-  <img width="800px" src="https://user-images.githubusercontent.com/4838076/47463323-cce36900-d7dd-11e8-98d2-8f10b843492f.png" alt="Create Content Loader" title="Create Content Loader" />
+  <img width="800px" src="https://user-images.githubusercontent.com/7833020/47472277-b6d0ab00-d7d3-11e8-990c-a49726919708.png" alt="Create Content Loader" title="Create Content Loader" />
+
+  <img width="800px" src="https://user-images.githubusercontent.com/7833020/47472272-b33d2400-d7d3-11e8-9647-e35f0252d62a.gif" alt="Create Content Loader" title="Create Content Loader" />
 </p>
 
 <p align="center">
