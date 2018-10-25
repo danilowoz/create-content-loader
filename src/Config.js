@@ -81,7 +81,7 @@ const Config = ({
           type="color"
           id="primaryColor"
           name="primaryColor"
-          defaultValue={primaryColor}
+          value={primaryColor}
           onChange={_HandleInput}
         />
       </p>
@@ -91,7 +91,7 @@ const Config = ({
           type="color"
           id="secondaryColor"
           name="secondaryColor"
-          defaultValue={secondaryColor}
+          value={secondaryColor}
           onChange={_HandleInput}
         />
       </p>
