@@ -11,7 +11,9 @@ const renderItem = item => {
 
   return (
     <div className="showcase-item" key={`${name}-${github}-${description}`}>
-      <Component />
+      <div className="showcase-component">
+        <Component />
+      </div>
 
       <div className="showcase-caption">
         <h4>

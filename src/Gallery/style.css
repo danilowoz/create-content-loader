@@ -50,6 +50,10 @@
   box-shadow: 0 3px 4px 0 rgba(75, 84, 94, 0.1);
 }
 
+.showcase-component {
+  min-height: 260px;
+}
+
 .showcase-caption {
   box-sizing: border-box;
   padding-top: 16px;
