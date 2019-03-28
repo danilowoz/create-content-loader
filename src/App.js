@@ -152,14 +152,14 @@ class App extends Component {
               href="http://danilowoz.com/create-content-loader/"
               className="handle-framework current"
             >
-              <img src={ReactIcon} alt="React" /> <span>React</span>
+              <img width="20" src={ReactIcon} alt="React" /> <span>React</span>
             </a>
 
             <a
               href="http://danilowoz.com/create-vue-content-loader/"
               className="handle-framework"
             >
-              <img src={VueIcon} alt="React" /> <span>Vue</span>
+              <img width="20" src={VueIcon} alt="React" /> <span>Vue</span>
             </a>
 
             <div className="app-editor">

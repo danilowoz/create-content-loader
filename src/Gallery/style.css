@@ -8,26 +8,27 @@
 }
 
 .showcase-button {
-  color: #637cc3;
   letter-spacing: -0.2px;
-  font-size: 1.4em;
   padding: 2em 0 0.1em;
   margin: 0;
   text-align: center;
+  font-size: 1.728em;
+  color: var(--lynch);
 }
 
 .showcase-legend {
+  color: var(--silver);
   margin: 0.5em 0;
   text-align: center;
-  font-size: 1em;
   line-height: 1.6;
-  color: #686768;
+  font-size: 1.2em;
+  letter-spacing: 0.9px;
   font-weight: 300;
 }
 
 .showcase-button a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 .showcase-grid {
@@ -59,23 +60,26 @@
   padding-top: 16px;
   margin-top: 16px;
   margin-bottom: -8px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--porcelain);
 }
 
 .showcase-item h4 {
   margin: 0;
   margin-right: 0.7em;
-  font-weight: 300;
   display: inline-block;
-  width: 70%;
+  width: 60%;
+  color: var(--lynch);
+  font-weight: normal;
+  font-size: 1.2em;
+  letter-spacing: 0.3px;
 }
 
 .showcase-item a {
   text-decoration: none;
-  font-weight: 300;
-  font-size: 0.8em;
-  color: #a5a5a5;
   display: block;
+  color: var(--silver);
+  font-size: 1rem;
+  margin-top: 1em;
 }
 
 .showcase-item a.source {
@@ -93,8 +97,6 @@
 
 .showcase-item__new a {
   margin: auto;
-  font-size: 18px;
-  color: #a5a5a5;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.04);
   position: relative;
@@ -102,6 +104,7 @@
   padding: 0.5em 1em;
   border-radius: 40px;
   transition: all 0.3s ease;
+  color: var(--dark);
 }
 
 .showcase-item__new a:hover {
