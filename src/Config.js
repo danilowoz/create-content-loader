@@ -14,34 +14,8 @@ const Config = ({
   guideline
 }) => (
   <div className="app-config">
-    <p className="app-config__guideline">
-      <input
-        placeholder="Paste an image url here to set it as background"
-        type="search"
-        id="guideline"
-        name="guideline"
-        value={guideline}
-        onChange={_HandleInput}
-      />
-    </p>
-
-    <h4 className="properties">Propeties:</h4>
+    <h4 className="properties">(props) =></h4>
     <div>
-      <p>
-        <label htmlFor="rtl">RTL content:</label>
-        <label htmlFor="rtl" className="toggle">
-          <input
-            type="checkbox"
-            className="toggle-input"
-            checked={rtl}
-            name="rtl"
-            id="rtl"
-            onChange={_HandleCheckbox}
-          />
-          <span className={`toggle-check ${rtl ? "checked" : ""}`} />
-        </label>
-      </p>
-
       <p>
         <label htmlFor="width">width:</label>
         <input
@@ -96,7 +70,37 @@ const Config = ({
         />
       </p>
 
-      <button onClick={_ResetColors}>Reset colors</button>
+      <p>
+        <button className="reset-colors" onClick={_ResetColors}>
+          Reset colors
+        </button>
+      </p>
+
+      <p>
+        <label htmlFor="rtl">RTL content:</label>
+        <label htmlFor="rtl" className="toggle">
+          <input
+            type="checkbox"
+            className="toggle-input"
+            checked={rtl}
+            name="rtl"
+            id="rtl"
+            onChange={_HandleCheckbox}
+          />
+          <span className={`toggle-check ${rtl ? "checked" : ""}`} />
+        </label>
+      </p>
+
+      <p className="app-config__guideline">
+        <input
+          placeholder="Paste an image url here to set it as background"
+          type="search"
+          id="guideline"
+          name="guideline"
+          value={guideline}
+          onChange={_HandleInput}
+        />
+      </p>
     </div>
   </div>
 )

@@ -1,3 +1,15 @@
+:root {
+  --color-lynch: #6c7a89;
+  --color-silver: #bdc3c7;
+  --color-dark: #434a50;
+  --color-porcelain: #ecf0f1;
+
+  --font-size__main: 1.728rem;
+  --font-size__medium: 1.2rem;
+  --font-size__base: 1rem;
+  --font-size__tiny: 0.833rem;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -5,22 +17,26 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   min-height: 100vh;
 }
 
 /* Grid */
 .App {
-  padding: 0 2em;
-  margin: 2em auto;
-  max-width: 120em;
+  padding: 0 2em 6em;
+  max-width: 1380px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 76vh;
 }
 
 @media screen and (min-width: 48em) {
   .App {
     display: grid;
-    grid-template-columns: 0.9fr 1.25fr;
     grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 0 5em;
   }
 }
@@ -35,6 +51,7 @@ body {
   overflow: auto;
   position: sticky;
   top: 30px;
+  min-height: 23.6em;
 }
 
 .token.comment {
@@ -84,11 +101,9 @@ body {
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s ease;
-  text-transform: uppercase;
-  font-size: 0.6em;
-  color: #999;
-  letter-spacing: 2px;
   margin-top: -35px;
+  font-size: var(--font-size__tiny);
+  color: var(--color-silver);
 }
 
 .app-editor:hover .copy-to-clipboard {
@@ -182,7 +197,7 @@ body {
 
 /* Handlers */
 .app-handlers {
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--color-porcelain);
   padding-bottom: 0.5em;
   margin-bottom: 1em;
 }
@@ -217,8 +232,6 @@ body {
   height: auto;
 }
 
-.app-handler__clone:hover,
-.app-handlers__tool:hover,
 .app-handlers__tool.app-handlers__active {
   opacity: 1;
 }
@@ -235,42 +248,29 @@ body {
 }
 
 .app-handlers .app-handlers__div {
-  border-left: 1px solid #f0f0f0;
-  line-height: 2.3em;
-  font-size: 0.8em;
-  font-weight: 300;
-  color: #a5a5a5;
   display: inline-block;
-  height: 2.2em;
   padding-left: 1em;
   vertical-align: middle;
+  font-size: var(--font-size__tiny);
+  color: var(--color-silver);
+  border-left: 1px solid var(--color-porcelain);
 }
 
 .app-handlers .app-handlers__preset {
   line-height: 1.3;
-  color: #a5a5a5;
-  font-weight: 600;
-  font-size: 0.8em;
   display: inline-block;
   vertical-align: middle;
   padding: 0 0.5em;
   transition: color 0.3s ease;
-}
-
-.app-handlers .app-handlers__preset:hover {
-  color: #000;
+  font-size: var(--font-size__tiny);
+  color: var(--color-dark);
 }
 
 /* Config */
 .app-config {
   margin-top: 2em;
-  padding-top: 2em;
-  border-top: 1px solid #f0f0f0;
+  padding-top: 1em;
   width: 100%;
-}
-
-.app-config > div {
-  width: 85%;
 }
 
 .app-config p {
@@ -278,18 +278,17 @@ body {
   margin: 0;
   display: inline-block;
   vertical-align: middle;
-  width: calc(100% / 4);
+  width: calc(100% / 3);
   box-sizing: border-box;
+  margin-bottom: 0.7em;
 }
 
 .app-config label {
   margin-right: 0.4em;
-  display: block;
-  font-weight: 300;
-  color: #a5a5a5;
   min-width: 3em;
-  font-size: 0.9em;
-  vertical-align: middle;
+  font-size: var(--font-size__tiny);
+  color: var(--color-dark);
+  margin-bottom: 0.6em;
 }
 
 .app-config button {
@@ -297,10 +296,7 @@ body {
   border: 0;
   padding: 0;
   outline: 0;
-  color: #a5a5a5;
   cursor: pointer;
-  font-size: 0.9em;
-  font-weight: 300;
   transition: background 0.3s ease;
   position: relative;
   top: 7px;
@@ -311,11 +307,10 @@ body {
 }
 
 .app-config input {
-  border: 0;
-  font-size: 1em;
+  border: none;
+  border-bottom: 1px solid var(--color-porcelain);
   height: 2em;
-  font-weight: 300;
-  color: #000;
+  color: var(--color-dark);
   width: 4em;
   display: inline-block;
   outline: 0;
@@ -338,8 +333,9 @@ body {
 }
 
 .app-config .properties {
-  margin-bottom: 0;
-  color: #000;
+  font-size: var(--font-size__tiny);
+  color: var(--color-silver);
+  font-weight: normal;
 }
 
 .app-config .toggle {
@@ -347,6 +343,9 @@ body {
   align-items: center;
   line-height: 1;
   cursor: pointer;
+  top: 0.5em;
+  position: relative;
+  margin-left: 0.6em;
 }
 
 .app-config .toggle-input {
@@ -395,28 +394,35 @@ body {
 }
 
 .app-config .app-config__guideline {
-  width: 100%;
+  width: calc(100% / 2);
 }
 
 .app-config .app-config__guideline input {
   width: 100%;
   padding-left: 26px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--color-porcelain);
+  height: 3em;
   background: url(../assets/grid.svg) -5px 0px no-repeat;
   background-size: auto 30px;
+  top: 1em;
+}
+
+.app-config .reset-colors {
+  top: 5px;
+  color: var(--color-silver);
+  text-decoration: underline;
 }
 
 .tippy-tooltip {
   position: relative;
   color: #fff;
   border-radius: 4px;
-  font-size: 0.95rem;
   padding: 0.4rem 0.8rem;
   text-align: center;
   will-change: transform;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #333;
+  background-color: var(--color-lynch);
   pointer-events: none;
 }
 
@@ -428,25 +434,32 @@ body {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  font-size: 0.9em;
   padding-right: 1em;
   margin-right: 0.8em;
   margin-bottom: 1em;
-  opacity: 0.5;
   transition: all 0.3s ease;
-  color: #686768;
   text-decoration: none;
+  color: var(--color-silver);
+  letter-spacing: 0.5px;
 }
 
 .handle-framework:first-child {
-  border-right: 1px solid #eee;
+  border-right: 1px solid var(--color-porcelain);
 }
 
+.handle-framework:hover,
 .handle-framework.current {
-  opacity: 1;
+  color: var(--color-dark);
 }
 
 .handle-framework img {
   height: 1.3em;
-  margin-right: 0.8em;
+  margin-right: 0.4em;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.handle-framework:hover img,
+.handle-framework.current img {
+  opacity: 1;
 }

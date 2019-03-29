@@ -17,6 +17,20 @@ import ReactIcon from "./assets/react.svg"
 import VueIcon from "./assets/vue.svg"
 import "./style/style.css"
 
+const EditorLoader = () => (
+  <ContentLoader
+    height={475}
+    width={650}
+    speed={1}
+    primaryColor="#f3f3f3"
+    secondaryColor="#ecebeb"
+  >
+    <rect x="2" y="4" rx="8" ry="8" width="70" height="20" />
+    <rect x="100" y="4" rx="8" ry="8" width="60" height="20" />
+    <rect x="0" y="40" rx="5" ry="5" width="650" height="415" />
+  </ContentLoader>
+)
+
 class App extends Component {
   state = {
     activeItem: false,
@@ -26,15 +40,20 @@ class App extends Component {
     height: localStorage.getItem("height") || 160,
     primaryColor: localStorage.getItem("primaryColor") || "#f3f3f3",
     renderCanvas: true,
-    rtl: localStorage.getItem("rtl") || "",
+    rtl: localStorage.getItem("rtl") === "true",
     secondaryColor: localStorage.getItem("secondaryColor") || "#ecebeb",
     speed: localStorage.getItem("speed") || 2,
     tool: Tools.Select,
-    width: localStorage.getItem("width") || 400
+    width: localStorage.getItem("width") || 400,
+    loading: true
   }
 
   componentDidMount() {
     this.clipboard = new Clipboard(".copy-to-clipboard")
+
+    setTimeout(() => {
+      this.setState({ loading: false })
+    }, 1200)
   }
 
   componentWillUnmount() {
@@ -148,37 +167,41 @@ class App extends Component {
           <Header />
 
           <div>
-            <a
-              href="http://danilowoz.com/create-content-loader/"
-              className="handle-framework current"
-            >
-              <img src={ReactIcon} alt="React" /> <span>React</span>
-            </a>
+            {state.loading ? (
+              <EditorLoader />
+            ) : (
+              <React.Fragment>
+                <a
+                  href="http://danilowoz.com/create-content-loader/"
+                  className="handle-framework current"
+                >
+                  <img width="20" src={ReactIcon} alt="React" />{" "}
+                  <span>React</span>
+                </a>
+                <a
+                  href="http://danilowoz.com/create-vue-content-loader/"
+                  className="handle-framework"
+                >
+                  <img width="20" src={VueIcon} alt="React" /> <span>Vue</span>
+                </a>
+                <div className="app-editor">
+                  <span className="app-editor__tab">
+                    <span />
+                  </span>
+                  <span
+                    className="copy-to-clipboard"
+                    data-clipboard-text={CopyCodeToClipboard}
+                  >
+                    Copy to clipboard
+                  </span>
 
-            <a
-              href="http://danilowoz.com/create-vue-content-loader/"
-              className="handle-framework"
-            >
-              <img src={VueIcon} alt="React" /> <span>Vue</span>
-            </a>
+                  <ReactImport />
 
-            <div className="app-editor">
-              <span className="app-editor__tab">
-                <span />
-              </span>
-              <span
-                className="copy-to-clipboard"
-                data-clipboard-text={CopyCodeToClipboard}
-              >
-                Copy to Clipboard
-              </span>
-
-              <ReactImport />
-
-              <LiveEditor onChange={debounce(1000, this._HandleEditor)} />
-            </div>
-
-            <LiveError />
+                  <LiveEditor onChange={debounce(1000, this._HandleEditor)} />
+                </div>
+                <LiveError />
+              </React.Fragment>
+            )}
           </div>
 
           <div>

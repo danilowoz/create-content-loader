@@ -1,4 +1,4 @@
-const toFixed = n => parseFloat(Number(n).toFixed(2))
+const numberFixed = num => Number(num).toFixed()
 
 export const JsonToSVG = json => {
   const arr = json.objects
@@ -7,20 +7,20 @@ export const JsonToSVG = json => {
   arr.forEach(a => {
     if (a.type === "rect") {
       const rotate = a.angle
-        ? ` transform="rotate(${toFixed(a.angle)}, ${toFixed(
+        ? ` transform="rotate(${numberFixed(a.angle)}, ${numberFixed(
             a.left
-          )}, ${toFixed(a.top)})"`
+          )}, ${numberFixed(a.top)})"`
         : ""
 
-      svg += `    <rect x="${toFixed(a.left)}" y="${toFixed(a.top)}" rx="${
-        a.rx
-      }" ry="${toFixed(a.ry)}" width="${toFixed(
+      svg += `    <rect x="${numberFixed(a.left)}" y="${numberFixed(
+        a.top
+      )}" rx="${a.rx}" ry="${numberFixed(a.ry)}" width="${numberFixed(
         a.width * a.scaleX
-      )}" height="${toFixed(a.height * a.scaleY)}"${rotate} /> \n`
+      )}" height="${numberFixed(a.height * a.scaleY)}"${rotate} /> \n`
     } else if (a.type === "circle") {
-      svg += `    <circle cx="${toFixed(
+      svg += `    <circle cx="${numberFixed(
         a.left + a.radius * a.scaleY
-      )}" cy="${toFixed(a.top + a.radius * a.scaleY)}" r="${toFixed(
+      )}" cy="${numberFixed(a.top + a.radius * a.scaleY)}" r="${numberFixed(
         a.radius * a.scaleX
       )}" /> \n`
     }
@@ -41,20 +41,22 @@ export const SVGtoFabric = svg => {
     if (item !== null) {
       if (s.includes("<rect ")) {
         newObj.type = "rect"
-        newObj.left = Number(item.getAttribute("x"))
-        newObj.top = Number(item.getAttribute("y"))
-        newObj.width = Number(item.getAttribute("width"))
-        newObj.height = Number(item.getAttribute("height"))
-        newObj.ry = Number(item.getAttribute("ry"))
-        newObj.rx = Number(item.getAttribute("rx"))
+        newObj.left = numberFixed(item.getAttribute("x"))
+        newObj.top = numberFixed(item.getAttribute("y"))
+        newObj.width = numberFixed(item.getAttribute("width"))
+        newObj.height = numberFixed(item.getAttribute("height"))
+        newObj.ry = numberFixed(item.getAttribute("ry"))
+        newObj.rx = numberFixed(item.getAttribute("rx"))
         newObj.fill = "transparent"
       } else if (s.includes("<circle ")) {
         newObj.type = "circle"
         newObj.left =
-          Number(item.getAttribute("cx")) - Number(item.getAttribute("r"))
+          numberFixed(item.getAttribute("cx")) -
+          numberFixed(item.getAttribute("r"))
         newObj.top =
-          Number(item.getAttribute("cy")) - Number(item.getAttribute("r"))
-        newObj.radius = Number(item.getAttribute("r"))
+          numberFixed(item.getAttribute("cy")) -
+          numberFixed(item.getAttribute("r"))
+        newObj.radius = numberFixed(item.getAttribute("r"))
         newObj.fill = "transparent"
         newObj.lockRotation = true
         newObj.lockUniScaling = true
@@ -81,17 +83,19 @@ export const CanvasAddedProp = target => {
   return newTarget
 }
 
-const regexCollection = /const MyLoader = props => \([\s\S]*?<ContentLoader[\s\S]*?rtl[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?{...props}[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/
+const regexCollection = /const MyLoader = \(\) => \([\s\S]*?<ContentLoader[\s\S]*?(rtl)?[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/
 
 export const getReactInfo = component => {
   const obj = {}
-  obj.width = Number(component.match(/width=({(.*?)}|"(.*?)")/)[2])
-  obj.height = Number(component.match(/height=({(.*?)}|"(.*?)")/)[2])
-  obj.speed = Number(component.match(/speed=({(.*?)}|"(.*?)")/)[2])
+
+  obj.width = numberFixed(component.match(/width=({(.*?)}|"(.*?)")/)[2])
+  obj.height = numberFixed(component.match(/height=({(.*?)}|"(.*?)")/)[2])
+  obj.speed = numberFixed(component.match(/speed=({(.*?)}|"(.*?)")/)[2])
 
   obj.primaryColor = component.match(/primaryColor="(.*?)"/)[1]
   obj.secondaryColor = component.match(/secondaryColor="(.*?)"/)[1]
-  obj.draw = component.match(regexCollection)[1].trim()
+  obj.rtl = /rtl/.test(component)
+  obj.draw = component.match(regexCollection)[2].trim()
 
   return obj
 }

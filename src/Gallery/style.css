@@ -1,33 +1,30 @@
 .showcase {
-  border-top: 1px solid #e6e7eb80;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.02) 0%,
-    rgba(255, 255, 255, 1) 40%
-  );
+  border-top: 1px solid var(--color-porcelain);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 0%, #fff 5%);
 }
 
 .showcase-button {
-  color: #637cc3;
   letter-spacing: -0.2px;
-  font-size: 1.4em;
   padding: 2em 0 0.1em;
   margin: 0;
   text-align: center;
+  font-size: var(--font-size__main);
+  color: var(--color-lynch);
 }
 
 .showcase-legend {
+  color: var(--color-silver);
   margin: 0.5em 0;
   text-align: center;
-  font-size: 1em;
   line-height: 1.6;
-  color: #686768;
+  font-size: var(--font-size__medium);
+  letter-spacing: 0.9px;
   font-weight: 300;
 }
 
 .showcase-button a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 .showcase-grid {
@@ -59,32 +56,32 @@
   padding-top: 16px;
   margin-top: 16px;
   margin-bottom: -8px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--color-porcelain);
 }
 
 .showcase-item h4 {
   margin: 0;
   margin-right: 0.7em;
-  font-weight: 300;
   display: inline-block;
   width: 70%;
+  color: var(--color-lynch);
+  font-weight: normal;
+  font-size: var(--font-size__base);
+  letter-spacing: 0.3px;
 }
 
 .showcase-item a {
   text-decoration: none;
-  font-weight: 300;
-  font-size: 0.8em;
-  color: #a5a5a5;
   display: block;
+  color: var(--color-silver);
+  font-size: var(--font-size__base);
+  letter-spacing: 0.5px;
+  margin-top: 1em;
 }
 
 .showcase-item a.source {
   float: right;
   margin-top: 0.2em;
-}
-
-.showcase-item a:hover {
-  text-decoration: underline;
 }
 
 .showcase-item__new {
@@ -93,8 +90,6 @@
 
 .showcase-item__new a {
   margin: auto;
-  font-size: 18px;
-  color: #a5a5a5;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.04);
   position: relative;
@@ -102,11 +97,7 @@
   padding: 0.5em 1em;
   border-radius: 40px;
   transition: all 0.3s ease;
-}
-
-.showcase-item__new a:hover {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.07);
-  text-decoration: none;
+  color: var(--color-lynch);
 }
 
 .showcase-item__new a:before {
