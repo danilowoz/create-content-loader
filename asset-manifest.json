@@ -1,14 +1,14 @@
 {
-  "main.css": "static/css/main.4727cb7e.css",
-  "main.css.map": "static/css/main.4727cb7e.css.map",
-  "main.js": "static/js/main.6aa96c1d.js",
-  "main.js.map": "static/js/main.6aa96c1d.js.map",
-  "static/media/circle.svg": "static/media/circle.a69273a9.svg",
-  "static/media/clone.svg": "static/media/clone.c2d19295.svg",
-  "static/media/grid.svg": "static/media/grid.4d4bc0e3.svg",
+  "main.css": "static/css/main.072618d3.css",
+  "main.css.map": "static/css/main.072618d3.css.map",
+  "main.js": "static/js/main.66682746.js",
+  "main.js.map": "static/js/main.66682746.js.map",
+  "static/media/circle.svg": "static/media/circle.23e0a9a0.svg",
+  "static/media/clone.svg": "static/media/clone.1ff11d84.svg",
+  "static/media/grid.svg": "static/media/grid.08cd2fc5.svg",
   "static/media/react.svg": "static/media/react.6eaae665.svg",
-  "static/media/rect.svg": "static/media/rect.a339bf68.svg",
-  "static/media/select.svg": "static/media/select.3a4dc836.svg",
+  "static/media/rect.svg": "static/media/rect.7ddb0a9a.svg",
+  "static/media/select.svg": "static/media/select.e480dbf5.svg",
   "static/media/trash.svg": "static/media/trash.7a4373e3.svg",
   "static/media/vue.svg": "static/media/vue.22efb7c2.svg"
 }
