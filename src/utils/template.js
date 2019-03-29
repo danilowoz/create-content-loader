@@ -5,7 +5,7 @@ export default ({ data = {}, importDeclaration = false }) => {
     importDeclaration
       ? 'import ContentLoader from "react-content-loader"\n\n'
       : ""
-  }const MyLoader = props => (
+  }const MyLoader = () => (
   <ContentLoader ${
     data.rtl
       ? `
@@ -17,7 +17,6 @@ export default ({ data = {}, importDeclaration = false }) => {
     speed={${data.speed}}
     primaryColor="${data.primaryColor}"
     secondaryColor="${data.secondaryColor}"
-    {...props}
   >
 ${data.draw}
   </ContentLoader>
