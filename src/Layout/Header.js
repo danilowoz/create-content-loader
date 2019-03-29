@@ -2,6 +2,8 @@ import React from "react"
 
 import "../style/Header.css"
 
+const pkg = require("../../package.json")
+
 const Header = () => {
   return (
     <div className="app-header">
@@ -32,7 +34,7 @@ const Header = () => {
           without=""
           rel="noopener noreferrer"
         >
-          react-content-loader
+          react-content-loader@{pkg.dependencies["react-content-loader"]}
         </a>
         <a
           className="github-button"
@@ -44,7 +46,7 @@ const Header = () => {
           without=""
           rel="noopener noreferrer"
         >
-          create-content-loader
+          create-content-loader@{pkg.version}
         </a>
       </p>
     </div>

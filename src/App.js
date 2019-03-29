@@ -170,7 +170,7 @@ class App extends Component {
                 className="copy-to-clipboard"
                 data-clipboard-text={CopyCodeToClipboard}
               >
-                Copy to Clipboard
+                Copy to clipboard
               </span>
 
               <ReactImport />

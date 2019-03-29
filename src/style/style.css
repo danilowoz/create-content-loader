@@ -1,8 +1,13 @@
 :root {
-  --lynch: #6c7a89;
-  --silver: #bdc3c7;
-  --dark: #434a50;
-  --porcelain: #ecf0f1;
+  --color-lynch: #6c7a89;
+  --color-silver: #bdc3c7;
+  --color-dark: #434a50;
+  --color-porcelain: #ecf0f1;
+
+  --font-size__main: 1.728rem;
+  --font-size__medium: 1.2rem;
+  --font-size__base: 1rem;
+  --font-size__tiny: 0.833rem;
 }
 
 html {
@@ -20,17 +25,18 @@ body {
 /* Grid */
 .App {
   padding: 0 2em 6em;
-  max-width: 1280px;
+  max-width: 1380px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  min-height: 80vh;
+  min-height: 76vh;
 }
 
 @media screen and (min-width: 48em) {
   .App {
     display: grid;
     grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 0 5em;
   }
 }
@@ -45,6 +51,7 @@ body {
   overflow: auto;
   position: sticky;
   top: 30px;
+  min-height: 23.6em;
 }
 
 .token.comment {
@@ -94,9 +101,9 @@ body {
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   margin-top: -35px;
+  font-size: var(--font-size__tiny);
+  color: var(--color-silver);
 }
 
 .app-editor:hover .copy-to-clipboard {
@@ -190,7 +197,7 @@ body {
 
 /* Handlers */
 .app-handlers {
-  border-bottom: 1px solid var(--porcelain);
+  border-bottom: 1px solid var(--color-porcelain);
   padding-bottom: 0.5em;
   margin-bottom: 1em;
 }
@@ -225,8 +232,6 @@ body {
   height: auto;
 }
 
-.app-handler__clone:hover,
-.app-handlers__tool:hover,
 .app-handlers__tool.app-handlers__active {
   opacity: 1;
 }
@@ -246,9 +251,9 @@ body {
   display: inline-block;
   padding-left: 1em;
   vertical-align: middle;
-  font-size: 0.833em;
-  color: var(--silver);
-  border-left: 1px solid var(--porcelain);
+  font-size: var(--font-size__tiny);
+  color: var(--color-silver);
+  border-left: 1px solid var(--color-porcelain);
 }
 
 .app-handlers .app-handlers__preset {
@@ -257,18 +262,14 @@ body {
   vertical-align: middle;
   padding: 0 0.5em;
   transition: color 0.3s ease;
-  font-size: 0.833em;
-  color: var(--dark);
-}
-
-.app-handlers .app-handlers__preset:hover {
+  font-size: var(--font-size__tiny);
+  color: var(--color-dark);
 }
 
 /* Config */
 .app-config {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid var(--porcelain);
   width: 100%;
 }
 
@@ -285,8 +286,8 @@ body {
 .app-config label {
   margin-right: 0.4em;
   min-width: 3em;
-  font-size: 0.833em;
-  color: var(--dark);
+  font-size: var(--font-size__tiny);
+  color: var(--color-dark);
   margin-bottom: 0.6em;
 }
 
@@ -307,9 +308,9 @@ body {
 
 .app-config input {
   border: none;
-  border-bottom: 1px solid var(--porcelain);
+  border-bottom: 1px solid var(--color-porcelain);
   height: 2em;
-  color: #000;
+  color: var(--color-dark);
   width: 4em;
   display: inline-block;
   outline: 0;
@@ -332,8 +333,8 @@ body {
 }
 
 .app-config .properties {
-  font-size: 0.833em;
-  color: var(--silver);
+  font-size: var(--font-size__tiny);
+  color: var(--color-silver);
   font-weight: normal;
 }
 
@@ -399,7 +400,7 @@ body {
 .app-config .app-config__guideline input {
   width: 100%;
   padding-left: 26px;
-  border-bottom: 1px solid var(--porcelain);
+  border-bottom: 1px solid var(--color-porcelain);
   height: 3em;
   background: url(../assets/grid.svg) -5px 0px no-repeat;
   background-size: auto 30px;
@@ -408,7 +409,7 @@ body {
 
 .app-config .reset-colors {
   top: 5px;
-  color: var(--silver);
+  color: var(--color-silver);
   text-decoration: underline;
 }
 
@@ -421,7 +422,7 @@ body {
   will-change: transform;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #333;
+  background-color: var(--color-lynch);
   pointer-events: none;
 }
 
@@ -438,24 +439,27 @@ body {
   margin-bottom: 1em;
   transition: all 0.3s ease;
   text-decoration: none;
-  color: var(--silver);
+  color: var(--color-silver);
   letter-spacing: 0.5px;
 }
 
 .handle-framework:first-child {
-  border-right: 1px solid var(--porcelain);
+  border-right: 1px solid var(--color-porcelain);
 }
 
+.handle-framework:hover,
 .handle-framework.current {
-  color: var(--dark);
+  color: var(--color-dark);
 }
 
 .handle-framework img {
   height: 1.3em;
   margin-right: 0.4em;
   opacity: 0.5;
+  transition: all 0.3s ease;
 }
 
+.handle-framework:hover img,
 .handle-framework.current img {
   opacity: 1;
 }
