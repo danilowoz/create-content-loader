@@ -7,7 +7,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && gh-pages -d build",
+    "deploy": "npm run build --nomaps && gh-pages -d build",
     "release": "semantic-release",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "commit": "git-cz"
