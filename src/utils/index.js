@@ -1,4 +1,4 @@
-const numberFixed = num => Number(num).toFixed()
+const numberFixed = num => Number(Number(num).toFixed())
 
 export const JsonToSVG = json => {
   const arr = json.objects

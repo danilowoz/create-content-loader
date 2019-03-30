@@ -116,15 +116,11 @@ class App extends Component {
   }
 
   _HandleInput = ({ target: { value, name } }) => {
-    this.__DebouncedHandleInput(name, value)
+    this.setState({ [name]: value, renderCanvas: false })
   }
 
   _HandleCheckbox = ({ target: { name, checked } }) => {
-    this.__DebouncedHandleInput(name, checked)
-  }
-
-  __DebouncedHandleInput = (name, value) => {
-    debounce(500, this.setState({ [name]: value, renderCanvas: false }))
+    this.setState({ [name]: checked, renderCanvas: false })
   }
 
   componentDidCatch(error, info) {
