@@ -116,15 +116,11 @@ class App extends Component {
   }
 
   _HandleInput = ({ target: { value, name } }) => {
-    this.__DebouncedHandleInput(name, value)
+    this.setState({ [name]: value, renderCanvas: false })
   }
 
   _HandleCheckbox = ({ target: { name, checked } }) => {
-    this.__DebouncedHandleInput(name, checked)
-  }
-
-  __DebouncedHandleInput = (name, value) => {
-    debounce(500, this.setState({ [name]: value, renderCanvas: false }))
+    this.setState({ [name]: checked, renderCanvas: false })
   }
 
   componentDidCatch(error, info) {
@@ -142,10 +138,6 @@ class App extends Component {
       width: 400,
       rtl: false
     })
-  }
-
-  preventFocusOnBlur = e => {
-    window.getSelection().removeAllRanges()
   }
 
   render() {
@@ -201,10 +193,7 @@ class App extends Component {
 
                   <ReactImport />
 
-                  <LiveEditor
-                    onBlur={this.preventFocusOnBlur}
-                    onChange={debounce(1000, this._HandleEditor)}
-                  />
+                  <LiveEditor onChange={debounce(1000, this._HandleEditor)} />
                 </div>
                 <LiveError />
               </React.Fragment>
