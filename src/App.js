@@ -45,7 +45,7 @@ class App extends Component {
     speed: localStorage.getItem("speed") || 2,
     tool: Tools.Select,
     width: localStorage.getItem("width") || 400,
-    loading: true
+    loading: false
   }
 
   componentDidMount() {
@@ -158,6 +158,7 @@ class App extends Component {
         code={Mycode}
         scope={{ ContentLoader }}
         ref={r => (this.editor = r)}
+        noInline={true}
       >
         <div className="App">
           <Header />

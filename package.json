@@ -23,8 +23,8 @@
     "react-css": "^0.0.2",
     "react-dom": "^16.1.1",
     "react-live": "^1.7.1",
-    "react-scripts": "1.0.17",
-    "react-sketch": "^0.4.1",
+    "react-scripts": "^2.1.8",
+    "react-sketch": "^0.5.1",
     "react-tippy": "^1.2.2",
     "throttle-debounce": "^1.0.1"
   },
@@ -32,6 +32,7 @@
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
     "@semantic-release/commit-analyzer": "^6.1.0",
+    "@semantic-release/git": "^7.0.8",
     "@semantic-release/release-notes-generator": "^7.1.4",
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
@@ -55,5 +56,11 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

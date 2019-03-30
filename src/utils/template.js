@@ -20,7 +20,9 @@ export default ({ data = {}, importDeclaration = false }) => {
   >
 ${data.draw}
   </ContentLoader>
-)`
+)
+
+render(<MyLoader />)`
 }
 
 export const ReactImport = () => (

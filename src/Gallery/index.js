@@ -18,7 +18,11 @@ const renderItem = item => {
       <div className="showcase-caption">
         <h4>
           {description}{" "}
-          <a href={`https://github.com/${github}`} target="_blank">
+          <a
+            rel="noopener noreferrer"
+            href={`https://github.com/${github}`}
+            target="_blank"
+          >
             by {name}
           </a>
         </h4>

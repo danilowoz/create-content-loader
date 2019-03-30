@@ -87,7 +87,7 @@ class Canvas extends Component {
       notClickingOnCloneButton &&
       activeItem
     ) {
-      canvas.deactivateAll().renderAll()
+      canvas.discardActiveObject().renderAll()
       this.props._HandleSelectedItem(false)
     }
   }
@@ -116,10 +116,11 @@ class Canvas extends Component {
     const canvas = this._sketch && this._sketch._fc
 
     if (canvas && canvas.getActiveObject()) {
-      const clone = canvas.getActiveObject().clone()
+      const clone = window.fabric.util.object.clone(canvas.getActiveObject())
+
       // offset selection slightly to emphasise clone
-      clone.left += CLONE_OFFSET
-      clone.top += CLONE_OFFSET
+      clone.set("top", clone.top + CLONE_OFFSET)
+      clone.set("left", clone.left + CLONE_OFFSET)
 
       canvas.add(clone)
       canvas.setActiveObject(clone)
