@@ -144,6 +144,10 @@ class App extends Component {
     })
   }
 
+  preventFocusOnBlur = e => {
+    window.getSelection().removeAllRanges()
+  }
+
   render() {
     const { renderCanvas, ...state } = this.state
 
@@ -197,7 +201,10 @@ class App extends Component {
 
                   <ReactImport />
 
-                  <LiveEditor onChange={debounce(1000, this._HandleEditor)} />
+                  <LiveEditor
+                    onBlur={this.preventFocusOnBlur}
+                    onChange={debounce(1000, this._HandleEditor)}
+                  />
                 </div>
                 <LiveError />
               </React.Fragment>
