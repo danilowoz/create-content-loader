@@ -22,7 +22,7 @@ ${data.draw}
   </ContentLoader>
 )
 
-render(<MyLoader />)`
+${!importDeclaration ? "render(<MyLoader />)" : ""}`
 }
 
 export const ReactImport = () => (
