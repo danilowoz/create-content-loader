@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="800px" src="https://user-images.githubusercontent.com/4838076/47463323-cce36900-d7dd-11e8-98d2-8f10b843492f.png" alt="Create Content Loader" title="Create Content Loader" />
+  <img width="800px" src="https://user-images.githubusercontent.com/4838076/55633581-9d854f00-57b4-11e9-98b2-81c2eec332e3.png" title="Create Content Loader" />
 </p>
 
 <p align="center">
