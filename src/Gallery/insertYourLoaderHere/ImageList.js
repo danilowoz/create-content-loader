@@ -64,7 +64,7 @@ ImageList.metadata = {
   name: "Gaurav Agarwal",
   github: "gauravagarwal2704",
   description: "List with image (rectangle/circle)",
-  filename: "image-list"
+  filename: "ImageList"
 }
 
 export default ImageList

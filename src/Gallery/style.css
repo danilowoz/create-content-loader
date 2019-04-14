@@ -48,7 +48,8 @@
 }
 
 .showcase-component {
-  min-height: 260px;
+  height: 15vw;
+  overflow: hidden;
 }
 
 .showcase-caption {
