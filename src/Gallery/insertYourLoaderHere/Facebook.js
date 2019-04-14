@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
 const FacebookStyle = () => (
   <ContentLoader height={130} width={400}>
@@ -13,10 +13,10 @@ const FacebookStyle = () => (
 )
 
 FacebookStyle.metadata = {
-  name: "DaniloWoz",
-  github: "danilowoz",
-  description: "Facebook style",
-  filename: "Facebook"
+  name: 'DaniloWoz',
+  github: 'danilowoz',
+  description: 'Facebook style',
+  filename: 'Facebook',
 }
 
 export default FacebookStyle

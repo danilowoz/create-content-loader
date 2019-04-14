@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
 const InstagramStyle = () => (
   <ContentLoader height={475} width={400}>
@@ -12,10 +12,10 @@ const InstagramStyle = () => (
 )
 
 InstagramStyle.metadata = {
-  name: "DaniloWoz",
-  github: "danilowoz",
-  description: "Instagram style",
-  filename: "Instagram"
+  name: 'DaniloWoz',
+  github: 'danilowoz',
+  description: 'Instagram style',
+  filename: 'Instagram',
 }
 
 export default InstagramStyle

@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
 const NestedList = () => (
   <ContentLoader height={130} width={400}>
@@ -13,10 +13,10 @@ const NestedList = () => (
 )
 
 NestedList.metadata = {
-  name: "DaniloWoz",
-  github: "danilowoz",
-  description: "Nested list",
-  filename: "NestedList"
+  name: 'DaniloWoz',
+  github: 'danilowoz',
+  description: 'Nested list',
+  filename: 'NestedList',
 }
 
 export default NestedList

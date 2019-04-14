@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
 const BulletList = () => (
   <ContentLoader height={130} width={400}>
@@ -15,10 +15,10 @@ const BulletList = () => (
 )
 
 BulletList.metadata = {
-  name: "DaniloWoz",
-  github: "danilowoz",
-  description: "Bullet list",
-  filename: "BulletList"
+  name: 'DaniloWoz',
+  github: 'danilowoz',
+  description: 'Bullet list',
+  filename: 'BulletList',
 }
 
 export default BulletList

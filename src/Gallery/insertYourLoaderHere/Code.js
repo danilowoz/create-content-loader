@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
 const Code = () => (
   <ContentLoader height={130} width={400}>
@@ -19,10 +19,10 @@ const Code = () => (
 )
 
 Code.metadata = {
-  name: "DaniloWoz",
-  github: "danilowoz",
-  description: "Code style",
-  filename: "Code"
+  name: 'DaniloWoz',
+  github: 'danilowoz',
+  description: 'Code style',
+  filename: 'Code',
 }
 
 export default Code

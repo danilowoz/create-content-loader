@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react'
 
 const Config = ({
-  _HandleInput,
-  _HandleCheckbox,
-  _ResetColors,
+  handleInput,
+  handleCheckbox,
+  resetColors,
   width,
   height,
   speed,
@@ -11,7 +11,7 @@ const Config = ({
   rtl,
   primaryColor,
   secondaryColor,
-  guideline
+  guideline,
 }) => (
   <div className="app-config">
     <h4 className="properties">(props) =></h4>
@@ -23,7 +23,7 @@ const Config = ({
           id="width"
           name="width"
           value={width}
-          onChange={_HandleInput}
+          onChange={handleInput}
           max="1000"
         />
       </p>
@@ -34,7 +34,7 @@ const Config = ({
           id="height"
           name="height"
           value={height}
-          onChange={_HandleInput}
+          onChange={handleInput}
           max="1000"
         />
       </p>
@@ -45,7 +45,7 @@ const Config = ({
           id="speed"
           name="speed"
           value={speed}
-          onChange={_HandleInput}
+          onChange={handleInput}
         />
       </p>
 
@@ -56,7 +56,7 @@ const Config = ({
           id="primaryColor"
           name="primaryColor"
           value={primaryColor}
-          onChange={_HandleInput}
+          onChange={handleInput}
         />
       </p>
       <p>
@@ -66,12 +66,12 @@ const Config = ({
           id="secondaryColor"
           name="secondaryColor"
           value={secondaryColor}
-          onChange={_HandleInput}
+          onChange={handleInput}
         />
       </p>
 
       <p>
-        <button className="reset-colors" onClick={_ResetColors}>
+        <button className="reset-colors" onClick={resetColors}>
           Reset colors
         </button>
       </p>
@@ -85,21 +85,26 @@ const Config = ({
             checked={rtl}
             name="rtl"
             id="rtl"
-            onChange={_HandleCheckbox}
+            onChange={handleCheckbox}
           />
-          <span className={`toggle-check ${rtl ? "checked" : ""}`} />
+          <span className={`toggle-check ${rtl ? 'checked' : ''}`} />
         </label>
       </p>
 
       <p className="app-config__guideline">
-        <input
+        <label htmlFor="guideline">
+          Select a image to set it as background
+        </label>
+        <input id="guideline" name="guideline" type="file" />
+        <button>Remove background</button>
+        {/* <input
           placeholder="Paste an image url here to set it as background"
           type="search"
           id="guideline"
           name="guideline"
           value={guideline}
-          onChange={_HandleInput}
-        />
+          onChange={handleInput}
+        /> */}
       </p>
     </div>
   </div>

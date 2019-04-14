@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
-import "./style.css"
-import * as data from "./insertYourLoaderHere"
+import './style.css'
+import * as data from './insertYourLoaderHere'
 
 const renderItem = item => {
   const Component = data[item]
@@ -17,7 +17,7 @@ const renderItem = item => {
 
       <div className="showcase-caption">
         <h4>
-          {description}{" "}
+          {description}{' '}
           <a
             rel="noopener noreferrer"
             href={`https://github.com/${github}`}

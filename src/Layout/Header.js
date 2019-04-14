@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 
-import "../style/Header.css"
+import '../style/Header.css'
 
-const pkg = require("../../package.json")
+const pkg = require('../../package.json')
 
 const Header = () => {
   return (
@@ -34,7 +34,7 @@ const Header = () => {
           without=""
           rel="noopener noreferrer"
         >
-          react-content-loader@{pkg.dependencies["react-content-loader"]}
+          react-content-loader@{pkg.dependencies['react-content-loader']}
         </a>
         <a
           className="github-button"
