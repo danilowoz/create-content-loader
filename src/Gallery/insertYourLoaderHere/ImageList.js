@@ -1,27 +1,27 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
 const Loader = props => {
   let height, width
   switch (props.screen) {
-    case "mobile": {
-      height = "100"
-      width = "400"
+    case 'mobile': {
+      height = '100'
+      width = '400'
       break
     }
-    case "desktop": {
-      height = "100"
-      width = "1060"
+    case 'desktop': {
+      height = '100'
+      width = '1060'
       break
     }
-    case "large-screen": {
-      height = "150"
-      width = "1920"
+    case 'large-screen': {
+      height = '150'
+      width = '1920'
       break
     }
     default: {
-      height = "100"
-      width = "1060"
+      height = '100'
+      width = '1060'
       break
     }
   }
@@ -34,7 +34,7 @@ const Loader = props => {
       secondaryColor="#ecebeb"
       {...props}
     >
-      {props.imageType === "circle" ? (
+      {props.imageType === 'circle' ? (
         <circle cx="60" cy="45" r="30" />
       ) : (
         <rect x="20" y="20" rx="5" ry="5" width="64" height="63" />
@@ -49,7 +49,7 @@ const Loader = props => {
 const ImageList = () => (
   <React.Fragment>
     {Array(5)
-      .fill("")
+      .fill('')
       .map((e, i) => (
         <Loader
           screen="desktop"
@@ -61,10 +61,10 @@ const ImageList = () => (
 )
 
 ImageList.metadata = {
-  name: "Gaurav Agarwal",
-  github: "gauravagarwal2704",
-  description: "List with image (rectangle/circle)",
-  filename: "image-list"
+  name: 'Gaurav Agarwal',
+  github: 'gauravagarwal2704',
+  description: 'List with image (rectangle/circle)',
+  filename: 'ImageList',
 }
 
 export default ImageList

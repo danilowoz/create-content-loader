@@ -1,7 +1,7 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
-const Loader = props => {
+const TableRow = props => {
   const random = Math.random() * (1 - 0.7) + 0.7
   return (
     <ContentLoader
@@ -24,21 +24,21 @@ const Loader = props => {
   )
 }
 
-const MyLoader = () => (
+const Table = () => (
   <React.Fragment>
     {Array(10)
-      .fill("")
+      .fill('')
       .map((e, i) => (
-        <Loader key={i} style={{ opacity: Number(2 / i).toFixed(1) }} />
+        <TableRow key={i} style={{ opacity: Number(2 / i).toFixed(1) }} />
       ))}
   </React.Fragment>
 )
 
-MyLoader.metadata = {
-  name: "DaniloWoz",
-  github: "danilowoz",
-  description: "Table with the width of the dynamic rows",
-  filename: "danilowoz-table"
+Table.metadata = {
+  name: 'DaniloWoz',
+  github: 'danilowoz',
+  description: 'Table with the width of the dynamic rows',
+  filename: 'Table',
 }
 
-export default MyLoader
+export default Table

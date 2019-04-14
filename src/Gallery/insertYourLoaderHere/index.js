@@ -1,2 +1,7 @@
-export { default as MyLoader } from "./danilowoz-table"
-export { default as ImageList } from "./image-list"
+export { default as ImageList } from './ImageList'
+export { default as Table } from './Table'
+export { default as Facebook } from './Facebook'
+export { default as Instagram } from './Instagram'
+export { default as Code } from './Code'
+export { default as BulletList } from './BulletList'
+export { default as List } from './NestedList'

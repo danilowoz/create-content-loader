@@ -48,7 +48,8 @@
 }
 
 .showcase-component {
-  min-height: 260px;
+  height: 15vw;
+  overflow: hidden;
 }
 
 .showcase-caption {
@@ -86,6 +87,7 @@
 
 .showcase-item__new {
   display: flex;
+  position: relative;
 }
 
 .showcase-item__new a {
@@ -98,10 +100,19 @@
   border-radius: 40px;
   transition: all 0.3s ease;
   color: var(--color-lynch);
+  top: -2em;
+  z-index: 999;
 }
 
 .showcase-item__new a:before {
-  content: "+";
+  content: '+';
   display: inline-block;
   margin-right: 0.5em;
+}
+
+.showcase-item__new-loader {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
 }

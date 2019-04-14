@@ -1,7 +1,8 @@
-import React from "react"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
-import "./style.css"
-import * as data from "./insertYourLoaderHere"
+import './style.css'
+import * as data from './insertYourLoaderHere'
 
 const renderItem = item => {
   const Component = data[item]
@@ -17,7 +18,7 @@ const renderItem = item => {
 
       <div className="showcase-caption">
         <h4>
-          {description}{" "}
+          {description}{' '}
           <a
             rel="noopener noreferrer"
             href={`https://github.com/${github}`}
@@ -49,6 +50,20 @@ const NewItem = () => (
     >
       Insert your loader
     </a>
+
+    <ContentLoader
+      height={465}
+      width={600}
+      speed={2}
+      primaryColor="#f3f3f3"
+      secondaryColor="#ecebeb"
+      className="showcase-item__new-loader"
+    >
+      <rect x="0" y="402" rx="8" ry="8" width="172" height="18" />
+      <rect x="0" y="448" rx="8" ry="8" width="123" height="13" />
+      <rect x="430" y="410" rx="8" ry="8" width="123" height="13" />
+      <rect x="0" y="378" rx="0" ry="0" width="559" height="2" />
+    </ContentLoader>
   </div>
 )
 

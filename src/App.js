@@ -1,21 +1,21 @@
-import React, { Component } from "react"
-import ContentLoader from "react-content-loader"
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
-import { Tools } from "react-sketch"
-import { debounce } from "throttle-debounce"
-import Clipboard from "clipboard"
+import React, { Component } from 'react'
+import ContentLoader from 'react-content-loader'
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import { Tools } from 'react-sketch'
+import { debounce } from 'throttle-debounce'
+import Clipboard from 'clipboard'
 
-import { getReactInfo } from "./utils"
-import { facebook, instagram, code, bulletList } from "./utils/presets"
-import template, { ReactImport } from "./utils/template"
-import Canvas from "./Canvas"
-import Config from "./Config"
-import Header from "./Layout/Header"
-import Gallery from "./Gallery"
+import { getReactInfo } from './utils'
+import { facebook, instagram, code, bulletList } from './utils/presets'
+import template, { ReactImport } from './utils/template'
+import Canvas from './Canvas'
+import Config from './Config'
+import Header from './Layout/Header'
+import Gallery from './Gallery'
 
-import ReactIcon from "./assets/react.svg"
-import VueIcon from "./assets/vue.svg"
-import "./style/style.css"
+import ReactIcon from './assets/react.svg'
+import VueIcon from './assets/vue.svg'
+import './style/style.css'
 
 const EditorLoader = () => (
   <ContentLoader
@@ -34,22 +34,21 @@ const EditorLoader = () => (
 class App extends Component {
   state = {
     activeItem: false,
-    draw: localStorage.getItem("draw") || facebook,
+    draw: localStorage.getItem('draw') || facebook,
     focusEditor: false,
-    guideline: localStorage.getItem("guideline") || "",
-    height: localStorage.getItem("height") || 160,
-    primaryColor: localStorage.getItem("primaryColor") || "#f3f3f3",
+    height: localStorage.getItem('height') || 160,
+    loading: false,
+    primaryColor: localStorage.getItem('primaryColor') || '#f3f3f3',
     renderCanvas: true,
-    rtl: localStorage.getItem("rtl") === "true",
-    secondaryColor: localStorage.getItem("secondaryColor") || "#ecebeb",
-    speed: localStorage.getItem("speed") || 2,
+    rtl: localStorage.getItem('rtl') === 'true',
+    secondaryColor: localStorage.getItem('secondaryColor') || '#ecebeb',
+    speed: localStorage.getItem('speed') || 2,
     tool: Tools.Select,
-    width: localStorage.getItem("width") || 400,
-    loading: false
+    width: localStorage.getItem('width') || 400,
   }
 
   componentDidMount() {
-    this.clipboard = new Clipboard(".copy-to-clipboard")
+    this.clipboard = new Clipboard('.copy-to-clipboard')
 
     setTimeout(() => {
       this.setState({ loading: false })
@@ -74,11 +73,11 @@ class App extends Component {
     this.setLocalStorage()
   }
 
-  _HandleDraw = draw => {
+  handleDraw = draw => {
     this.setState({ draw })
   }
 
-  _HandleEditor = (editor, error) => {
+  handleEditor = (editor, error) => {
     const hasError = this.editor.state.error === undefined
     if (hasError) {
       const state = getReactInfo(editor)
@@ -87,40 +86,53 @@ class App extends Component {
     }
   }
 
-  _HandleSelectedItem = activeItem => {
+  handleSelectedItem = activeItem => {
     this.setState({ activeItem })
   }
 
-  _HandleTool = tool => {
+  handleTool = tool => {
     this.setState({ tool })
   }
 
-  _HandlePreset = e => {
+  handlePreset = e => {
     const value = e.target.value
     const height = e.target.dataset.height
     const presents = {
       facebook,
       instagram,
       code,
-      bulletList
+      bulletList,
     }
     const draw = presents[value]
     this.setState({ draw, height, renderCanvas: false })
   }
 
-  _ResetColors = () => {
+  resetColors = () => {
     this.setState({
-      primaryColor: "#f3f3f3",
-      secondaryColor: "#ecebeb"
+      primaryColor: '#f3f3f3',
+      secondaryColor: '#ecebeb',
     })
   }
 
-  _HandleInput = ({ target: { value, name } }) => {
+  handleInput = ({ target: { value, name } }) => {
     this.setState({ [name]: value, renderCanvas: false })
   }
 
-  _HandleCheckbox = ({ target: { name, checked } }) => {
+  handleCheckbox = ({ target: { name, checked } }) => {
     this.setState({ [name]: checked, renderCanvas: false })
+  }
+
+  handleImageAsBackground = event => {
+    // reset value
+    if (!event) {
+      return this.setState({
+        imageAsBackground: null,
+      })
+    }
+
+    return this.setState({
+      imageAsBackground: URL.createObjectURL(event.target.files[0]),
+    })
   }
 
   componentDidCatch(error, info) {
@@ -128,15 +140,14 @@ class App extends Component {
       activeItem: false,
       draw: facebook,
       focusEditor: false,
-      guideline: "",
       height: 160,
-      primaryColor: "#f3f3f3",
+      primaryColor: '#f3f3f3',
       renderCanvas: true,
-      secondaryColor: "#ecebeb",
+      secondaryColor: '#ecebeb',
       speed: 2,
       tool: Tools.Select,
       width: 400,
-      rtl: false
+      rtl: false,
     })
   }
 
@@ -145,12 +156,12 @@ class App extends Component {
 
     const optMycode = {
       data: state,
-      importDeclaration: false
+      importDeclaration: false,
     }
     const Mycode = template(optMycode)
     const CopyCodeToClipboard = template({
       ...optMycode,
-      importDeclaration: true
+      importDeclaration: true,
     })
 
     return (
@@ -172,7 +183,7 @@ class App extends Component {
                   href="http://danilowoz.com/create-content-loader/"
                   className="handle-framework current"
                 >
-                  <img width="20" src={ReactIcon} alt="React" />{" "}
+                  <img width="20" src={ReactIcon} alt="React" />{' '}
                   <span>React</span>
                 </a>
                 <a
@@ -194,7 +205,7 @@ class App extends Component {
 
                   <ReactImport />
 
-                  <LiveEditor onChange={debounce(1000, this._HandleEditor)} />
+                  <LiveEditor onChange={debounce(1000, this.handleEditor)} />
                 </div>
                 <LiveError />
               </React.Fragment>
@@ -205,24 +216,25 @@ class App extends Component {
             {renderCanvas && (
               <Canvas
                 {...this.state}
-                _HandleDraw={this._HandleDraw}
-                _HandleSelectedItem={this._HandleSelectedItem}
-                _HandleTool={this._HandleTool}
-                _HandlePreset={this._HandlePreset}
+                handleDraw={this.handleDraw}
+                handleSelectedItem={this.handleSelectedItem}
+                handleTool={this.handleTool}
+                handlePreset={this.handlePreset}
               >
                 <LivePreview
                   style={{
                     width: `${this.state.width}px`,
-                    height: `${this.state.height}px`
+                    height: `${this.state.height}px`,
                   }}
                 />
               </Canvas>
             )}
             <Config
               {...this.state}
-              _HandleCheckbox={this._HandleCheckbox}
-              _HandleInput={this._HandleInput}
-              _ResetColors={this._ResetColors}
+              handleCheckbox={this.handleCheckbox}
+              handleInput={this.handleInput}
+              handleImageAsBackground={this.handleImageAsBackground}
+              resetColors={this.resetColors}
             />
           </div>
         </div>

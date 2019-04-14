@@ -1,59 +1,46 @@
-import React, { Component, Fragment } from "react"
-import { SketchField, Tools } from "react-sketch"
-import classnames from "classnames"
-import { Tooltip } from "react-tippy"
-import ClickOutside from "react-click-outside"
+import React, { Component, Fragment } from 'react'
+import { SketchField, Tools } from 'react-sketch'
+import classnames from 'classnames'
+import ClickOutside from 'react-click-outside'
 
-import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from "./utils"
+import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
+import Tip from './utils/customToolTip'
 
-import selectIcon from "./assets/select.svg"
-import trashIcon from "./assets/trash.svg"
-import cloneIcon from "./assets/clone.svg"
-import rectIcon from "./assets/rect.svg"
-import circleIcon from "./assets/circle.svg"
+import selectIcon from './assets/select.svg'
+import trashIcon from './assets/trash.svg'
+import cloneIcon from './assets/clone.svg'
+import rectIcon from './assets/rect.svg'
+import circleIcon from './assets/circle.svg'
 
-import "./style/tippy.css"
+import './style/tippy.css'
 
 const CLONE_OFFSET = 15
-
-const Tip = ({ title, children }) => (
-  <Tooltip
-    title={title}
-    arrow
-    distance={25}
-    trigger="mouseenter"
-    animation="shift"
-    size="small"
-  >
-    {children}
-  </Tooltip>
-)
 
 class Canvas extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      showCanvas: true
+      showCanvas: true,
     }
   }
 
   componentDidMount() {
-    this._Events()
-    this._SVGtoCanvas()
-    this._RemoveByKeyPress()
+    this.setupEvents()
+    this.SVGtoCanvas()
+    this.removeByKeyPress()
   }
 
-  _SVGtoCanvas = () => {
+  SVGtoCanvas = () => {
     const canvas = this._sketch && this._sketch._fc
     const arrFabric = SVGtoFabric(this.props.draw)
 
     if (canvas) {
       arrFabric.forEach(a => {
         let draw
-        if (a && a.type === "rect") {
+        if (a && a.type === 'rect') {
           draw = new window.fabric.Rect(a)
-        } else if (a && a.type === "circle") {
+        } else if (a && a.type === 'circle') {
           draw = new window.fabric.Circle(a)
         }
 
@@ -64,14 +51,14 @@ class Canvas extends Component {
     }
   }
 
-  _RenderCanvas = () => {
+  renderCanvas = () => {
     if (this._sketch) {
       const draw = JsonToSVG(this._sketch._fc.toJSON())
-      this.props._HandleDraw(draw)
+      this.props.handleDraw(draw)
     }
   }
 
-  _RemoveSelection = eventFromOutsideClick => {
+  removeSelection = eventFromOutsideClick => {
     const notClickingOnTrashButton =
       eventFromOutsideClick &&
       !eventFromOutsideClick.path.includes(this.trashButton)
@@ -88,23 +75,23 @@ class Canvas extends Component {
       activeItem
     ) {
       canvas.discardActiveObject().renderAll()
-      this.props._HandleSelectedItem(false)
+      this.props.handleSelectedItem(false)
     }
   }
 
-  _RemoveByKeyPress = () => {
+  removeByKeyPress = () => {
     document.addEventListener(
-      "keydown",
+      'keydown',
       e => {
-        if (e.code === "Backspace") {
-          this._RemoveItem()
+        if (e.code === 'Backspace') {
+          this.removeItem()
         }
       },
       false
     )
   }
 
-  _RemoveItem = () => {
+  removeItem = () => {
     const canvas = this._sketch && this._sketch._fc
 
     if (canvas && canvas.getActiveObject()) {
@@ -112,75 +99,75 @@ class Canvas extends Component {
     }
   }
 
-  _CloneItem = () => {
+  cloneItem = () => {
     const canvas = this._sketch && this._sketch._fc
 
     if (canvas && canvas.getActiveObject()) {
       const clone = window.fabric.util.object.clone(canvas.getActiveObject())
 
       // offset selection slightly to emphasise clone
-      clone.set("top", clone.top + CLONE_OFFSET)
-      clone.set("left", clone.left + CLONE_OFFSET)
+      clone.set('top', clone.top + CLONE_OFFSET)
+      clone.set('left', clone.left + CLONE_OFFSET)
 
       canvas.add(clone)
       canvas.setActiveObject(clone)
     }
   }
 
-  _Events = () => {
+  setupEvents = () => {
     const self = this
 
     this._sketch._fc.on({
-      "after:render": () => self._RenderCanvas(),
-      "object:selected": item =>
+      'after:render': () => self.renderCanvas(),
+      'object:selected': item =>
         (item.target = CanvasAddedProp(item.target)) &&
-        self.props._HandleSelectedItem(true),
-      "object:added": item => (item.target = CanvasAddedProp(item.target)),
-      "object:moving": item => (item.target = CanvasAddedProp(item.target)),
-      "selection:cleared": () => self.props._HandleSelectedItem(false)
+        self.props.handleSelectedItem(true),
+      'object:added': item => (item.target = CanvasAddedProp(item.target)),
+      'object:moving': item => (item.target = CanvasAddedProp(item.target)),
+      'selection:cleared': () => self.props.handleSelectedItem(false),
     })
   }
 
   render() {
     const {
-      _HandlePreset,
-      _HandleTool,
+      handlePreset,
+      handleTool,
       width,
       height,
       activeItem,
       tool,
       children,
-      guideline
+      imageAsBackground,
     } = this.props
 
     return (
       <Fragment>
         <div className="app-handlers" key="handlers">
           <button
-            className={classnames("app-handlers__tool", {
-              "app-handlers__active": tool === "select"
+            className={classnames('app-handlers__tool', {
+              'app-handlers__active': tool === 'select',
             })}
-            onClick={() => _HandleTool(Tools.Select)}
+            onClick={() => handleTool(Tools.Select)}
           >
             <Tip title="Select tool">
               <img src={selectIcon} alt="select tool" />
             </Tip>
           </button>
           <button
-            className={classnames("app-handlers__tool", {
-              "app-handlers__active": tool === "rectangle"
+            className={classnames('app-handlers__tool', {
+              'app-handlers__active': tool === 'rectangle',
             })}
-            onClick={() => _HandleTool(Tools.Rectangle)}
+            onClick={() => handleTool(Tools.Rectangle)}
           >
             <Tip title="Rect tool">
               <img src={rectIcon} alt="rect tool" />
             </Tip>
           </button>
           <button
-            className={classnames("app-handlers__tool", {
-              "app-handlers__active": tool === "circle"
+            className={classnames('app-handlers__tool', {
+              'app-handlers__active': tool === 'circle',
             })}
-            onClick={() => _HandleTool(Tools.Circle)}
+            onClick={() => handleTool(Tools.Circle)}
           >
             <Tip title="Circle tool">
               <img src={circleIcon} alt="circle tool" />
@@ -193,7 +180,7 @@ class Canvas extends Component {
             className="app-handlers__preset"
             value="facebook"
             data-height="160"
-            onClick={_HandlePreset}
+            onClick={handlePreset}
           >
             facebook
           </button>
@@ -201,7 +188,7 @@ class Canvas extends Component {
             className="app-handlers__preset"
             value="instagram"
             data-height="475"
-            onClick={_HandlePreset}
+            onClick={handlePreset}
           >
             instagram
           </button>
@@ -209,7 +196,7 @@ class Canvas extends Component {
             className="app-handlers__preset"
             value="code"
             data-height="160"
-            onClick={_HandlePreset}
+            onClick={handlePreset}
           >
             code
           </button>
@@ -217,7 +204,7 @@ class Canvas extends Component {
             className="app-handlers__preset"
             value="bulletList"
             data-height="160"
-            onClick={_HandlePreset}
+            onClick={handlePreset}
           >
             bulletList
           </button>
@@ -227,7 +214,7 @@ class Canvas extends Component {
               <button
                 className="app-handler__trash"
                 ref={n => (this.trashButton = n)}
-                onClick={this._RemoveItem}
+                onClick={this.removeItem}
               >
                 <Tip title="Delete selected item">
                   <img src={trashIcon} alt="remove item" />
@@ -236,7 +223,7 @@ class Canvas extends Component {
               <button
                 className="app-handler__clone"
                 ref={n => (this.cloneButton = n)}
-                onClick={this._CloneItem}
+                onClick={this.cloneItem}
               >
                 <Tip title="Clone tool">
                   <img src={cloneIcon} alt="clone tool" />
@@ -246,22 +233,24 @@ class Canvas extends Component {
           )}
         </div>
         <div
-          className={classnames("app-canvas", {
-            "app-canvas__draw": tool === "rectangle" || tool === "circle"
+          className={classnames('app-canvas', {
+            'app-canvas__draw': tool === 'rectangle' || tool === 'circle',
           })}
           key="canvas"
         >
-          {guideline && (
+          {imageAsBackground && (
             <img
-              src={guideline}
+              src={imageAsBackground}
               className="app-canvas__guideline"
               alt="guideline"
             />
           )}
+
           {children}
+
           <ClickOutside
             onClickOutside={e => {
-              this._RemoveSelection(e)
+              this.removeSelection(e)
             }}
           >
             <SketchField
