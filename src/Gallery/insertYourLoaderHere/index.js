@@ -1,3 +1,4 @@
+export { default as ProductDetails } from './ProductDetails'
 export { default as ImageList } from './ImageList'
 export { default as Table } from './Table'
 export { default as Facebook } from './Facebook'
