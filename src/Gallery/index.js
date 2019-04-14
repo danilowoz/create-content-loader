@@ -1,5 +1,6 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
+import ReactGA from 'react-ga'
 
 import './style.css'
 import * as data from './insertYourLoaderHere'
@@ -23,6 +24,13 @@ const renderItem = item => {
             rel="noopener noreferrer"
             href={`https://github.com/${github}`}
             target="_blank"
+            onClick={() => {
+              ReactGA.event({
+                category: 'Gallery',
+                action: `click username`,
+                label: name,
+              })
+            }}
           >
             by {name}
           </a>
@@ -33,6 +41,13 @@ const renderItem = item => {
           href={`https://github.com/danilowoz/create-content-loader/blob/master/src/Gallery/insertYourLoaderHere/${filename}.js`}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            ReactGA.event({
+              category: 'Gallery',
+              action: `view source`,
+              label: filename,
+            })
+          }}
         >
           view source
         </a>
@@ -47,6 +62,12 @@ const NewItem = () => (
       href="https://github.com/danilowoz/create-content-loader/wiki/How-to-insert-your-loader-at-gallery"
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => {
+        ReactGA.event({
+          category: 'Gallery',
+          action: `create a new loader`,
+        })
+      }}
     >
       Insert your loader
     </a>

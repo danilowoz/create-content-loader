@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { SketchField, Tools } from 'react-sketch'
 import classnames from 'classnames'
 import ClickOutside from 'react-click-outside'
+import ReactGA from 'react-ga'
 
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
 import Tip from './utils/customToolTip'
@@ -97,6 +98,11 @@ class Canvas extends Component {
     if (canvas && canvas.getActiveObject()) {
       canvas.remove(canvas.getActiveObject())
     }
+
+    ReactGA.event({
+      category: 'Draw',
+      action: 'remove item',
+    })
   }
 
   cloneItem = () => {
@@ -112,6 +118,11 @@ class Canvas extends Component {
       canvas.add(clone)
       canvas.setActiveObject(clone)
     }
+
+    ReactGA.event({
+      category: 'Draw',
+      action: 'close item',
+    })
   }
 
   setupEvents = () => {

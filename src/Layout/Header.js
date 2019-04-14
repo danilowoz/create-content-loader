@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactGA from 'react-ga'
 
 import '../style/Header.css'
 
@@ -18,6 +19,12 @@ const Header = () => {
           without=""
           rel="noopener noreferrer"
           className="app-assign__by"
+          onClick={() => {
+            ReactGA.event({
+              category: 'Creator',
+              action: `go to danilowoz on Github`,
+            })
+          }}
         >
           by @danilowoz
         </a>
@@ -33,6 +40,12 @@ const Header = () => {
           target="_blank"
           without=""
           rel="noopener noreferrer"
+          onClick={() => {
+            ReactGA.event({
+              category: 'Creator',
+              action: `go to react-content-loader on Github`,
+            })
+          }}
         >
           react-content-loader@{pkg.dependencies['react-content-loader']}
         </a>
@@ -45,6 +58,12 @@ const Header = () => {
           target="_blank"
           without=""
           rel="noopener noreferrer"
+          onClick={() => {
+            ReactGA.event({
+              category: 'Creator',
+              action: `go to create-content-loader on Github`,
+            })
+          }}
         >
           create-content-loader@{pkg.version}
         </a>

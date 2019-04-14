@@ -4,6 +4,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
 import { debounce } from 'throttle-debounce'
 import Clipboard from 'clipboard'
+import ReactGA from 'react-ga'
 
 import { getReactInfo } from './utils'
 import { facebook, instagram, code, bulletList } from './utils/presets'
@@ -50,6 +51,13 @@ class App extends Component {
   componentDidMount() {
     this.clipboard = new Clipboard('.copy-to-clipboard')
 
+    this.clipboard.on('success', () => {
+      ReactGA.event({
+        category: 'Creator',
+        action: `clipboard`,
+      })
+    })
+
     setTimeout(() => {
       this.setState({ loading: false })
     }, 1200)
@@ -88,10 +96,21 @@ class App extends Component {
 
   handleSelectedItem = activeItem => {
     this.setState({ activeItem })
+
+    ReactGA.event({
+      category: 'Draw',
+      action: `selected item`,
+    })
   }
 
   handleTool = tool => {
     this.setState({ tool })
+
+    ReactGA.event({
+      category: 'Draw',
+      action: `set tool`,
+      label: tool,
+    })
   }
 
   handlePreset = e => {
@@ -105,6 +124,12 @@ class App extends Component {
     }
     const draw = presents[value]
     this.setState({ draw, height, renderCanvas: false })
+
+    ReactGA.event({
+      category: 'Draw',
+      action: `set preset`,
+      label: value,
+    })
   }
 
   resetColors = () => {
@@ -112,17 +137,39 @@ class App extends Component {
       primaryColor: '#f3f3f3',
       secondaryColor: '#ecebeb',
     })
+
+    ReactGA.event({
+      category: 'Config',
+      action: `reset colors`,
+    })
   }
 
   handleInput = ({ target: { value, name } }) => {
     this.setState({ [name]: value, renderCanvas: false })
+
+    ReactGA.event({
+      category: 'Config',
+      action: `input`,
+      label: name,
+    })
   }
 
   handleCheckbox = ({ target: { name, checked } }) => {
     this.setState({ [name]: checked, renderCanvas: false })
+
+    ReactGA.event({
+      category: 'Config',
+      action: `input`,
+      label: name,
+    })
   }
 
   handleImageAsBackground = event => {
+    ReactGA.event({
+      category: 'Config',
+      action: 'set image as background',
+    })
+
     // reset value
     if (!event) {
       return this.setState({
@@ -189,6 +236,12 @@ class App extends Component {
                 <a
                   href="http://danilowoz.com/create-vue-content-loader/"
                   className="handle-framework"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: 'Creator',
+                      action: `go to vue`,
+                    })
+                  }}
                 >
                   <img width="20" src={VueIcon} alt="React" /> <span>Vue</span>
                 </a>

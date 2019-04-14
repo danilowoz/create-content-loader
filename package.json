@@ -21,6 +21,7 @@
     "react-content-loader": "4.2.1",
     "react-css": "^0.0.2",
     "react-dom": "^16.1.1",
+    "react-ga": "^2.5.7",
     "react-live": "^1.7.1",
     "react-scripts": "^2.1.8",
     "react-sketch": "^0.5.1",
