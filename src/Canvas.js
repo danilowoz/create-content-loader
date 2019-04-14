@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { SketchField, Tools } from 'react-sketch'
 import classnames from 'classnames'
-import { Tooltip } from 'react-tippy'
 import ClickOutside from 'react-click-outside'
 
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
+import Tip from './utils/customToolTip'
 
 import selectIcon from './assets/select.svg'
 import trashIcon from './assets/trash.svg'
@@ -15,19 +15,6 @@ import circleIcon from './assets/circle.svg'
 import './style/tippy.css'
 
 const CLONE_OFFSET = 15
-
-const Tip = ({ title, children }) => (
-  <Tooltip
-    title={title}
-    arrow
-    distance={25}
-    trigger="mouseenter"
-    animation="shift"
-    size="small"
-  >
-    {children}
-  </Tooltip>
-)
 
 class Canvas extends Component {
   constructor(props) {
@@ -40,11 +27,11 @@ class Canvas extends Component {
 
   componentDidMount() {
     this.setupEvents()
-    this._SVGtoCanvas()
+    this.SVGtoCanvas()
     this.removeByKeyPress()
   }
 
-  _SVGtoCanvas = () => {
+  SVGtoCanvas = () => {
     const canvas = this._sketch && this._sketch._fc
     const arrFabric = SVGtoFabric(this.props.draw)
 
@@ -150,7 +137,7 @@ class Canvas extends Component {
       activeItem,
       tool,
       children,
-      guideline,
+      imageAsBackground,
     } = this.props
 
     return (
@@ -251,14 +238,16 @@ class Canvas extends Component {
           })}
           key="canvas"
         >
-          {guideline && (
+          {imageAsBackground && (
             <img
-              src={guideline}
+              src={imageAsBackground}
               className="app-canvas__guideline"
               alt="guideline"
             />
           )}
+
           {children}
+
           <ClickOutside
             onClickOutside={e => {
               this.removeSelection(e)

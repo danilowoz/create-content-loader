@@ -36,7 +36,6 @@ class App extends Component {
     activeItem: false,
     draw: localStorage.getItem('draw') || facebook,
     focusEditor: false,
-    guideline: localStorage.getItem('guideline') || '',
     height: localStorage.getItem('height') || 160,
     loading: false,
     primaryColor: localStorage.getItem('primaryColor') || '#f3f3f3',
@@ -123,12 +122,24 @@ class App extends Component {
     this.setState({ [name]: checked, renderCanvas: false })
   }
 
+  handleImageAsBackground = event => {
+    // reset value
+    if (!event) {
+      return this.setState({
+        imageAsBackground: null,
+      })
+    }
+
+    return this.setState({
+      imageAsBackground: URL.createObjectURL(event.target.files[0]),
+    })
+  }
+
   componentDidCatch(error, info) {
     this.setState({
       activeItem: false,
       draw: facebook,
       focusEditor: false,
-      guideline: '',
       height: 160,
       primaryColor: '#f3f3f3',
       renderCanvas: true,
@@ -222,6 +233,7 @@ class App extends Component {
               {...this.state}
               handleCheckbox={this.handleCheckbox}
               handleInput={this.handleInput}
+              handleImageAsBackground={this.handleImageAsBackground}
               resetColors={this.resetColors}
             />
           </div>

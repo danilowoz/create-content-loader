@@ -5,7 +5,7 @@
   transition: none !important;
 }
 .tippy-popper {
-  max-width: 400px;
+  max-width: 230px;
   -webkit-perspective: 800px;
   perspective: 800px;
   z-index: 9999;
@@ -13,11 +13,17 @@
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   pointer-events: none;
 }
+
+.tippy-popper a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .tippy-popper.html-template {
   max-width: 96%;
   max-width: calc(100% - 20px);
 }
-.tippy-popper[x-placement^="top"] [x-arrow] {
+.tippy-popper[x-placement^='top'] [x-arrow] {
   border-top: 7px solid var(--color-lynch);
   border-right: 7px solid transparent;
   border-left: 7px solid transparent;
@@ -25,78 +31,78 @@
   margin: 0 9px;
 }
 
-.tippy-popper[x-placement^="top"] [x-circle] {
+.tippy-popper[x-placement^='top'] [x-circle] {
   -webkit-transform-origin: 0 33%;
   transform-origin: 0 33%;
 }
-.tippy-popper[x-placement^="top"] [x-circle].enter {
+.tippy-popper[x-placement^='top'] [x-circle].enter {
   -webkit-transform: scale(1) translate(-50%, -55%);
   transform: scale(1) translate(-50%, -55%);
   opacity: 1;
 }
-.tippy-popper[x-placement^="top"] [x-circle].leave {
+.tippy-popper[x-placement^='top'] [x-circle].leave {
   -webkit-transform: scale(0.15) translate(-50%, -50%);
   transform: scale(0.15) translate(-50%, -50%);
   opacity: 0;
 }
 
-.tippy-popper[x-placement^="top"] [data-animation="fade"].enter {
+.tippy-popper[x-placement^='top'] [data-animation='fade'].enter {
   opacity: 1;
   -webkit-transform: translateY(-10px);
   transform: translateY(-10px);
 }
-.tippy-popper[x-placement^="top"] [data-animation="fade"].leave {
+.tippy-popper[x-placement^='top'] [data-animation='fade'].leave {
   opacity: 0;
   -webkit-transform: translateY(-10px);
   transform: translateY(-10px);
 }
-.tippy-popper[x-placement^="top"] [data-animation="shift"].enter {
+.tippy-popper[x-placement^='top'] [data-animation='shift'].enter {
   opacity: 1;
   -webkit-transform: translateY(-10px);
   transform: translateY(-10px);
 }
-.tippy-popper[x-placement^="top"] [data-animation="shift"].leave {
+.tippy-popper[x-placement^='top'] [data-animation='shift'].leave {
   opacity: 0;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.tippy-popper[x-placement^="top"] [data-animation="scale"].enter {
+.tippy-popper[x-placement^='top'] [data-animation='scale'].enter {
   opacity: 1;
   -webkit-transform: translateY(-10px) scale(1);
   transform: translateY(-10px) scale(1);
 }
-.tippy-popper[x-placement^="top"] [data-animation="scale"].leave {
+.tippy-popper[x-placement^='top'] [data-animation='scale'].leave {
   opacity: 0;
   -webkit-transform: translateY(0) scale(0);
   transform: translateY(0) scale(0);
 }
 
-.tippy-popper[x-placement^="right"] [data-animation="fade"].enter {
+.tippy-popper[x-placement^='right'] [data-animation='fade'].enter {
   opacity: 1;
   -webkit-transform: translateX(10px);
   transform: translateX(10px);
 }
-.tippy-popper[x-placement^="right"] [data-animation="fade"].leave {
+.tippy-popper[x-placement^='right'] [data-animation='fade'].leave {
   opacity: 0;
   -webkit-transform: translateX(10px);
   transform: translateX(10px);
 }
-.tippy-popper[x-placement^="right"] [data-animation="shift"].enter {
+.tippy-popper[x-placement^='right'] [data-animation='shift'].enter {
   opacity: 1;
   -webkit-transform: translateX(10px);
   transform: translateX(10px);
 }
-.tippy-popper[x-placement^="right"] [data-animation="shift"].leave {
+.tippy-popper[x-placement^='right'] [data-animation='shift'].leave {
   opacity: 0;
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
-.tippy-popper[x-placement^="right"] [data-animation="scale"].enter {
+.tippy-popper[x-placement^='right'] [data-animation='scale'].enter {
   opacity: 1;
   -webkit-transform: translateX(10px) scale(1);
   transform: translateX(10px) scale(1);
 }
-.tippy-popper[x-placement^="right"] [data-animation="scale"].leave {
+.tippy-popper[x-placement^='right'] [data-animation='scale'].leave {
   opacity: 0;
   -webkit-transform: translateX(0) scale(0);
   transform: translateX(0) scale(0);
@@ -165,7 +171,7 @@
   transition: all ease;
 }
 .tippy-tooltip [x-circle]:before {
-  content: "";
+  content: '';
   padding-top: 90%;
   float: left;
 }

@@ -17,8 +17,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   min-height: 100vh;
 }
 
@@ -73,7 +73,7 @@ body {
 .app-editor__tab span,
 .app-editor__tab:before,
 .app-editor__tab:after {
-  content: "";
+  content: '';
   height: 12px;
   width: 12px;
   border-radius: 100%;
@@ -130,7 +130,7 @@ body {
 }
 
 .app-canvas:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -276,11 +276,11 @@ body {
 .app-config p {
   padding: 0.5em 0;
   margin: 0;
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
   width: calc(100% / 3);
   box-sizing: border-box;
   margin-bottom: 0.7em;
+  align-items: center;
 }
 
 .app-config label {
@@ -288,7 +288,6 @@ body {
   min-width: 3em;
   font-size: var(--font-size__tiny);
   color: var(--color-dark);
-  margin-bottom: 0.6em;
 }
 
 .app-config button {
@@ -308,24 +307,27 @@ body {
 
 .app-config input {
   border: none;
-  border-bottom: 1px solid var(--color-porcelain);
-  height: 2em;
   color: var(--color-dark);
+  border-bottom: 1px solid var(--color-porcelain);
   width: 4em;
+  height: 2em;
   display: inline-block;
   outline: 0;
   margin: 0;
   padding: 0;
 }
 
-.app-config input[type="color"]::-webkit-color-swatch {
+
+.app-config input[type='color']{
   border: 0;
-  border-radius: 2px;
-  position: relative;
-  top: 4px;
 }
 
-.app-config input[type="checkbox"] {
+.app-config input[type='color']::-webkit-color-swatch {
+  border: 0;
+  border-radius: 2px;
+}
+
+.app-config input[type='checkbox'] {
   height: auto;
   width: auto;
   margin-right: 1em;
@@ -343,7 +345,7 @@ body {
   align-items: center;
   line-height: 1;
   cursor: pointer;
-  top: 0.5em;
+  top: -0.1em;
   position: relative;
   margin-left: 0.6em;
 }
@@ -359,7 +361,7 @@ body {
 }
 
 .app-config .toggle-check:before {
-  content: "";
+  content: '';
   display: block;
   position: relative;
   width: 2.2rem;
@@ -372,7 +374,7 @@ body {
 }
 
 .app-config .toggle-check:after {
-  content: "";
+  content: '';
   display: block;
   background: #fff;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.02);
@@ -395,6 +397,7 @@ body {
 
 .app-config .app-config__guideline {
   width: calc(100% / 2);
+  position: relative;
 }
 
 .app-config .app-config__guideline input {
@@ -402,9 +405,17 @@ body {
   padding-left: 26px;
   border-bottom: 1px solid var(--color-porcelain);
   height: 3em;
+  line-height: 2.8em;
   background: url(../assets/grid.svg) -5px 0px no-repeat;
   background-size: auto 30px;
   top: 1em;
+}
+
+.app-config .app-config__guideline button {
+  position: absolute;
+  right: -2em;
+  bottom: 1em;
+  min-width: 1.3em;
 }
 
 .app-config .reset-colors {
