@@ -10,7 +10,8 @@
     "deploy": "npm run build --nomaps && gh-pages -d build",
     "release": "semantic-release",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "now-build": "react-scripts build"
   },
   "dependencies": {
     "classnames": "^2.2.5",
