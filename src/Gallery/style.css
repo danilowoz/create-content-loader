@@ -37,6 +37,7 @@
 }
 
 .showcase-item {
+  min-height: 300px;
   box-sizing: border-box;
   margin: 15px;
   padding: 30px;
