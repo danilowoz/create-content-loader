@@ -1,3 +1,4 @@
+export { default as Chat } from './Chat'
 export { default as Medium } from './Medium'
 export { default as Invoice } from './Invoice'
 export { default as ProductDetails } from './ProductDetails'
