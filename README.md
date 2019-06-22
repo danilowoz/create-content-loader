@@ -1,5 +1,5 @@
 <p align="center">
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
   <img width="800px" src="https://user-images.githubusercontent.com/4838076/55633581-9d854f00-57b4-11e9-98b2-81c2eec332e3.png" title="Create Content Loader" />
 </p>
 
@@ -86,6 +86,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/LucasPadovan"><img src="https://avatars0.githubusercontent.com/u/993291?v=4" width="100px;" alt="Lucas Padovan"/><br /><sub><b>Lucas Padovan</b></sub></a><br /><a href="#content-LucasPadovan" title="Content">🖋</a></td>
     <td align="center"><a href="https://cv.wiput.me"><img src="https://avatars3.githubusercontent.com/u/8299278?v=4" width="100px;" alt="Wiput Pootong"/><br /><sub><b>Wiput Pootong</b></sub></a><br /><a href="#content-wiput1999" title="Content">🖋</a></td>
     <td align="center"><a href="http://www.thomasknickman.com"><img src="https://avatars1.githubusercontent.com/u/2933988?v=4" width="100px;" alt="Thomas Knickman"/><br /><sub><b>Thomas Knickman</b></sub></a><br /><a href="#content-tknickman" title="Content">🖋</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/nicholascm"><img src="https://avatars2.githubusercontent.com/u/8185671?v=4" width="100px;" alt="Nick"/><br /><sub><b>Nick</b></sub></a><br /><a href="#content-nicholascm" title="Content">🖋</a></td>
   </tr>
 </table>
 
