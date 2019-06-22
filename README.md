@@ -1,5 +1,5 @@
 <p align="center">
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors)
   <img width="800px" src="https://user-images.githubusercontent.com/4838076/55633581-9d854f00-57b4-11e9-98b2-81c2eec332e3.png" title="Create Content Loader" />
 </p>
 
@@ -91,6 +91,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/nicholascm"><img src="https://avatars2.githubusercontent.com/u/8185671?v=4" width="100px;" alt="Nick"/><br /><sub><b>Nick</b></sub></a><br /><a href="#content-nicholascm" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/gauravagarwal2704"><img src="https://avatars0.githubusercontent.com/u/5871983?v=4" width="100px;" alt="Gaurav Agarwal"/><br /><sub><b>Gaurav Agarwal</b></sub></a><br /><a href="#content-gauravagarwal2704" title="Content">🖋</a></td>
     <td align="center"><a href="https://patreon.com/egoist"><img src="https://avatars2.githubusercontent.com/u/8784712?v=4" width="100px;" alt="EGOIST"/><br /><sub><b>EGOIST</b></sub></a><br /><a href="#content-egoist" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/danielerota"><img src="https://avatars2.githubusercontent.com/u/50356649?v=4" width="100px;" alt="danielerota"/><br /><sub><b>danielerota</b></sub></a><br /><a href="#content-danielerota" title="Content">🖋</a></td>
   </tr>
 </table>
 
