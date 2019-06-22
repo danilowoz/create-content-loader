@@ -63,6 +63,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "tknickman",
+      "name": "Thomas Knickman",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2933988?v=4",
+      "profile": "http://www.thomasknickman.com",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7
