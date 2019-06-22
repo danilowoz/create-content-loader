@@ -1,0 +1,42 @@
+{
+  "projectName": "create-content-loader",
+  "projectOwner": "danilowoz",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "AjayPoshak",
+      "name": "Ajay Poshak",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7375457?v=4",
+      "profile": "https://twitter.com/poshakajay",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "danilowoz",
+      "name": "Danilo Woznica",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/4838076?v=4",
+      "profile": "http://danilowoz.com",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "rabingaire",
+      "name": "Rabin Gaire",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17409675?v=4",
+      "profile": "http://rabingaire.com.np",
+      "contributions": [
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

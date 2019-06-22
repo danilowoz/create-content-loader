@@ -1,4 +1,5 @@
 <p align="center">
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
   <img width="800px" src="https://user-images.githubusercontent.com/4838076/55633581-9d854f00-57b4-11e9-98b2-81c2eec332e3.png" title="Create Content Loader" />
 </p>
 
@@ -69,3 +70,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://twitter.com/poshakajay"><img src="https://avatars2.githubusercontent.com/u/7375457?v=4" width="100px;" alt="Ajay Poshak"/><br /><sub><b>Ajay Poshak</b></sub></a><br /><a href="#content-AjayPoshak" title="Content">🖋</a></td>
+    <td align="center"><a href="http://danilowoz.com"><img src="https://avatars1.githubusercontent.com/u/4838076?v=4" width="100px;" alt="Danilo Woznica"/><br /><sub><b>Danilo Woznica</b></sub></a><br /><a href="#maintenance-danilowoz" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://rabingaire.com.np"><img src="https://avatars3.githubusercontent.com/u/17409675?v=4" width="100px;" alt="Rabin Gaire"/><br /><sub><b>Rabin Gaire</b></sub></a><br /><a href="#content-rabingaire" title="Content">🖋</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
