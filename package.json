@@ -10,8 +10,7 @@
     "deploy": "npm run build --nomaps && gh-pages -d build",
     "release": "semantic-release",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "commit": "git-cz",
-    "now-build": "react-scripts build"
+    "commit": "git-cz"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -40,7 +39,7 @@
     "gh-pages": "^1.1.0",
     "husky": "^1.3.1",
     "prettier": "^1.17.0",
-    "semantic-release": "^15.13.3"
+    "semantic-release": "^15.13.16"
   },
   "husky": {
     "hooks": {
