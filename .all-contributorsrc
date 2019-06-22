@@ -90,6 +90,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "egoist",
+      "name": "EGOIST",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/8784712?v=4",
+      "profile": "https://patreon.com/egoist",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7
