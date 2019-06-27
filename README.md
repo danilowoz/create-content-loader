@@ -1,5 +1,9 @@
 <p align="center">
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors)
+
+  [![All Contributors][logo]](reference)
+
+  [logo]: https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square
+  [reference]: #contributors
   <img width="800px" src="https://user-images.githubusercontent.com/4838076/55633581-9d854f00-57b4-11e9-98b2-81c2eec332e3.png" title="Create Content Loader" />
 </p>
 
