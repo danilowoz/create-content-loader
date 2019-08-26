@@ -1,3 +1,4 @@
+export { default as Card } from './Card'
 export { default as AvatarWithText } from './AvatarWithText'
 export { default as HomePage } from './HomePage'
 export { default as BlogItem } from './BlogItem'
