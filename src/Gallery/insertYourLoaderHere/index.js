@@ -1,6 +1,7 @@
 export { default as CalloutStripLoader } from './CalloutStripLoader'
 export { default as Card } from './Card'
 export { default as AvatarWithText } from './AvatarWithText'
+export { default as Youtube } from './Youtube'
 export { default as HomePage } from './HomePage'
 export { default as BlogItem } from './BlogItem'
 export { default as Chat } from './Chat'
