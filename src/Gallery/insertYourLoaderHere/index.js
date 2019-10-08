@@ -1,6 +1,6 @@
 export { default as Grid } from './Grid'
 export { default as Article } from './Article'
-// export { default as Youtube } from './Youtube'
+export { default as Youtube } from './Youtube'
 export { default as CalloutStripLoader } from './CalloutStripLoader'
 export { default as Card } from './Card'
 export { default as AvatarWithText } from './AvatarWithText'
