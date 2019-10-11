@@ -1,3 +1,4 @@
+export { default as GoogleMap } from './GoogleMap'
 export { default as ForumPost } from './ForumPost'
 export { default as CleanChat } from './CleanChat'
 export { default as Reddit } from './Reddit'
