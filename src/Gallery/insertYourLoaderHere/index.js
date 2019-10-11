@@ -1,3 +1,5 @@
+export { default as ForumPost } from './ForumPost'
+export { default as CleanChat } from './CleanChat'
 export { default as Reddit } from './Reddit'
 export { default as Grid } from './Grid'
 export { default as Article } from './Article'
@@ -18,4 +20,4 @@ export { default as Instagram } from './Instagram'
 export { default as Code } from './Code'
 export { default as BulletList } from './BulletList'
 export { default as List } from './NestedList'
-export { default as CleanChat } from './CleanChat'
+
