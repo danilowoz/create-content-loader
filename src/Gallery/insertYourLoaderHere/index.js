@@ -1,3 +1,4 @@
+export { default as LinkedIn } from './LinkedIn'
 export { default as GoogleMap } from './GoogleMap'
 export { default as ForumPost } from './ForumPost'
 export { default as CleanChat } from './CleanChat'
@@ -21,4 +22,3 @@ export { default as Instagram } from './Instagram'
 export { default as Code } from './Code'
 export { default as BulletList } from './BulletList'
 export { default as List } from './NestedList'
-
