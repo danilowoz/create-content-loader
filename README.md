@@ -102,6 +102,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/bilalbutt044"><img src="https://avatars3.githubusercontent.com/u/30072504?v=4" width="100px;" alt="Muhammad Bilal"/><br /><sub><b>Muhammad Bilal</b></sub></a><br /><a href="#content-bilalbutt044" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/alidaghighi"><img src="https://avatars3.githubusercontent.com/u/23290056?v=4" width="100px;" alt="Ali Daghighi"/><br /><sub><b>Ali Daghighi</b></sub></a><br /><a href="#content-alidaghighi" title="Content">🖋</a></td>
   </tr>
 </table>
 
