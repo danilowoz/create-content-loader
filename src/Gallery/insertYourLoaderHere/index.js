@@ -1,4 +1,5 @@
 export { default as UpworkJobLoader } from './UpworkJobLoader'
+export { default as Catalog } from './Catalog'
 export { default as LinkedIn } from './LinkedIn'
 export { default as GoogleMap } from './GoogleMap'
 export { default as ForumPost } from './ForumPost'
