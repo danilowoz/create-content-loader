@@ -104,6 +104,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/bilalbutt044"><img src="https://avatars3.githubusercontent.com/u/30072504?v=4" width="100px;" alt="Muhammad Bilal"/><br /><sub><b>Muhammad Bilal</b></sub></a><br /><a href="#content-bilalbutt044" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/alidaghighi"><img src="https://avatars3.githubusercontent.com/u/23290056?v=4" width="100px;" alt="Ali Daghighi"/><br /><sub><b>Ali Daghighi</b></sub></a><br /><a href="#content-alidaghighi" title="Content">🖋</a></td>
     <td align="center"><a href="https://www.youtube.com/victoriamei"><img src="https://avatars2.githubusercontent.com/u/28760234?v=4" width="100px;" alt="Victoria Mei"/><br /><sub><b>Victoria Mei</b></sub></a><br /><a href="#content-vm930" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/adititipnis"><img src="https://avatars0.githubusercontent.com/u/10024684?v=4" width="100px;" alt="adititipnis"/><br /><sub><b>adititipnis</b></sub></a><br /><a href="#content-adititipnis" title="Content">🖋</a></td>
   </tr>
 </table>
 
