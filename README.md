@@ -107,6 +107,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/adititipnis"><img src="https://avatars0.githubusercontent.com/u/10024684?v=4" width="100px;" alt="adititipnis"/><br /><sub><b>adititipnis</b></sub></a><br /><a href="#content-adititipnis" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/pablomaribondo"><img src="https://avatars0.githubusercontent.com/u/29880916?v=4" width="100px;" alt="Pablo Maribondo"/><br /><sub><b>Pablo Maribondo</b></sub></a><br /><a href="#content-pablomaribondo" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/sbaraka"><img src="https://avatars2.githubusercontent.com/u/29280064?v=4" width="100px;" alt="Sammy Baraka"/><br /><sub><b>Sammy Baraka</b></sub></a><br /><a href="#content-sbaraka" title="Content">🖋</a></td>
+    <td align="center"><a href="https://baptistefkt.github.io"><img src="https://avatars3.githubusercontent.com/u/18186452?v=4" width="100px;" alt="Baptiste Firket"/><br /><sub><b>Baptiste Firket</b></sub></a><br /><a href="#content-baptistefkt" title="Content">🖋</a></td>
   </tr>
 </table>
 
