@@ -109,6 +109,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/sbaraka"><img src="https://avatars2.githubusercontent.com/u/29280064?v=4" width="100px;" alt="Sammy Baraka"/><br /><sub><b>Sammy Baraka</b></sub></a><br /><a href="#content-sbaraka" title="Content">🖋</a></td>
     <td align="center"><a href="https://baptistefkt.github.io"><img src="https://avatars3.githubusercontent.com/u/18186452?v=4" width="100px;" alt="Baptiste Firket"/><br /><sub><b>Baptiste Firket</b></sub></a><br /><a href="#content-baptistefkt" title="Content">🖋</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/aej11a"><img src="https://avatars2.githubusercontent.com/u/10066422?v=4" width="100px;" alt="aej11a"/><br /><sub><b>aej11a</b></sub></a><br /><a href="#content-aej11a" title="Content">🖋</a></td>
+  </tr>
 </table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
