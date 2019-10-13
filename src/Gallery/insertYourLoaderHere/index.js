@@ -1,5 +1,6 @@
 export { default as UpworkJobLoader } from './UpworkJobLoader'
 export { default as Catalog } from './Catalog'
+export { default as ChatLoader } from './ChatLoader'
 export { default as LinkedIn } from './LinkedIn'
 export { default as GoogleMap } from './GoogleMap'
 export { default as ForumPost } from './ForumPost'
@@ -24,7 +25,3 @@ export { default as Instagram } from './Instagram'
 export { default as Code } from './Code'
 export { default as BulletList } from './BulletList'
 export { default as List } from './NestedList'
-<<<<<<< HEAD
-=======
-export { default as EcommerceProduct } from './EcommerceProduct'
->>>>>>> fix(gallery): ecommerce

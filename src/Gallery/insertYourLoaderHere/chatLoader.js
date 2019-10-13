@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const Chat = props => {
+const ChatLoader = props => {
   return (
     <ContentLoader
       height={160}
@@ -20,11 +20,11 @@ const Chat = props => {
   )
 }
 
-CleanChat.metadata = {
+ChatLoader.metadata = {
   name: 'Harshit Bhalla',
   github: 'harshitsan',
   description: 'Chat Loader',
-  filename: 'Chat',
+  filename: 'ChatLoader',
 }
 
-export default Chat
+export default ChatLoader
