@@ -111,6 +111,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/aej11a"><img src="https://avatars2.githubusercontent.com/u/10066422?v=4" width="100px;" alt="aej11a"/><br /><sub><b>aej11a</b></sub></a><br /><a href="#content-aej11a" title="Content">🖋</a></td>
+    <td align="center"><a href="http://royalbhati.github.io/portfolio"><img src="https://avatars3.githubusercontent.com/u/11679543?v=4" width="100px;" alt="Royal Bhati"/><br /><sub><b>Royal Bhati</b></sub></a><br /><a href="#content-royalbhati" title="Content">🖋</a></td>
   </tr>
 </table>
 
