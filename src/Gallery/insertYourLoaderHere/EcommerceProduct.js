@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const ecommerceProducts = () => (
+const EcommerceProduct = () => (
   <ContentLoader
     height={400}
     width={400}
@@ -24,11 +24,11 @@ const ecommerceProducts = () => (
   </ContentLoader>
 )
 
-ecommerceProducts.metadata = {
+EcommerceProduct.metadata = {
   name: 'Muhammd Bilal',
   github: 'bilalbutt044',
   description: 'loader for ecommerce products and category',
-  filename: 'ecommerceProducts',
+  filename: 'EcommerceProduct',
 }
 
-export default ecommerceProducts
+export default EcommerceProduct
