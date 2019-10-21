@@ -1,3 +1,4 @@
+export { default as SnapchatThread } from './SnapchatThread'
 export { default as ThreeDots } from './ThreeDots'
 export { default as InstaStories } from './InstaStories'
 export { default as AuthorsList } from './AuthorsList'
