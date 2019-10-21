@@ -4,8 +4,8 @@ import ContentLoader from "react-content-loader"
 const AmazonLoader = props => {
   return (
     <ContentLoader
-      height={40}
-      width={1060}
+      height={400}
+      width={800}
       speed={2}
       primaryColor="#d9d9d9"
       secondaryColor="#ecebeb"
