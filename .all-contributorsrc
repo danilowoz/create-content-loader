@@ -234,6 +234,33 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "sgarcia30",
+      "name": "Sarah Ann Garcia",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/31214561?v=4",
+      "profile": "https://sgarcia30.github.io/portfolio/",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "emmbyiringiro",
+      "name": "BYIRINGIRO Emmanuel",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/46843540?v=4",
+      "profile": "http://www.fistondesign.com",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "clariokids",
+      "name": "clariokids",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7637706?v=4",
+      "profile": "https://github.com/clariokids",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7
