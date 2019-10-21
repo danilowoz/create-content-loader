@@ -118,6 +118,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://www.fistondesign.com"><img src="https://avatars2.githubusercontent.com/u/46843540?v=4" width="100px;" alt="BYIRINGIRO Emmanuel"/><br /><sub><b>BYIRINGIRO Emmanuel</b></sub></a><br /><a href="#content-emmbyiringiro" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/clariokids"><img src="https://avatars1.githubusercontent.com/u/7637706?v=4" width="100px;" alt="clariokids"/><br /><sub><b>clariokids</b></sub></a><br /><a href="#content-clariokids" title="Content">🖋</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="http://luisabfs.github.io"><img src="https://avatars1.githubusercontent.com/u/21061462?v=4" width="100px;" alt="Luísa"/><br /><sub><b>Luísa</b></sub></a><br /><a href="#content-luisabfs" title="Content">🖋</a></td>
+  </tr>
 </table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
