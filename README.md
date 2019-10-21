@@ -115,6 +115,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Akashnb"><img src="https://avatars3.githubusercontent.com/u/42564198?v=4" width="100px;" alt="Akash Bambhaniya"/><br /><sub><b>Akash Bambhaniya</b></sub></a><br /><a href="#content-Akashnb" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/lPaths"><img src="https://avatars0.githubusercontent.com/u/22215743?v=4" width="100px;" alt="Phát Mai"/><br /><sub><b>Phát Mai</b></sub></a><br /><a href="#content-lPaths" title="Content">🖋</a></td>
     <td align="center"><a href="https://sgarcia30.github.io/portfolio/"><img src="https://avatars2.githubusercontent.com/u/31214561?v=4" width="100px;" alt="Sarah Ann Garcia"/><br /><sub><b>Sarah Ann Garcia</b></sub></a><br /><a href="#content-sgarcia30" title="Content">🖋</a></td>
+    <td align="center"><a href="http://www.fistondesign.com"><img src="https://avatars2.githubusercontent.com/u/46843540?v=4" width="100px;" alt="BYIRINGIRO Emmanuel"/><br /><sub><b>BYIRINGIRO Emmanuel</b></sub></a><br /><a href="#content-emmbyiringiro" title="Content">🖋</a></td>
   </tr>
 </table>
 
