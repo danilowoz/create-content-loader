@@ -270,6 +270,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "marjorg",
+      "name": "Marius Jørgensen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5442549?v=4",
+      "profile": "https://github.com/marjorg",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7
