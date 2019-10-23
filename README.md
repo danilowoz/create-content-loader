@@ -121,6 +121,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://luisabfs.github.io"><img src="https://avatars1.githubusercontent.com/u/21061462?v=4" width="100px;" alt="Luísa"/><br /><sub><b>Luísa</b></sub></a><br /><a href="#content-luisabfs" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/marjorg"><img src="https://avatars2.githubusercontent.com/u/5442549?v=4" width="100px;" alt="Marius Jørgensen"/><br /><sub><b>Marius Jørgensen</b></sub></a><br /><a href="#content-marjorg" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/inesgs12"><img src="https://avatars2.githubusercontent.com/u/49120647?v=4" width="100px;" alt="Ines Guerrero"/><br /><sub><b>Ines Guerrero</b></sub></a><br /><a href="#content-inesgs12" title="Content">🖋</a></td>
   </tr>
 </table>
 
