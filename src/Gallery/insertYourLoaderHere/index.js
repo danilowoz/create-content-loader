@@ -1,3 +1,4 @@
+export { default as BannerAds } from './BannerAds'
 export { default as NewFacebook } from './NewFacebook'
 export { default as DevtoCard } from './DevtoCard'
 export { default as InstaStories } from './InstaStories'
