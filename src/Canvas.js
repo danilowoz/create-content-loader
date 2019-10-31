@@ -15,8 +15,6 @@ import circleIcon from './assets/circle.svg'
 
 import './style/tippy.css'
 
-const CLONE_OFFSET = 15
-
 class Canvas extends Component {
   constructor(props) {
     super(props)
@@ -29,7 +27,7 @@ class Canvas extends Component {
   componentDidMount() {
     this.setupEvents()
     this.SVGtoCanvas()
-    this.removeByKeyPress()
+    this.handleKeyboardInput()
   }
 
   SVGtoCanvas = () => {
@@ -80,23 +78,49 @@ class Canvas extends Component {
     }
   }
 
-  removeByKeyPress = () => {
+  handleKeyboardInput = () => {
     document.addEventListener(
       'keydown',
       e => {
-        if (e.code === 'Backspace') {
-          this.removeItem()
+        switch (e.code) {
+          case 'Backspace':
+          case 'Delete':
+            this.removeItem()
+            break
+          case 'ArrowUp':
+            this.moveItem(0, -1)
+            break
+          case 'ArrowDown':
+            this.moveItem(0, 1)
+            break
+          case 'ArrowLeft':
+            this.moveItem(-1, 0)
+            break
+          case 'ArrowRight':
+            this.moveItem(1, 0)
+            break
+          default:
+            break
         }
       },
       false
     )
   }
 
-  removeItem = () => {
+  moveItem = (x, y) => {
     const canvas = this._sketch && this._sketch._fc
-
     if (canvas && canvas.getActiveObject()) {
-      canvas.remove(canvas.getActiveObject())
+      const selection = canvas.getActiveObject()
+      selection.set('left', selection.left + x)
+      selection.set('top', selection.top + y)
+      selection.setCoords()
+      canvas.requestRenderAll()
+    }
+  }
+
+  removeItem = () => {
+    if (this._sketch) {
+      this._sketch.removeSelected()
     }
 
     ReactGA.event({
@@ -106,17 +130,9 @@ class Canvas extends Component {
   }
 
   cloneItem = () => {
-    const canvas = this._sketch && this._sketch._fc
-
-    if (canvas && canvas.getActiveObject()) {
-      const clone = window.fabric.util.object.clone(canvas.getActiveObject())
-
-      // offset selection slightly to emphasise clone
-      clone.set('top', clone.top + CLONE_OFFSET)
-      clone.set('left', clone.left + CLONE_OFFSET)
-
-      canvas.add(clone)
-      canvas.setActiveObject(clone)
+    if (this._sketch) {
+      this._sketch.copy()
+      this._sketch.paste()
     }
 
     ReactGA.event({
@@ -130,7 +146,7 @@ class Canvas extends Component {
 
     this._sketch._fc.on({
       'after:render': () => self.renderCanvas(),
-      'object:selected': item =>
+      'selection:created': item =>
         (item.target = CanvasAddedProp(item.target)) &&
         self.props.handleSelectedItem(true),
       'object:added': item => (item.target = CanvasAddedProp(item.target)),
