@@ -27,7 +27,7 @@ class Canvas extends Component {
   componentDidMount() {
     this.setupEvents()
     this.SVGtoCanvas()
-    this.removeByKeyPress()
+    this.handleKeyboardInput()
   }
 
   SVGtoCanvas = () => {
@@ -78,16 +78,44 @@ class Canvas extends Component {
     }
   }
 
-  removeByKeyPress = () => {
+  handleKeyboardInput = () => {
     document.addEventListener(
       'keydown',
       e => {
-        if (e.code === 'Backspace') {
-          this.removeItem()
+        switch (e.code) {
+          case 'Backspace':
+          case 'Delete':
+            this.removeItem()
+            break
+          case 'ArrowUp':
+            this.moveItem(0, -1)
+            break
+          case 'ArrowDown':
+            this.moveItem(0, 1)
+            break
+          case 'ArrowLeft':
+            this.moveItem(-1, 0)
+            break
+          case 'ArrowRight':
+            this.moveItem(1, 0)
+            break
+          default:
+            break
         }
       },
       false
     )
+  }
+
+  moveItem = (x, y) => {
+    const canvas = this._sketch && this._sketch._fc
+    if (canvas && canvas.getActiveObject()) {
+      const selection = canvas.getActiveObject()
+      selection.set('left', selection.left + x)
+      selection.set('top', selection.top + y)
+      selection.setCoords()
+      canvas.requestRenderAll()
+    }
   }
 
   removeItem = () => {
