@@ -72,8 +72,12 @@ export const SVGtoFabric = svg => {
 
 export const CanvasAddedProp = target => {
   const newTarget = target
-
-  if (newTarget && newTarget.type === 'circle') {
+  const hasCircle =
+    newTarget &&
+    (newTarget.type === 'circle' ||
+      (newTarget.type === 'activeSelection' &&
+        newTarget._objects.some(o => o.type === 'circle')))
+  if (hasCircle) {
     newTarget.lockUniScaling = true
     newTarget.lockRotation = true
     newTarget.angle = 0
