@@ -1,3 +1,4 @@
+export { default as RotatingGallery } from './RotatingGallery'
 export { default as SnapchatThread } from './SnapchatThread'
 export { default as ThreeDots } from './ThreeDots'
 export { default as InstaStories } from './InstaStories'
