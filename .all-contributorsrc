@@ -288,6 +288,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "arthurfalcao",
+      "name": "Arthur Falcão",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/22386383?v=4",
+      "profile": "https://linkedin.com/in/arthufalcao/",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7
