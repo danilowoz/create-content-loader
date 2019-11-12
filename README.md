@@ -123,6 +123,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/marjorg"><img src="https://avatars2.githubusercontent.com/u/5442549?v=4" width="100px;" alt="Marius Jørgensen"/><br /><sub><b>Marius Jørgensen</b></sub></a><br /><a href="#content-marjorg" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/inesgs12"><img src="https://avatars2.githubusercontent.com/u/49120647?v=4" width="100px;" alt="Ines Guerrero"/><br /><sub><b>Ines Guerrero</b></sub></a><br /><a href="#content-inesgs12" title="Content">🖋</a></td>
     <td align="center"><a href="https://linkedin.com/in/arthufalcao/"><img src="https://avatars2.githubusercontent.com/u/22386383?v=4" width="100px;" alt="Arthur Falcão"/><br /><sub><b>Arthur Falcão</b></sub></a><br /><a href="#content-arthurfalcao" title="Content">🖋</a></td>
+    <td align="center"><a href="https://www.webnow.site"><img src="https://avatars2.githubusercontent.com/u/33206445?v=4" width="100px;" alt="Cristina Dias"/><br /><sub><b>Cristina Dias</b></sub></a><br /><a href="#content-crisgit" title="Content">🖋</a></td>
   </tr>
 </table>
 
