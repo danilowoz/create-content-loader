@@ -125,6 +125,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://linkedin.com/in/arthufalcao/"><img src="https://avatars2.githubusercontent.com/u/22386383?v=4" width="100px;" alt="Arthur Falcão"/><br /><sub><b>Arthur Falcão</b></sub></a><br /><a href="#content-arthurfalcao" title="Content">🖋</a></td>
     <td align="center"><a href="https://www.webnow.site"><img src="https://avatars2.githubusercontent.com/u/33206445?v=4" width="100px;" alt="Cristina Dias"/><br /><sub><b>Cristina Dias</b></sub></a><br /><a href="#content-crisgit" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/Mr-sgreen"><img src="https://avatars1.githubusercontent.com/u/12498468?v=4" width="100px;" alt="Mr-sgreen"/><br /><sub><b>Mr-sgreen</b></sub></a><br /><a href="#content-Mr-sgreen" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/asehdev"><img src="https://avatars2.githubusercontent.com/u/50873266?v=4" width="100px;" alt="asehdev"/><br /><sub><b>asehdev</b></sub></a><br /><a href="#content-asehdev" title="Content">🖋</a></td>
   </tr>
 </table>
 
