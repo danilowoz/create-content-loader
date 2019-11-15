@@ -127,6 +127,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Mr-sgreen"><img src="https://avatars1.githubusercontent.com/u/12498468?v=4" width="100px;" alt="Mr-sgreen"/><br /><sub><b>Mr-sgreen</b></sub></a><br /><a href="#content-Mr-sgreen" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/asehdev"><img src="https://avatars2.githubusercontent.com/u/50873266?v=4" width="100px;" alt="asehdev"/><br /><sub><b>asehdev</b></sub></a><br /><a href="#content-asehdev" title="Content">🖋</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/toiladoong"><img src="https://avatars0.githubusercontent.com/u/26488763?v=4" width="100px;" alt="toiladoong"/><br /><sub><b>toiladoong</b></sub></a><br /><a href="#content-toiladoong" title="Content">🖋</a></td>
+  </tr>
 </table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
