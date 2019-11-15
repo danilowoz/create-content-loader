@@ -18,7 +18,7 @@ const YoutubeMagic = ({
   for (let i = 1; i <= row; i++) {
     const itemWidth = (width - padding * (column + 1)) / column;
 
-    const height1 = itemWidth;
+    const height1 = itemWidth * 9 / 16;
 
     const height2 = 20;
 
@@ -39,7 +39,7 @@ const YoutubeMagic = ({
     for (let j = 0; j < column; j++) {
       const x = padding + j * (itemWidth + padding);
 
-      const y1 = yHeading + headingHeight + padding * 2;
+      const y1 = yHeading + headingHeight + padding * 3 / 2;
 
       const y2 = y1 + padding + height1;
 
