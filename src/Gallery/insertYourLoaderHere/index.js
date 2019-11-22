@@ -1,3 +1,4 @@
+export { default as CatalogMagic } from './CatalogMagic'
 export { default as YoutubeMagic } from './YoutubeMagic'
 export { default as RotatingGallery } from './RotatingGallery'
 export { default as XYChart } from './XYChart'

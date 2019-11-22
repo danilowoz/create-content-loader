@@ -1,12 +1,11 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const YoutubeMagic = ({
+const CatalogMagic = ({
+  width = 1366,
   heading = { width: 140, height: 24 },
-  items = [],
   row = 2,
   column = 5,
-  width = 1366,
   padding = 12,
   borderRadius = 4,
   ...props
@@ -16,43 +15,21 @@ const YoutubeMagic = ({
   let height
 
   for (let i = 1; i <= row; i++) {
-    const itemWidth = (width - padding * (column + 1)) / column
-
-    const height1 = (itemWidth * 9) / 16
-
-    const height2 = 20
-
-    const height3 = 20
-
-    const headingWidth = heading.width
-
-    const headingHeight = heading.height
-
-    const space =
-      padding +
-      headingHeight +
-      (padding + height1) +
-      (padding / 2 + height2) +
-      height3 +
-      padding * 6
-
-    const yHeading = padding + space * (i - 1)
-
-    list.push(
-      <rect
-        x={padding}
-        y={yHeading}
-        rx={0}
-        ry={0}
-        width={headingWidth}
-        height={headingHeight}
-      />
-    )
-
     for (let j = 0; j < column; j++) {
+      const itemWidth = (width - padding * (column + 1)) / column
+
       const x = padding + j * (itemWidth + padding)
 
-      const y1 = yHeading + headingHeight + (padding * 3) / 2
+      const height1 = itemWidth
+
+      const height2 = 20
+
+      const height3 = 20
+
+      const space =
+        padding + height1 + (padding / 2 + height2) + height3 + padding * 4
+
+      const y1 = padding + heading.height + padding * 2 + space * (i - 1)
 
       const y2 = y1 + padding + height1
 
@@ -95,16 +72,26 @@ const YoutubeMagic = ({
       secondaryColor="#ecebeb"
       {...props}
     >
+      {heading && (
+        <rect
+          x={padding}
+          y={padding}
+          rx={0}
+          ry={0}
+          width={heading.width}
+          height={heading.height}
+        />
+      )}
       {list}
     </ContentLoader>
   )
 }
 
-YoutubeMagic.metadata = {
+CatalogMagic.metadata = {
   name: 'I am Doong - I come from Việt Nam',
   github: 'toiladoong',
-  description: 'YoutubeMagic',
-  filename: 'YoutubeMagic',
+  description: 'CatalogMagic',
+  filename: 'CatalogMagic',
 }
 
-export default YoutubeMagic
+export default CatalogMagic
