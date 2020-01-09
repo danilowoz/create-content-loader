@@ -1,5 +1,4 @@
 .showcase {
-  border-top: 1px solid var(--color-porcelain);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 0%, #fff 5%);
 }
 
@@ -9,17 +8,6 @@
   margin: 0;
   text-align: center;
   font-size: var(--font-size__main);
-  color: var(--color-lynch);
-}
-
-.showcase-legend {
-  color: var(--color-silver);
-  margin: 0.5em 0;
-  text-align: center;
-  line-height: 1.6;
-  font-size: var(--font-size__medium);
-  letter-spacing: 0.9px;
-  font-weight: 300;
 }
 
 .showcase-button a {
@@ -45,7 +33,9 @@
   background-color: #ffffff;
   border: 1px solid #e6e7eb;
   border-radius: 4px;
-  box-shadow: 0 3px 4px 0 rgba(75, 84, 94, 0.1);
+  box-shadow: 0 0.7px 0.9px rgba(0, 0, 0, 0.024),
+    0 1.9px 2.4px rgba(0, 0, 0, 0.035), 0 4.5px 5.7px rgba(0, 0, 0, 0.046),
+    0 15px 19px rgba(0, 0, 0, 0.07);
 }
 
 .showcase-component {
@@ -58,7 +48,6 @@
   padding-top: 16px;
   margin-top: 16px;
   margin-bottom: -8px;
-  border-top: 1px solid var(--color-porcelain);
 }
 
 .showcase-item h4 {
@@ -66,7 +55,6 @@
   margin-right: 0.7em;
   display: inline-block;
   width: 70%;
-  color: var(--color-lynch);
   font-weight: normal;
   font-size: var(--font-size__base);
   letter-spacing: 0.3px;
@@ -75,15 +63,16 @@
 .showcase-item a {
   text-decoration: none;
   display: block;
-  color: var(--color-silver);
+  color: var(--color-grey-light);
   font-size: var(--font-size__base);
   letter-spacing: 0.5px;
   margin-top: 1em;
 }
 
-.showcase-item a.source {
+.showcase-item .source {
   float: right;
-  margin-top: 0.2em;
+  margin-top: 0;
+  color: var(--color-brand);
 }
 
 .showcase-item__new {
@@ -100,7 +89,6 @@
   padding: 0.5em 1em;
   border-radius: 40px;
   transition: all 0.3s ease;
-  color: var(--color-lynch);
   top: -2em;
   z-index: 999;
 }

@@ -8,29 +8,13 @@ import ReactGA from 'react-ga'
 
 import { getReactInfo } from './utils'
 import { facebook, instagram, code, bulletList } from './utils/presets'
-import template, { ReactImport } from './utils/template'
+import template from './utils/template'
 import Canvas from './Canvas'
 import Config from './Config'
 import Header from './Layout/Header'
 import Gallery from './Gallery'
 
-import ReactIcon from './assets/react.svg'
-import VueIcon from './assets/vue.svg'
 import './style/style.css'
-
-const EditorLoader = () => (
-  <ContentLoader
-    height={475}
-    width={650}
-    speed={1}
-    primaryColor="#f3f3f3"
-    secondaryColor="#ecebeb"
-  >
-    <rect x="2" y="4" rx="8" ry="8" width="70" height="20" />
-    <rect x="100" y="4" rx="8" ry="8" width="60" height="20" />
-    <rect x="0" y="40" rx="5" ry="5" width="650" height="415" />
-  </ContentLoader>
-)
 
 class App extends Component {
   state = {
@@ -38,7 +22,6 @@ class App extends Component {
     draw: localStorage.getItem('draw') || facebook,
     focusEditor: false,
     height: localStorage.getItem('height') || 160,
-    loading: false,
     primaryColor: localStorage.getItem('primaryColor') || '#f3f3f3',
     renderCanvas: true,
     rtl: localStorage.getItem('rtl') === 'true',
@@ -46,6 +29,7 @@ class App extends Component {
     speed: localStorage.getItem('speed') || 2,
     tool: Tools.Select,
     width: localStorage.getItem('width') || 400,
+    gridVisibility: true,
   }
 
   componentDidMount() {
@@ -201,13 +185,13 @@ class App extends Component {
   render() {
     const { renderCanvas, ...state } = this.state
 
-    const optMycode = {
+    const optMyCode = {
       data: state,
       importDeclaration: false,
     }
-    const Mycode = template(optMycode)
+    const Mycode = template(optMyCode)
     const CopyCodeToClipboard = template({
-      ...optMycode,
+      ...optMyCode,
       importDeclaration: true,
     })
 
@@ -217,78 +201,87 @@ class App extends Component {
         scope={{ ContentLoader }}
         ref={r => (this.editor = r)}
         noInline={true}
+        disabled
       >
         <div className="App">
-          <Header />
+          <div className="container">
+            <Header />
 
-          <div>
-            {state.loading ? (
-              <EditorLoader />
-            ) : (
-              <React.Fragment>
-                <a
-                  href="http://danilowoz.com/create-content-loader/"
-                  className="handle-framework current"
-                >
-                  <img width="20" src={ReactIcon} alt="React" />{' '}
-                  <span>React</span>
-                </a>
-                <a
-                  href="http://danilowoz.com/create-vue-content-loader/"
-                  className="handle-framework"
-                  onClick={() => {
-                    ReactGA.event({
-                      category: 'Creator',
-                      action: `go to vue`,
-                    })
-                  }}
-                >
-                  <img width="20" src={VueIcon} alt="React" /> <span>Vue</span>
-                </a>
-                <div className="app-editor">
-                  <span className="app-editor__tab">
-                    <span />
-                  </span>
+            <div>
+              <div className="app-editor">
+                <LiveEditor onChange={debounce(1000, this.handleEditor)} />
+
+                <div className="app-editor__language-selector">
+                  <button className="app-editor__language-button current">
+                    <span>React</span>
+                  </button>
+
+                  <a
+                    className="app-editor__language-button"
+                    href="http://danilowoz.com/create-vue-content-loader/"
+                    onClick={() => {
+                      ReactGA.event({
+                        category: 'Creator',
+                        action: `go to vue`,
+                      })
+                    }}
+                  >
+                    <span>Vue</span>
+                  </a>
+
+                  <button className="app-editor__language-button">
+                    <span>
+                      React Native <span>Soon</span>
+                    </span>
+                  </button>
+                  <button className="app-editor__language-button">
+                    <span>
+                      HTML <span>Soon</span>
+                    </span>
+                  </button>
+                  <button className="app-editor__language-button">
+                    <span>
+                      Gif <span>Soon</span>
+                    </span>
+                  </button>
+
                   <span
                     className="copy-to-clipboard"
                     data-clipboard-text={CopyCodeToClipboard}
                   >
                     Copy to clipboard
                   </span>
-
-                  <ReactImport />
-
-                  <LiveEditor onChange={debounce(1000, this.handleEditor)} />
                 </div>
-                <LiveError />
-              </React.Fragment>
-            )}
-          </div>
+              </div>
+              <LiveError />
+            </div>
 
-          <div>
-            {renderCanvas && (
-              <Canvas
+            <div>
+              {renderCanvas && (
+                <Canvas
+                  {...this.state}
+                  handleDraw={this.handleDraw}
+                  handleSelectedItem={this.handleSelectedItem}
+                  handleTool={this.handleTool}
+                  handlePreset={this.handlePreset}
+                >
+                  <LivePreview
+                    style={{
+                      width: `${this.state.width}px`,
+                      height: `${this.state.height}px`,
+                      position: 'relative',
+                    }}
+                  />
+                </Canvas>
+              )}
+              <Config
                 {...this.state}
-                handleDraw={this.handleDraw}
-                handleSelectedItem={this.handleSelectedItem}
-                handleTool={this.handleTool}
-                handlePreset={this.handlePreset}
-              >
-                <LivePreview
-                  style={{
-                    width: `${this.state.width}px`,
-                    height: `${this.state.height}px`,
-                  }}
-                />
-              </Canvas>
-            )}
-            <Config
-              {...this.state}
-              handleCheckbox={this.handleCheckbox}
-              handleInput={this.handleInput}
-              handleImageAsBackground={this.handleImageAsBackground}
-              resetColors={this.resetColors}
-            />
+                handleCheckbox={this.handleCheckbox}
+                handleInput={this.handleInput}
+                handleImageAsBackground={this.handleImageAsBackground}
+                resetColors={this.resetColors}
+              />
+            </div>
           </div>
         </div>
 

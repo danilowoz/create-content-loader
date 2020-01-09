@@ -5,15 +5,12 @@ import ClickOutside from 'react-click-outside'
 import ReactGA from 'react-ga'
 
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
-import Tip from './utils/customToolTip'
 
 import selectIcon from './assets/select.svg'
 import trashIcon from './assets/trash.svg'
 import cloneIcon from './assets/clone.svg'
 import rectIcon from './assets/rect.svg'
 import circleIcon from './assets/circle.svg'
-
-import './style/tippy.css'
 
 class Canvas extends Component {
   constructor(props) {
@@ -157,120 +154,30 @@ class Canvas extends Component {
 
   render() {
     const {
+      activeItem,
+      children,
+      gridVisibility,
       handlePreset,
       handleTool,
-      width,
       height,
-      activeItem,
-      tool,
-      children,
       imageAsBackground,
+      tool,
+      width,
     } = this.props
 
     return (
       <Fragment>
-        <div className="app-handlers" key="handlers">
-          <button
-            className={classnames('app-handlers__tool', {
-              'app-handlers__active': tool === 'select',
-            })}
-            onClick={() => handleTool(Tools.Select)}
-          >
-            <Tip title="Select tool">
-              <img src={selectIcon} alt="select tool" />
-            </Tip>
-          </button>
-          <button
-            className={classnames('app-handlers__tool', {
-              'app-handlers__active': tool === 'rectangle',
-            })}
-            onClick={() => handleTool(Tools.Rectangle)}
-          >
-            <Tip title="Rect tool">
-              <img src={rectIcon} alt="rect tool" />
-            </Tip>
-          </button>
-          <button
-            className={classnames('app-handlers__tool', {
-              'app-handlers__active': tool === 'circle',
-            })}
-            onClick={() => handleTool(Tools.Circle)}
-          >
-            <Tip title="Circle tool">
-              <img src={circleIcon} alt="circle tool" />
-            </Tip>
-          </button>
-
-          <div className="app-handlers__div">Presets:</div>
-
-          <button
-            className="app-handlers__preset"
-            value="facebook"
-            data-height="160"
-            onClick={handlePreset}
-          >
-            facebook
-          </button>
-          <button
-            className="app-handlers__preset"
-            value="instagram"
-            data-height="475"
-            onClick={handlePreset}
-          >
-            instagram
-          </button>
-          <button
-            className="app-handlers__preset"
-            value="code"
-            data-height="160"
-            onClick={handlePreset}
-          >
-            code
-          </button>
-          <button
-            className="app-handlers__preset"
-            value="bulletList"
-            data-height="160"
-            onClick={handlePreset}
-          >
-            bulletList
-          </button>
-
-          {activeItem && (
-            <span>
-              <button
-                className="app-handler__trash"
-                ref={n => (this.trashButton = n)}
-                onClick={this.removeItem}
-              >
-                <Tip title="Delete selected item">
-                  <img src={trashIcon} alt="remove item" />
-                </Tip>
-              </button>
-              <button
-                className="app-handler__clone"
-                ref={n => (this.cloneButton = n)}
-                onClick={this.cloneItem}
-              >
-                <Tip title="Clone tool">
-                  <img src={cloneIcon} alt="clone tool" />
-                </Tip>
-              </button>
-            </span>
-          )}
-        </div>
         <div
           className={classnames('app-canvas', {
             'app-canvas__draw': tool === 'rectangle' || tool === 'circle',
+            'app-canvas__grid-visibility-off': !gridVisibility,
           })}
           key="canvas"
         >
           {imageAsBackground && (
-            <img
-              src={imageAsBackground}
-              className="app-canvas__guideline"
-              alt="guideline"
-            />
+            <div className="app-canvas__guideline">
+              <img src={imageAsBackground} alt="guideline" />
+            </div>
           )}
 
           {children}
@@ -290,6 +197,87 @@ class Canvas extends Component {
               className="app-canvas__sketch"
             />
           </ClickOutside>
+
+          <div className="app-handlers" key="handlers">
+            <button
+              className={classnames('app-handlers__tool', {
+                'app-handlers__active': tool === 'select',
+              })}
+              onClick={() => handleTool(Tools.Select)}
+            >
+              <img src={selectIcon} alt="select tool" />
+            </button>
+            <button
+              className={classnames('app-handlers__tool', {
+                'app-handlers__active': tool === 'rectangle',
+              })}
+              onClick={() => handleTool(Tools.Rectangle)}
+            >
+              <img src={rectIcon} alt="rect tool" />
+            </button>
+            <button
+              className={classnames('app-handlers__tool', {
+                'app-handlers__active': tool === 'circle',
+              })}
+              onClick={() => handleTool(Tools.Circle)}
+            >
+              <img src={circleIcon} alt="circle tool" />
+            </button>
+
+            <div className="app-handlers__div">Presets:</div>
+
+            <button
+              className="app-handlers__preset"
+              value="facebook"
+              data-height="160"
+              onClick={handlePreset}
+            >
+              facebook
+            </button>
+            <button
+              className="app-handlers__preset"
+              value="instagram"
+              data-height="475"
+              onClick={handlePreset}
+            >
+              instagram
+            </button>
+            <button
+              className="app-handlers__preset"
+              value="code"
+              data-height="160"
+              onClick={handlePreset}
+            >
+              code
+            </button>
+            <button
+              className="app-handlers__preset"
+              value="bulletList"
+              data-height="160"
+              onClick={handlePreset}
+            >
+              bulletList
+            </button>
+
+            {activeItem && (
+              <span>
+                <button
+                  className="app-handler__trash"
+                  ref={n => (this.trashButton = n)}
+                  onClick={this.removeItem}
+                >
+                  <img src={trashIcon} alt="remove item" />
+                </button>
+                <button
+                  className="app-handler__clone"
+                  ref={n => (this.cloneButton = n)}
+                  onClick={this.cloneItem}
+                >
+                  <img src={cloneIcon} alt="clone tool" />
+                </button>
+              </span>
+            )}
+          </div>
         </div>
       </Fragment>
     )

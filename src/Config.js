@@ -1,8 +1,6 @@
 import React from 'react'
 
 import trashIcon from './assets/trash.svg'
-import helpIcon from './assets/help.svg'
-import Tip from './utils/customToolTip'
 
 const Config = ({
   handleCheckbox,
@@ -13,16 +11,17 @@ const Config = ({
   primaryColor,
   resetColors,
   rtl,
+  gridVisibility,
   secondaryColor,
   size,
   speed,
   width,
 }) => (
   <div className="app-config">
-    <h4 className="properties">(props) =></h4>
-    <div>
-      <p>
-        <label htmlFor="width">width:</label>
+    <div className="row">
+      <p className="app-config_caption">Canvas size</p>
+
+      <p className="inline">
         <input
           type="number"
           id="width"
@@ -31,13 +30,10 @@ const Config = ({
           onChange={handleInput}
           max="1000"
         />
-        <Tip title="Defaults to `400`. It will be set in the viewbox attr in the `svg`. <a target='blank' href='https://github.com/danilowoz/react-content-loader/blob/master/README.md#width-number'>Read the documentation</a>">
-          <img width="15px" src={helpIcon} alt="help" />
-        </Tip>
+        <label htmlFor="width">width (in px)</label>
       </p>
 
-      <p>
-        <label htmlFor="height">height:</label>
+      <p className="inline">
         <input
           type="number"
           id="height"
@@ -46,13 +42,13 @@ const Config = ({
           onChange={handleInput}
           max="1000"
         />
-        <Tip title="Defaults to `130`. It will be set in the viewbox attr in the `svg`. <a target='blank' href='https://github.com/danilowoz/react-content-loader/blob/master/README.md#height-number'>Read the documentation</a>">
-          <img width="15px" src={helpIcon} alt="help" />
-        </Tip>
+        <label htmlFor="height">height (in px)</label>
       </p>
+    </div>
 
-      <p>
-        <label htmlFor="speed">speed:</label>
+    <div className="row">
+      <p className="app-config_caption">Configurations</p>
+      <p className="inline">
         <input
           type="number"
           id="speed"
@@ -60,13 +56,33 @@ const Config = ({
           value={speed}
           onChange={handleInput}
         />
-        <Tip title="Defaults to `2`. Animation speed in seconds. <a target='blank' href='https://github.com/danilowoz/react-content-loader/blob/master/README.md#speed-number'>Read the documentation</a>">
-          <img width="15px" src={helpIcon} alt="help" />
-        </Tip>
+        <label htmlFor="speed">speed (in s)</label>
       </p>
 
-      <p>
-        <label htmlFor="primaryColor">primaryColor:</label>
+      <p className="app-config_caption">Right-to-left</p>
+
+      <label htmlFor="rtl" className="toggle">
+        <input
+          type="checkbox"
+          className="toggle-input"
+          checked={rtl}
+          name="rtl"
+          id="rtl"
+          onChange={handleCheckbox}
+        />
+        <span className={`toggle-check ${rtl ? 'checked' : ''}`} />
+      </label>
+    </div>
+
+    <div className="row">
+      <p className="app-config_caption">
+        Colors{' '}
+        <button className="reset-colors" onClick={resetColors}>
+          Reset
+        </button>
+      </p>
+
+      <p className="inline">
         <input
           type="color"
           id="primaryColor"
@@ -74,14 +90,10 @@ const Config = ({
           value={primaryColor}
           onChange={handleInput}
         />
-
-        <Tip title="Defaults to `#f3f3f3` which is used as background of animation. <a target='blank' href='https://github.com/danilowoz/react-content-loader/blob/master/README.md#primarycolor-string'>Read the documentation</a>">
-          <img width="15px" src={helpIcon} alt="help" />
-        </Tip>
+        <label htmlFor="primaryColor">Background color</label>
       </p>
 
-      <p>
-        <label htmlFor="secondaryColor">secondaryColor:</label>
+      <p className="inline">
         <input
           type="color"
           id="secondaryColor"
@@ -89,57 +101,47 @@ const Config = ({
           value={secondaryColor}
           onChange={handleInput}
         />
-        <Tip title="Defaults to `#ecebeb` which is used as the placeholder/layer of animation. <a target='blank' href='https://github.com/danilowoz/react-content-loader/blob/master/README.md#secondarycolor-string'>Read the documentation</a>">
-          <img width="15px" src={helpIcon} alt="help" />
-        </Tip>
+        <label htmlFor="secondaryColor">Foreground color</label>
       </p>
+    </div>
 
-      <p>
-        <button className="reset-colors" onClick={resetColors}>
-          Reset colors
-        </button>
-      </p>
+    <p className="app-config__guideline">
+      <p className="app-config_caption">Select a image to set as background</p>
 
-      <p>
-        <label htmlFor="rtl">RTL content:</label>
-        <label htmlFor="rtl" className="toggle">
-          <input
-            type="checkbox"
-            className="toggle-input"
-            checked={rtl}
-            name="rtl"
-            id="rtl"
-            onChange={handleCheckbox}
-          />
-          <span className={`toggle-check ${rtl ? 'checked' : ''}`} />
-        </label>
+      <p className="inline">
+        <input
+          onChange={handleImageAsBackground}
+          id="guideline"
+          name="guideline"
+          type="file"
+        />
 
-        <Tip title="Defaults to false. Content right-to-left. <a target='blank' href='https://github.com/danilowoz/react-content-loader/blob/master/README.md#rtl-boolean'>Read the documentation</a>">
-          <img width="15px" src={helpIcon} alt="help" />
-        </Tip>
-      </p>
-
-      <p className="app-config__guideline">
-        <Tip title="Select a image to set as background">
-          <input
-            onChange={handleImageAsBackground}
-            id="guideline"
-            name="guideline"
-            type="file"
-          />
-        </Tip>
         {imageAsBackground && (
           <button
             onClick={() => handleImageAsBackground(null)}
             className="app-handler__trash"
           >
-            <Tip title="Remove background">
-              <img src={trashIcon} alt="remove item" />
-            </Tip>
+            <img src={trashIcon} alt="remove item" />
           </button>
         )}
       </p>
-    </div>
+    </p>
+
+    <p className="app-config_grid-col">
+      <p className="app-config_caption">Grid visibility</p>
+
+      <label htmlFor="gridVisibility" className="toggle">
+        <input
+          type="checkbox"
+          className="toggle-input"
+          checked={gridVisibility}
+          name="gridVisibility"
+          id="gridVisibility"
+          onChange={handleCheckbox}
+        />
+        <span className={`toggle-check ${gridVisibility ? 'checked' : ''}`} />
+      </label>
+    </p>
   </div>
 )
 

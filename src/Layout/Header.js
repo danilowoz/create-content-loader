@@ -12,22 +12,6 @@ const Header = () => {
         <h1>
           Create <strong>React Content Loader</strong>
         </h1>
-
-        <a
-          href="https://github.com/danilowoz"
-          target="_blank"
-          without=""
-          rel="noopener noreferrer"
-          className="app-assign__by"
-          onClick={() => {
-            ReactGA.event({
-              category: 'Creator',
-              action: `go to danilowoz on Github`,
-            })
-          }}
-        >
-          by @danilowoz
-        </a>
       </div>
 
       <p className="app-assign__stars">

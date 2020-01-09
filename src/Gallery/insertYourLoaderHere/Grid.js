@@ -3,14 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const Grid = props => {
   return (
-    <ContentLoader
-      height={450}
-      width={820}
-      speed={2}
-      primaryColor="#d9d9d9"
-      secondaryColor="#ecebeb"
-      {...props}
-    >
+    <ContentLoader height={450} width={820} speed={2} {...props}>
       <rect x="10" y="10" rx="5" ry="5" width="260" height="140" />
       <rect x="280" y="10" rx="5" ry="5" width="260" height="280" />
       <rect x="550" y="10" rx="5" ry="5" width="260" height="140" />

@@ -2,13 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 const Medium = () => (
-  <ContentLoader
-    height={475}
-    width={660}
-    speed={2}
-    primaryColor="#f3f3f3"
-    secondaryColor="#ecebeb"
-  >
+  <ContentLoader height={475} width={660} speed={2}>
     <circle cx="25" cy="112" r="15" />
     <rect x="10" y="18" rx="0" ry="0" width="464" height="9" />
     <rect x="497" y="10" rx="0" ry="0" width="144" height="144" />

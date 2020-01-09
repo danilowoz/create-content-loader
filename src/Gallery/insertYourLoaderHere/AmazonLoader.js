@@ -3,14 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const AmazonLoader = props => {
   return (
-    <ContentLoader
-      height={400}
-      width={800}
-      speed={2}
-      primaryColor="#d9d9d9"
-      secondaryColor="#ecebeb"
-      {...props}
-    >
+    <ContentLoader height={400} width={800} speed={2} {...props}>
       <circle cx="472" cy="159" r="7" />
       <rect x="487" y="154" rx="5" ry="5" width="220" height="10" />
       <circle cx="472" cy="190" r="7" />
