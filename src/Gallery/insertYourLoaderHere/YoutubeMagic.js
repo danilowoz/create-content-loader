@@ -87,14 +87,7 @@ const YoutubeMagic = ({
   }
 
   return (
-    <ContentLoader
-      width={width}
-      height={height}
-      speed={2}
-      primaryColor="#f3f3f3"
-      secondaryColor="#ecebeb"
-      {...props}
-    >
+    <ContentLoader width={width} height={height} speed={2} {...props}>
       {list}
     </ContentLoader>
   )

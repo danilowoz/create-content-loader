@@ -2,13 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 const AuthorsList = () => (
-  <ContentLoader
-    height={475}
-    width={500}
-    speed={2}
-    primaryColor="#f3f3f3"
-    secondaryColor="#ecebeb"
-  >
+  <ContentLoader height={475} width={500} speed={2}>
     <circle cx="70.2" cy="73.2" r="41.3" />
     <rect x="129.9" y="29.5" width="125.5" height="17" />
     <rect x="129.9" y="64.7" width="296" height="17" />

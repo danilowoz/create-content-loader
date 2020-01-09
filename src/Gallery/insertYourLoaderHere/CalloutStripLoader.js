@@ -3,14 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const CalloutStripLoader = props => {
   return (
-    <ContentLoader
-      height={31}
-      width={400}
-      speed={1}
-      primaryColor="#d9d9d9"
-      secondaryColor="#ecebeb"
-      {...props}
-    >
+    <ContentLoader height={31} width={400} speed={1} {...props}>
       <rect height="5.5" rx="1" ry="1" width="340" x="31" y="5" />
       <rect height="5.5" rx="1" ry="1" width="340" x="31" y="15" />
       <circle cx="388" cy="12" r="12" />

@@ -1,13 +1,16 @@
 :root {
-  --color-lynch: #6c7a89;
-  --color-silver: #bdc3c7;
-  --color-dark: #434a50;
-  --color-porcelain: #ecf0f1;
+  ---background: #272727;
+  --color-silver: #3f3f41;
+  --color-grey: #2f3134;
+  --color-grey-light: #aaa;
+  --color-brand: #6181ec;
 
-  --font-size__main: 1.728rem;
+  --font-size__main: 1.5rem;
   --font-size__medium: 1.2rem;
   --font-size__base: 1rem;
   --font-size__tiny: 0.833rem;
+
+  --border-radius: 6px;
 }
 
 html {
@@ -25,88 +28,54 @@ body {
 
 /* Grid */
 .App {
-  padding: 0 2em 6em;
-  max-width: 1380px;
+  background-color: var(---background);
+  background-image: url(../assets/background-asset.png),
+    url(../assets/background-asset.png);
+  background-position: left top, right bottom;
+  background-size: auto 70%;
+  background-repeat: no-repeat;
+}
+
+.container {
+  padding: 0 2em 2em;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   min-height: 76vh;
-}
+  max-width: 1380px;
 
-.App {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 0 5em;
+  grid-gap: 0 3em;
 }
 
 /* Editor */
 .app-editor {
-  background: #151515;
-  box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
-  border-radius: 5px;
+  box-shadow: 0 1.6px 2px rgba(0, 0, 0, 0.041),
+    0 3.7px 4.7px rgba(0, 0, 0, 0.06), 0 6.7px 8.4px rgba(0, 0, 0, 0.074),
+    0 11.1px 14px rgba(0, 0, 0, 0.086), 0 18.3px 23px rgba(0, 0, 0, 0.1),
+    0 31.9px 40.2px rgba(0, 0, 0, 0.119), 0 69px 87px rgba(0, 0, 0, 0.16);
+  border-radius: var(--border-radius);
   padding: 1.2em;
   max-width: 100%;
   overflow: auto;
   position: sticky;
   top: 30px;
-  min-height: 23.6em;
+  background: var(--background);
+  border: 1px solid var(--color-silver);
 }
 
 .token.comment {
   color: hsl(0, 0%, 38%) !important;
 }
 
-.prism-code {
-  background: none !important;
-  padding: 0 !important;
-  overflow: hidden auto;
-  max-width: 40vw;
-}
-
-.app-editor__tab {
-  padding-bottom: 1em;
-  display: block;
-}
-
-.app-editor__tab span,
-.app-editor__tab:before,
-.app-editor__tab:after {
-  content: '';
-  height: 12px;
-  width: 12px;
-  border-radius: 100%;
-  margin-right: 8px;
-  display: inline-block;
-}
-
-.app-editor__tab:before {
-  background-color: #f85955;
-  border: 1px solid #d74246;
-}
-
-.app-editor__tab span {
-  background-color: #fbbe3f;
-  border: 1px solid #d7a32d;
-}
-
-.app-editor__tab:after {
-  background-color: #45cc4b;
-  border: 1px solid #40ad36;
-}
-
 .copy-to-clipboard {
   float: right;
+  font-size: 0.8em;
+  color: var(--color-grey-light);
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  margin-top: -35px;
-  font-size: var(--font-size__tiny);
-  color: var(--color-silver);
-}
-
-.app-editor:hover .copy-to-clipboard {
-  opacity: 1;
+  line-height: 1.6;
 }
 
 .copy-to-clipboard:active {
@@ -115,9 +84,43 @@ body {
 
 .react-live-error {
   padding: 0.5em;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius);
   background-color: rgba(206, 17, 38, 0.05);
   color: #f85955;
+}
+
+.app-editor__language-selector {
+  background: var(--color-grey);
+  padding: 0.7em 1em 0 1em;
+  margin-left: -1.2em;
+  margin-right: -1.2em;
+  margin-bottom: -1.2em;
+  margin-top: 3em;
+  overflow: hidden;
+}
+
+.app-editor__language-button {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1em;
+  padding-bottom: 0.5em;
+  display: inline-block;
+  background: none;
+  border: 0;
+  font: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.app-editor__language-button span span {
+  color: var(--color-grey-light);
+  font-size: 0.6em;
+  position: relative;
+  top: -0.6em;
+}
+
+.app-editor__language-selector .current {
+  border-bottom: 2px solid var(--color-brand);
 }
 
 /* Canvas */
@@ -126,6 +129,10 @@ body {
   min-height: 8em;
   transition: all 0.3s ease;
   overflow: hidden;
+  background: #fff;
+  padding: 1.5em;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-silver);
 }
 
 .app-canvas:before {
@@ -134,50 +141,42 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 5em;
   background-image: -webkit-repeating-radial-gradient(
     top center,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
     transparent 1px,
     transparent 100%
   );
   background-size: 20px 20px;
   transition: all 0.3s ease;
-  opacity: 0;
-}
-
-.app-canvas:hover:before {
-  opacity: 1;
 }
 
 .app-canvas__guideline {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
+  top: 1.5em;
+  left: 1.5em;
+  right: 1.5em;
+  bottom: 4em;
+  overflow: hidden;
+  opacity: 0.1;
   transition: all 0.3s ease;
+}
+
+.app-canvas__guideline img {
   max-width: 100%;
 }
 
 .app-canvas:hover .app-canvas__guideline {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .app-canvas__sketch {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 1.5em;
+  top: 1.5em;
   z-index: 1;
-  border: 1px solid transparent;
-  transition: border 0.3s ease;
-  border-radius: 3px;
-}
-
-.app-canvas:hover .app-canvas__sketch {
-  border: 1px solid #f5f5f5;
 }
 
 .react-live-preview {
@@ -194,11 +193,18 @@ body {
   cursor: crosshair !important;
 }
 
+.app-canvas__grid-visibility-off.app-canvas:before,
+.app-canvas__grid-visibility-off .app-canvas__guideline {
+  opacity: 0 !important;
+}
+
 /* Handlers */
 .app-handlers {
-  border-bottom: 1px solid var(--color-porcelain);
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
+  border-top: 1px solid #e1e1e1;
+  margin-top: 3em;
+  padding-top: 1em;
+  margin-bottom: -0.5em;
+  height: 30px;
 }
 
 .app-handlers > * {
@@ -209,13 +215,16 @@ body {
   background: none;
   border: 0;
   outline: 0;
+  padding: 0;
   cursor: pointer;
 }
 
 .app-handler__clone,
+.app-handler__trash,
 .app-handlers__tool {
   vertical-align: middle;
-  width: 3.4em;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   opacity: 0.4;
   transition: opacity 0.3s ease;
@@ -226,43 +235,37 @@ body {
   height: auto;
 }
 
+.app-handler__trash,
+.app-handler__clone {
+  float: right;
+  opacity: 1;
+  margin-left: 1em;
+}
+
+.app-handler__trash img,
 .app-handler__clone img {
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
 }
 
 .app-handlers__tool.app-handlers__active {
   opacity: 1;
 }
 
-.app-handlers .app-handler__trash {
-  float: right;
-  width: 2.8em;
-  opacity: 1;
-  margin: 1px;
-}
-
-.app-handlers .app-handler__clone {
-  float: right;
-}
-
 .app-handlers .app-handlers__div {
   display: inline-block;
-  padding-left: 1em;
   vertical-align: middle;
+  padding-left: 0.5em;
   font-size: var(--font-size__tiny);
-  color: var(--color-silver);
-  border-left: 1px solid var(--color-porcelain);
 }
 
 .app-handlers .app-handlers__preset {
-  line-height: 1.3;
   display: inline-block;
   vertical-align: middle;
-  padding: 0 0.5em;
+  padding: 0 0.3em;
   transition: color 0.3s ease;
+  font: inherit;
   font-size: var(--font-size__tiny);
-  color: var(--color-dark);
 }
 
 /* Config */
@@ -270,54 +273,60 @@ body {
   margin-top: 2em;
   padding-top: 1em;
   width: 100%;
-}
-
-.app-config p {
-  padding: 0.5em 0;
-  margin: 0;
-  display: inline-flex;
-  width: calc(100% / 3);
-  box-sizing: border-box;
-  margin-bottom: 0.7em;
-  align-items: center;
-}
-
-.app-config label {
-  margin-right: 0.4em;
-  min-width: 3em;
-  font-size: var(--font-size__tiny);
-  color: var(--color-dark);
-}
-
-.app-config button {
-  background: none;
-  border: 0;
-  padding: 0;
-  outline: 0;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  position: relative;
-  top: 7px;
-}
-
-.app-config button:hover {
-  text-decoration: underline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .app-config input {
-  border: none;
-  color: var(--color-dark);
-  border-bottom: 1px solid var(--color-porcelain);
-  width: 4em;
-  height: 2em;
-  display: inline-block;
-  outline: 0;
-  margin: 0;
+  background: none;
+  border: 0;
+  font: inherit;
   padding: 0;
+  color: #fff;
+}
+
+.app-config_caption {
+  color: var(--color-grey-light);
+  font-size: var(--font-size__tiny);
+}
+
+.app-config .inline {
+  border: 1px solid var(--color-silver);
+  background: var(--color-grey);
+  border-radius: 3px;
+  padding: 0.5em;
+  position: relative;
+}
+
+.app-config .inline label {
+  position: absolute;
+  right: 0.5em;
+  top: 0.7em;
+  color: var(--color-grey-light);
+  z-index: 2;
+  font-size: 0.9em;
+}
+
+.app-config .row {
+  width: calc((100% / 3) - 2em);
+}
+
+.app-config .row p {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .app-config input[type='color'] {
   border: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 3px;
+  margin-right: 1em;
+  margin-top: -0.4em;
+  margin-bottom: -0.4em;
+  margin-left: -0.3em;
 }
 
 .app-config input[type='color']::-webkit-color-swatch {
@@ -332,12 +341,6 @@ body {
   margin-bottom: 1em;
 }
 
-.app-config .properties {
-  font-size: var(--font-size__tiny);
-  color: var(--color-silver);
-  font-weight: normal;
-}
-
 .app-config .toggle {
   display: inline-flex;
   align-items: center;
@@ -345,7 +348,6 @@ body {
   cursor: pointer;
   top: -0.1em;
   position: relative;
-  margin-left: 0.6em;
 }
 
 .app-config .toggle-input {
@@ -367,7 +369,7 @@ body {
   border-radius: 1rem;
   background: #f8f8f8;
   cursor: pointer;
-  background: #eee;
+  background: var(--color-silver);
   transition: all 0.3s ease;
 }
 
@@ -386,7 +388,7 @@ body {
 }
 
 .app-config .toggle-check.checked:before {
-  box-shadow: inset 0 0 0 18px #1cd01c;
+  box-shadow: inset 0 0 0 18px var(--color-brand);
 }
 
 .app-config .toggle-check.checked:after {
@@ -394,81 +396,24 @@ body {
 }
 
 .app-config .app-config__guideline {
-  width: calc(100% / 2);
+  width: calc(((100% / 3) * 2) - 1em);
   position: relative;
-}
-
-.app-config .app-config__guideline input {
-  width: 100%;
-  padding-left: 26px;
-  border-bottom: 1px solid var(--color-porcelain);
-  height: 3em;
-  line-height: 2.8em;
-  background: url(../assets/grid.svg) -5px 0px no-repeat;
-  background-size: auto 30px;
-  top: 1em;
 }
 
 .app-config .app-config__guideline button {
-  position: absolute;
-  right: -2em;
-  bottom: 1em;
-  min-width: 1.3em;
+  background: none;
+  border: 0;
+}
+
+.app-config_grid-col {
+  width: calc(((100% / 3)) - 2em);
 }
 
 .app-config .reset-colors {
-  top: 5px;
-  color: var(--color-silver);
-  text-decoration: underline;
-}
-
-.tippy-tooltip {
-  position: relative;
-  color: #fff;
-  border-radius: 4px;
-  padding: 0.4rem 0.8rem;
-  text-align: center;
-  will-change: transform;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--color-lynch);
-  pointer-events: none;
-}
-
-.handle-framework {
   background: none;
   border: 0;
-  outline: 0;
+  color: var(--color-grey-light);
+  position: absolute;
+  right: 0;
   cursor: pointer;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  padding-right: 1em;
-  margin-right: 0.8em;
-  margin-bottom: 1em;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: var(--color-silver);
-  letter-spacing: 0.5px;
-}
-
-.handle-framework:first-child {
-  border-right: 1px solid var(--color-porcelain);
-}
-
-.handle-framework:hover,
-.handle-framework.current {
-  color: var(--color-dark);
-}
-
-.handle-framework img {
-  height: 1.3em;
-  margin-right: 0.4em;
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-
-.handle-framework:hover img,
-.handle-framework.current img {
-  opacity: 1;
 }

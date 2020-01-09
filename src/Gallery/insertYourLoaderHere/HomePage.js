@@ -2,13 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 const HomePage = () => (
-  <ContentLoader
-    height={300}
-    width={500}
-    speed={2}
-    primaryColor="#efefef"
-    secondaryColor="#dad9d9"
-  >
+  <ContentLoader height={300} width={500} speed={2}>
     <rect x="0" y="8" rx="0" ry="0" width="40" height="18" />
     <circle cx="492" cy="16" r="8" />
     <circle cx="472" cy="16" r="8" />

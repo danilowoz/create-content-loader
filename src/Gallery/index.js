@@ -76,8 +76,6 @@ const NewItem = () => (
       height={465}
       width={600}
       speed={2}
-      primaryColor="#f3f3f3"
-      secondaryColor="#ecebeb"
       className="showcase-item__new-loader"
     >
       <rect x="0" y="402" rx="8" ry="8" width="172" height="18" />
@@ -91,13 +89,11 @@ const NewItem = () => (
 export default () => (
   <div className="showcase">
     <p className="showcase-button">
-      <a href="#gallery">Need inspiration?</a>
+      <a href="#gallery">From community</a>
     </p>
-    <p className="showcase-legend">Be inspired by other amazing loaders</p>
     <div id="gallery" className="showcase-grid">
-      {Object.keys(data).map(renderItem)}
-
       <NewItem />
+      {Object.keys(data).map(renderItem)}
     </div>
   </div>
 )
