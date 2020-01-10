@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/create-content-loader/static/css/main.6ed7e346.chunk.css",
-    "main.js": "/create-content-loader/static/js/main.b86eabe4.chunk.js",
-    "main.js.map": "/create-content-loader/static/js/main.b86eabe4.chunk.js.map",
+    "main.css": "/create-content-loader/static/css/main.aafa6e7e.chunk.css",
+    "main.js": "/create-content-loader/static/js/main.bea3408a.chunk.js",
+    "main.js.map": "/create-content-loader/static/js/main.bea3408a.chunk.js.map",
     "runtime-main.js": "/create-content-loader/static/js/runtime-main.5281bd9b.js",
     "runtime-main.js.map": "/create-content-loader/static/js/runtime-main.5281bd9b.js.map",
     "static/js/2.7320c638.chunk.js": "/create-content-loader/static/js/2.7320c638.chunk.js",
     "static/js/2.7320c638.chunk.js.map": "/create-content-loader/static/js/2.7320c638.chunk.js.map",
     "index.html": "/create-content-loader/index.html",
-    "precache-manifest.9f511b7a76c845dad7f083b083b34faf.js": "/create-content-loader/precache-manifest.9f511b7a76c845dad7f083b083b34faf.js",
+    "precache-manifest.3cce9bc86b73ac8ba44e5a837e028926.js": "/create-content-loader/precache-manifest.3cce9bc86b73ac8ba44e5a837e028926.js",
     "service-worker.js": "/create-content-loader/service-worker.js",
-    "static/css/main.6ed7e346.chunk.css.map": "/create-content-loader/static/css/main.6ed7e346.chunk.css.map",
+    "static/css/main.aafa6e7e.chunk.css.map": "/create-content-loader/static/css/main.aafa6e7e.chunk.css.map",
     "static/js/2.7320c638.chunk.js.LICENSE": "/create-content-loader/static/js/2.7320c638.chunk.js.LICENSE",
     "static/media/circle.svg": "/create-content-loader/static/media/circle.23e0a9a0.svg",
     "static/media/clone.svg": "/create-content-loader/static/media/clone.1ff11d84.svg",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.5281bd9b.js",
     "static/js/2.7320c638.chunk.js",
-    "static/css/main.6ed7e346.chunk.css",
-    "static/js/main.b86eabe4.chunk.js"
+    "static/css/main.aafa6e7e.chunk.css",
+    "static/js/main.bea3408a.chunk.js"
   ]
 }
