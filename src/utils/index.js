@@ -86,20 +86,3 @@ export const CanvasAddedProp = target => {
 
   return newTarget
 }
-
-const regexCollection = /const MyLoader = \(\) => \([\s\S]*?<ContentLoader[\s\S]*?(rtl)?[\s\S]*?height={.*}[\s\S]*?width={.*}[\s\S]*?speed={.*}[\s\S]*?primaryColor=".*"[\s\S]*?secondaryColor=".*"[\s\S]*?[\s\S]*?>[.|\s]*?((.|\s)*)[.|\s]*?<\/ContentLoader>[\s\S]*?\)/
-
-export const getReactInfo = component => {
-  const obj = {}
-
-  obj.width = numberFixed(component.match(/width=({(.*?)}|"(.*?)")/)[2])
-  obj.height = numberFixed(component.match(/height=({(.*?)}|"(.*?)")/)[2])
-  obj.speed = numberFixed(component.match(/speed=({(.*?)}|"(.*?)")/)[2])
-
-  obj.primaryColor = component.match(/primaryColor="(.*?)"/)[1]
-  obj.secondaryColor = component.match(/secondaryColor="(.*?)"/)[1]
-  obj.rtl = /rtl/.test(component)
-  obj.draw = component.match(regexCollection)[2].trim()
-
-  return obj
-}

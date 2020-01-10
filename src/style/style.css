@@ -32,7 +32,7 @@ body {
   background-image: url(../assets/background-asset.png),
     url(../assets/background-asset.png);
   background-position: left top, right bottom;
-  background-size: auto 70%;
+  background-size: auto 700px;
   background-repeat: no-repeat;
 }
 
@@ -64,6 +64,12 @@ body {
   top: 30px;
   background: var(--background);
   border: 1px solid var(--color-silver);
+}
+
+.app-editor pre {
+  background: none !important;
+  padding: 0 !important;
+  font-size: 12px;
 }
 
 .token.comment {
@@ -109,7 +115,12 @@ body {
   border: 0;
   font: inherit;
   outline: none;
+  transition: opacity 0.3s ease;
+}
+
+.app-editor__language-button:not(.current):hover {
   cursor: pointer;
+  opacity: 0.6;
 }
 
 .app-editor__language-button span span {

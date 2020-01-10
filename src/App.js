@@ -1,35 +1,34 @@
 import React, { Component } from 'react'
 import ContentLoader from 'react-content-loader'
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import { LiveProvider, LiveError, LivePreview } from 'react-live'
 import { Tools } from 'react-sketch'
-import { debounce } from 'throttle-debounce'
 import Clipboard from 'clipboard'
 import ReactGA from 'react-ga'
 
-import { getReactInfo } from './utils'
 import { facebook, instagram, code, bulletList } from './utils/presets'
-import template from './utils/template'
+import template, { renderSnippet } from './utils/template'
 import Canvas from './Canvas'
 import Config from './Config'
 import Header from './Layout/Header'
 import Gallery from './Gallery'
+import Highlighter from './Highlighter'
 
 import './style/style.css'
 
 class App extends Component {
   state = {
     activeItem: false,
-    draw: localStorage.getItem('draw') || facebook,
+    draw: facebook,
     focusEditor: false,
-    height: localStorage.getItem('height') || 160,
-    primaryColor: localStorage.getItem('primaryColor') || '#f3f3f3',
-    renderCanvas: true,
-    rtl: localStorage.getItem('rtl') === 'true',
-    secondaryColor: localStorage.getItem('secondaryColor') || '#ecebeb',
-    speed: localStorage.getItem('speed') || 2,
-    tool: Tools.Select,
-    width: localStorage.getItem('width') || 400,
     gridVisibility: true,
+    height: 160,
+    mode: 'reactDom',
+    primaryColor: '#f3f3f3',
+    rtl: false,
+    secondaryColor: '#ecebeb',
+    speed: 2,
+    tool: Tools.Select,
+    width: 400,
   }
 
   componentDidMount() {
@@ -51,31 +50,8 @@ class App extends Component {
     this.clipboard.destroy()
   }
 
-  setLocalStorage = () => {
-    Object.keys(this.state).map(item =>
-      localStorage.setItem(item, this.state[item])
-    )
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.renderCanvas === false && this.state.focusEditor === false) {
-      this.setState({ renderCanvas: true })
-    }
-
-    this.setLocalStorage()
-  }
-
   handleDraw = draw => {
     this.setState({ draw })
-  }
-
-  handleEditor = (editor, error) => {
-    const hasError = this.editor.state.error === undefined
-    if (hasError) {
-      const state = getReactInfo(editor)
-      state.renderCanvas = false
-      this.setState(state)
-    }
   }
 
   handleSelectedItem = activeItem => {
@@ -107,7 +83,8 @@ class App extends Component {
       bulletList,
     }
     const draw = presents[value]
-    this.setState({ draw, height, renderCanvas: false })
+
+    this.setState({ draw, height })
 
     ReactGA.event({
       category: 'Draw',
@@ -129,7 +106,7 @@ class App extends Component {
   }
 
   handleInput = ({ target: { value, name } }) => {
-    this.setState({ [name]: value, renderCanvas: false })
+    this.setState({ [name]: value })
 
     ReactGA.event({
       category: 'Config',
@@ -139,7 +116,7 @@ class App extends Component {
   }
 
   handleCheckbox = ({ target: { name, checked } }) => {
-    this.setState({ [name]: checked, renderCanvas: false })
+    this.setState({ [name]: checked })
 
     ReactGA.event({
       category: 'Config',
@@ -166,6 +143,8 @@ class App extends Component {
     })
   }
 
+  handleMode = mode => this.setState({ mode })
+
   componentDidCatch(error, info) {
     this.setState({
       activeItem: false,
@@ -173,7 +152,6 @@ class App extends Component {
       focusEditor: false,
       height: 160,
       primaryColor: '#f3f3f3',
-      renderCanvas: true,
       secondaryColor: '#ecebeb',
       speed: 2,
       tool: Tools.Select,
@@ -183,21 +161,17 @@ class App extends Component {
   }
 
   render() {
-    const { renderCanvas, ...state } = this.state
-
     const optMyCode = {
-      data: state,
+      data: this.state,
       importDeclaration: false,
     }
-    const Mycode = template(optMyCode)
-    const CopyCodeToClipboard = template({
-      ...optMyCode,
-      importDeclaration: true,
-    })
+
+    const liveCode = renderSnippet(optMyCode)
+    const snippetCode = template[this.state.mode](optMyCode)
 
     return (
       <LiveProvider
-        code={Mycode}
+        code={liveCode}
         scope={{ ContentLoader }}
         ref={r => (this.editor = r)}
         noInline={true}
@@ -209,36 +183,41 @@ class App extends Component {
 
             <div>
               <div className="app-editor">
-                <LiveEditor onChange={debounce(1000, this.handleEditor)} />
+                <Highlighter code={snippetCode} language="javascript" />
 
                 <div className="app-editor__language-selector">
-                  <button className="app-editor__language-button current">
+                  <button
+                    onClick={() => this.handleMode('reactDom')}
+                    className={`app-editor__language-button ${this.state
+                      .mode === 'reactDom' && 'current'}`}
+                  >
                     <span>React</span>
                   </button>
 
-                  <a
-                    className="app-editor__language-button"
-                    href="http://danilowoz.com/create-vue-content-loader/"
-                    onClick={() => {
-                      ReactGA.event({
-                        category: 'Creator',
-                        action: `go to vue`,
-                      })
-                    }}
+                  <button
+                    onClick={() => this.handleMode('reactNative')}
+                    className={`app-editor__language-button ${this.state
+                      .mode === 'reactNative' && 'current'}`}
+                  >
+                    <span>React Native</span>
+                  </button>
+
+                  <button
+                    onClick={() => this.handleMode('vue')}
+                    className={`app-editor__language-button ${this.state
+                      .mode === 'vue' && 'current'}`}
                   >
                     <span>Vue</span>
-                  </a>
+                  </button>
 
-                  <button className="app-editor__language-button">
-                    <span>
-                      React Native <span>Soon</span>
-                    </span>
+                  <button
+                    onClick={() => this.handleMode('html')}
+                    className={`app-editor__language-button ${this.state
+                      .mode === 'html' && 'current'}`}
+                  >
+                    <span>HTML</span>
                   </button>
-                  <button className="app-editor__language-button">
-                    <span>
-                      HTML <span>Soon</span>
-                    </span>
-                  </button>
+
                   <button className="app-editor__language-button">
                     <span>
                       Gif <span>Soon</span>
@@ -247,7 +226,7 @@ class App extends Component {
 
                   <span
                     className="copy-to-clipboard"
-                    data-clipboard-text={CopyCodeToClipboard}
+                    data-clipboard-text={snippetCode}
                   >
                     Copy to clipboard
                   </span>
@@ -257,23 +236,22 @@ class App extends Component {
             </div>
 
             <div>
-              {renderCanvas && (
-                <Canvas
-                  {...this.state}
-                  handleDraw={this.handleDraw}
-                  handleSelectedItem={this.handleSelectedItem}
-                  handleTool={this.handleTool}
-                  handlePreset={this.handlePreset}
-                >
-                  <LivePreview
-                    style={{
-                      width: `${this.state.width}px`,
-                      height: `${this.state.height}px`,
-                      position: 'relative',
-                    }}
-                  />
-                </Canvas>
-              )}
+              <Canvas
+                {...this.state}
+                handleDraw={this.handleDraw}
+                handleSelectedItem={this.handleSelectedItem}
+                handleTool={this.handleTool}
+                handlePreset={this.handlePreset}
+              >
+                <LivePreview
+                  style={{
+                    width: `${this.state.width}px`,
+                    height: `${this.state.height}px`,
+                    position: 'relative',
+                  }}
+                />
+              </Canvas>
+
               <Config
                 {...this.state}
                 handleCheckbox={this.handleCheckbox}
