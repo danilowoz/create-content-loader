@@ -289,20 +289,12 @@ body {
   justify-content: space-between;
 }
 
-.app-config input {
-  background: none;
-  border: 0;
-  font: inherit;
-  padding: 0;
-  color: #fff;
-}
-
 .app-config_caption {
   color: var(--color-grey-light);
   font-size: var(--font-size__tiny);
 }
 
-.app-config .inline {
+.app-config_inline {
   border: 1px solid var(--color-silver);
   background: var(--color-grey);
   border-radius: 3px;
@@ -310,7 +302,16 @@ body {
   position: relative;
 }
 
-.app-config .inline label {
+.app-config_inline input {
+  background: none;
+  border: 0;
+  font: inherit;
+  padding: 0;
+  color: #fff;
+  outline: 0;
+}
+
+.app-config_inline label {
   position: absolute;
   right: 0.5em;
   top: 0.7em;
@@ -338,6 +339,25 @@ body {
   margin-top: -0.4em;
   margin-bottom: -0.4em;
   margin-left: -0.3em;
+}
+
+.app-editor_item-editor {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  border: 1px solid var(--color-silver);
+  padding: 1em 1em 0 1em;
+  margin-top: -0.3em;
+}
+
+.app-editor_item-editor .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.app-editor_item-editor p {
+  width: 16%;
+  margin-right: 1em;
+  margin-top: 0;
 }
 
 .app-config input[type='color']::-webkit-color-swatch {

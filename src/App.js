@@ -17,7 +17,6 @@ import './style/style.css'
 
 class App extends Component {
   state = {
-    activeItem: false,
     draw: facebook,
     focusEditor: false,
     gridVisibility: true,
@@ -29,6 +28,7 @@ class App extends Component {
     speed: 2,
     tool: Tools.Select,
     width: 400,
+    renderCanvas: true,
   }
 
   componentDidMount() {
@@ -50,18 +50,13 @@ class App extends Component {
     this.clipboard.destroy()
   }
 
-  handleDraw = draw => {
-    this.setState({ draw })
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.renderCanvas === false && this.state.focusEditor === false) {
+      this.setState({ renderCanvas: true })
+    }
   }
 
-  handleSelectedItem = activeItem => {
-    this.setState({ activeItem })
-
-    ReactGA.event({
-      category: 'Draw',
-      action: `selected item`,
-    })
-  }
+  handleDraw = draw => this.setState({ draw })
 
   handleTool = tool => {
     this.setState({ tool })
@@ -84,7 +79,7 @@ class App extends Component {
     }
     const draw = presents[value]
 
-    this.setState({ draw, height })
+    this.setState({ draw, height, renderCanvas: false })
 
     ReactGA.event({
       category: 'Draw',
@@ -106,7 +101,7 @@ class App extends Component {
   }
 
   handleInput = ({ target: { value, name } }) => {
-    this.setState({ [name]: value })
+    this.setState({ [name]: value, renderCanvas: false })
 
     ReactGA.event({
       category: 'Config',
@@ -116,7 +111,7 @@ class App extends Component {
   }
 
   handleCheckbox = ({ target: { name, checked } }) => {
-    this.setState({ [name]: checked })
+    this.setState({ [name]: checked, renderCanvas: false })
 
     ReactGA.event({
       category: 'Config',
@@ -155,7 +150,6 @@ class App extends Component {
 
   componentDidCatch(error, info) {
     this.setState({
-      activeItem: false,
       draw: facebook,
       focusEditor: false,
       height: 160,
@@ -244,21 +238,23 @@ class App extends Component {
             </div>
 
             <div>
-              <Canvas
-                {...this.state}
-                handleDraw={this.handleDraw}
-                handleSelectedItem={this.handleSelectedItem}
-                handleTool={this.handleTool}
-                handlePreset={this.handlePreset}
-              >
-                <LivePreview
-                  style={{
-                    width: `${this.state.width}px`,
-                    height: `${this.state.height}px`,
-                    position: 'relative',
-                  }}
-                />
-              </Canvas>
+              {this.state.renderCanvas && (
+                <Canvas
+                  {...this.state}
+                  handleDraw={this.handleDraw}
+                  handleSelectedItem={this.handleSelectedItem}
+                  handleTool={this.handleTool}
+                  handlePreset={this.handlePreset}
+                >
+                  <LivePreview
+                    style={{
+                      width: `${this.state.width}px`,
+                      height: `${this.state.height}px`,
+                      position: 'relative',
+                    }}
+                  />
+                </Canvas>
+              )}
 
               <Config
                 {...this.state}

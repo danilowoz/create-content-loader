@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { SketchField, Tools } from 'react-sketch'
 import classnames from 'classnames'
-import ClickOutside from 'react-click-outside'
 import ReactGA from 'react-ga'
 
 import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
@@ -18,13 +17,13 @@ class Canvas extends Component {
 
     this.state = {
       showCanvas: true,
+      coordsActiveItem: {},
     }
   }
 
   componentDidMount() {
     this.setupEvents()
     this.SVGtoCanvas()
-    this.handleKeyboardInput()
   }
 
   SVGtoCanvas = () => {
@@ -62,56 +61,37 @@ class Canvas extends Component {
       eventFromOutsideClick &&
       !eventFromOutsideClick.path.includes(this.cloneButton)
     const canvas = this._sketch && this._sketch._fc
-    const { activeItem } = this.props
+    const hasItemSelected = Object.keys(this.state.coordsActiveItem).length > 0
 
     if (
       canvas &&
       notClickingOnTrashButton &&
       notClickingOnCloneButton &&
-      activeItem
+      hasItemSelected
     ) {
       canvas.discardActiveObject().renderAll()
-      this.props.handleSelectedItem(false)
+      this.setState({ coordsActiveItem: {} })
     }
   }
 
-  handleKeyboardInput = () => {
-    document.addEventListener(
-      'keydown',
-      e => {
-        switch (e.code) {
-          case 'Backspace':
-          case 'Delete':
-            this.removeItem()
-            break
-          case 'ArrowUp':
-            this.moveItem(0, -1)
-            break
-          case 'ArrowDown':
-            this.moveItem(0, 1)
-            break
-          case 'ArrowLeft':
-            this.moveItem(-1, 0)
-            break
-          case 'ArrowRight':
-            this.moveItem(1, 0)
-            break
-          default:
-            break
-        }
-      },
-      false
-    )
+  setCoords = ({ target }) => {
+    const { width, height, left, top } = target
+    this.setState({ coordsActiveItem: { width, height, left, top } })
   }
 
-  moveItem = (x, y) => {
+  moveItem = (key, value) => {
     const canvas = this._sketch && this._sketch._fc
     if (canvas && canvas.getActiveObject()) {
       const selection = canvas.getActiveObject()
-      selection.set('left', selection.left + x)
-      selection.set('top', selection.top + y)
+
+      selection.set(key, value)
       selection.setCoords()
       canvas.requestRenderAll()
+
+      this.setState(prevState => ({
+        ...prevState,
+        coordsActiveItem: { ...prevState.coordsActiveItem, [key]: value },
+      }))
     }
   }
 
@@ -142,19 +122,21 @@ class Canvas extends Component {
     const self = this
 
     this._sketch._fc.on({
-      'after:render': () => self.renderCanvas(),
-      'selection:created': item =>
-        (item.target = CanvasAddedProp(item.target)) &&
-        self.props.handleSelectedItem(true),
+      'after:render': self.renderCanvas,
+      'selection:created': item => {
+        this.setCoords(item)
+        item.target = CanvasAddedProp(item.target)
+      },
+      'selection:updated': this.setCoords,
+      'selection:cleared': () => this.setState({ coordsActiveItem: {} }),
+      'object:modified': this.setCoords,
       'object:added': item => (item.target = CanvasAddedProp(item.target)),
       'object:moving': item => (item.target = CanvasAddedProp(item.target)),
-      'selection:cleared': () => self.props.handleSelectedItem(false),
     })
   }
 
   render() {
     const {
-      activeItem,
       children,
       gridVisibility,
       handlePreset,
@@ -164,6 +146,8 @@ class Canvas extends Component {
       tool,
       width,
     } = this.props
+
+    const hasItemSelected = Object.keys(this.state.coordsActiveItem).length > 0
 
     return (
       <Fragment>
@@ -182,21 +166,15 @@ class Canvas extends Component {
 
           {children}
 
-          <ClickOutside
-            onClickOutside={e => {
-              this.removeSelection(e)
-            }}
-          >
-            <SketchField
-              width={`${width}px`}
-              height={`${height}px`}
-              tool={tool}
-              lineWidth={0}
-              color="black"
-              ref={c => (this._sketch = c)}
-              className="app-canvas__sketch"
-            />
-          </ClickOutside>
+          <SketchField
+            width={`${width}px`}
+            height={`${height}px`}
+            tool={tool}
+            lineWidth={0}
+            color="black"
+            ref={c => (this._sketch = c)}
+            className="app-canvas__sketch"
+          />
 
           <div className="app-handlers" key="handlers">
             <button
@@ -259,7 +237,7 @@ class Canvas extends Component {
               bulletList
             </button>
 
-            {activeItem && (
+            {hasItemSelected && (
               <span>
                 <button
                   className="app-handler__trash"
@@ -279,6 +257,30 @@ class Canvas extends Component {
             )}
           </div>
         </div>
+
+        {hasItemSelected && (
+          <div className="app-editor_item-editor">
+            <p className="app-config_caption">Size & position</p>
+
+            <div className="row">
+              {Object.keys(this.state.coordsActiveItem).map(item => {
+                return (
+                  <p className="app-config_inline" key={item}>
+                    <label>{item}</label>
+                    <input
+                      onChange={e =>
+                        this.moveItem(item, Number(e.target.value))
+                      }
+                      value={Number(
+                        this.state.coordsActiveItem[item]
+                      ).toFixed()}
+                    />
+                  </p>
+                )
+              })}
+            </div>
+          </div>
+        )}
       </Fragment>
     )
   }

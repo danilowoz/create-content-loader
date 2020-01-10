@@ -21,7 +21,7 @@ const Config = ({
     <div className="row">
       <p className="app-config_caption">Canvas size</p>
 
-      <p className="inline">
+      <p className="app-config_inline">
         <input
           type="number"
           id="width"
@@ -33,7 +33,7 @@ const Config = ({
         <label htmlFor="width">width (in px)</label>
       </p>
 
-      <p className="inline">
+      <p className="app-config_inline">
         <input
           type="number"
           id="height"
@@ -54,7 +54,7 @@ const Config = ({
         </button>
       </p>
 
-      <p className="inline">
+      <p className="app-config_inline">
         <input
           type="color"
           id="primaryColor"
@@ -65,7 +65,7 @@ const Config = ({
         <label htmlFor="primaryColor">Background color</label>
       </p>
 
-      <p className="inline">
+      <p className="app-config_inline">
         <input
           type="color"
           id="secondaryColor"
@@ -79,7 +79,7 @@ const Config = ({
 
     <div className="row">
       <p className="app-config_caption">Configurations</p>
-      <p className="inline">
+      <p className="app-config_inline">
         <input
           type="number"
           id="speed"
@@ -108,7 +108,7 @@ const Config = ({
     <div className="app-config__guideline">
       <p className="app-config_caption">Select a image to set as background</p>
 
-      <p className="inline">
+      <p className="app-config_inline">
         <input
           onChange={handleImageAsBackground}
           id="guideline"
