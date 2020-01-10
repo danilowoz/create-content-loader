@@ -143,7 +143,15 @@ class App extends Component {
     })
   }
 
-  handleMode = mode => this.setState({ mode })
+  handleMode = mode => {
+    this.setState({ mode })
+
+    ReactGA.event({
+      category: 'Config',
+      action: 'mode',
+      label: mode,
+    })
+  }
 
   componentDidCatch(error, info) {
     this.setState({
