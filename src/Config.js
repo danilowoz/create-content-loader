@@ -47,34 +47,6 @@ const Config = ({
     </div>
 
     <div className="row">
-      <p className="app-config_caption">Configurations</p>
-      <p className="inline">
-        <input
-          type="number"
-          id="speed"
-          name="speed"
-          value={speed}
-          onChange={handleInput}
-        />
-        <label htmlFor="speed">speed (in s)</label>
-      </p>
-
-      <p className="app-config_caption">Right-to-left</p>
-
-      <label htmlFor="rtl" className="toggle">
-        <input
-          type="checkbox"
-          className="toggle-input"
-          checked={rtl}
-          name="rtl"
-          id="rtl"
-          onChange={handleCheckbox}
-        />
-        <span className={`toggle-check ${rtl ? 'checked' : ''}`} />
-      </label>
-    </div>
-
-    <div className="row">
       <p className="app-config_caption">
         Colors{' '}
         <button className="reset-colors" onClick={resetColors}>
@@ -105,7 +77,35 @@ const Config = ({
       </p>
     </div>
 
-    <p className="app-config__guideline">
+    <div className="row">
+      <p className="app-config_caption">Configurations</p>
+      <p className="inline">
+        <input
+          type="number"
+          id="speed"
+          name="speed"
+          value={speed}
+          onChange={handleInput}
+        />
+        <label htmlFor="speed">speed (in s)</label>
+      </p>
+
+      <p className="app-config_caption">Right-to-left</p>
+
+      <label htmlFor="rtl" className="toggle">
+        <input
+          type="checkbox"
+          className="toggle-input"
+          checked={rtl}
+          name="rtl"
+          id="rtl"
+          onChange={handleCheckbox}
+        />
+        <span className={`toggle-check ${rtl ? 'checked' : ''}`} />
+      </label>
+    </div>
+
+    <div className="app-config__guideline">
       <p className="app-config_caption">Select a image to set as background</p>
 
       <p className="inline">
@@ -125,7 +125,7 @@ const Config = ({
           </button>
         )}
       </p>
-    </p>
+    </div>
 
     <p className="app-config_grid-col">
       <p className="app-config_caption">Grid visibility</p>

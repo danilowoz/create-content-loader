@@ -418,6 +418,7 @@ body {
 
 .app-config_grid-col {
   width: calc(((100% / 3)) - 2em);
+  margin-top: 0em;
 }
 
 .app-config .reset-colors {
