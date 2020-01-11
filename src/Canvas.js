@@ -3,7 +3,7 @@ import { SketchField, Tools } from 'react-sketch'
 import classnames from 'classnames'
 import ReactGA from 'react-ga'
 
-import { SVGtoFabric, JsonToSVG, CanvasAddedProp } from './utils'
+import { SVGtoFabric, jsonToSVG, canvasAddedProp, numberFixed } from './utils'
 
 import selectIcon from './assets/select.svg'
 import trashIcon from './assets/trash.svg'
@@ -48,7 +48,7 @@ class Canvas extends Component {
 
   renderCanvas = () => {
     if (this._sketch) {
-      const draw = JsonToSVG(this._sketch._fc.toJSON())
+      const draw = jsonToSVG(this._sketch._fc.toJSON())
       this.props.handleDraw(draw)
     }
   }
@@ -75,8 +75,15 @@ class Canvas extends Component {
   }
 
   setCoords = ({ target }) => {
-    const { width, height, left, top } = target
-    this.setState({ coordsActiveItem: { width, height, left, top } })
+    const { type, width, height, left, top, radius, rx } = target
+
+    if (type === 'circle') {
+      return this.setState({ coordsActiveItem: { radius, left, top } })
+    }
+
+    return this.setState({
+      coordsActiveItem: { width, height, left, top, boxRadius: rx },
+    })
   }
 
   moveItem = (key, value) => {
@@ -84,7 +91,13 @@ class Canvas extends Component {
     if (canvas && canvas.getActiveObject()) {
       const selection = canvas.getActiveObject()
 
-      selection.set(key, value)
+      if (key === 'boxRadius') {
+        selection.set('rx', value)
+        selection.set('ry', value)
+      } else {
+        selection.set(key, value)
+      }
+
       selection.setCoords()
       canvas.requestRenderAll()
 
@@ -125,13 +138,13 @@ class Canvas extends Component {
       'after:render': self.renderCanvas,
       'selection:created': item => {
         this.setCoords(item)
-        item.target = CanvasAddedProp(item.target)
+        item.target = canvasAddedProp(item.target)
       },
       'selection:updated': this.setCoords,
       'selection:cleared': () => this.setState({ coordsActiveItem: {} }),
-      'object:modified': this.setCoords,
-      'object:added': item => (item.target = CanvasAddedProp(item.target)),
-      'object:moving': item => (item.target = CanvasAddedProp(item.target)),
+      'object:modified': this.props.handleResetRenderCanvas,
+      'object:added': item => (item.target = canvasAddedProp(item.target)),
+      'object:moving': item => (item.target = canvasAddedProp(item.target)),
     })
   }
 
@@ -260,21 +273,48 @@ class Canvas extends Component {
 
         {hasItemSelected && (
           <div className="app-editor_item-editor">
-            <p className="app-config_caption">Size & position</p>
+            <p className="app-config_caption">Size & position of active item</p>
 
             <div className="row">
               {Object.keys(this.state.coordsActiveItem).map(item => {
+                const value = numberFixed(this.state.coordsActiveItem[item])
+                const onChange = e =>
+                  this.moveItem(item, numberFixed(e.target.value))
+
+                if (item === 'boxRadius') {
+                  return (
+                    <p
+                      style={{ width: '62.5%', display: 'flex' }}
+                      className="app-config_inline"
+                      key={item}
+                    >
+                      <input
+                        type="range"
+                        min={0}
+                        max={100}
+                        value={value}
+                        onChange={onChange}
+                        style={{ flex: 1 }}
+                      />
+                      <input
+                        style={{
+                          textAlign: 'center',
+                          flex: 1,
+                          marginRight: '34px',
+                        }}
+                        type="number"
+                        onChange={onChange}
+                        value={value}
+                      />
+                      <label>radius</label>
+                    </p>
+                  )
+                }
+
                 return (
                   <p className="app-config_inline" key={item}>
                     <label>{item}</label>
-                    <input
-                      onChange={e =>
-                        this.moveItem(item, Number(e.target.value))
-                      }
-                      value={Number(
-                        this.state.coordsActiveItem[item]
-                      ).toFixed()}
-                    />
+                    <input type="number" onChange={onChange} value={value} />
                   </p>
                 )
               })}

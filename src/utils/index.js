@@ -1,6 +1,6 @@
-const numberFixed = num => Number(Number(num).toFixed())
+export const numberFixed = num => Number(Number(num).toFixed())
 
-export const JsonToSVG = json => {
+export const jsonToSVG = json => {
   const arr = json.objects
   let svg = ''
 
@@ -70,7 +70,7 @@ export const SVGtoFabric = svg => {
   return obj.filter(e => e !== undefined)
 }
 
-export const CanvasAddedProp = target => {
+export const canvasAddedProp = target => {
   const newTarget = target
   const hasCircle =
     newTarget &&

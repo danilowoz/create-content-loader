@@ -292,6 +292,7 @@ body {
 .app-config_caption {
   color: var(--color-grey-light);
   font-size: var(--font-size__tiny);
+  width: 100% !important;
 }
 
 .app-config_inline {
@@ -352,11 +353,11 @@ body {
 .app-editor_item-editor .row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .app-editor_item-editor p {
-  width: 16%;
-  margin-right: 1em;
+  width: 28%;
   margin-top: 0;
 }
 

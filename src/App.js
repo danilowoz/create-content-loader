@@ -56,6 +56,20 @@ class App extends Component {
     }
   }
 
+  componentDidCatch(error, info) {
+    this.setState({
+      draw: facebook,
+      focusEditor: false,
+      height: 160,
+      primaryColor: '#f3f3f3',
+      secondaryColor: '#ecebeb',
+      speed: 2,
+      tool: Tools.Select,
+      width: 400,
+      rtl: false,
+    })
+  }
+
   handleDraw = draw => this.setState({ draw })
 
   handleTool = tool => {
@@ -148,19 +162,7 @@ class App extends Component {
     })
   }
 
-  componentDidCatch(error, info) {
-    this.setState({
-      draw: facebook,
-      focusEditor: false,
-      height: 160,
-      primaryColor: '#f3f3f3',
-      secondaryColor: '#ecebeb',
-      speed: 2,
-      tool: Tools.Select,
-      width: 400,
-      rtl: false,
-    })
-  }
+  handleResetRenderCanvas = () => this.setState({ renderCanvas: false })
 
   render() {
     const optMyCode = {
@@ -245,6 +247,7 @@ class App extends Component {
                   handleSelectedItem={this.handleSelectedItem}
                   handleTool={this.handleTool}
                   handlePreset={this.handlePreset}
+                  handleResetRenderCanvas={this.handleResetRenderCanvas}
                 >
                   <LivePreview
                     style={{
