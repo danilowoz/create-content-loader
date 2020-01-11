@@ -17,18 +17,18 @@ import './style/style.css'
 
 class App extends Component {
   state = {
-    draw: facebook,
-    focusEditor: false,
+    activeItem: false,
+    draw: localStorage.getItem('draw') || facebook,
     gridVisibility: true,
-    height: 160,
-    mode: 'reactDom',
-    primaryColor: '#f3f3f3',
-    rtl: false,
-    secondaryColor: '#ecebeb',
-    speed: 2,
-    tool: Tools.Select,
-    width: 400,
+    height: localStorage.getItem('height') || 160,
+    mode: localStorage.getItem('mode') || 'reactDom',
+    primaryColor: localStorage.getItem('primaryColor') || '#f3f3f3',
     renderCanvas: true,
+    rtl: localStorage.getItem('rtl') === 'true',
+    secondaryColor: localStorage.getItem('secondaryColor') || '#ecebeb',
+    speed: localStorage.getItem('speed') || 2,
+    tool: Tools.Select,
+    width: localStorage.getItem('width') || 400,
   }
 
   componentDidMount() {
@@ -51,15 +51,16 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.renderCanvas === false && this.state.focusEditor === false) {
+    if (this.state.renderCanvas === false) {
       this.setState({ renderCanvas: true })
     }
+
+    this.setLocalStorage()
   }
 
   componentDidCatch(error, info) {
     this.setState({
       draw: facebook,
-      focusEditor: false,
       height: 160,
       primaryColor: '#f3f3f3',
       secondaryColor: '#ecebeb',
@@ -68,6 +69,12 @@ class App extends Component {
       width: 400,
       rtl: false,
     })
+  }
+
+  setLocalStorage = () => {
+    Object.keys(this.state).map(item =>
+      localStorage.setItem(item, this.state[item])
+    )
   }
 
   handleDraw = draw => this.setState({ draw })
@@ -215,11 +222,11 @@ class App extends Component {
                   </button>
 
                   <button
-                    onClick={() => this.handleMode('html')}
+                    onClick={() => this.handleMode('svg')}
                     className={`app-editor__language-button ${this.state
-                      .mode === 'html' && 'current'}`}
+                      .mode === 'svg' && 'current'}`}
                   >
-                    <span>HTML</span>
+                    <span>SVG</span>
                   </button>
 
                   <button className="app-editor__language-button">

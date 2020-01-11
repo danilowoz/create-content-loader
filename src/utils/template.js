@@ -72,13 +72,14 @@ ${drawParser}
 export default MyLoader`
 }
 
-const html = ({ data = {} }) => {
+const svg = ({ data = {} }) => {
   return `<svg
   role="img"
   aria-label="Loading interface..."
   viewBox="0 0 ${data.width} ${data.height}"
-  preserveAspectRatio="none"
-  ${data.rtl ? 'style="transform: scaleX(-1)"' : ''}
+  preserveAspectRatio="none"${
+    data.rtl ? '\n  style="transform: scaleX(-1)"' : ''
+  }
 >
   <title>Loading interface...</title>
   <rect
@@ -161,4 +162,4 @@ ${data.draw}
 `
 }
 
-export default { reactDom, reactNative, html, vue }
+export default { reactDom, reactNative, svg, vue }

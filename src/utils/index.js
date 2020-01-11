@@ -5,6 +5,14 @@ export const jsonToSVG = json => {
   let svg = ''
 
   arr.forEach(a => {
+    const height = numberFixed(a.height * a.scaleY)
+    const width = numberFixed(a.width * a.scaleX)
+    const radius = numberFixed(a.radius * a.scaleX)
+
+    if ((height === 0 && width === 0) || radius === 1) {
+      return null
+    }
+
     if (a.type === 'rect') {
       const rotate = a.angle
         ? ` transform="rotate(${numberFixed(a.angle)}, ${numberFixed(
@@ -14,15 +22,13 @@ export const jsonToSVG = json => {
 
       svg += `    <rect x="${numberFixed(a.left)}" y="${numberFixed(
         a.top
-      )}" rx="${a.rx}" ry="${numberFixed(a.ry)}" width="${numberFixed(
-        a.width * a.scaleX
-      )}" height="${numberFixed(a.height * a.scaleY)}"${rotate} /> \n`
+      )}" rx="${a.rx}" ry="${numberFixed(
+        a.ry
+      )}" width="${width}" height="${height}"${rotate} /> \n`
     } else if (a.type === 'circle') {
       svg += `    <circle cx="${numberFixed(
         a.left + a.radius * a.scaleY
-      )}" cy="${numberFixed(a.top + a.radius * a.scaleY)}" r="${numberFixed(
-        a.radius * a.scaleX
-      )}" /> \n`
+      )}" cy="${numberFixed(a.top + a.radius * a.scaleY)}" r="${radius}" /> \n`
     }
   })
 
