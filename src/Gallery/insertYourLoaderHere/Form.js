@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
 const Form = props => {
   return (
@@ -30,7 +30,7 @@ Form.metadata = {
   name: 'Chris Fulgencio', // Contributer
   github: 'fulgencc', // Github username
   description: 'A loader for a small form', // Little tagline
-  filename: 'Form' // filename
+  filename: 'Form', // filename
 }
 
 export default Form
