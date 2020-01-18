@@ -342,6 +342,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "fulgencc",
+      "name": "Chris Fulgencio",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13307636?v=4",
+      "profile": "http://fulgenc.io",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
