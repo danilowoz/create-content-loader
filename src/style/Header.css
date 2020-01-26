@@ -31,6 +31,14 @@
   align-items: flex-end;
 }
 
+.app-header__logo span {
+  font-size: 0.5em;
+  opacity: 0.3;
+  margin-left: 1em;
+  top: -1em;
+  position: relative;
+}
+
 .app-header h2 {
   font-size: var(--font-size__base);
   line-height: 1.6;

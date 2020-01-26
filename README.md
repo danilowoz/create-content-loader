@@ -1,9 +1,10 @@
 <p align="center">
 
-  [![All Contributors][logo]](reference)
+[![All Contributors][logo]](reference)
 
-  [logo]: https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square
-  [reference]: #contributors
+[logo]: https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square
+[reference]: #contributors
+
   <img width="800px" src="https://user-images.githubusercontent.com/4838076/72096118-78a8a400-3311-11ea-8b8d-c69ef232ffcc.png" title="Create Content Loader" />
 </p>
 
@@ -32,8 +33,8 @@ That's is a way to share your custom loader with the React community. Besides yo
 ## Boilerplate
 
 ```jsx
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
 const __NAME_OF_LOADER__ = props => {
   return (
@@ -41,11 +42,11 @@ const __NAME_OF_LOADER__ = props => {
       height={40}
       width={1060}
       speed={2}
-      primaryColor="#d9d9d9"
-      secondaryColor="#ecebeb"
+      backgroundColor="#d9d9d9"
+      foregroundColor="#ecebeb"
       {...props}
     >
-    // your loader
+      // your loader
     </ContentLoader>
   )
 }
@@ -54,14 +55,13 @@ __NAME_OF_LOADER__.metadata = {
   name: __WRITEHERE__, // My name
   github: __WRITEHERE__, // Github username
   description: __WRITEHERE__, // Little tagline
-  filename: __WRITEHERE__ // filename of your loader
+  filename: __WRITEHERE__, // filename of your loader
 }
 
 export default __NAME_OF_LOADER__
-
 ```
 
-It'll be amazing to see the creativity of the community! 
+It'll be amazing to see the creativity of the community!
 
 ### Available Scripts
 
@@ -137,6 +137,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

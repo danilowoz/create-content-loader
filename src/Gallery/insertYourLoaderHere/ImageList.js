@@ -26,7 +26,13 @@ const Loader = props => {
     }
   }
   return (
-    <ContentLoader height={height} width={width} speed={2} {...props}>
+    <ContentLoader
+      viewBox={`0 0 ${width} ${height}`}
+      height={height}
+      width={width}
+      speed={2}
+      {...props}
+    >
       {props.imageType === 'circle' ? (
         <circle cx="60" cy="45" r="30" />
       ) : (

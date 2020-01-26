@@ -3,7 +3,13 @@ import ContentLoader from 'react-content-loader'
 
 const Card = props => {
   return (
-    <ContentLoader height={160} width={260} speed={2} {...props}>
+    <ContentLoader
+      viewBox="0 0 260 160"
+      height={160}
+      width={260}
+      speed={2}
+      {...props}
+    >
       <circle cx="50" cy="30" r="30" />
       <rect x="10" y="70" rx="3" ry="3" width="40" height="10" />
       <rect x="60" y="70" rx="3" ry="3" width="70" height="10" />

@@ -9,8 +9,8 @@ export const renderSnippet = ({ data = {} }) => {
     height={${data.height}}
     width={${data.width}}
     speed={${data.speed}}
-    primaryColor="${data.primaryColor}"
-    secondaryColor="${data.secondaryColor}"
+    backgroundColor="${data.backgroundColor}"
+    foregroundColor="${data.foregroundColor}"
   >
 ${data.draw}
   </ContentLoader>
@@ -31,11 +31,12 @@ const MyLoader = () => (
     rtl`
       : ''
   }
-    height={${data.height}}
-    width={${data.width}}
     speed={${data.speed}}
-    primaryColor="${data.primaryColor}"
-    secondaryColor="${data.secondaryColor}"
+    width={${data.width}}
+    height={${data.height}}
+    viewBox="0 0 ${data.width} ${data.height}"
+    backgroundColor="${data.backgroundColor}"
+    foregroundColor="${data.foregroundColor}"
   >
 ${data.draw}
   </ContentLoader>
@@ -59,11 +60,12 @@ const MyLoader = () => (
     rtl`
       : ''
   }
-    height={${data.height}}
-    width={${data.width}}
     speed={${data.speed}}
-    primaryColor="${data.primaryColor}"
-    secondaryColor="${data.secondaryColor}"
+    width={${data.width}}
+    height={${data.height}}
+    viewBox="0 0 ${data.width} ${data.height}"
+    backgroundColor="${data.backgroundColor}"
+    foregroundColor="${data.foregroundColor}"
   >
 ${drawParser}
   </ContentLoader>
@@ -75,18 +77,20 @@ export default MyLoader`
 const svg = ({ data = {} }) => {
   return `<svg
   role="img"
-  aria-label="Loading interface..."
+  width="${data.width}"
+  height="${data.height}"
+  aria-labelledby="loading-aria"
   viewBox="0 0 ${data.width} ${data.height}"
   preserveAspectRatio="none"${
     data.rtl ? '\n  style="transform: scaleX(-1)"' : ''
   }
 >
-  <title>Loading interface...</title>
+  <title id="loading-aria">Loading...</title>
   <rect
     x="0"
     y="0"
-    width="${data.width}"
-    height="${data.height}"
+    width="100%"
+    height="100%"
     clip-path="url(#clip-path)"
     style='fill: url("#fill");'
   ></rect>
@@ -97,7 +101,7 @@ ${data.draw.replace(/  /gm, '    ')}
     <linearGradient id="fill">
       <stop
         offset="0.599964"
-        stop-color="${data.primaryColor}"
+        stop-color="${data.backgroundColor}"
         stop-opacity="1"
       >
         <animate
@@ -110,7 +114,7 @@ ${data.draw.replace(/  /gm, '    ')}
       </stop>
       <stop
         offset="1.59996"
-        stop-color="${data.secondaryColor}"
+        stop-color="${data.foregroundColor}"
         stop-opacity="1"
       >
         <animate
@@ -123,7 +127,7 @@ ${data.draw.replace(/  /gm, '    ')}
       </stop>
       <stop
         offset="2.59996"
-        stop-color="${data.primaryColor}"
+        stop-color="${data.backgroundColor}"
         stop-opacity="1"
       >
         <animate
@@ -153,8 +157,8 @@ const vue = ({ data = {} }) => {
     width={${data.width}}
     height={${data.height}}
     speed={${data.speed}}
-    primaryColor="${data.primaryColor}"
-    secondaryColor="${data.secondaryColor}"
+    primaryColor="${data.backgroundColor}"
+    secondaryColor="${data.foregroundColor}"
   >
 ${data.draw}
   </content-loader>

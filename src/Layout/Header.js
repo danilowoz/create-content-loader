@@ -11,6 +11,7 @@ const Header = () => {
       <div className="app-header__logo">
         <h1>
           Create <strong>React Content Loader</strong>
+          <span>{pkg.dependencies['react-content-loader']}</span>
         </h1>
       </div>
 

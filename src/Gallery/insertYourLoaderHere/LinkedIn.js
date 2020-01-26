@@ -3,7 +3,13 @@ import ContentLoader from 'react-content-loader'
 
 const LinkedInStyle = props => {
   return (
-    <ContentLoader height={475} width={400} speed={2} {...props}>
+    <ContentLoader
+      viewBox="0 0 400 475"
+      height={475}
+      width={400}
+      speed={2}
+      {...props}
+    >
       <circle cx="56" cy="35" r="28" />
       <rect x="14" y="81" rx="4" ry="4" width="91" height="8" />
       <rect x="130" y="73" rx="5" ry="5" width="159" height="172" />

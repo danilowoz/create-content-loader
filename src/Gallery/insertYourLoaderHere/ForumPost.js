@@ -3,7 +3,13 @@ import ContentLoader from 'react-content-loader'
 
 const ForumPost = props => {
   return (
-    <ContentLoader height={600} width={400} speed={2} {...props}>
+    <ContentLoader
+      viewBox="0 0 400 600"
+      height={600}
+      width={400}
+      speed={2}
+      {...props}
+    >
       <rect x="20" y="8" rx="0" ry="0" width="100" height="100" />
       <rect x="20" y="120" rx="0" ry="0" width="100" height="10" />
       <rect x="170" y="8" rx="0" ry="0" width="300" height="15" />

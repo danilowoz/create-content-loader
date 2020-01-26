@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const Invoice = () => {
   return (
-    <ContentLoader height={550} width={476} speed={2.5}>
+    <ContentLoader viewBox="0 0 476 550" height={550} width={476} speed={2.5}>
       <rect x="11" y="16" rx="5" ry="5" width="98" height="51" />
       <rect x="260" y="36" rx="5" ry="5" width="196" height="6" />
       <rect x="294" y="17" rx="5" ry="5" width="161" height="12" />

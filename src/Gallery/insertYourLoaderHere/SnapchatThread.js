@@ -7,8 +7,9 @@ const SnapchatThread = props => {
       height={54}
       width={320}
       speed={1}
-      primaryColor="#f3f3f3"
-      secondaryColor="#ecebeb"
+      viewBox="0 0 320 54"
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
     >
       <circle cx="27" cy="27" r="18" />
       <rect x="53" y="14" rx="3" ry="3" width="180" height="13" />

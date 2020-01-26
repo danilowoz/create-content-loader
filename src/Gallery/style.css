@@ -43,6 +43,11 @@
   overflow: hidden;
 }
 
+.showcase-component svg {
+  width: 100%;
+  height: auto;
+}
+
 .showcase-caption {
   box-sizing: border-box;
   padding-top: 16px;

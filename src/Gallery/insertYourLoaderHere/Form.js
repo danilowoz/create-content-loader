@@ -7,8 +7,9 @@ const Form = props => {
       height={200}
       width={400}
       speed={2}
-      primaryColor="#d9d9d9"
-      secondaryColor="#ecebeb"
+      viewBox="0 0 400 200"
+      backgroundColor="#d9d9d9"
+      foregroundColor="#ecebeb"
       {...props}
     >
       <rect x="15" y="15" rx="4" ry="4" width="130" height="10" />

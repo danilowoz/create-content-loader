@@ -2,7 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 const AvatarWithText = () => (
-  <ContentLoader height={160} width={400} speed={2}>
+  <ContentLoader viewBox="0 0 400 160" height={160} width={400} speed={2}>
     <rect x="110" y="21" rx="4" ry="4" width="254" height="6" />
     <rect x="111" y="41" rx="3" ry="3" width="185" height="7" />
     <rect x="304" y="-46" rx="3" ry="3" width="350" height="6" />

@@ -64,7 +64,13 @@ const CatalogMagic = ({
   }
 
   return (
-    <ContentLoader width={width} height={height} speed={2} {...props}>
+    <ContentLoader
+      viewBox={`0 0 ${width} ${height}`}
+      width={width}
+      height={height}
+      speed={2}
+      {...props}
+    >
       {heading && (
         <rect
           x={padding}

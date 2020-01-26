@@ -22,10 +22,10 @@ class App extends Component {
     gridVisibility: true,
     height: localStorage.getItem('height') || 160,
     mode: localStorage.getItem('mode') || 'reactDom',
-    primaryColor: localStorage.getItem('primaryColor') || '#f3f3f3',
+    backgroundColor: localStorage.getItem('backgroundColor') || '#f3f3f3',
     renderCanvas: true,
     rtl: localStorage.getItem('rtl') === 'true',
-    secondaryColor: localStorage.getItem('secondaryColor') || '#ecebeb',
+    foregroundColor: localStorage.getItem('foregroundColor') || '#ecebeb',
     speed: localStorage.getItem('speed') || 2,
     tool: Tools.Select,
     width: localStorage.getItem('width') || 400,
@@ -62,8 +62,8 @@ class App extends Component {
     this.setState({
       draw: facebook,
       height: 160,
-      primaryColor: '#f3f3f3',
-      secondaryColor: '#ecebeb',
+      backgroundColor: '#f3f3f3',
+      foregroundColor: '#ecebeb',
       speed: 2,
       tool: Tools.Select,
       width: 400,
@@ -111,8 +111,8 @@ class App extends Component {
 
   resetColors = () => {
     this.setState({
-      primaryColor: '#f3f3f3',
-      secondaryColor: '#ecebeb',
+      backgroundColor: '#f3f3f3',
+      foregroundColor: '#ecebeb',
     })
 
     ReactGA.event({

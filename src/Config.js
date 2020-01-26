@@ -8,11 +8,11 @@ const Config = ({
   handleInput,
   height,
   imageAsBackground,
-  primaryColor,
+  backgroundColor,
   resetColors,
   rtl,
   gridVisibility,
-  secondaryColor,
+  foregroundColor,
   size,
   speed,
   width,
@@ -57,23 +57,23 @@ const Config = ({
       <p className="app-config_inline">
         <input
           type="color"
-          id="primaryColor"
-          name="primaryColor"
-          value={primaryColor}
+          id="backgroundColor"
+          name="backgroundColor"
+          value={backgroundColor}
           onChange={handleInput}
         />
-        <label htmlFor="primaryColor">Background color</label>
+        <label htmlFor="backgroundColor">Background color</label>
       </p>
 
       <p className="app-config_inline">
         <input
           type="color"
-          id="secondaryColor"
-          name="secondaryColor"
-          value={secondaryColor}
+          id="foregroundColor"
+          name="foregroundColor"
+          value={foregroundColor}
           onChange={handleInput}
         />
-        <label htmlFor="secondaryColor">Foreground color</label>
+        <label htmlFor="foregroundColor">Foreground color</label>
       </p>
     </div>
 
