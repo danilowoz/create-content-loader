@@ -75,8 +75,8 @@ const NewItem = () => (
     <ContentLoader
       height={465}
       width={600}
-      speed={2}
       className="showcase-item__new-loader"
+      viewBox="0 0 600 465"
     >
       <rect x="0" y="402" rx="8" ry="8" width="172" height="18" />
       <rect x="0" y="448" rx="8" ry="8" width="123" height="13" />
