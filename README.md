@@ -132,12 +132,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/toiladoong"><img src="https://avatars0.githubusercontent.com/u/26488763?v=4" width="100px;" alt=""/><br /><sub><b>toiladoong</b></sub></a><br /><a href="#content-toiladoong" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/swatana3"><img src="https://avatars3.githubusercontent.com/u/8205632?v=4" width="100px;" alt=""/><br /><sub><b>swatana3</b></sub></a><br /><a href="#content-swatana3" title="Content">🖋</a></td>
     <td align="center"><a href="http://fulgenc.io"><img src="https://avatars0.githubusercontent.com/u/13307636?v=4" width="100px;" alt=""/><br /><sub><b>Chris Fulgencio</b></sub></a><br /><a href="#content-fulgencc" title="Content">🖋</a></td>
+    <td align="center"><a href="http://Fouadkhatib.de"><img src="https://avatars0.githubusercontent.com/u/42405091?v=4" width="100px;" alt=""/><br /><sub><b>Fouad Khatib</b></sub></a><br /><a href="#content-Fouadktb" title="Content">🖋</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
