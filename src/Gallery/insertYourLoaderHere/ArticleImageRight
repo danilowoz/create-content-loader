@@ -1,0 +1,28 @@
+const MyLoader = () => (
+  <ContentLoader 
+    height={700}
+    width={415}
+    speed={2}
+    primaryColor="#f3f3f3"
+    secondaryColor="#ecebeb"
+  >
+    <rect x="9" y="43" rx="0" ry="0" width="105" height="17" /> 
+    <rect x="9" y="70" rx="0" ry="0" width="214" height="26" /> 
+    <rect x="9" y="105" rx="0" ry="0" width="132" height="17" /> 
+    <rect x="250" y="59" rx="0" ry="0" width="63" height="62" /> 
+    <rect x="9" y="154" rx="0" ry="0" width="105" height="17" /> 
+    <rect x="9" y="181" rx="0" ry="0" width="214" height="26" /> 
+    <rect x="9" y="216" rx="0" ry="0" width="132" height="17" /> 
+    <rect x="250" y="170" rx="0" ry="0" width="63" height="62" /> 
+    <rect x="10" y="274" rx="0" ry="0" width="105" height="17" /> 
+    <rect x="10" y="301" rx="0" ry="0" width="214" height="26" /> 
+    <rect x="10" y="336" rx="0" ry="0" width="132" height="17" /> 
+    <rect x="251" y="290" rx="0" ry="0" width="63" height="62" /> 
+    <rect x="10" y="394" rx="0" ry="0" width="105" height="17" /> 
+    <rect x="10" y="421" rx="0" ry="0" width="214" height="26" /> 
+    <rect x="10" y="456" rx="0" ry="0" width="132" height="17" /> 
+    <rect x="251" y="410" rx="0" ry="0" width="63" height="62" />
+  </ContentLoader>
+)
+
+render(<MyLoader />)
