@@ -25,7 +25,7 @@ const ReactTable = () => {
   )
 }
 
-ProductDetails.metadata = {
+ReactTable.metadata = {
   name: 'Fouad Khatib', // My name
   github: 'fouadkb', // Github username
   description: 'React-table Loader with Pagination and search', // Little tagline
