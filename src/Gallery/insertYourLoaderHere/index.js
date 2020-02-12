@@ -1,3 +1,5 @@
+export { default as ReactTable } from './ReactTable'
+export { default as DataList } from './DataList'
 export { default as Form } from './Form'
 export { default as CatalogMagic } from './CatalogMagic'
 export { default as YoutubeMagic } from './YoutubeMagic'
@@ -43,3 +45,4 @@ export { default as PieChart } from './PieChart'
 export { default as ReactTable } from './ReactTable'
 export { default as UserReviewSkype } from './UserReviewSkype'
 export { default as DataList } from './DataList'
+

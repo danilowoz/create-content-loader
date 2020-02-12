@@ -86,14 +86,40 @@ const NewItem = () => (
   </div>
 )
 
-export default () => (
-  <div className="showcase">
-    <p className="showcase-button">
-      <a href="#gallery">From community</a>
-    </p>
-    <div id="gallery" className="showcase-grid">
-      <NewItem />
-      {Object.keys(data).map(renderItem)}
+const Gallery = () => {
+  const [searchQuery, setSearchQuery] = React.useState('')
+  const arrData = Object.keys(data)
+
+  const filteredData = arrData.filter(item => {
+    const Component = data[item]
+    const { name, github, description } = Component.metadata
+
+    return (
+      name.toLowerCase().indexOf(searchQuery) !== -1 ||
+      github.toLowerCase().indexOf(searchQuery) !== -1 ||
+      description.toLowerCase().indexOf(searchQuery) !== -1
+    )
+  })
+
+  return (
+    <div className="showcase">
+      <div className="showcase-filter">
+        <p className="showcase-filter__results">
+          <a href="#gallery">{filteredData.length} results from community </a>
+        </p>
+
+        <input
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={({ target: { value } }) => setSearchQuery(value)}
+        />
+      </div>
+      <div id="gallery" className="showcase-grid">
+        <NewItem />
+        {filteredData.map(renderItem)}
+      </div>
     </div>
-  </div>
-)
+  )
+}
+
+export default Gallery
