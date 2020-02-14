@@ -1,3 +1,4 @@
+export { default as UserReviewSkype } from './UserReviewSkype'
 export { default as ReactTable } from './ReactTable'
 export { default as DataList } from './DataList'
 export { default as Form } from './Form'
@@ -42,7 +43,3 @@ export { default as Code } from './Code'
 export { default as Chat } from './Chat'
 export { default as BulletList } from './BulletList'
 export { default as PieChart } from './PieChart'
-export { default as ReactTable } from './ReactTable'
-export { default as UserReviewSkype } from './UserReviewSkype'
-export { default as DataList } from './DataList'
-
