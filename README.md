@@ -135,6 +135,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://Fouadkhatib.de"><img src="https://avatars0.githubusercontent.com/u/42405091?v=4" width="100px;" alt=""/><br /><sub><b>Fouad Khatib</b></sub></a><br /><a href="#content-Fouadktb" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/bilal-ahmed-dev"><img src="https://avatars1.githubusercontent.com/u/12461946?v=4" width="100px;" alt=""/><br /><sub><b>Bilal Ahmed</b></sub></a><br /><a href="#content-bilal-ahmed-dev" title="Content">🖋</a></td>
     <td align="center"><a href="http://pushp1997.github.io"><img src="https://avatars3.githubusercontent.com/u/19623154?v=4" width="100px;" alt=""/><br /><sub><b>Pushp Vashisht</b></sub></a><br /><a href="#content-pushp1997" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/s76552"><img src="https://avatars1.githubusercontent.com/u/34069866?v=4" width="100px;" alt=""/><br /><sub><b>s76552</b></sub></a><br /><a href="#content-s76552" title="Content">🖋</a></td>
   </tr>
 </table>
 
