@@ -23,8 +23,7 @@ const GoogleMap = props => {
 GoogleMap.metadata = {
   name: 'Ali Daghighi', // My name
   github: 'alidaghighi', // Github username
-  description:
-    'This is a sample of google map share location with contact loader', // Little tagline
+  description: 'Google Map share location with contact', // Little tagline
   filename: 'GoogleMap', // filename of your loader
 }
 

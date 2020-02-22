@@ -17,7 +17,7 @@ const NewFacebookLoader = props => {
 NewFacebookLoader.metadata = {
   name: 'Ines Guerrero Sirker',
   github: 'inesgs12',
-  description: 'Edited Facebook Loader',
+  description: 'Edited Facebook',
   filename: 'NewFacebookLoader',
 }
 

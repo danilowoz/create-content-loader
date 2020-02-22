@@ -30,7 +30,7 @@ const Form = props => {
 Form.metadata = {
   name: 'Chris Fulgencio', // Contributer
   github: 'fulgencc', // Github username
-  description: 'A loader for a small form', // Little tagline
+  description: 'Small form', // Little tagline
   filename: 'Form', // filename
 }
 

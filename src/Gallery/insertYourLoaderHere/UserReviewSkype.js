@@ -34,7 +34,7 @@ const UserReviewSkype = props => {
 UserReviewSkype.metadata = {
   name: 'Pushp Vashisht',
   github: 'pushp1997',
-  description: 'A User Review loader with Skype like user image.',
+  description: 'A User Review with Skype like user image.',
   filename: 'UserReviewSkype',
 }
 

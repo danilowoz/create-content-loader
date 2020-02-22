@@ -22,7 +22,7 @@ const ProductDetails = props => {
 ProductDetails.metadata = {
   name: 'Mohd Arif Uddin', // My name
   github: 'Arif-un', // Github username
-  description: 'E-Commerce / Online Shop Product Details page Loader', // Little tagline
+  description: 'E-Commerce / Online Shop Product Details page', // Little tagline
   filename: 'ProductDetails', // filename of your loader
 }
 
