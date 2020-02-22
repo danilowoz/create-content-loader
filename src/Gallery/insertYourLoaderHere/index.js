@@ -1,5 +1,6 @@
-export { default as DashboardLoader } from './DashboardLoader'
 export { default as ArticleLoader } from './ArticleLoader'
+export { default as DashboardLoader } from './DashboardLoader'
+export { default as TableLoader } from './TableLoader'
 export { default as UserReviewSkype } from './UserReviewSkype'
 export { default as ReactTable } from './ReactTable'
 export { default as DataList } from './DataList'
