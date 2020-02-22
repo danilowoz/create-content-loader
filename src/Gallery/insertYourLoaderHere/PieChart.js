@@ -27,7 +27,7 @@ const PieChart = props => {
 PieChart.metadata = {
   name: 'Sarah Watanabe', //Names
   github: 'swatana3', //github username
-  description: 'This is a pie chart loader.', // Little tagline
+  description: 'Pie chart.', // Little tagline
   filename: 'PieChart', //filename
 }
 

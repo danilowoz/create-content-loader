@@ -44,7 +44,7 @@ const AmazonLoader = props => {
 AmazonLoader.metadata = {
   name: 'Sarah Ann Garcia',
   github: 'sgarcia30',
-  description: 'This is an Amazon sample product loader.', // Little tagline
+  description: 'This is an Amazon sample product.', // Little tagline
   filename: 'AmazonLoader',
 }
 

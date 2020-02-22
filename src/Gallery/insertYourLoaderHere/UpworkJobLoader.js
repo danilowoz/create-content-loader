@@ -16,7 +16,7 @@ const UpworkJobLoader = props => {
 UpworkJobLoader.metadata = {
   name: 'Ahsan Ullah', // My name
   github: 'IamAhsanMani', // Github username
-  description: 'Upwork Job Loader',
+  description: 'Upwork Job',
   filename: 'UpworkJobLoader',
 }
 

@@ -21,7 +21,7 @@ const EcommerceProduct = () => (
 EcommerceProduct.metadata = {
   name: 'Muhammd Bilal',
   github: 'bilalbutt044',
-  description: 'loader for ecommerce products and category',
+  description: 'Ecommerce products and category',
   filename: 'EcommerceProduct',
 }
 

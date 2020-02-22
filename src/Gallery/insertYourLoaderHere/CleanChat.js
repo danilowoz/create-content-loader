@@ -17,7 +17,7 @@ const CleanChat = props => {
 CleanChat.metadata = {
   name: 'Pablo Maribondo',
   github: 'pablomaribondo',
-  description: 'Clean Chat Loader',
+  description: 'Clean Chat',
   filename: 'CleanChat',
 }
 

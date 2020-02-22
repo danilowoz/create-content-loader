@@ -21,7 +21,7 @@ const CalloutStripLoader = props => {
 CalloutStripLoader.metadata = {
   name: 'Deepak Kumar Vellingiri', // My name
   github: 'dkvellin', // Github username
-  description: 'This is a sample loader of the callout strip', // Little tagline
+  description: 'Callout strip', // Little tagline
   filename: 'CalloutStripLoader', // filename of your loader
 }
 
