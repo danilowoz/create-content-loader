@@ -5,6 +5,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       net: 'empty',
       tls: 'empty',
       child_process: 'empty',
+      canvas: 'empty',
     },
   })
 }

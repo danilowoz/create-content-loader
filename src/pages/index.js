@@ -14,6 +14,7 @@ import Gallery from '../Gallery'
 import Highlighter from '../components/Highlighter'
 
 import '../components/style/style.css'
+import SEO from '../components/SEO'
 
 class App extends Component {
   state = {
@@ -188,6 +189,7 @@ class App extends Component {
         noInline={true}
         disabled
       >
+        <SEO />
         <div className="App">
           <div className="container">
             <Header />

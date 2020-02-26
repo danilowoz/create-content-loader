@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Create Content Loader`,
-    description: `Tool to create your own SVG-Powered component to easily create placeholder loadings (like Facebook cards loading)`,
+    description: `It's a SVG component to create placeholder loading, like Facebook cards loading or also known as skeleton UI.`,
     author: `@danilowoz`,
   },
   plugins: [
