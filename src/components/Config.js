@@ -1,6 +1,6 @@
 import React from 'react'
 
-import trashIcon from './assets/trash.svg'
+import trashIcon from '../assets/trash.svg'
 
 const Config = ({
   handleCheckbox,
@@ -13,7 +13,6 @@ const Config = ({
   rtl,
   gridVisibility,
   foregroundColor,
-  size,
   speed,
   width,
 }) => (

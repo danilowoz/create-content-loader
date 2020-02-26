@@ -5,15 +5,15 @@ import { Tools } from 'react-sketch'
 import Clipboard from 'clipboard'
 import ReactGA from 'react-ga'
 
-import { facebook, instagram, code, bulletList } from './utils/presets'
-import template, { renderSnippet } from './utils/template'
-import Canvas from './Canvas'
-import Config from './Config'
-import Header from './Layout/Header'
-import Gallery from './Gallery'
-import Highlighter from './Highlighter'
+import { facebook, instagram, code, bulletList } from '../utils/presets'
+import template, { renderSnippet } from '../utils/template'
+import Canvas from '../components/Canvas'
+import Config from '../components/Config'
+import Header from '../components/Layout/Header'
+import Gallery from '../Gallery'
+import Highlighter from '../components/Highlighter'
 
-import './style/style.css'
+import '../components/style/style.css'
 
 class App extends Component {
   state = {

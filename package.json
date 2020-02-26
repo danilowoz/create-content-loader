@@ -3,56 +3,45 @@
   "homepage": "https://danilowoz.github.io/create-content-loader",
   "version": "0.1.0",
   "scripts": {
-    "dev": "npm run start",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "deploy": "npm run build --nomaps && gh-pages -d build",
-    "release": "semantic-release",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "commit": "git-cz"
   },
   "dependencies": {
+    "@significa/eslint-config": "0.0.15",
+    "@significa/prettier-config": "0.0.15",
     "classnames": "^2.2.6",
     "clipboard": "^2.0.4",
+    "gatsby": "^2.19.22",
+    "gatsby-plugin-manifest": "^2.2.42",
+    "gatsby-plugin-offline": "^3.0.35",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "jsdom": "^16.2.0",
     "react": "^16.12.0",
-    "react-click-outside": "github:tj/react-click-outside",
-    "react-content-loader": "5.0.1",
-    "react-css": "^0.0.2",
+    "react-content-loader": "5.0.2",
     "react-dom": "^16.12.0",
+    "react-error-overlay": "^6.0.6",
     "react-ga": "^2.7.0",
+    "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
-    "react-scripts": "^3.3.1",
     "react-sketch": "^0.5.1",
     "react-syntax-highlighter": "^12.2.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/release-notes-generator": "^9.0.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.1.0",
     "gh-pages": "^2.2.0",
-    "husky": "^4.2.2",
-    "prettier": "^1.19.1",
-    "semantic-release": "^15.13.25"
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "pre-commit": "npm run format"
     }
   },
   "browserslist": [
