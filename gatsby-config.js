@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/create-content-loader',
   siteMetadata: {
     title: `Create Content Loader`,
     description: `It's a SVG component to create placeholder loading, like Facebook cards loading or also known as skeleton UI.`,
