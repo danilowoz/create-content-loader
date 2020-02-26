@@ -33,7 +33,7 @@ const SEO = () => {
         },
         {
           property: `og:url`,
-          content: `${siteUrl}${location.pathname}`,
+          content: siteUrl,
         },
         {
           property: `og:site_name`,
