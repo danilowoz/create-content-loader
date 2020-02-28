@@ -23,7 +23,7 @@ XYChart.metadata = {
   name: 'XYChart', // My name
   github: 'ankursehdev', // Github username
   description: 'XY Chart Loading', // Little tagline
-  filename: 'XYChart.js', // filename of your loader
+  filename: 'XYChart', // filename of your loader
 }
 
 export default XYChart
