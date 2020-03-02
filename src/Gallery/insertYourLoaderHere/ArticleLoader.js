@@ -48,7 +48,7 @@ ArticleLoader.metadata = {
   name: 'Sridhar Easwaran',
   github: 'sridhareaswaran',
   description: 'Article or News',
-  filename: 'ArticleLoader.js',
+  filename: 'ArticleLoader',
 }
 
 export default ArticleLoader
