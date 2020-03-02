@@ -1,34 +1,40 @@
 import React, { Component } from 'react'
 import ContentLoader from 'react-content-loader'
 import { LiveProvider, LiveError, LivePreview } from 'react-live'
-import { Tools } from 'react-sketch'
 import Clipboard from 'clipboard'
 import ReactGA from 'react-ga'
 
-import { facebook, instagram, code, bulletList } from './utils/presets'
-import template, { renderSnippet } from './utils/template'
-import Canvas from './Canvas'
-import Config from './Config'
-import Header from './Layout/Header'
-import Gallery from './Gallery'
-import Highlighter from './Highlighter'
+import { Tools } from '../../react-sketch/src'
+import { facebook, instagram, code, bulletList } from '../utils/presets'
+import template, { renderSnippet } from '../utils/template'
+import Canvas from '../components/Canvas'
+import Config from '../components/Config'
+import Header from '../components/Layout/Header'
+import Gallery from '../Gallery'
+import Highlighter from '../components/Highlighter'
 
-import './style/style.css'
+import '../components/style/style.css'
+import SEO from '../components/SEO'
+
+const globalLocalStorage =
+  global.window && global.window.localStorage
+    ? global.window.localStorage
+    : { getItem: () => {} }
 
 class App extends Component {
   state = {
     activeItem: false,
-    draw: localStorage.getItem('draw') || facebook,
+    draw: globalLocalStorage.getItem('draw') || facebook,
     gridVisibility: true,
-    height: localStorage.getItem('height') || 160,
-    mode: localStorage.getItem('mode') || 'reactDom',
-    backgroundColor: localStorage.getItem('backgroundColor') || '#f3f3f3',
+    height: globalLocalStorage.getItem('height') || 160,
+    mode: globalLocalStorage.getItem('mode') || 'reactDom',
+    backgroundColor: globalLocalStorage.getItem('backgroundColor') || '#f3f3f3',
     renderCanvas: true,
-    rtl: localStorage.getItem('rtl') === 'true',
-    foregroundColor: localStorage.getItem('foregroundColor') || '#ecebeb',
-    speed: localStorage.getItem('speed') || 2,
+    rtl: globalLocalStorage.getItem('rtl') === 'true',
+    foregroundColor: globalLocalStorage.getItem('foregroundColor') || '#ecebeb',
+    speed: globalLocalStorage.getItem('speed') || 2,
     tool: Tools.Select,
-    width: localStorage.getItem('width') || 400,
+    width: globalLocalStorage.getItem('width') || 400,
   }
 
   componentDidMount() {
@@ -72,9 +78,11 @@ class App extends Component {
   }
 
   setLocalStorage = () => {
-    Object.keys(this.state).map(item =>
-      localStorage.setItem(item, this.state[item])
-    )
+    if (global.window && global.window.localStorage) {
+      Object.keys(this.state).map(item =>
+        localStorage.setItem(item, this.state[item])
+      )
+    }
   }
 
   handleDraw = draw => this.setState({ draw })
@@ -188,6 +196,7 @@ class App extends Component {
         noInline={true}
         disabled
       >
+        <SEO />
         <div className="App">
           <div className="container">
             <Header />

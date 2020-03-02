@@ -29,8 +29,8 @@ body {
 /* Grid */
 .App {
   background-color: var(---background);
-  background-image: url(../assets/background-asset.png),
-    url(../assets/background-asset.png);
+  background-image: url(../../assets/background-asset.png),
+    url(../../assets/background-asset.png);
   background-position: left top, right bottom;
   background-size: auto 700px;
   background-repeat: no-repeat;

@@ -26,9 +26,11 @@
   font-weight: inherit;
 }
 
-.app-header__logo {
-  display: flex;
-  align-items: flex-end;
+.app-header__logo h2 {
+  font-size: var(--font-size__tiny);
+  font-weight: normal;
+  color: var(--color-grey-light);
+  margin-bottom: 0;
 }
 
 .app-header__logo span {
@@ -37,12 +39,6 @@
   margin-left: 1em;
   top: -1em;
   position: relative;
-}
-
-.app-header h2 {
-  font-size: var(--font-size__base);
-  line-height: 1.6;
-  margin-bottom: 0;
 }
 
 .app-header__loader {
@@ -54,16 +50,26 @@
   justify-content: center;
   margin: 0;
 }
+
 .app-assign__stars > * {
   margin-left: 20px;
 }
 
+.app-header__aside {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-align: right;
+}
+
 .app-react_europe {
-  position: absolute;
+  /* position: absolute;
   right: 0;
-  bottom: -0.25em;
+  bottom: -0.25em; */
   font-size: var(--font-size__tiny);
-  color: #fff;
+  color: var(--color-grey-light);
+  margin-top: 0.6em;
+  margin-bottom: 0;
 }
 
 .app-react_europe a {

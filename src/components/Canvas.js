@@ -1,15 +1,14 @@
 import React, { Component, Fragment } from 'react'
-import { SketchField, Tools } from 'react-sketch'
 import classnames from 'classnames'
 import ReactGA from 'react-ga'
 
-import { SVGtoFabric, jsonToSVG, canvasAddedProp, numberFixed } from './utils'
-
-import selectIcon from './assets/select.svg'
-import trashIcon from './assets/trash.svg'
-import cloneIcon from './assets/clone.svg'
-import rectIcon from './assets/rect.svg'
-import circleIcon from './assets/circle.svg'
+import { SketchField, Tools } from '../../react-sketch/src'
+import { SVGtoFabric, jsonToSVG, canvasAddedProp, numberFixed } from '../utils'
+import selectIcon from '../assets/select.svg'
+import trashIcon from '../assets/trash.svg'
+import cloneIcon from '../assets/clone.svg'
+import rectIcon from '../assets/rect.svg'
+import circleIcon from '../assets/circle.svg'
 
 class Canvas extends Component {
   constructor(props) {
