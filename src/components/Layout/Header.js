@@ -10,6 +10,10 @@ const Header = () => {
   return (
     <>
       <Helmet>
+        <meta
+          name="google-site-verification"
+          content="ibxr-uwM6QNCm6n4Njh3W06P8Y5OH-JTwHwjZZvy7oo"
+        />
         <script async defer src="https://buttons.github.io/buttons.js"></script>
       </Helmet>
       <div className="app-header">

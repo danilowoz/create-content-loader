@@ -68,7 +68,7 @@ TableLoader.metadata = {
   name: 'Sridhar Easwaran',
   github: 'sridhareaswaran',
   description: 'Loader for Tables',
-  filename: 'TableLoader.js',
+  filename: 'TableLoader',
 }
 
 export default TableLoader

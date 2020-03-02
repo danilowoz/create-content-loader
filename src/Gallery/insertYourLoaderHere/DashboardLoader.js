@@ -78,7 +78,7 @@ DashboardLoader.metadata = {
   name: 'Sridhar Easwaran',
   github: 'sridhareaswaran',
   description: 'Dashboard pages',
-  filename: 'DashboardLoader.js',
+  filename: 'DashboardLoader',
 }
 
 export default DashboardLoader
