@@ -1,3 +1,4 @@
+export { default as Gmail } from './Gmail'
 export { default as Netflix } from './Netflix'
 export { default as ArticleLoader } from './ArticleLoader'
 export { default as DashboardLoader } from './DashboardLoader'
