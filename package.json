@@ -17,6 +17,7 @@
     "@significa/prettier-config": "0.0.15",
     "classnames": "^2.2.6",
     "clipboard": "^2.0.4",
+    "fabric": "^3.6.3",
     "gatsby": "^2.19.22",
     "gatsby-plugin-google-analytics": "^2.1.36",
     "gatsby-plugin-manifest": "^2.2.42",
