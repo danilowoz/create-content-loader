@@ -67,17 +67,6 @@ const Header = () => {
               create-content-loader@{pkg.version}
             </a>
           </p>
-          <p className="app-react_europe">
-            Come learn about react-content-loader at{' '}
-            <a
-              href="https://www.react-europe.org/"
-              target="_blank"
-              without=""
-              rel="noopener noreferrer"
-            >
-              ReactEurope
-            </a>
-          </p>
         </div>
       </div>
     </>

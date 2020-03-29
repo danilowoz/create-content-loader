@@ -61,18 +61,3 @@
   flex-direction: column;
   text-align: right;
 }
-
-.app-react_europe {
-  /* position: absolute;
-  right: 0;
-  bottom: -0.25em; */
-  font-size: var(--font-size__tiny);
-  color: var(--color-grey-light);
-  margin-top: 0.6em;
-  margin-bottom: 0;
-}
-
-.app-react_europe a {
-  text-decoration: none;
-  color: var(--color-brand);
-}

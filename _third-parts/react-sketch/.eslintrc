@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "jest",
+    "eslint-plugin-react"
+  ],
+  "env": {
+    "es6": true,
+    "jest": true,
+    "amd": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "globals": {
+    "React": true,
+    "document": true,
+    "require": true,
+    "window": true,
+    "localStorage": true
+  }
+}

@@ -4,14 +4,14 @@ import { LiveProvider, LiveError, LivePreview } from 'react-live'
 import Clipboard from 'clipboard'
 import ReactGA from 'react-ga'
 
-import { Tools } from '../../react-sketch-fork/dist'
+import Tools from '../../_third-parts/react-sketch/src/tools'
 import { facebook, instagram, code, bulletList } from '../utils/presets'
 import template, { renderSnippet } from '../utils/template'
 import Canvas from '../components/Canvas'
 import Config from '../components/Config'
+import Highlighter from '../components/Highlighter'
 import Header from '../components/Layout/Header'
 import Gallery from '../Gallery'
-import Highlighter from '../components/Highlighter'
 
 import '../components/style/style.css'
 import SEO from '../components/SEO'
@@ -33,7 +33,7 @@ class App extends Component {
     rtl: globalLocalStorage.getItem('rtl') === 'true',
     foregroundColor: globalLocalStorage.getItem('foregroundColor') || '#ecebeb',
     speed: globalLocalStorage.getItem('speed') || 2,
-    tool: Tools.Select,
+    tool: Tools ? Tools.Select : '',
     width: globalLocalStorage.getItem('width') || 400,
   }
 
@@ -71,7 +71,7 @@ class App extends Component {
       backgroundColor: '#f3f3f3',
       foregroundColor: '#ecebeb',
       speed: 2,
-      tool: Tools.Select,
+      tool: Tools ? Tools.Select : '',
       width: 400,
       rtl: false,
     })

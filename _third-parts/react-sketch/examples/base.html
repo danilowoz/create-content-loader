@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.keywords %>">
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<div id="container"></div>
+<!--
+    This script adds the Roboto font to our project. For more detail go to this site:
+    http://www.google.com/fonts#UsePlace:use/Collection:Roboto:400,300,500
+-->
+<script>
+    var WebFontConfig = {
+        google: {families: ['Roboto:400,300,500:latin']}
+    };
+    (function () {
+        var wf = document.createElement('script');
+        wf.src = ('https:' === document.location.protocol ? 'https' : 'http') +
+                '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script>
+<!--
+Define your local ip
+<script src="http://192.168.3.119:8080/target/target-script-min.js#anonymous"></script>
+-->
+</body>
+
+</html>

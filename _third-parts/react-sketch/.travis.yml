@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "10"
+  - "9"
+  - "8"
+cache:
+  yarn: true
+  directories:
+    - node_modules
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+before_install:
+  - sudo apt-get update -qq
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.9.4
+  - sudo apt-get install -y -qq libgif-dev libpng-dev libjpeg8-dev libpango1.0-dev libcairo2-dev

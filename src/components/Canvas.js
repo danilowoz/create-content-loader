@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react'
 import classnames from 'classnames'
 import ReactGA from 'react-ga'
 
-import { SketchField, Tools } from '../../react-sketch-fork/dist'
+import SketchField from '../../_third-parts/react-sketch/src/SketchField'
+import Tools from '../../_third-parts/react-sketch/src/Tools'
 import { SVGtoFabric, jsonToSVG, canvasAddedProp, numberFixed } from '../utils'
 import selectIcon from '../assets/select.svg'
 import trashIcon from '../assets/trash.svg'
@@ -178,15 +179,17 @@ class Canvas extends Component {
 
           {children}
 
-          <SketchField
-            width={`${width}px`}
-            height={`${height}px`}
-            tool={tool}
-            lineWidth={0}
-            color="black"
-            ref={c => (this._sketch = c)}
-            className="app-canvas__sketch"
-          />
+          {global.window !== 'undefined' && (
+            <SketchField
+              width={`${width}px`}
+              height={`${height}px`}
+              tool={tool}
+              lineWidth={0}
+              color="black"
+              ref={c => (this._sketch = c)}
+              className="app-canvas__sketch"
+            />
+          )}
 
           <div className="app-handlers" key="handlers">
             <button

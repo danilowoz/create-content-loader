@@ -1,0 +1,46 @@
+## Changelog
+
+- **0.4.0** New Features and fixes
+  - Fixes
+    -- Upgraded to latest packages (thanks @fjogeleit)
+    -- Fix for undo/redo (thanks @pomelyu)
+    -- Issue #9 fixed
+    -- Issue #10 and #15 you can no longer give dataUrl as value only as background image and/or by adding the image as an object
+  - Breaking Changes
+    -- `data` and `dataType` properties have been replaced with `value` and `defaultValue`
+    to be able to use the component as controlled component
+    -- node support of 6,7 and 8
+  - New Features
+    -- ability to add an image as object
+- **0.3.0** New Features and fixes
+  - HOT Deploy fixed
+  - Added selection of background Color
+  - Added selection of a background image
+  - Fixing canUndo button
+- **0.2.13** Maintenance release
+  - Upgrading packages
+  - performing required changes for webpack v2.x
+- **0.2.7** New Functionality and bug fixes
+  - Zoom In/Out functionality of drawing
+  - Upgrading to latest package versions
+- **0.2.6** Bug fixes and performance improvements
+- **0.2.5** Upgrading to latest libraries and bug fixes
+  - Major
+    - React 15.1.0
+    - Fabric 1.6.2
+  - Bug fixes and performance improvements
+  - exposing disable/enable Scroll for tablets and touch devices
+- **0.2.4** Maintenance Release
+- **0.2.3** Upgrading to latest libraries
+  - Major
+    - React 15.0.1
+    - Fabric 1.6.0
+  - Other
+    - babel
+    - react-color
+    - etc.
+- **0.2.2** Minor bug fixes and improvements release
+- **0.2.1** Bundling fabric to the library, to avoid complexity by adding it as external dependency
+- **0.2.0** Adding FabricJS as the core of the sketch field
+- **0.1.1** Adding support for touch events
+- **0.1.0** Initial release
