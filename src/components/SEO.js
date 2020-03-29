@@ -1,8 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import shareImage from '../assets/share.png'
-
 const SEO = () => {
   const currentTitle = 'Creator of React Content Loader'
   const metaDescription =
@@ -53,7 +51,7 @@ const SEO = () => {
         },
         {
           property: `og:image`,
-          content: shareImage,
+          content: 'https://danilowoz.com/create-content-loader/share.png',
         },
         {
           name: `twitter:card`,
@@ -61,7 +59,7 @@ const SEO = () => {
         },
         {
           name: `twitter:image`,
-          content: shareImage,
+          content: 'https://danilowoz.com/create-content-loader/share.png',
         },
         {
           name: `twitter:site`,
