@@ -1,26 +1,27 @@
 <p align="center">
-
-[![All Contributors][logo]](reference)
-
-[logo]: https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square
-[reference]: #contributors
-
-  <img width="800px" src="https://user-images.githubusercontent.com/4838076/72096118-78a8a400-3311-11ea-8b8d-c69ef232ffcc.png" title="Create Content Loader" />
+  <img width="800px" align="center" src="https://user-images.githubusercontent.com/4838076/72096118-78a8a400-3311-11ea-8b8d-c69ef232ffcc.png" title="Create Content Loader" />
 </p>
 
 <p align="center">
-  <a href="https://danilowoz.github.io/create-content-loader/">Access the online tool</a>
+  <a href="https://danilowoz.github.io/create-content-loader/">danilowoz.com/create-content-loader</a>
 </p>
 
-## Create React Content Loader
+## Introduction
 
-**Have you heard about [react-content-loader](https://github.com/danilowoz/react-content-loader)? It's a SVG component to create placeholder loading, like Facebook cards loading or also known as skeleton UI.** So now you can use this [online tool](https://danilowoz.github.io/create-content-loader/) to create your own loader easily. You just need to draw using the canvas or code using the live editing!
+**[react-content-loader](https://github.com/danilowoz/react-content-loader) it is a SVG component to create placeholder loading, like Facebook cards loading or also known as skeleton UI.** So using this [online tool](https://danilowoz.github.io/create-content-loader/) you will be able to create your own loader easily. You just need to draw using the canvas and get the snippet ready for:
 
+- ReactJS;
+- React Native;
+- VueJS;
+- SVG/HTML;
+- Maybe Gif someday;
+
+**Still not clear?**
 Read the documentation of [react-content-loader](https://github.com/danilowoz/react-content-loader)
 
-## Share your loader with the community.
+## Community loading
 
-That's is a way to share your custom loader with the React community. Besides you can help the other developers to create amazing loader to their interfaces. **There are so many ways to build a content loader, show off here!**
+**Have you made an amazing loading and you're proud of it? Your contribution is welcome.** Add your loading code in the gallery following the steps bellow and help the community grows.
 
 ## How to insert a loader?
 
@@ -28,7 +29,7 @@ That's is a way to share your custom loader with the React community. Besides yo
 2. Create a file with a custom name, [here](https://github.com/danilowoz/create-content-loader/tree/master/src/Gallery/insertYourLoaderHere);
 3. Use the following boilerplate (don't forget to fill the metadata);
 4. Insert the file in the gallery, [here](https://github.com/danilowoz/create-content-loader/blob/master/src/Gallery/insertYourLoaderHere/index.js);
-5. Open a PR;
+5. Open a pull request, don't you know how to do it? [Read this](https://help.github.com/pt/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request);
 
 ## Boilerplate
 
@@ -61,7 +62,9 @@ __NAME_OF_LOADER__.metadata = {
 export default __NAME_OF_LOADER__
 ```
 
-It'll be amazing to see the creativity of the community!
+---
+
+## Development
 
 ### Available Scripts
 
@@ -146,6 +149,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
