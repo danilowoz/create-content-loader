@@ -4,7 +4,7 @@ import { LiveProvider, LiveError, LivePreview } from 'react-live'
 import Clipboard from 'clipboard'
 import ReactGA from 'react-ga'
 
-import { Tools } from '../../react-sketch/src'
+import { Tools } from '../../react-sketch-fork/dist'
 import { facebook, instagram, code, bulletList } from '../utils/presets'
 import template, { renderSnippet } from '../utils/template'
 import Canvas from '../components/Canvas'

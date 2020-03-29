@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import classnames from 'classnames'
 import ReactGA from 'react-ga'
 
-import { SketchField, Tools } from '../../react-sketch/src'
+import { SketchField, Tools } from '../../react-sketch-fork/dist'
 import { SVGtoFabric, jsonToSVG, canvasAddedProp, numberFixed } from '../utils'
 import selectIcon from '../assets/select.svg'
 import trashIcon from '../assets/trash.svg'
