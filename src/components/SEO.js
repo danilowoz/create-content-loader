@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import shareImage from '../assets/share.jpg'
+import shareImage from '../assets/share.png'
 
 const SEO = () => {
   const currentTitle = 'Creator of React Content Loader'
