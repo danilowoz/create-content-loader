@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import ReactGA from 'react-ga'
 
 import SketchField from '../../_third-parts/react-sketch/src/SketchField'
-import Tools from '../../_third-parts/react-sketch/src/Tools'
+import Tools from '../../_third-parts/react-sketch/src/tools'
 import { SVGtoFabric, jsonToSVG, canvasAddedProp, numberFixed } from '../utils'
 import selectIcon from '../assets/select.svg'
 import trashIcon from '../assets/trash.svg'
