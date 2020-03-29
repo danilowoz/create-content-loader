@@ -115,7 +115,7 @@
     "jsdom": "^13.0.0",
     "lint-staged": "8.0.4",
     "my-local-ip": "^1.0.0",
-    "open": "0.0.5",
+    "open": "6.0.0",
     "open-browser-webpack-plugin": "0.0.5",
     "postcss-loader": "^3.0.0",
     "react-color": "^2.14.1",
