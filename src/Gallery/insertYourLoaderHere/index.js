@@ -50,3 +50,6 @@ export { default as Chat } from './Chat'
 export { default as BulletList } from './BulletList'
 export { default as PieChart } from './PieChart'
 export { default as NotificationLoader } from './NotificationLoader'
+exports {default as EventsLoader } from './EventsLoader'
+export { default as HelpLinksLoader } from './HelpLinksLoader'
+
