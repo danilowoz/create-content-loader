@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const TableLoader = () => (
+const TableLoader = props => (
   <ContentLoader
     speed={2}
     width={1000}
@@ -9,6 +9,7 @@ const TableLoader = () => (
     viewBox="0 0 1000 550"
     backgroundColor="#eaeced"
     foregroundColor="#ffffff"
+    {...props}
   >
     <rect x="51" y="45" rx="3" ry="3" width="906" height="17" />
     <circle cx="879" cy="123" r="11" />

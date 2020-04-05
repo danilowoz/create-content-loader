@@ -3,7 +3,13 @@ import ContentLoader from 'react-content-loader'
 
 const Chat = props => {
   return (
-    <ContentLoader viewBox="0 0 446 160" height={160} width={446} speed={2}>
+    <ContentLoader
+      viewBox="0 0 446 160"
+      height={160}
+      width={446}
+      speed={2}
+      {...props}
+    >
       <circle cx="19" cy="25" r="16" />
       <rect x="39" y="12" rx="5" ry="5" width="220" height="10" />
       <rect x="40" y="29" rx="5" ry="5" width="220" height="10" />

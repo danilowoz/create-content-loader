@@ -45,7 +45,7 @@ const Loader = props => {
   )
 }
 
-const ImageList = () => (
+const ImageList = props => (
   <React.Fragment>
     {Array(5)
       .fill('')
@@ -54,6 +54,7 @@ const ImageList = () => (
           screen="desktop"
           key={i}
           style={{ opacity: Number(2 / i).toFixed(1) }}
+          {...props}
         />
       ))}
   </React.Fragment>

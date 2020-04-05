@@ -9,6 +9,7 @@ const DataList = props => {
       speed={1}
       primaryColor="#e4e4e4"
       secondaryColor="#d3d3d3"
+      {...props}
     >
       <rect x="583" y="33" rx="2" ry="2" width="123" height="33" />
       <rect x="66" y="49" rx="0" ry="0" width="165" height="11" />

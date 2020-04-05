@@ -3,7 +3,13 @@ import ContentLoader from 'react-content-loader'
 
 const RotatingGallery = props => {
   return (
-    <ContentLoader viewBox="0 0 1644 360" height={360} width={1644} speed={1}>
+    <ContentLoader
+      viewBox="0 0 1644 360"
+      height={360}
+      width={1644}
+      speed={1}
+      {...props}
+    >
       <rect x="448" y="30" rx="0" ry="0" width="750" height="300" />
       <rect x="239" y="53" rx="0" ry="0" width="643" height="254" />
       <rect x="30" y="76" rx="0" ry="0" width="527" height="208" />

@@ -5,7 +5,7 @@ import ReactGA from 'react-ga'
 import './style.css'
 import * as data from './insertYourLoaderHere'
 
-const renderItem = item => {
+const renderItem = (item, index) => {
   const Component = data[item]
   const { name, github, description, filename } = Component.metadata
 
@@ -14,7 +14,7 @@ const renderItem = item => {
   return (
     <div className="showcase-item" key={`${name}-${github}-${description}`}>
       <div className="showcase-component">
-        <Component />
+        <Component uniqueKey={`loading-${index}`} />
       </div>
 
       <div className="showcase-caption">

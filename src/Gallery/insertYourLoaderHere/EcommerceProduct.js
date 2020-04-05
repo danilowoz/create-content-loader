@@ -1,8 +1,14 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const EcommerceProduct = () => (
-  <ContentLoader viewBox="0 0 400 400" height={400} width={400} speed={2}>
+const EcommerceProduct = props => (
+  <ContentLoader
+    viewBox="0 0 400 400"
+    height={400}
+    width={400}
+    speed={2}
+    {...props}
+  >
     <rect x="30" y="45" rx="4" ry="4" width="80" height="6" />
     <rect x="30" y="55" rx="4" ry="4" width="80" height="6" />
     <rect x="30" y="65" rx="4" ry="4" width="80" height="6" />

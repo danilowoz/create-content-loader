@@ -3,7 +3,13 @@ import ContentLoader from 'react-content-loader'
 
 const NewFacebookLoader = props => {
   return (
-    <ContentLoader viewBox="0 0 600 160" height={160} width={600} speed={4}>
+    <ContentLoader
+      viewBox="0 0 600 160"
+      height={160}
+      width={600}
+      speed={4}
+      {...props}
+    >
       <rect x="-16" y="33" rx="4" ry="4" width="129" height="6" />
       <rect x="0" y="48" rx="3" ry="3" width="113" height="6" />
       <rect x="24" y="79" rx="3" ry="3" width="424" height="7" />

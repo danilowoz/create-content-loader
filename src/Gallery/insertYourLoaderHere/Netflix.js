@@ -25,6 +25,7 @@ const NetflixLoader = props => {
       height={rows * coverHeightWithPadding}
       primaryColor="#242b34"
       secondaryColor="#343d4c"
+      {...props}
     >
       <rect
         x="0"

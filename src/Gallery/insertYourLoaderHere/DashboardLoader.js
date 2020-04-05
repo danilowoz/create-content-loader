@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const DashboardLoader = () => (
+const DashboardLoader = props => (
   <ContentLoader
     speed={2}
     width={1200}
@@ -9,6 +9,7 @@ const DashboardLoader = () => (
     viewBox="0 0 1200 900"
     backgroundColor="#eaeced"
     foregroundColor="#ffffff"
+    {...props}
   >
     <rect x="68" y="37" rx="3" ry="3" width="298" height="129" />
     <rect x="426" y="37" rx="3" ry="3" width="298" height="129" />
