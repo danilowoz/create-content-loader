@@ -145,6 +145,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/caio-davi"><img src="https://avatars3.githubusercontent.com/u/54697155?s=460&v=4" width="100px;" alt=""/><br /><sub><b>Caio Davi</b></sub></a><br /><a href="#content-caio-davi" title="Content">🖋</a></td>
     <td align="center"><a href="http://cleo.one"><img src="https://avatars0.githubusercontent.com/u/2522722?v=4" width="100px;" alt=""/><br /><sub><b>Yusuf Özlü</b></sub></a><br /><a href="#content-ozluy" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/Arif-un"><img src="https://avatars2.githubusercontent.com/u/19432983?v=4" width="100px;" alt=""/><br /><sub><b>Arif Uddin</b></sub></a><br /><a href="#content-Arif-un" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/surepeps"><img src="https://avatars0.githubusercontent.com/u/31157177?v=4" width="100px;" alt=""/><br /><sub><b>Hassan Tijani.A</b></sub></a><br /><a href="#content-surepeps" title="Content">🖋</a></td>
   </tr>
 </table>
 
