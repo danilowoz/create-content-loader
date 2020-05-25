@@ -1,5 +1,5 @@
 export const renderSnippet = ({ data = {} }) => {
-  return `const MyLoader = () => (
+  return `const MyLoader = (props) => (
   <ContentLoader ${
     data.rtl
       ? `
@@ -11,6 +11,7 @@ export const renderSnippet = ({ data = {} }) => {
     speed={${data.speed}}
     backgroundColor="${data.backgroundColor}"
     foregroundColor="${data.foregroundColor}"
+    {...props}
   >
 ${data.draw}
   </ContentLoader>
@@ -24,7 +25,7 @@ const reactDom = ({ data = {} }) => {
   return `import React from "react"
 import ContentLoader from "react-content-loader" 
 
-const MyLoader = () => (
+const MyLoader = (props) => (
   <ContentLoader ${
     data.rtl
       ? `
@@ -37,6 +38,7 @@ const MyLoader = () => (
     viewBox="0 0 ${data.width} ${data.height}"
     backgroundColor="${data.backgroundColor}"
     foregroundColor="${data.foregroundColor}"
+    {...props}
   >
 ${data.draw}
   </ContentLoader>
@@ -53,7 +55,7 @@ const reactNative = ({ data = {} }) => {
   return `import React from "react"
 import ContentLoader, { Rect, Circle } from "react-content-loader/native"
 
-const MyLoader = () => (
+const MyLoader = (props) => (
   <ContentLoader ${
     data.rtl
       ? `
@@ -66,6 +68,7 @@ const MyLoader = () => (
     viewBox="0 0 ${data.width} ${data.height}"
     backgroundColor="${data.backgroundColor}"
     foregroundColor="${data.foregroundColor}"
+    {...props}
   >
 ${drawParser}
   </ContentLoader>
@@ -96,7 +99,7 @@ const svg = ({ data = {} }) => {
   ></rect>
   <defs>
     <clipPath id="clip-path">
-${data.draw.replace(/  /gm, '    ')}
+${data.draw.replace(/ {2}/gm, '    ')}
     </clipPath>
     <linearGradient id="fill">
       <stop
