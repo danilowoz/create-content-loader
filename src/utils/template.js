@@ -23,7 +23,7 @@ render(<MyLoader />)`
 
 const reactDom = ({ data = {} }) => {
   return `import React from "react"
-import ContentLoader from "react-content-loader" 
+import ContentLoader from "react-content-loader"
 
 const MyLoader = (props) => (
   <ContentLoader ${
@@ -157,9 +157,9 @@ const vue = ({ data = {} }) => {
 
 <template>
   <content-loader
-    width={${data.width}}
-    height={${data.height}}
-    speed={${data.speed}}
+    :width="${data.width}"
+    :height="${data.height}"
+    :speed="${data.speed}"
     primaryColor="${data.backgroundColor}"
     secondaryColor="${data.foregroundColor}"
   >
