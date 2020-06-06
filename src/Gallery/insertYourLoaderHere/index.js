@@ -1,3 +1,4 @@
+export { default as CustomerTestimonial } from './CustomerTestimonial'
 export { default as ImageGrid } from './ImageGrid'
 export { default as DataTable } from './DataTable'
 export { default as NotificationLoader } from './NotificationLoader'
