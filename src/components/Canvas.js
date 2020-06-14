@@ -33,10 +33,20 @@ class Canvas extends Component {
     if (canvas) {
       arrFabric.forEach(a => {
         let draw
+
         if (a && a.type === 'rect') {
           draw = new window.fabric.Rect(a)
         } else if (a && a.type === 'circle') {
           draw = new window.fabric.Circle(a)
+        } else if (a && a.type === 'path') {
+          draw = new window.fabric.Path(
+            'M241.797 250.264c3 3 3.021 7.84.049 10.813l.041-.042.085.085-10.764 10.764-.136-.136-.05.052-9.778-9.776a7.591 7.591 0 01-1.029-.863c-2.972-2.972-2.95-7.813.05-10.813 2.968-2.97 7.743-3.02 10.722-.137 2.97-2.968 7.81-2.946 10.81.053z',
+            {
+              stroke: 'red',
+              strokeWidth: 1,
+              fill: null,
+            }
+          )
         }
 
         draw && canvas.add(draw)
@@ -222,7 +232,8 @@ class Canvas extends Component {
             <button
               className="app-handlers__preset"
               value="facebook"
-              data-height="160"
+              data-width="476"
+              data-height="124"
               onClick={handlePreset}
             >
               facebook
@@ -230,7 +241,8 @@ class Canvas extends Component {
             <button
               className="app-handlers__preset"
               value="instagram"
-              data-height="475"
+              data-width="400"
+              data-height="460"
               onClick={handlePreset}
             >
               instagram
@@ -238,7 +250,8 @@ class Canvas extends Component {
             <button
               className="app-handlers__preset"
               value="code"
-              data-height="160"
+              data-width="340"
+              data-height="84"
               onClick={handlePreset}
             >
               code
@@ -246,7 +259,8 @@ class Canvas extends Component {
             <button
               className="app-handlers__preset"
               value="bulletList"
-              data-height="160"
+              data-width="400"
+              data-height="150"
               onClick={handlePreset}
             >
               bulletList

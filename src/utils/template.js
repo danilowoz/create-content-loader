@@ -44,7 +44,9 @@ ${data.draw}
   </ContentLoader>
 )
 
-export default MyLoader`
+export default MyLoader
+
+`
 }
 
 const reactNative = ({ data = {} }) => {
@@ -74,7 +76,9 @@ ${drawParser}
   </ContentLoader>
 )
 
-export default MyLoader`
+export default MyLoader
+
+`
 }
 
 const svg = ({ data = {} }) => {

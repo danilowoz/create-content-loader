@@ -13,6 +13,9 @@ export const jsonToSVG = json => {
       return null
     }
 
+    const factoryPath = element =>
+      element.path.map(path => path.join(' ')).join(' ')
+
     if (a.type === 'rect') {
       const rotate = a.angle
         ? ` transform="rotate(${numberFixed(a.angle)}, ${numberFixed(
@@ -29,6 +32,8 @@ export const jsonToSVG = json => {
       svg += `    <circle cx="${numberFixed(
         a.left + a.radius * a.scaleY
       )}" cy="${numberFixed(a.top + a.radius * a.scaleY)}" r="${radius}" /> \n`
+    } else if (a.type === 'path') {
+      svg += `    <path d="${factoryPath(a)}" /> \n`
     }
   })
 
@@ -54,6 +59,9 @@ export const SVGtoFabric = svg => {
         newObj.ry = numberFixed(item.getAttribute('ry'))
         newObj.rx = numberFixed(item.getAttribute('rx'))
         newObj.fill = 'transparent'
+      } else if (s.includes('<path ')) {
+        newObj.type = 'path'
+        newObj.aCoords = item.getAttribute('d')
       } else if (s.includes('<circle ')) {
         newObj.type = 'circle'
         newObj.left =

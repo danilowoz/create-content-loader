@@ -15,6 +15,7 @@ import Gallery from '../Gallery'
 
 import '../components/style/style.css'
 import SEO from '../components/SEO'
+import Upload from '../components/Upload'
 
 const globalLocalStorage =
   global.window && global.window.localStorage
@@ -100,6 +101,8 @@ class App extends Component {
   handlePreset = e => {
     const value = e.target.value
     const height = e.target.dataset.height
+    const width = e.target.dataset.width
+
     const presents = {
       facebook,
       instagram,
@@ -108,7 +111,7 @@ class App extends Component {
     }
     const draw = presents[value]
 
-    this.setState({ draw, height, renderCanvas: false })
+    this.setState({ draw, height, width, renderCanvas: false })
 
     ReactGA.event({
       category: 'Draw',
@@ -177,6 +180,23 @@ class App extends Component {
     })
   }
 
+  handleUpload = ({ width, height, path }) => {
+    const pathWithLineBreak = path.replace(/\/>/gi, ' /> \n')
+    console.log(pathWithLineBreak)
+
+    this.setState({
+      width,
+      height,
+      draw: pathWithLineBreak,
+      renderCanvas: false,
+    })
+
+    ReactGA.event({
+      category: 'Draw',
+      action: `upload custom`,
+    })
+  }
+
   handleResetRenderCanvas = () => this.setState({ renderCanvas: false })
 
   render() {
@@ -201,7 +221,8 @@ class App extends Component {
           <div className="container">
             <Header />
 
-            <div>
+            <div className="app-column">
+              <Upload handle={this.handleUpload} />
               <div className="app-editor">
                 <Highlighter code={snippetCode} language="javascript" />
 

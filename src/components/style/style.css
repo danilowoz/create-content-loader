@@ -46,8 +46,12 @@ body {
 
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, calc(1380px / 2 - 3em));
   grid-gap: 0 3em;
+}
+
+.app-column {
+  width: 100%;
 }
 
 /* Editor */
@@ -64,6 +68,9 @@ body {
   top: 30px;
   background: var(--background);
   border: 1px solid var(--color-silver);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .app-editor pre {
@@ -101,7 +108,7 @@ body {
   margin-left: -1.2em;
   margin-right: -1.2em;
   margin-bottom: -1.2em;
-  margin-top: 3em;
+  margin-top: 1em;
   overflow: hidden;
 }
 
