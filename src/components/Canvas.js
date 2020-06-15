@@ -39,14 +39,11 @@ class Canvas extends Component {
         } else if (a && a.type === 'circle') {
           draw = new window.fabric.Circle(a)
         } else if (a && a.type === 'path') {
-          draw = new window.fabric.Path(
-            'M241.797 250.264c3 3 3.021 7.84.049 10.813l.041-.042.085.085-10.764 10.764-.136-.136-.05.052-9.778-9.776a7.591 7.591 0 01-1.029-.863c-2.972-2.972-2.95-7.813.05-10.813 2.968-2.97 7.743-3.02 10.722-.137 2.97-2.968 7.81-2.946 10.81.053z',
-            {
-              stroke: 'red',
-              strokeWidth: 1,
-              fill: null,
-            }
-          )
+          draw = new window.fabric.Path(a.aCoords, {
+            stroke: 'red',
+            strokeWidth: 1,
+            fill: null,
+          })
         }
 
         draw && canvas.add(draw)
@@ -58,6 +55,7 @@ class Canvas extends Component {
 
   renderCanvas = () => {
     if (this._sketch) {
+      console.log(this._sketch._fc.toObject())
       const draw = jsonToSVG(this._sketch._fc.toJSON())
       this.props.handleDraw(draw)
     }

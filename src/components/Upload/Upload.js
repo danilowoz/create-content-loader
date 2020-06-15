@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-const API =
-  'https://hm2fg6ktv4.execute-api.us-east-1.amazonaws.com/prd/svg/parser'
+import { PARSER_API } from './constants'
 
 const Upload = ({ handle }) => {
   const [loading, setLoading] = useState(false)
@@ -12,7 +11,7 @@ const Upload = ({ handle }) => {
 
       const file = event.target.files[0]
 
-      const result = await fetch(API, {
+      const result = await fetch(PARSER_API, {
         method: 'POST',
         body: file,
         headers: {

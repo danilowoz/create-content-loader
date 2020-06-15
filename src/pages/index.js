@@ -15,7 +15,8 @@ import Gallery from '../Gallery'
 
 import '../components/style/style.css'
 import SEO from '../components/SEO'
-import Upload from '../components/Upload'
+import Upload from '../components/Upload/Upload'
+import UploadSnippet from '../components/Upload/UploadSnippet'
 
 const globalLocalStorage =
   global.window && global.window.localStorage
@@ -36,6 +37,7 @@ class App extends Component {
     speed: globalLocalStorage.getItem('speed') || 2,
     tool: Tools ? Tools.Select : '',
     width: globalLocalStorage.getItem('width') || 400,
+    editingMode: 'code',
   }
 
   componentDidMount() {
@@ -182,7 +184,6 @@ class App extends Component {
 
   handleUpload = ({ width, height, path }) => {
     const pathWithLineBreak = path.replace(/\/>/gi, ' /> \n')
-    console.log(pathWithLineBreak)
 
     this.setState({
       width,
@@ -198,6 +199,8 @@ class App extends Component {
   }
 
   handleResetRenderCanvas = () => this.setState({ renderCanvas: false })
+
+  handleUploadMode = editingMode => this.setState({ editingMode })
 
   render() {
     const optMyCode = {
@@ -222,9 +225,39 @@ class App extends Component {
             <Header />
 
             <div className="app-column">
-              <Upload handle={this.handleUpload} />
               <div className="app-editor">
-                <Highlighter code={snippetCode} language="javascript" />
+                <div className="app-mode">
+                  <button
+                    className={this.state.editingMode === 'code' && 'active'}
+                    onClick={() => this.handleUploadMode('code')}
+                  >
+                    Code
+                  </button>
+                  <button
+                    className={this.state.editingMode === 'snippet' && 'active'}
+                    onClick={() => this.handleUploadMode('snippet')}
+                  >
+                    Snippet
+                  </button>
+                  <button
+                    className={this.state.editingMode === 'upload' && 'active'}
+                    onClick={() => this.handleUploadMode('upload')}
+                  >
+                    Upload SVG <span>New!</span>
+                  </button>
+                </div>
+
+                {this.state.editingMode === 'upload' && (
+                  <Upload handle={this.handleUpload} />
+                )}
+
+                {this.state.editingMode === 'snippet' && (
+                  <UploadSnippet handle={this.handleUpload} />
+                )}
+
+                {this.state.editingMode === 'code' && (
+                  <Highlighter code={snippetCode} language="javascript" />
+                )}
 
                 <div className="app-editor__language-selector">
                   <button

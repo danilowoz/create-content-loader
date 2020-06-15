@@ -1,0 +1,41 @@
+.upload-body {
+  /* min-height: 300px; */
+}
+
+.upload-intro {
+  color: #fff;
+  text-align: center;
+  margin: 3em auto 1em;
+}
+
+.upload-textarea {
+  margin: 0 2.5em 5em;
+  width: calc(100% - 5em);
+  min-height: 230px;
+  outline: 0;
+  color: #fff;
+  border: 1px solid var(--color-silver);
+  border-radius: 9px;
+  display: block;
+  background: #ffffff0d;
+  padding: 1em;
+  box-shadow: 0 3.4px 4.3px rgba(0, 0, 0, 0.057),
+    0 11.4px 14.5px rgba(0, 0, 0, 0.083), 0 51px 65px rgba(0, 0, 0, 0.14);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.upload-body-textarea::placeholder {
+  color: var(--color-grey-light);
+}
+
+.upload-button {
+  margin-left: 1em;
+  background: var(--color-brand);
+  border: 0;
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  line-height: 1;
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 :root {
-  ---background: #1c2022;
+  --background: #1c2022;
   --color-silver: #3f3f41;
   --color-grey: #2f3134;
   --color-grey-light: #aaa;
@@ -28,7 +28,7 @@ body {
 
 /* Grid */
 .App {
-  background-color: var(---background);
+  background-color: var(--background);
   background-image: url(../../assets/background-asset.png),
     url(../../assets/background-asset.png);
   background-position: left top, right bottom;
@@ -100,6 +100,39 @@ body {
   border-radius: var(--border-radius);
   background-color: rgba(206, 17, 38, 0.05);
   color: #f85955;
+}
+
+
+.app-mode {
+  margin-left: -1.2em;
+  margin-right: -1.2em;
+  margin-top: -1.2em;
+  margin-bottom: 1.2em;
+  background: #1a1d1f;
+}
+
+.app-mode button {
+  background: none;
+  outline: none;
+  border: none;
+  color: var(--color-grey-light);
+  padding: 0.8em 1.6em .7em;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.app-mode button span {
+  color: #aaa;
+  font-size: 0.6em;
+  position: relative;
+  top: -0.6em;
+  color: #fff;
+}
+
+
+.app-mode .active {
+  background: var(--background);
+  color: #fff;
 }
 
 .app-editor__language-selector {
