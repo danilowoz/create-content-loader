@@ -40,7 +40,7 @@ class Canvas extends Component {
           draw = new window.fabric.Circle(a)
         } else if (a && a.type === 'path') {
           draw = new window.fabric.Path(a.aCoords, {
-            stroke: 'red',
+            stroke: null,
             strokeWidth: 1,
             fill: null,
           })
@@ -55,7 +55,6 @@ class Canvas extends Component {
 
   renderCanvas = () => {
     if (this._sketch) {
-      console.log(this._sketch._fc.toObject())
       const draw = jsonToSVG(this._sketch._fc.toJSON())
       this.props.handleDraw(draw)
     }

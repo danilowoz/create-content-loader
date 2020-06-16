@@ -3,6 +3,7 @@ import ContentLoader from 'react-content-loader'
 import { LiveProvider, LiveError, LivePreview } from 'react-live'
 import Clipboard from 'clipboard'
 import ReactGA from 'react-ga'
+import { debounce } from 'throttle-debounce'
 
 import Tools from '../../_third-parts/react-sketch/src/tools'
 import { facebook, instagram, code, bulletList } from '../utils/presets'
@@ -17,6 +18,7 @@ import '../components/style/style.css'
 import SEO from '../components/SEO'
 import Upload from '../components/Upload/Upload'
 import UploadSnippet from '../components/Upload/UploadSnippet'
+import Loading from '../components/Loading'
 
 const globalLocalStorage =
   global.window && global.window.localStorage
@@ -38,6 +40,7 @@ class App extends Component {
     tool: Tools ? Tools.Select : '',
     width: globalLocalStorage.getItem('width') || 400,
     editingMode: 'code',
+    uploadLoading: false,
   }
 
   componentDidMount() {
@@ -144,6 +147,20 @@ class App extends Component {
     })
   }
 
+  handleColor = e => {
+    this.debouncedHandleColor(e.target.name, e.target.value)
+  }
+
+  debouncedHandleColor = debounce(250, (name, value) => {
+    this.setState({ [name]: value, renderCanvas: false })
+
+    ReactGA.event({
+      category: 'Config',
+      action: `input`,
+      label: name,
+    })
+  })
+
   handleCheckbox = ({ target: { name, checked } }) => {
     this.setState({ [name]: checked, renderCanvas: false })
 
@@ -182,12 +199,12 @@ class App extends Component {
     })
   }
 
-  handleUpload = ({ width, height, path }) => {
+  handleSvg = ({ width, height, path }) => {
     const pathWithLineBreak = path.replace(/\/>/gi, ' /> \n')
 
     this.setState({
-      width,
-      height,
+      width: width || this.state.width,
+      height: height || this.state.height,
       draw: pathWithLineBreak,
       renderCanvas: false,
     })
@@ -200,7 +217,10 @@ class App extends Component {
 
   handleResetRenderCanvas = () => this.setState({ renderCanvas: false })
 
-  handleUploadMode = editingMode => this.setState({ editingMode })
+  handleSvgMode = editingMode => this.setState({ editingMode })
+
+  handleSvgLoading = uploadLoading =>
+    this.setState({ uploadLoading, editingMode: 'code' })
 
   render() {
     const optMyCode = {
@@ -229,35 +249,44 @@ class App extends Component {
                 <div className="app-mode">
                   <button
                     className={this.state.editingMode === 'code' && 'active'}
-                    onClick={() => this.handleUploadMode('code')}
+                    onClick={() => this.handleSvgMode('code')}
                   >
                     Code
                   </button>
                   <button
                     className={this.state.editingMode === 'snippet' && 'active'}
-                    onClick={() => this.handleUploadMode('snippet')}
+                    onClick={() => this.handleSvgMode('snippet')}
                   >
                     Snippet
                   </button>
                   <button
                     className={this.state.editingMode === 'upload' && 'active'}
-                    onClick={() => this.handleUploadMode('upload')}
+                    onClick={() => this.handleSvgMode('upload')}
                   >
                     Upload SVG <span>New!</span>
                   </button>
                 </div>
 
                 {this.state.editingMode === 'upload' && (
-                  <Upload handle={this.handleUpload} />
+                  <Upload
+                    handleSvg={this.handleSvg}
+                    setLoading={this.handleSvgLoading}
+                  />
                 )}
 
                 {this.state.editingMode === 'snippet' && (
-                  <UploadSnippet handle={this.handleUpload} />
+                  <UploadSnippet
+                    handleSvg={this.handleSvg}
+                    setLoading={this.handleSvgLoading}
+                  />
                 )}
 
-                {this.state.editingMode === 'code' && (
-                  <Highlighter code={snippetCode} language="javascript" />
-                )}
+                {!this.state.uploadLoading &&
+                  this.state.editingMode === 'code' && (
+                    <Highlighter code={snippetCode} language="javascript" />
+                  )}
+
+                {this.state.uploadLoading && <Loading />}
 
                 <div className="app-editor__language-selector">
                   <button
@@ -333,6 +362,7 @@ class App extends Component {
                 {...this.state}
                 handleCheckbox={this.handleCheckbox}
                 handleInput={this.handleInput}
+                handleColor={this.handleColor}
                 handleImageAsBackground={this.handleImageAsBackground}
                 resetColors={this.resetColors}
               />

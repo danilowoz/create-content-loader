@@ -1,28 +1,22 @@
 import React, { useState } from 'react'
 
-import { PARSER_API } from './constants'
-
 import './style.css'
+import { parseSvg } from './service'
 
-const UploadSnippet = ({ handle }) => {
-  const handleFile = async event => {
+const UploadSnippet = ({ handleSvg, setLoading }) => {
+  const [value, setValue] = useState('')
+
+  const submit = async () => {
     try {
       setLoading(true)
+      const message = await parseSvg(value)
+      handleSvg(message)
 
-      const file = event.target.files[0]
-
-      const result = await fetch(PARSER_API, {
-        method: 'POST',
-        body: file,
-        headers: {
-          Accept: '*/*',
-          'Content-type': file.type,
-        },
-      })
-
-      const { message } = JSON.parse(await result.text())
-      handle(message)
+      setTimeout(() => {
+        setLoading(false)
+      }, 300)
     } catch (err) {
+      setLoading(false)
       console.error(err.message)
     }
   }
@@ -31,11 +25,13 @@ const UploadSnippet = ({ handle }) => {
     <div className="upload-body">
       <p className="upload-intro">
         Paste bellow a SVG snippet code or only the shape elements.
-        <button className="upload-button" type="button">
+        <button onClick={submit} className="upload-button" type="button">
           Submit
         </button>
       </p>
       <textarea
+        onChange={({ target }) => setValue(target.value)}
+        value={value}
         placeholder={`E.g.
 
 <svg width='268px' height='99px' viewBox='0 0 268 99'>

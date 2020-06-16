@@ -33,7 +33,8 @@
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
     "react-sketch": "^0.5.1",
-    "react-syntax-highlighter": "^12.2.1"
+    "react-syntax-highlighter": "^12.2.1",
+    "throttle-debounce": "^2.2.1"
   },
   "devDependencies": {
     "commitizen": "^4.1.2",

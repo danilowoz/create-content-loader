@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { PARSER_API } from './constants'
 
-const Upload = ({ handle }) => {
+const Upload = ({ handleSvg }) => {
   const [loading, setLoading] = useState(false)
 
   const handleFile = async event => {
@@ -21,7 +21,7 @@ const Upload = ({ handle }) => {
       })
 
       const { message } = JSON.parse(await result.text())
-      handle(message)
+      handleSvg(message)
 
       setLoading(false)
     } catch (err) {

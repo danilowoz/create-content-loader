@@ -6,6 +6,7 @@ const Config = ({
   handleCheckbox,
   handleImageAsBackground,
   handleInput,
+  handleColor,
   height,
   imageAsBackground,
   backgroundColor,
@@ -59,7 +60,7 @@ const Config = ({
           id="backgroundColor"
           name="backgroundColor"
           value={backgroundColor}
-          onChange={handleInput}
+          onChange={handleColor}
         />
         <label htmlFor="backgroundColor">Background color</label>
       </p>
@@ -70,7 +71,7 @@ const Config = ({
           id="foregroundColor"
           name="foregroundColor"
           value={foregroundColor}
-          onChange={handleInput}
+          onChange={handleColor}
         />
         <label htmlFor="foregroundColor">Foreground color</label>
       </p>
