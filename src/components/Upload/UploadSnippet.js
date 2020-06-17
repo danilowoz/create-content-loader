@@ -29,6 +29,7 @@ const UploadSnippet = ({ handleSvg, setLoading }) => {
           Submit
         </button>
       </p>
+
       <textarea
         onChange={({ target }) => setValue(target.value)}
         value={value}
@@ -47,6 +48,10 @@ or just:
       `}
         className="upload-textarea"
       />
+
+      <p className="upload-disclaimer">
+        Make sure to remove all images and fonts from SVG file.
+      </p>
     </div>
   )
 }

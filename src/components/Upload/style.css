@@ -1,17 +1,21 @@
-.upload-body {
-  /* min-height: 300px; */
-}
-
 .upload-intro {
   color: #fff;
   text-align: center;
   margin: 3em auto 1em;
+  line-height: 1.6;
+}
+
+.upload-disclaimer {
+  color: var(--color-grey-light);
+  text-align: center;
+  font-size: 0.8em;
+  margin: 0 auto 5em;
 }
 
 .upload-textarea {
-  margin: 0 2.5em 5em;
+  margin: 0 2.5em 1em;
   width: calc(100% - 5em);
-  min-height: 230px;
+  min-height: 210px;
   outline: 0;
   color: #fff;
   border: 1px solid var(--color-silver);
@@ -23,6 +27,52 @@
     0 11.4px 14.5px rgba(0, 0, 0, 0.083), 0 51px 65px rgba(0, 0, 0, 0.14);
   resize: vertical;
   box-sizing: border-box;
+}
+
+.upload-input-handle {
+  margin: 3em 2.5em 1em;
+  width: calc(100% - 5em);
+  height: 250px;
+  color: #fff;
+  border: 1px dashed var(--color-silver);
+  border-radius: 9px;
+  display: block;
+  padding: 1em;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  transition: all 0.2s ease;
+}
+
+.upload-error {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: var(--border-radius);
+  background-color: rgba(206, 17, 38, 0.05);
+  color: #f85955;
+}
+
+.upload-input-handle--hover {
+  border: 1px dashed #fff;
+}
+
+.upload-input-handle > * {
+  margin: auto;
+}
+
+.upload-input-handle .upload-intro {
+  margin: 0;
+}
+
+.upload-input-handle input {
+  font-size: 2000%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
 }
 
 .upload-body-textarea::placeholder {
