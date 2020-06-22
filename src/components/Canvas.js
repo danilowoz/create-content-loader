@@ -43,6 +43,15 @@ class Canvas extends Component {
             stroke: null,
             strokeWidth: 1,
             fill: null,
+            hasBorders: false,
+            hasControls: false,
+            lockMovementX: true,
+            lockMovementY: true,
+            // TODO: move path
+            // left: a.left,
+            // top: a.top,
+            // originX: 'left',
+            // originY: 'top',
           })
         }
 
@@ -56,6 +65,7 @@ class Canvas extends Component {
   renderCanvas = () => {
     if (this._sketch) {
       const draw = jsonToSVG(this._sketch._fc.toJSON())
+
       this.props.handleDraw(draw)
     }
   }
@@ -85,11 +95,11 @@ class Canvas extends Component {
     const { type, width, height, left, top, radius, rx } = target
 
     if (type === 'circle') {
-      return this.setState({ coordsActiveItem: { radius, left, top } })
+      return this.setState({ coordsActiveItem: { radius, left, top, type } })
     }
 
     return this.setState({
-      coordsActiveItem: { width, height, left, top, boxRadius: rx },
+      coordsActiveItem: { width, height, left, top, boxRadius: rx, type },
     })
   }
 
@@ -284,53 +294,55 @@ class Canvas extends Component {
           </div>
         </div>
 
-        {hasItemSelected && (
+        {this.state.coordsActiveItem.type !== 'path' && hasItemSelected && (
           <div className="app-editor_item-editor">
             <p className="app-config_caption">Size & position of active item</p>
 
             <div className="row">
-              {Object.keys(this.state.coordsActiveItem).map(item => {
-                const value = numberFixed(this.state.coordsActiveItem[item])
-                const onChange = e =>
-                  this.moveItem(item, numberFixed(e.target.value))
+              {Object.keys(this.state.coordsActiveItem)
+                .filter(e => e !== 'type')
+                .map(item => {
+                  const value = numberFixed(this.state.coordsActiveItem[item])
+                  const onChange = e =>
+                    this.moveItem(item, numberFixed(e.target.value))
 
-                if (item === 'boxRadius') {
+                  if (item === 'boxRadius') {
+                    return (
+                      <p
+                        style={{ width: '62.5%', display: 'flex' }}
+                        className="app-config_inline"
+                        key={item}
+                      >
+                        <input
+                          type="range"
+                          min={0}
+                          max={100}
+                          value={value}
+                          onChange={onChange}
+                          style={{ flex: 1 }}
+                        />
+                        <input
+                          style={{
+                            textAlign: 'center',
+                            flex: 1,
+                            marginRight: '34px',
+                          }}
+                          type="number"
+                          onChange={onChange}
+                          value={value}
+                        />
+                        <label>radius</label>
+                      </p>
+                    )
+                  }
+
                   return (
-                    <p
-                      style={{ width: '62.5%', display: 'flex' }}
-                      className="app-config_inline"
-                      key={item}
-                    >
-                      <input
-                        type="range"
-                        min={0}
-                        max={100}
-                        value={value}
-                        onChange={onChange}
-                        style={{ flex: 1 }}
-                      />
-                      <input
-                        style={{
-                          textAlign: 'center',
-                          flex: 1,
-                          marginRight: '34px',
-                        }}
-                        type="number"
-                        onChange={onChange}
-                        value={value}
-                      />
-                      <label>radius</label>
+                    <p className="app-config_inline" key={item}>
+                      <label>{item}</label>
+                      <input type="number" onChange={onChange} value={value} />
                     </p>
                   )
-                }
-
-                return (
-                  <p className="app-config_inline" key={item}>
-                    <label>{item}</label>
-                    <input type="number" onChange={onChange} value={value} />
-                  </p>
-                )
-              })}
+                })}
             </div>
           </div>
         )}

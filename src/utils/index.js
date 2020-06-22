@@ -33,6 +33,13 @@ export const jsonToSVG = json => {
         a.left + a.radius * a.scaleY
       )}" cy="${numberFixed(a.top + a.radius * a.scaleY)}" r="${radius}" /> \n`
     } else if (a.type === 'path') {
+      // TODO: move path
+      // if (a.left !== 0 || a.top !== 0) {
+      //   svg += `    <path transform="translate(${numberFixed(
+      //     a.left
+      //   )},${numberFixed(a.top)})" d="${factoryPath(a)}" /> \n`
+      // } else {
+      // }
       svg += `    <path d="${factoryPath(a)}" /> \n`
     }
   })
@@ -62,6 +69,15 @@ export const SVGtoFabric = svg => {
       } else if (s.includes('<path ')) {
         newObj.type = 'path'
         newObj.aCoords = item.getAttribute('d')
+
+        // TODO: move path
+        // const transformValue = item.getAttribute('transform') || ''
+
+        // const translateValues = transformValue.match(
+        //   /translate\((-?\d+\.?\d*),?\s*(-?\d+[.]?\d*)?\)/
+        // )
+        // newObj.left = (translateValues && translateValues[1]) || null
+        // newObj.top = (translateValues && translateValues[2]) || null
       } else if (s.includes('<circle ')) {
         newObj.type = 'circle'
         newObj.left =
