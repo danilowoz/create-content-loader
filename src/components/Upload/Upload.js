@@ -2,27 +2,34 @@ import React, { useRef, useEffect, useState, useCallback } from 'react'
 
 import './style.css'
 import { parseSvg } from './service'
+import Loading from '../Loading'
 
-const Upload = ({ handleSvg, setLoading }) => {
+const ERROR_TIMEOUT = 4000
+
+const Upload = ({ handleSvg }) => {
   const refContainer = useRef()
   const [hover, setHover] = useState(false)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState()
+  const [loading, setLoading] = useState()
 
   const submit = useCallback(
     async file => {
-      try {
-        setLoading(true)
+      setLoading(true)
 
-        const message = await parseSvg(file)
+      const { ok, message } = await parseSvg(file)
+      if (ok) {
         handleSvg(message)
+      } else {
+        setError(message)
 
         setTimeout(() => {
-          setLoading(false)
-        }, 300)
-      } catch (err) {
-        setLoading(false)
-        console.error(err.message)
+          setError()
+        }, ERROR_TIMEOUT)
       }
+
+      setTimeout(() => {
+        setLoading(false)
+      }, 300)
     },
     [handleSvg, setLoading]
   )
@@ -51,11 +58,11 @@ const Upload = ({ handleSvg, setLoading }) => {
         setHover(false)
 
         if (file.type !== 'image/svg+xml') {
-          setError(true)
+          setError('Only SVG files are allowed.')
 
           setTimeout(() => {
-            setError(false)
-          }, 3000)
+            setError()
+          }, ERROR_TIMEOUT)
 
           return
         }
@@ -82,29 +89,35 @@ const Upload = ({ handleSvg, setLoading }) => {
 
   return (
     <div className="upload-body" ref={refContainer}>
-      <div
-        className={`${
-          hover ? 'upload-input-handle--hover' : ''
-        } upload-input-handle`}
-      >
-        <div>
-          <p className="upload-intro">
-            Select or drop here a SVG file
-            <br /> to be converted in a loading.
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <div
+            className={`${
+              hover ? 'upload-input-handle--hover' : ''
+            } upload-input-handle`}
+          >
+            <div>
+              <p className="upload-intro">
+                Select or drop here a SVG file
+                <br /> to be converted in a loading.
+              </p>
+
+              {error && <p className="upload-error">{error}</p>}
+            </div>
+            <input
+              type="file"
+              onChange={file => submit(file.target.files[0])}
+              multiple={false}
+            />
+          </div>
+
+          <p className="upload-disclaimer">
+            Make sure to remove all images and fonts from SVG file.
           </p>
-
-          {error && <p className="upload-error">Only SVG files are allowed.</p>}
-        </div>
-        <input
-          type="file"
-          onChange={file => submit(file.target.files[0])}
-          multiple={false}
-        />
-      </div>
-
-      <p className="upload-disclaimer">
-        Make sure to remove all images and fonts from SVG file.
-      </p>
+        </>
+      )}
     </div>
   )
 }

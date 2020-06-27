@@ -2,38 +2,53 @@ import React, { useState } from 'react'
 
 import './style.css'
 import { parseSvg } from './service'
+import Loading from '../Loading'
 
-const UploadSnippet = ({ handleSvg, setLoading }) => {
+const ERROR_TIMEOUT = 4000
+
+const UploadSnippet = ({ handleSvg }) => {
   const [value, setValue] = useState('')
+  const [error, setError] = useState()
+  const [loading, setLoading] = useState()
 
   const submit = async () => {
-    try {
-      setLoading(true)
-      const message = await parseSvg(value)
+    setLoading(true)
+
+    const { ok, message } = await parseSvg(value)
+    if (ok) {
       handleSvg(message)
+    } else {
+      setError(message)
 
       setTimeout(() => {
-        setLoading(false)
-      }, 300)
-    } catch (err) {
-      setLoading(false)
-      console.error(err.message)
+        setError()
+      }, ERROR_TIMEOUT)
     }
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 300)
   }
 
   return (
     <div className="upload-body">
-      <p className="upload-intro">
-        Paste bellow a SVG snippet code or only the shape elements.
-        <button onClick={submit} className="upload-button" type="button">
-          Submit
-        </button>
-      </p>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <p className="upload-intro">
+            Paste bellow a SVG snippet code or only the shape elements.
+            <button onClick={submit} className="upload-button" type="button">
+              Submit
+            </button>
+          </p>
 
-      <textarea
-        onChange={({ target }) => setValue(target.value)}
-        value={value}
-        placeholder={`E.g.
+          {error && <p className="upload-error">{error}</p>}
+
+          <textarea
+            onChange={({ target }) => setValue(target.value)}
+            value={value}
+            placeholder={`E.g.
 
 <svg width='268px' height='99px' viewBox='0 0 268 99'>
   <rect x='92.5' y='0.5' width='175' height='98' rx='16'></rect>
@@ -46,12 +61,14 @@ or just:
 <circle cx='28.5' cy='28.5' r='28'></circle>
 
       `}
-        className="upload-textarea"
-      />
+            className="upload-textarea"
+          />
 
-      <p className="upload-disclaimer">
-        Make sure to remove all images and fonts from SVG file.
-      </p>
+          <p className="upload-disclaimer">
+            Make sure to remove all images and fonts from SVG file.
+          </p>
+        </>
+      )}
     </div>
   )
 }

@@ -18,7 +18,6 @@ import '../components/style/style.css'
 import SEO from '../components/SEO'
 import Upload from '../components/Upload/Upload'
 import UploadSnippet from '../components/Upload/UploadSnippet'
-import Loading from '../components/Loading'
 
 const globalLocalStorage =
   global.window && global.window.localStorage
@@ -40,7 +39,6 @@ class App extends Component {
     tool: Tools ? Tools.Select : '',
     width: globalLocalStorage.getItem('width') || 400,
     editingMode: 'code',
-    uploadLoading: false,
   }
 
   componentDidMount() {
@@ -207,6 +205,7 @@ class App extends Component {
       height: height || this.state.height,
       draw: pathWithLineBreak,
       renderCanvas: false,
+      editingMode: 'code',
     })
 
     ReactGA.event({
@@ -219,8 +218,7 @@ class App extends Component {
 
   handleSvgMode = editingMode => this.setState({ editingMode })
 
-  handleSvgLoading = uploadLoading =>
-    this.setState({ uploadLoading, editingMode: 'code' })
+  handleSvgDone = () => this.setState({ editingMode: 'code' })
 
   render() {
     const optMyCode = {
@@ -268,25 +266,16 @@ class App extends Component {
                 </div>
 
                 {this.state.editingMode === 'upload' && (
-                  <Upload
-                    handleSvg={this.handleSvg}
-                    setLoading={this.handleSvgLoading}
-                  />
+                  <Upload handleSvg={this.handleSvg} />
                 )}
 
                 {this.state.editingMode === 'snippet' && (
-                  <UploadSnippet
-                    handleSvg={this.handleSvg}
-                    setLoading={this.handleSvgLoading}
-                  />
+                  <UploadSnippet handleSvg={this.handleSvg} />
                 )}
 
-                {!this.state.uploadLoading &&
-                  this.state.editingMode === 'code' && (
-                    <Highlighter code={snippetCode} language="javascript" />
-                  )}
-
-                {this.state.uploadLoading && <Loading />}
+                {this.state.editingMode === 'code' && (
+                  <Highlighter code={snippetCode} language="javascript" />
+                )}
 
                 <div className="app-editor__language-selector">
                   <button

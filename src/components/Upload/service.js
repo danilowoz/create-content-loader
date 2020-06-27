@@ -2,6 +2,7 @@ import { PARSER_API } from './constants'
 
 export const parseSvg = async content => {
   let body = {}
+
   if (content.type) {
     body = {
       body: content,
@@ -21,7 +22,5 @@ export const parseSvg = async content => {
     ...body,
   })
 
-  const { message } = JSON.parse(await result.text())
-
-  return message
+  return JSON.parse(await result.text())
 }
