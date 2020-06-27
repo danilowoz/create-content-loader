@@ -13,8 +13,8 @@ module.exports = {
         name: `Create Content Loader`,
         short_name: `Create Content Loader`,
         start_url: `/`,
-        background_color: `#000`,
-        theme_color: `#eee`,
+        background_color: `#1c2022`,
+        theme_color: `#1c2022`,
         display: `minimal-ui`,
         icon: `src/assets/favicon.png`, // This path is relative to the root of the site.
       },

@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 const SEO = () => {
-  const currentTitle = 'Creator of React Content Loader'
+  const currentTitle = 'Create Content Loader'
   const metaDescription =
     "It's a SVG component to create placeholder loading, like Facebook cards loading or even known as skeleton UI."
   const siteUrl = 'https://danilowoz.com/create-content-loader/'
