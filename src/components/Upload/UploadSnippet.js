@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ReactGA from 'react-ga'
 
 import './style.css'
 import { parseSvg } from './service'
@@ -28,6 +29,11 @@ const UploadSnippet = ({ handleSvg }) => {
     setTimeout(() => {
       setLoading(false)
     }, 300)
+
+    ReactGA.event({
+      category: 'Parse SVG',
+      action: 'Snippet',
+    })
   }
 
   return (

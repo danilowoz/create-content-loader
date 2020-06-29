@@ -216,9 +216,18 @@ class App extends Component {
 
   handleResetRenderCanvas = () => this.setState({ renderCanvas: false })
 
-  handleSvgMode = editingMode => this.setState({ editingMode })
+  handleSvgMode = editingMode => {
+    this.setState({ editingMode })
 
-  handleSvgDone = () => this.setState({ editingMode: 'code' })
+    ReactGA.event({
+      category: 'Edit mode',
+      action: editingMode,
+    })
+  }
+
+  handleSvgDone = () => {
+    this.setState({ editingMode: 'code' })
+  }
 
   render() {
     const optMyCode = {
