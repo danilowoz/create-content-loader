@@ -18,6 +18,7 @@ import '../components/style/style.css'
 import SEO from '../components/SEO'
 import Upload from '../components/Upload/Upload'
 import UploadSnippet from '../components/Upload/UploadSnippet'
+import LearnMore from '../components/LearnMore'
 
 const globalLocalStorage =
   global.window && global.window.localStorage
@@ -364,6 +365,8 @@ class App extends Component {
                 handleImageAsBackground={this.handleImageAsBackground}
                 resetColors={this.resetColors}
               />
+
+              <LearnMore />
             </div>
           </div>
         </div>

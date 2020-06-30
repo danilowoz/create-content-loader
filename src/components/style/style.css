@@ -102,7 +102,6 @@ body {
   color: #f85955;
 }
 
-
 .app-mode {
   margin-left: -1.2em;
   margin-right: -1.2em;
@@ -116,9 +115,9 @@ body {
   outline: none;
   border: none;
   color: var(--color-grey-light);
-  padding: 0.8em 1.6em .7em;
+  padding: 0.8em 1.6em 0.7em;
   cursor: pointer;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .app-mode button span {
@@ -128,7 +127,6 @@ body {
   top: -0.6em;
   color: #fff;
 }
-
 
 .app-mode .active {
   background: var(--background);
@@ -490,4 +488,36 @@ body {
   position: absolute;
   right: 0;
   cursor: pointer;
+}
+
+/**
+ * Lear mores
+*/
+.learn-more {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid var(--color-grey);
+}
+
+.learn-more--title {
+  color: var(--color-grey-light);
+  font-size: var(--font-size__tiny);
+  width: 100% !important;
+  font-weight: normal;
+}
+
+.learn-more--link {
+  color: #fff;
+  font-size: var(--font-size__tiny);
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  transition: all 0.3s ease;
+}
+.learn-more--link:hover {
+  color: var(--color-brand);
+}
+
+.learn-more--link a {
+  color: inherit;
+  text-decoration: none;
 }
