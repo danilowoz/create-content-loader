@@ -26,14 +26,15 @@
     "jsdom": "^16.2.1",
     "react": "^16.13.0",
     "react-click-outside": "github:tj/react-click-outside",
-    "react-content-loader": "5.0.4",
+    "react-content-loader": "5.1.0",
     "react-dom": "^16.13.0",
     "react-error-overlay": "^6.0.6",
     "react-ga": "^2.7.0",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.2",
     "react-sketch": "^0.5.1",
-    "react-syntax-highlighter": "^12.2.1"
+    "react-syntax-highlighter": "^12.2.1",
+    "throttle-debounce": "^2.2.1"
   },
   "devDependencies": {
     "commitizen": "^4.1.2",

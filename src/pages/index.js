@@ -3,6 +3,7 @@ import ContentLoader from 'react-content-loader'
 import { LiveProvider, LiveError, LivePreview } from 'react-live'
 import Clipboard from 'clipboard'
 import ReactGA from 'react-ga'
+import { debounce } from 'throttle-debounce'
 
 import Tools from '../../_third-parts/react-sketch/src/tools'
 import { facebook, instagram, code, bulletList } from '../utils/presets'
@@ -15,6 +16,8 @@ import Gallery from '../Gallery'
 
 import '../components/style/style.css'
 import SEO from '../components/SEO'
+import Upload from '../components/Upload/Upload'
+import UploadSnippet from '../components/Upload/UploadSnippet'
 
 const globalLocalStorage =
   global.window && global.window.localStorage
@@ -35,6 +38,7 @@ class App extends Component {
     speed: globalLocalStorage.getItem('speed') || 2,
     tool: Tools ? Tools.Select : '',
     width: globalLocalStorage.getItem('width') || 400,
+    editingMode: 'code',
   }
 
   componentDidMount() {
@@ -100,6 +104,8 @@ class App extends Component {
   handlePreset = e => {
     const value = e.target.value
     const height = e.target.dataset.height
+    const width = e.target.dataset.width
+
     const presents = {
       facebook,
       instagram,
@@ -108,7 +114,7 @@ class App extends Component {
     }
     const draw = presents[value]
 
-    this.setState({ draw, height, renderCanvas: false })
+    this.setState({ draw, height, width, renderCanvas: false })
 
     ReactGA.event({
       category: 'Draw',
@@ -138,6 +144,20 @@ class App extends Component {
       label: name,
     })
   }
+
+  handleColor = e => {
+    this.debouncedHandleColor(e.target.name, e.target.value)
+  }
+
+  debouncedHandleColor = debounce(250, (name, value) => {
+    this.setState({ [name]: value, renderCanvas: false })
+
+    ReactGA.event({
+      category: 'Config',
+      action: `input`,
+      label: name,
+    })
+  })
 
   handleCheckbox = ({ target: { name, checked } }) => {
     this.setState({ [name]: checked, renderCanvas: false })
@@ -177,7 +197,37 @@ class App extends Component {
     })
   }
 
+  handleSvg = ({ width, height, path }) => {
+    const pathWithLineBreak = path.replace(/\/>/gi, ' /> \n')
+
+    this.setState({
+      width: width || this.state.width,
+      height: height || this.state.height,
+      draw: pathWithLineBreak,
+      renderCanvas: false,
+      editingMode: 'code',
+    })
+
+    ReactGA.event({
+      category: 'Draw',
+      action: `upload custom`,
+    })
+  }
+
   handleResetRenderCanvas = () => this.setState({ renderCanvas: false })
+
+  handleSvgMode = editingMode => {
+    this.setState({ editingMode })
+
+    ReactGA.event({
+      category: 'Edit mode',
+      action: editingMode,
+    })
+  }
+
+  handleSvgDone = () => {
+    this.setState({ editingMode: 'code' })
+  }
 
   render() {
     const optMyCode = {
@@ -201,9 +251,40 @@ class App extends Component {
           <div className="container">
             <Header />
 
-            <div>
+            <div className="app-column">
               <div className="app-editor">
-                <Highlighter code={snippetCode} language="javascript" />
+                <div className="app-mode">
+                  <button
+                    className={this.state.editingMode === 'code' && 'active'}
+                    onClick={() => this.handleSvgMode('code')}
+                  >
+                    Code
+                  </button>
+                  <button
+                    className={this.state.editingMode === 'snippet' && 'active'}
+                    onClick={() => this.handleSvgMode('snippet')}
+                  >
+                    Snippet
+                  </button>
+                  <button
+                    className={this.state.editingMode === 'upload' && 'active'}
+                    onClick={() => this.handleSvgMode('upload')}
+                  >
+                    Upload SVG <span>New!</span>
+                  </button>
+                </div>
+
+                {this.state.editingMode === 'upload' && (
+                  <Upload handleSvg={this.handleSvg} />
+                )}
+
+                {this.state.editingMode === 'snippet' && (
+                  <UploadSnippet handleSvg={this.handleSvg} />
+                )}
+
+                {this.state.editingMode === 'code' && (
+                  <Highlighter code={snippetCode} language="javascript" />
+                )}
 
                 <div className="app-editor__language-selector">
                   <button
@@ -279,6 +360,7 @@ class App extends Component {
                 {...this.state}
                 handleCheckbox={this.handleCheckbox}
                 handleInput={this.handleInput}
+                handleColor={this.handleColor}
                 handleImageAsBackground={this.handleImageAsBackground}
                 resetColors={this.resetColors}
               />

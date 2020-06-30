@@ -44,16 +44,19 @@ ${data.draw}
   </ContentLoader>
 )
 
-export default MyLoader`
+export default MyLoader
+
+`
 }
 
 const reactNative = ({ data = {} }) => {
   const drawParser = data.draw
     .replace(/rect/gm, 'Rect')
     .replace(/circle/gm, 'Circle')
+    .replace(/path/gm, 'Path')
 
   return `import React from "react"
-import ContentLoader, { Rect, Circle } from "react-content-loader/native"
+import ContentLoader, { Rect, Circle, Path } from "react-content-loader/native"
 
 const MyLoader = (props) => (
   <ContentLoader ${
@@ -74,7 +77,9 @@ ${drawParser}
   </ContentLoader>
 )
 
-export default MyLoader`
+export default MyLoader
+
+`
 }
 
 const svg = ({ data = {} }) => {

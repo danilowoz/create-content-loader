@@ -13,6 +13,9 @@ export const jsonToSVG = json => {
       return null
     }
 
+    const factoryPath = element =>
+      element.path.map(path => path.join(' ')).join(' ')
+
     if (a.type === 'rect') {
       const rotate = a.angle
         ? ` transform="rotate(${numberFixed(a.angle)}, ${numberFixed(
@@ -29,6 +32,15 @@ export const jsonToSVG = json => {
       svg += `    <circle cx="${numberFixed(
         a.left + a.radius * a.scaleY
       )}" cy="${numberFixed(a.top + a.radius * a.scaleY)}" r="${radius}" /> \n`
+    } else if (a.type === 'path') {
+      // TODO: move path
+      // if (a.left !== 0 || a.top !== 0) {
+      //   svg += `    <path transform="translate(${numberFixed(
+      //     a.left
+      //   )},${numberFixed(a.top)})" d="${factoryPath(a)}" /> \n`
+      // } else {
+      // }
+      svg += `    <path d="${factoryPath(a)}" /> \n`
     }
   })
 
@@ -54,6 +66,18 @@ export const SVGtoFabric = svg => {
         newObj.ry = numberFixed(item.getAttribute('ry'))
         newObj.rx = numberFixed(item.getAttribute('rx'))
         newObj.fill = 'transparent'
+      } else if (s.includes('<path ')) {
+        newObj.type = 'path'
+        newObj.aCoords = item.getAttribute('d')
+
+        // TODO: move path
+        // const transformValue = item.getAttribute('transform') || ''
+
+        // const translateValues = transformValue.match(
+        //   /translate\((-?\d+\.?\d*),?\s*(-?\d+[.]?\d*)?\)/
+        // )
+        // newObj.left = (translateValues && translateValues[1]) || null
+        // newObj.top = (translateValues && translateValues[2]) || null
       } else if (s.includes('<circle ')) {
         newObj.type = 'circle'
         newObj.left =
