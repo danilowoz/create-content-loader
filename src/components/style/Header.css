@@ -45,19 +45,12 @@
   height: 96px;
 }
 
-.app-assign__stars {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
-
-.app-assign__stars > * {
-  margin-left: 20px;
-}
-
 .app-header__aside {
   display: flex;
   justify-content: flex-end;
-  flex-direction: column;
-  text-align: right;
+  align-items: center;
+}
+
+.app-header__aside > * {
+  margin-left: 1.4em;
 }

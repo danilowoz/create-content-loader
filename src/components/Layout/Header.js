@@ -4,6 +4,8 @@ import ReactGA from 'react-ga'
 import '../style/Header.css'
 import Helmet from 'react-helmet'
 
+import supportSrc from '../../assets/support.png'
+
 const pkg = require('../../../package.json')
 
 const Header = () => {
@@ -29,44 +31,56 @@ const Header = () => {
         </div>
 
         <div className="app-header__aside">
-          <p className="app-assign__stars">
-            <a
-              className="github-button"
-              href="https://github.com/danilowoz/react-content-loader"
-              data-icon="octicon-star"
-              data-show-count="true"
-              aria-label="Star danilowoz/react-content-loader on GitHub"
-              target="_blank"
-              without=""
-              rel="noopener noreferrer"
-              onClick={() => {
-                ReactGA.event({
-                  category: 'Creator',
-                  action: `go to react-content-loader on Github`,
-                })
-              }}
-            >
-              react-content-loader@{pkg.dependencies['react-content-loader']}
-            </a>
-            <a
-              className="github-button"
-              href="https://github.com/danilowoz/create-content-loader"
-              data-icon="octicon-star"
-              data-show-count="true"
-              aria-label="Star danilowoz/create-content-loader on GitHub"
-              target="_blank"
-              without=""
-              rel="noopener noreferrer"
-              onClick={() => {
-                ReactGA.event({
-                  category: 'Creator',
-                  action: `go to create-content-loader on Github`,
-                })
-              }}
-            >
-              create-content-loader@{pkg.version}
-            </a>
-          </p>
+          <a
+            className="github-button"
+            href="https://github.com/danilowoz/react-content-loader"
+            data-icon="octicon-star"
+            data-show-count="true"
+            aria-label="Star danilowoz/react-content-loader on GitHub"
+            target="_blank"
+            without=""
+            rel="noopener noreferrer"
+            onClick={() => {
+              ReactGA.event({
+                category: 'Creator',
+                action: `go to react-content-loader on Github`,
+              })
+            }}
+          >
+            react-content-loader@{pkg.dependencies['react-content-loader']}
+          </a>
+
+          <form
+            action="https://www.paypal.com/cgi-bin/webscr"
+            method="post"
+            target="_top"
+            onClock={() => {
+              ReactGA.event({ category: 'Donation' })
+            }}
+          >
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input
+              type="hidden"
+              name="hosted_button_id"
+              value="KCFSEKAULGEG2"
+            />
+            <input
+              width="181"
+              type="image"
+              src={supportSrc}
+              border="0"
+              name="submit"
+              title="PayPal - The safer, easier way to pay online!"
+              alt="Donate with PayPal button"
+            />
+            <img
+              alt=""
+              border="0"
+              src="https://www.paypal.com/en_US/i/scr/pixel.gif"
+              width="1"
+              height="1"
+            />
+          </form>
         </div>
       </div>
     </>
