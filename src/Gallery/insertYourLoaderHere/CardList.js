@@ -1,16 +1,8 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const CardListLoader = (props) => (
-  <ContentLoader
-    speed={2}
-    width={355}
-    height={600}
-    viewBox="0 0 355 600"
-    backgroundColor="#f5f5f5"
-    foregroundColor="#dbdbdb"
-    {...props}
-  >
+const CardList = props => (
+  <ContentLoader width={355} height={600} viewBox="0 0 355 600" {...props}>
     <rect x="4" y="8" rx="16" ry="16" width="7" height="86" />
     <rect x="6" y="8" rx="16" ry="16" width="675" height="8" />
     <rect x="6" y="86" rx="16" ry="16" width="669" height="8" />
@@ -22,11 +14,11 @@ const CardListLoader = (props) => (
   </ContentLoader>
 )
 
-export default ListLoader
+export default CardList
 
-CardListLoader.metadata = {
-  name: Rivky Bleier, 
-  github: RivkyB, 
-  description: Simple Card List loader, 
-  filename: CardListLoader 
+CardList.metadata = {
+  name: 'Rivky Bleier',
+  github: 'RivkyB',
+  description: 'Simple Card List',
+  filename: 'CardList',
 }
