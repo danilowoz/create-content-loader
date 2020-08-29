@@ -26,6 +26,10 @@
   font-weight: inherit;
 }
 
+.app-header__logo {
+  width: 63%;
+}
+
 .app-header__logo h2 {
   font-size: var(--font-size__tiny);
   font-weight: normal;

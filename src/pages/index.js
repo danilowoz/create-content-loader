@@ -240,13 +240,7 @@ class App extends Component {
     const snippetCode = template[this.state.mode](optMyCode)
 
     return (
-      <LiveProvider
-        code={liveCode}
-        scope={{ ContentLoader }}
-        ref={r => (this.editor = r)}
-        noInline={true}
-        disabled
-      >
+      <>
         <SEO />
         <div className="App">
           <div className="container">
@@ -339,22 +333,30 @@ class App extends Component {
 
             <div>
               {this.state.renderCanvas && (
-                <Canvas
-                  {...this.state}
-                  handleDraw={this.handleDraw}
-                  handleSelectedItem={this.handleSelectedItem}
-                  handleTool={this.handleTool}
-                  handlePreset={this.handlePreset}
-                  handleResetRenderCanvas={this.handleResetRenderCanvas}
+                <LiveProvider
+                  code={liveCode}
+                  scope={{ ContentLoader }}
+                  ref={r => (this.editor = r)}
+                  noInline={true}
+                  disabled
                 >
-                  <LivePreview
-                    style={{
-                      width: `${this.state.width}px`,
-                      height: `${this.state.height}px`,
-                      position: 'relative',
-                    }}
-                  />
-                </Canvas>
+                  <Canvas
+                    {...this.state}
+                    handleDraw={this.handleDraw}
+                    handleSelectedItem={this.handleSelectedItem}
+                    handleTool={this.handleTool}
+                    handlePreset={this.handlePreset}
+                    handleResetRenderCanvas={this.handleResetRenderCanvas}
+                  >
+                    <LivePreview
+                      style={{
+                        width: `${this.state.width}px`,
+                        height: `${this.state.height}px`,
+                        position: 'relative',
+                      }}
+                    />
+                  </Canvas>
+                </LiveProvider>
               )}
 
               <Config
@@ -372,7 +374,7 @@ class App extends Component {
         </div>
 
         <Gallery />
-      </LiveProvider>
+      </>
     )
   }
 }

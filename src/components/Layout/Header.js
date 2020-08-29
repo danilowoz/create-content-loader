@@ -25,8 +25,10 @@ const Header = () => {
             <span>{pkg.dependencies['react-content-loader']}</span>
           </h1>
           <h2>
-            SVG component to create placeholder loading, like Facebook cards
-            loading or also known as skeleton UI.
+            Tool to easily create your animated skeleton-screen components,
+            replacing usual loading and delivering better experiences for users,
+            giving a wireframe of your pages like placeholders boxes for content
+            and images. Supports React, React Native, Vue, and vanilla HTML.
           </h2>
         </div>
 

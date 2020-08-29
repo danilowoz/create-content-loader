@@ -2,20 +2,22 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 const SEO = () => {
-  const currentTitle = 'Create Content Loader'
+  const currentTitle = 'React Skeleton - Create Content Loader'
   const metaDescription =
-    "It's a SVG component to create placeholder loading, like Facebook cards loading or even known as skeleton UI."
-  const siteUrl = 'https://danilowoz.com/create-content-loader/'
+    'Tool to easily create your animated skeleton components, replacing usual loading, giving a wireframe of your pages like placeholders for content and images.'
+  const siteUrl = 'http://skeletonreact.com/'
   const author = '@danilowoz'
   const keywords = [
     'react',
     'react-native',
+    'vue',
     'skeleton',
+    'svg',
     'placeholder',
+    'wireframe',
     'loader',
     'loading',
     'content',
-    'svg',
   ]
 
   return (
