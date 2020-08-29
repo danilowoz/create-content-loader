@@ -151,6 +151,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/RivkyBleier"><img src="https://avatars1.githubusercontent.com/u/59883988?v=4" width="100px;" alt=""/><br /><sub><b>rivkyb</b></sub></a><br /><a href="#content-RivkyBleier" title="Content">🖋</a></td>
+    <td align="center"><a href="https://linkedin.com/in/nikhil-anand"><img src="https://avatars2.githubusercontent.com/u/36640498?v=4" width="100px;" alt=""/><br /><sub><b>Nikhil Anand</b></sub></a><br /><a href="#content-anandnkhl" title="Content">🖋</a></td>
   </tr>
 </table>
 
