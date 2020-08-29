@@ -2,10 +2,10 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 const FadingLoader = props => {
-  return(
+  return (
     <div>
-      <FadingLoaderCard1 /> 
-      <FadingLoaderCard2 /> 
+      <FadingLoaderCard1 />
+      <FadingLoaderCard2 />
       <FadingLoaderCard3 />
       <FadingLoaderCard4 />
       <FadingLoaderCard5 />

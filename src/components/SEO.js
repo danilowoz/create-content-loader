@@ -53,7 +53,7 @@ const SEO = () => {
         },
         {
           property: `og:image`,
-          content: 'https://danilowoz.com/create-content-loader/share.png',
+          content: `${siteUrl}/share.png`,
         },
         {
           name: `twitter:card`,
@@ -61,7 +61,7 @@ const SEO = () => {
         },
         {
           name: `twitter:image`,
-          content: 'https://danilowoz.com/create-content-loader/share.png',
+          content: `${siteUrl}/share.png`,
         },
         {
           name: `twitter:site`,
