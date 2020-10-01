@@ -4,13 +4,13 @@ import ContentLoader from 'react-content-loader'
 const GithubProfile = props => {
   return (
     <ContentLoader
-    height={300}
-    width={450}
-    speed={2}
-    viewBox="0 0 450 300"
-    backgroundColor="#f5f5f5"
-    foregroundColor="#dbdbdb"
-    {...props}
+      height={300}
+      width={450}
+      speed={2}
+      viewBox="0 0 450 300"
+      backgroundColor="#f5f5f5"
+      foregroundColor="#dbdbdb"
+      {...props}
     >
       <circle cx="75" cy="75" r="70" />
       <rect x="160" y="15" rx="3" ry="3" width="50" height="15" />
@@ -41,10 +41,10 @@ const GithubProfile = props => {
 }
 
 GithubProfile.metadata = {
-    name: 'Nikhil Anand', // My name
-    github: 'anandnkhl', // Github username
-    description: 'Latest Github Profile', // Little tagline
-    filename: 'GithubProfile', // filename of your loaderr
+  name: 'Nikhil Anand', // My name
+  github: 'anandnkhl', // Github username
+  description: 'Latest Github Profile', // Little tagline
+  filename: 'GithubProfile', // filename of your loaderr
 }
 
 export default GithubProfile
