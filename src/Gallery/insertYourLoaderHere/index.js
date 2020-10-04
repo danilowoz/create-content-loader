@@ -1,3 +1,4 @@
+export { default as HistoriesLoader } from './HistoriesLoader'
 export { default as CardList } from './CardList'
 export { default as CustomerTestimonial } from './CustomerTestimonial'
 export { default as ImageGrid } from './ImageGrid'
