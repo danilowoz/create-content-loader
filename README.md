@@ -155,6 +155,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://alanhurtarte.com"><img src="https://avatars1.githubusercontent.com/u/12109719?v=4" width="100px;" alt=""/><br /><sub><b>Alan Hurtarte</b></sub></a><br /><a href="#content-kenny08gt" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/ghettifish"><img src="https://avatars1.githubusercontent.com/u/23620578?v=4" width="100px;" alt=""/><br /><sub><b>ghettifish</b></sub></a><br /><a href="#content-ghettifish" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/dao-phuong"><img src="https://avatars0.githubusercontent.com/u/26901361?v=4" width="100px;" alt=""/><br /><sub><b>duyphuong</b></sub></a><br /><a href="#content-dao-phuong" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/coktopus"><img src="https://avatars3.githubusercontent.com/u/63889078?v=4" width="100px;" alt=""/><br /><sub><b>coktopus</b></sub></a><br /><a href="#content-coktopus" title="Content">🖋</a></td>
   </tr>
 </table>
 
