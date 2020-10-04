@@ -468,6 +468,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "kenny08gt",
+      "name": "Alan Hurtarte",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/12109719?v=4",
+      "profile": "https://alanhurtarte.com",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
