@@ -152,12 +152,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/RivkyBleier"><img src="https://avatars1.githubusercontent.com/u/59883988?v=4" width="100px;" alt=""/><br /><sub><b>rivkyb</b></sub></a><br /><a href="#content-RivkyBleier" title="Content">🖋</a></td>
     <td align="center"><a href="https://linkedin.com/in/nikhil-anand"><img src="https://avatars2.githubusercontent.com/u/36640498?v=4" width="100px;" alt=""/><br /><sub><b>Nikhil Anand</b></sub></a><br /><a href="#content-anandnkhl" title="Content">🖋</a></td>
+    <td align="center"><a href="https://alanhurtarte.com"><img src="https://avatars1.githubusercontent.com/u/12109719?v=4" width="100px;" alt=""/><br /><sub><b>Alan Hurtarte</b></sub></a><br /><a href="#content-kenny08gt" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/ghettifish"><img src="https://avatars1.githubusercontent.com/u/23620578?v=4" width="100px;" alt=""/><br /><sub><b>ghettifish</b></sub></a><br /><a href="#content-ghettifish" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/dao-phuong"><img src="https://avatars0.githubusercontent.com/u/26901361?v=4" width="100px;" alt=""/><br /><sub><b>duyphuong</b></sub></a><br /><a href="#content-dao-phuong" title="Content">🖋</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
