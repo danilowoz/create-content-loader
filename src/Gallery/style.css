@@ -64,7 +64,7 @@
 
 .showcase-component svg {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .showcase-caption {
@@ -104,10 +104,6 @@
   position: relative;
 }
 
-.showcase-item__new svg {
-  width: 100%;
-}
-
 .showcase-item__new a {
   margin: auto;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -132,4 +128,6 @@
   left: 16px;
   right: 16px;
   bottom: 16px;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
 }

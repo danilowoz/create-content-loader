@@ -8,7 +8,7 @@ const TableRow = props => {
       viewBox="0 0 1060 40"
       height={40}
       width={1060}
-      speed={2}
+      
       {...props}
     >
       <rect x="0" y="15" rx="4" ry="4" width="6" height="6.4" />

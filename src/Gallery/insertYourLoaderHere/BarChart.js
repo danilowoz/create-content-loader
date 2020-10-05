@@ -3,15 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const BarChart = props => {
   return (
-    <ContentLoader
-      speed={2}
-      width={340}
-      height={200}
-      viewBox="0 0 200 200"
-      backgroundColor="#f3f3f3"
-      foregroundColor="#ecebeb"
-      {...props}
-    >
+    <ContentLoader width={200} height={200} viewBox="0 0 200 200" {...props}>
       <rect x="0" y="160" rx="0" ry="0" width="25" height="40" />
       <rect x="30" y="145" rx="0" ry="0" width="25" height="55" />
       <rect x="60" y="126" rx="0" ry="0" width="25" height="74" />

@@ -6,7 +6,6 @@ const Form = props => {
     <ContentLoader
       height={200}
       width={400}
-      speed={2}
       viewBox="0 0 400 200"
       backgroundColor="#d9d9d9"
       foregroundColor="#ecebeb"

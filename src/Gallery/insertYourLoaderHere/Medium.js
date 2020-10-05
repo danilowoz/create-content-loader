@@ -6,7 +6,7 @@ const Medium = props => (
     viewBox="0 0 660 475"
     height={475}
     width={660}
-    speed={2}
+    
     {...props}
   >
     <circle cx="25" cy="112" r="15" />

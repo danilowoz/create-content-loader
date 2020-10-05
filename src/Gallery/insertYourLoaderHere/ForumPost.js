@@ -7,7 +7,7 @@ const ForumPost = props => {
       viewBox="0 0 400 600"
       height={600}
       width={400}
-      speed={2}
+      
       {...props}
     >
       <rect x="20" y="8" rx="0" ry="0" width="100" height="100" />

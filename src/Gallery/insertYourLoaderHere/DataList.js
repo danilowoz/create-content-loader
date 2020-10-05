@@ -6,7 +6,6 @@ const DataList = props => {
     <ContentLoader
       width={730}
       height={304}
-      speed={1}
       primaryColor="#e4e4e4"
       secondaryColor="#d3d3d3"
       {...props}

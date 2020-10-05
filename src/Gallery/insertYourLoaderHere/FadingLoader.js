@@ -18,7 +18,7 @@ const FadingLoaderCard1 = props => {
     <ContentLoader
       width={400}
       height={40}
-      speed={2}
+      
       backgroundColor="#ababab"
       foregroundColor="#fafafa"
     >
@@ -34,7 +34,7 @@ const FadingLoaderCard2 = props => {
     <ContentLoader
       width={400}
       height={40}
-      speed={2}
+      
       backgroundColor="#bfbfbf"
       foregroundColor="#fafafa"
     >
@@ -50,7 +50,7 @@ const FadingLoaderCard3 = props => {
     <ContentLoader
       width={400}
       height={40}
-      speed={2}
+      
       backgroundColor="#dadada"
       foregroundColor="#fafafa"
     >
@@ -66,7 +66,7 @@ const FadingLoaderCard4 = props => {
     <ContentLoader
       width={400}
       height={40}
-      speed={2}
+      
       backgroundColor="#ececec"
       foregroundColor="#fafafa"
     >
@@ -82,7 +82,7 @@ const FadingLoaderCard5 = props => {
     <ContentLoader
       width={400}
       height={40}
-      speed={2}
+      
       backgroundColor="#f7f7f7"
       foregroundColor="#fafafa"
     >

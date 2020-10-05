@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 
 const ImageGrid = props => (
   <ContentLoader
-    speed={2}
     width={800}
     height={575}
     viewBox="0 0 800 575"

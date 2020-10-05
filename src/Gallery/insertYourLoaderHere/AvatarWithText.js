@@ -6,7 +6,7 @@ const AvatarWithText = props => (
     viewBox="0 0 400 160"
     height={160}
     width={400}
-    speed={2}
+    
     {...props}
   >
     <rect x="110" y="21" rx="4" ry="4" width="254" height="6" />

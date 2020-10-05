@@ -7,7 +7,7 @@ const PieChart = props => {
       viewBox="0 0 400 200"
       height={200}
       width={400}
-      speed={2}
+      
       {...props}
     >
       <rect x="100" y="5" rx="0" ry="0" width="200" height="15" />

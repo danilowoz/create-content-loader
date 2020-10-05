@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const EventsLoader = props => (
   <ContentLoader
-    speed={2}
+    
     width={700}
     height={300}
     viewBox="0 0 700 300"

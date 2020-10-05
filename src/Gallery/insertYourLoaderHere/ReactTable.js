@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const ReactTable = () => {
   return (
-    <ContentLoader width={400} height={311} speed={2} viewBox="0 0 400 311">
+    <ContentLoader width={400} height={311} viewBox="0 0 400 311">
       <rect x="0" y="0" rx="0" ry="0" width="400" height="1" />
       <rect x="0" y="19" rx="0" ry="0" width="400" height="1" />
       <rect x="0" y="24" rx="0" ry="0" width="400" height="3" />

@@ -7,7 +7,7 @@ const AmazonLoader = props => {
       viewBox="0 0 800 400"
       height={400}
       width={800}
-      speed={2}
+      
       {...props}
     >
       <circle cx="472" cy="159" r="7" />

@@ -42,7 +42,7 @@ const __NAME_OF_LOADER__ = props => {
     <ContentLoader
       height={40}
       width={1060}
-      speed={2}
+      
       backgroundColor="#d9d9d9"
       foregroundColor="#ecebeb"
       {...props}

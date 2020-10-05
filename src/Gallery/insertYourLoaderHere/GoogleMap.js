@@ -7,7 +7,7 @@ const GoogleMap = props => {
       viewBox="0 0 500 280"
       height={280}
       width={500}
-      speed={2}
+      
       {...props}
     >
       <circle cx="70" cy="50" r="30" />

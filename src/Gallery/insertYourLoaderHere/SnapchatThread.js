@@ -6,7 +6,6 @@ const SnapchatThread = props => {
     <ContentLoader
       height={54}
       width={320}
-      speed={1}
       viewBox="0 0 320 54"
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"

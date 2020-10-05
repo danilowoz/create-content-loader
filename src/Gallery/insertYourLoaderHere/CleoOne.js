@@ -1,21 +1,8 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const CleoOne = ({ style, ...rest }) => (
-  <ContentLoader
-    style={{
-      ...{
-        background: '#fff',
-        borderRadius: 4,
-        boxShadow: '0 4px 24px 0 rgba(49, 73, 177, 0.15)',
-      },
-      ...style,
-    }}
-    {...rest}
-    height="230"
-    width="265"
-    viewBox="0 0 265 230"
-  >
+const CleoOne = ({ ...rest }) => (
+  <ContentLoader height="230" width="265" viewBox="0 0 265 230" {...rest}>
     <rect x="15" y="15" rx="4" ry="4" width="200" height="25" />
     <rect x="15" y="50" rx="2" ry="2" width="40" height="15" />
     <rect x="75" y="45" rx="16" ry="16" width="55" height="22" />

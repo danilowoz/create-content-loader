@@ -3,13 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const XYChart = props => {
   return (
-    <ContentLoader
-      viewBox="0 0 180 400"
-      height={180}
-      width={400}
-      speed={1}
-      {...props}
-    >
+    <ContentLoader viewBox="0 0 180 400" height={400} width={180} {...props}>
       <rect x="20" y="5" rx="0" ry="0" width="1" height="170" />
       <rect x="20" y="175" rx="0" ry="0" width="360" height="1" />
 

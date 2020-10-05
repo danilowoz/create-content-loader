@@ -4,7 +4,6 @@ import ContentLoader from 'react-content-loader'
 const UserReviewSkype = props => {
   return (
     <ContentLoader
-      speed={2}
       width={460}
       height={275}
       viewBox="0 0 460 275"

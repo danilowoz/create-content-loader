@@ -2,13 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 const HomePage = props => (
-  <ContentLoader
-    viewBox="0 0 500 300"
-    height={300}
-    width={500}
-    speed={2}
-    {...props}
-  >
+  <ContentLoader viewBox="0 0 500 300" height={300} width={500} {...props}>
     <rect x="0" y="8" rx="0" ry="0" width="40" height="18" />
     <circle cx="492" cy="16" r="8" />
     <circle cx="472" cy="16" r="8" />
