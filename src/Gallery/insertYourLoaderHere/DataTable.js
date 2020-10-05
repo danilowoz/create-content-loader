@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 
 const DataTable = props => (
   <ContentLoader
-    speed={0.5}
     width={1500}
     height={400}
     viewBox="0 0 1500 400"

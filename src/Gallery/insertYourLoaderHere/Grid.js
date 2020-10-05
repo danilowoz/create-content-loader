@@ -7,7 +7,7 @@ const Grid = props => {
       viewBox="0 0 820 450"
       height={450}
       width={820}
-      speed={2}
+      
       {...props}
     >
       <rect x="10" y="10" rx="5" ry="5" width="260" height="140" />

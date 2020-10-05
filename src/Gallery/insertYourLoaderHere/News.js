@@ -3,10 +3,9 @@ import ContentLoader from 'react-content-loader'
 
 const News = props => (
   <ContentLoader
-    viewBox="0 0 200 400"
+    viewBox="0 0 400 200"
     width={400}
     height={200}
-    speed={2}
     title="Loading news..."
     {...props}
   >

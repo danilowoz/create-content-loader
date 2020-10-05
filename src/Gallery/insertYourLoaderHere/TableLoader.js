@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 
 const TableLoader = props => (
   <ContentLoader
-    speed={2}
     width={1000}
     height={550}
     viewBox="0 0 1000 550"

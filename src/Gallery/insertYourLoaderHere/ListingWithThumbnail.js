@@ -6,7 +6,6 @@ const ListingWithThumbnail = props => {
     <ContentLoader
       height={1200}
       width={1060}
-      speed={2}
       primaryColor="#d9d9d9"
       secondaryColor="#ecebeb"
       {...props}

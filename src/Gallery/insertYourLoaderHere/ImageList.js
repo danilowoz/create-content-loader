@@ -30,7 +30,6 @@ const Loader = props => {
       viewBox={`0 0 ${width} ${height}`}
       height={height}
       width={width}
-      speed={2}
       {...props}
     >
       {props.imageType === 'circle' ? (

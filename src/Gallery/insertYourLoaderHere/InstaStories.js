@@ -7,7 +7,7 @@ const InstaStories = props => {
       viewBox="0 0 400 475"
       height={475}
       width={400}
-      speed={2}
+      
       {...props}
     >
       <circle cx="15" cy="30" r="13" />

@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 
 const HistoriesLoader = props => (
   <ContentLoader
-    speed={2}
     width={500}
     height={100}
     viewBox="0 0 500 100"

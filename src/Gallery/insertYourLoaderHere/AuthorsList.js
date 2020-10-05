@@ -6,7 +6,7 @@ const AuthorsList = props => (
     viewBox="0 0 500 475"
     height={475}
     width={500}
-    speed={2}
+    
     {...props}
   >
     <circle cx="70.2" cy="73.2" r="41.3" />

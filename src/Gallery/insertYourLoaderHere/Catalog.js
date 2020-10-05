@@ -6,7 +6,7 @@ const Catalog = props => (
     viewBox="0 0 1360 900"
     height={900}
     width={1360}
-    speed={2}
+    
     {...props}
   >
     <rect x="30" y="20" rx="8" ry="8" width="200" height="200" />

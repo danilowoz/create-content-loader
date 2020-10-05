@@ -6,7 +6,6 @@ const GithubProfile = props => {
     <ContentLoader
       height={300}
       width={450}
-      speed={2}
       viewBox="0 0 450 300"
       backgroundColor="#f5f5f5"
       foregroundColor="#dbdbdb"

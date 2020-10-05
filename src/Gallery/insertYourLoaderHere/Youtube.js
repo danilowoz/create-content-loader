@@ -6,7 +6,7 @@ const Youtube = props => (
     viewBox="0 0 900 507"
     height={507}
     width={900}
-    speed={2}
+    
     {...props}
   >
     <rect x="30" y="20" rx="0" ry="0" width="130" height="23" />

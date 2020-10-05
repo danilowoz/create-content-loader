@@ -2,13 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 const DevtoCard = props => (
-  <ContentLoader
-    viewBox="0 0 400 475"
-    height={475}
-    width={400}
-    speed={2}
-    {...props}
-  >
+  <ContentLoader viewBox="0 0 400 475" height={475} width={400} {...props}>
     <circle cx="30" cy="258" r="30" />
     <rect x="75" y="233" rx="4" ry="4" width="100" height="13" />
     <rect x="75" y="260" rx="4" ry="4" width="50" height="8" />

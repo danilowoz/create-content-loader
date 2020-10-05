@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 
 const ArticleLoader = props => (
   <ContentLoader
-    speed={1}
     width={850}
     height={1500}
     viewBox="0 0 850 1500"

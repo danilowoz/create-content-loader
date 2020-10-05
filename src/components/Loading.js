@@ -4,7 +4,6 @@ import ContentLoader from 'react-content-loader'
 // Inception...
 const Loading = props => (
   <ContentLoader
-    speed={2}
     width={340}
     height={84}
     viewBox="0 0 340 84"

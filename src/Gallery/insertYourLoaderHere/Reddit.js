@@ -7,7 +7,7 @@ const Reddit = props => {
       viewBox="0 0 462 160"
       height={160}
       width={462}
-      speed={2}
+      
       {...props}
     >
       <rect x="90" y="16" rx="5" ry="5" width="321" height="15" />
