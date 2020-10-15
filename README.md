@@ -155,13 +155,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/ghettifish"><img src="https://avatars1.githubusercontent.com/u/23620578?v=4" width="100px;" alt=""/><br /><sub><b>ghettifish</b></sub></a><br /><a href="#content-ghettifish" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/dao-phuong"><img src="https://avatars0.githubusercontent.com/u/26901361?v=4" width="100px;" alt=""/><br /><sub><b>duyphuong</b></sub></a><br /><a href="#content-dao-phuong" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/coktopus"><img src="https://avatars3.githubusercontent.com/u/63889078?v=4" width="100px;" alt=""/><br /><sub><b>coktopus</b></sub></a><br /><a href="#content-coktopus" title="Content">🖋</a></td>
-    <td align="center"><a href="https://github.com/dhurvgaloriya"><img src="https://avatars.githubusercontent.com/dhruvgaloriya" width="100px;" alt=""/><br /><sub><b>Dhruvit Galoriya</b></sub></a><br /><a href="#dhruvit-galoriya" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/rene-ph"><img src="https://avatars1.githubusercontent.com/u/3522527?v=4" width="100px;" alt=""/><br /><sub><b>Rene Hinojosa</b></sub></a><br /><a href="#content-rene-ph" title="Content">🖋</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
