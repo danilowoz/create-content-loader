@@ -157,6 +157,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/coktopus"><img src="https://avatars3.githubusercontent.com/u/63889078?v=4" width="100px;" alt=""/><br /><sub><b>coktopus</b></sub></a><br /><a href="#content-coktopus" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/rene-ph"><img src="https://avatars1.githubusercontent.com/u/3522527?v=4" width="100px;" alt=""/><br /><sub><b>Rene Hinojosa</b></sub></a><br /><a href="#content-rene-ph" title="Content">🖋</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="http://justinirabor.com"><img src="https://avatars1.githubusercontent.com/u/13500685?v=4" width="100px;" alt=""/><br /><sub><b>Justin Irabor</b></sub></a><br /><a href="#content-vunderkind" title="Content">🖋</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
