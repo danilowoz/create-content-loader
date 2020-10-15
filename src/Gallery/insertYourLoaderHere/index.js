@@ -1,3 +1,4 @@
+export { default as HackerNewsLoader } from './HackerNewsLoader'
 export { default as DoorDashFavorite } from './DoorDashFavorite'
 export { default as HistoriesLoader } from './HistoriesLoader'
 export { default as CardList } from './CardList'
