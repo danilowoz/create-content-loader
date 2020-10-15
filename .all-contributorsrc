@@ -513,6 +513,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "vunderkind",
+      "name": "Justin Irabor",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/13500685?v=4",
+      "profile": "http://justinirabor.com",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
