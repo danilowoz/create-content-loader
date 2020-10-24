@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 
 const YoutubeMagic = ({
   heading = { width: 140, height: 24 },
-  items = [],
   row = 2,
   column = 5,
   width = 1366,
@@ -91,7 +90,6 @@ const YoutubeMagic = ({
       viewBox={`0 0 ${width} ${height}`}
       width={width}
       height={height}
-      
       {...props}
     >
       {list}

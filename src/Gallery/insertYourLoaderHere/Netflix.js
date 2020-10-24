@@ -41,6 +41,7 @@ const NetflixLoader = props => {
         let vx = (i * coverWidthWithPadding) % (columns * coverWidthWithPadding)
         return (
           <rect
+            key={i}
             x={vx}
             y={vy}
             rx="0"

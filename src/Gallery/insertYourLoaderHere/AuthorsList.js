@@ -2,13 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 
 const AuthorsList = props => (
-  <ContentLoader
-    viewBox="0 0 500 475"
-    height={475}
-    width={500}
-    
-    {...props}
-  >
+  <ContentLoader viewBox="0 0 500 475" height={475} width={500} {...props}>
     <circle cx="70.2" cy="73.2" r="41.3" />
     <rect x="129.9" y="29.5" width="125.5" height="17" />
     <rect x="129.9" y="64.7" width="296" height="17" />

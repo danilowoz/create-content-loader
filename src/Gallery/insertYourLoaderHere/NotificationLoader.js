@@ -4,7 +4,6 @@ import ContentLoader from 'react-content-loader'
 const NotificationLoader = props => {
   return (
     <ContentLoader
-      
       width={350}
       height={600}
       viewBox="0 0 350 600"

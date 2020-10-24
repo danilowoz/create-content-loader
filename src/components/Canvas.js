@@ -322,6 +322,7 @@ class Canvas extends Component {
                           style={{ flex: 1 }}
                         />
                         <input
+                          id="radius"
                           style={{
                             textAlign: 'center',
                             flex: 1,
@@ -331,7 +332,7 @@ class Canvas extends Component {
                           onChange={onChange}
                           value={value}
                         />
-                        <label>radius</label>
+                        <label htmlFor="radius">radius</label>
                       </p>
                     )
                   }

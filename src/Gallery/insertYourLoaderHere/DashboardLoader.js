@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 
 const DashboardLoader = props => (
   <ContentLoader
-    
     width={1200}
     height={900}
     viewBox="0 0 1200 900"

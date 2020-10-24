@@ -61,7 +61,7 @@ class App extends Component {
     this.clipboard.destroy()
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     if (this.state.renderCanvas === false) {
       this.setState({ renderCanvas: true })
     }
@@ -69,7 +69,7 @@ class App extends Component {
     this.setLocalStorage()
   }
 
-  componentDidCatch(error, info) {
+  componentDidCatch() {
     this.setState({
       draw: facebook,
       height: 160,
