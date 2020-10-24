@@ -4,7 +4,6 @@ import ContentLoader from 'react-content-loader'
 const CustomerTestimonial = props => {
   return (
     <ContentLoader
-      
       width={400}
       height={160}
       viewBox="0 0 400 160"

@@ -1,7 +1,7 @@
-import React from "react";
-import ContentLoader from "react-content-loader";
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 
-const DiscordLoader = (props) => {
+const DiscordLoader = props => {
   return (
     <ContentLoader
       height={1000}
@@ -90,14 +90,14 @@ const DiscordLoader = (props) => {
       <rect x="60" y="580" rx="5" ry="5" width="220" height="15" />
       <rect x="64" y="600" rx="0" ry="0" width="346" height="300" />
     </ContentLoader>
-  );
-};
+  )
+}
 
-ContentForLoader.metadata = {
-  name: "Eric Roth",
-  github: "Maxgit3",
-  description: "Discord sample",
-  filename: "DiscordLoader",
-};
+DiscordLoader.metadata = {
+  name: 'Eric Roth',
+  github: 'Maxgit3',
+  description: 'Discord sample',
+  filename: 'DiscordLoader',
+}
 
-export default DiscordLoader;
+export default DiscordLoader

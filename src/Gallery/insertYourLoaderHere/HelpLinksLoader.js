@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 
 const HelpLinksLoader = props => (
   <ContentLoader
-    
     width={700}
     height={350}
     viewBox="0 0 700 350"

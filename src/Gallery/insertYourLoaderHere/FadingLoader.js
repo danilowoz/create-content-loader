@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const FadingLoader = props => {
+const FadingLoader = () => {
   return (
     <div>
       <FadingLoaderCard1 />
@@ -13,12 +13,11 @@ const FadingLoader = props => {
   )
 }
 
-const FadingLoaderCard1 = props => {
+const FadingLoaderCard1 = () => {
   return (
     <ContentLoader
       width={400}
       height={40}
-      
       backgroundColor="#ababab"
       foregroundColor="#fafafa"
     >
@@ -29,12 +28,11 @@ const FadingLoaderCard1 = props => {
   )
 }
 
-const FadingLoaderCard2 = props => {
+const FadingLoaderCard2 = () => {
   return (
     <ContentLoader
       width={400}
       height={40}
-      
       backgroundColor="#bfbfbf"
       foregroundColor="#fafafa"
     >
@@ -45,12 +43,11 @@ const FadingLoaderCard2 = props => {
   )
 }
 
-const FadingLoaderCard3 = props => {
+const FadingLoaderCard3 = () => {
   return (
     <ContentLoader
       width={400}
       height={40}
-      
       backgroundColor="#dadada"
       foregroundColor="#fafafa"
     >
@@ -61,12 +58,11 @@ const FadingLoaderCard3 = props => {
   )
 }
 
-const FadingLoaderCard4 = props => {
+const FadingLoaderCard4 = () => {
   return (
     <ContentLoader
       width={400}
       height={40}
-      
       backgroundColor="#ececec"
       foregroundColor="#fafafa"
     >
@@ -77,12 +73,11 @@ const FadingLoaderCard4 = props => {
   )
 }
 
-const FadingLoaderCard5 = props => {
+const FadingLoaderCard5 = () => {
   return (
     <ContentLoader
       width={400}
       height={40}
-      
       backgroundColor="#f7f7f7"
       foregroundColor="#fafafa"
     >

@@ -3,13 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const GoogleMap = props => {
   return (
-    <ContentLoader
-      viewBox="0 0 500 280"
-      height={280}
-      width={500}
-      
-      {...props}
-    >
+    <ContentLoader viewBox="0 0 500 280" height={280} width={500} {...props}>
       <circle cx="70" cy="50" r="30" />
       <rect x="0" y="90" rx="0" ry="0" width="140" height="25" />
       <circle cx="230" cy="50" r="30" />

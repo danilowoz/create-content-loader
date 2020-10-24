@@ -45,7 +45,6 @@ function svgSnapshot(svg_ref, fps, seconds) {
 
     /* mount load process */
     img.onload = function() {
-      debugger
       self.make_step_next(step, time, this)
     }
 
@@ -85,7 +84,6 @@ function svgSnapshot(svg_ref, fps, seconds) {
     finalImg.src = dataURL
     finalImg.style.border = '1px solid black'
 
-    debugger
     document.body.appendChild(finalImg)
 
     /*

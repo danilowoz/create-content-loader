@@ -6,7 +6,6 @@ const ThreeDots = props => (
     viewBox="0 0 400 160"
     height={160}
     width={400}
-    
     backgroundColor="transparent"
     {...props}
   >
