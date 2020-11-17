@@ -5,6 +5,7 @@ import ReactGA from 'react-ga'
 import SketchField from '../../_third-parts/react-sketch/src/SketchField'
 import Tools from '../../_third-parts/react-sketch/src/tools'
 import { SVGtoFabric, jsonToSVG, canvasAddedProp, numberFixed } from '../utils'
+import { KEY_CODES } from '../utils/keyboard'
 import selectIcon from '../assets/select.svg'
 import trashIcon from '../assets/trash.svg'
 import cloneIcon from '../assets/clone.svg'
@@ -23,7 +24,12 @@ class Canvas extends Component {
 
   componentDidMount() {
     this.setupEvents()
+    this.setupKeyboardListeners()
     this.SVGtoCanvas()
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown, false)
   }
 
   SVGtoCanvas = () => {
@@ -146,6 +152,26 @@ class Canvas extends Component {
       category: 'Draw',
       action: 'close item',
     })
+  }
+
+  removeItemFromKeyboard = () => {
+    const hasItemSelected = Object.keys(this.state.coordsActiveItem).length > 0
+
+    if (hasItemSelected) {
+      this.removeItem()
+    }
+  }
+
+  handleKeyDown = event => {
+    const actionsByKeyCode = {
+      [KEY_CODES.DELETE]: this.removeItemFromKeyboard,
+    }
+
+    actionsByKeyCode[event.keyCode]?.()
+  }
+
+  setupKeyboardListeners = () => {
+    document.addEventListener('keydown', this.handleKeyDown, false)
   }
 
   setupEvents = () => {
