@@ -163,13 +163,11 @@ class Canvas extends Component {
   }
 
   handleKeyDown = event => {
-    switch (event.keyCode) {
-      case KEY_CODES.DELETE:
-        this.removeItemFromKeyboard()
-        break
-      default:
-        break
+    const actionsByKeyCode = {
+      [KEY_CODES.DELETE]: this.removeItemFromKeyboard,
     }
+
+    actionsByKeyCode[event.keyCode]?.()
   }
 
   setupKeyboardListeners = () => {
