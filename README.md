@@ -159,7 +159,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="http://justinirabor.com"><img src="https://avatars1.githubusercontent.com/u/13500685?v=4" width="100px;" alt=""/><br /><sub><b>Justin Irabor</b></sub></a><br /><a href="#content-vunderkind" title="Content">🖋</a></td>
-    <td align="center"><a href="https://github.com/Maxgit3"><img src="https://avatars3.githubusercontent.com/u/52330733?v=4" width="100px;" alt=""/><br /><sub><b>Maxgit3</b></sub></a><br /><a href="#content-Maxgit3" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/Maxgit3"><img src="https://avatars3.githubusercontent.com/u/52330733?v=4" width="100px;" alt=""/><br /><sub><b>Maxgit3</b></sub></a><br /><a href="#content-Maxgit3" title="Content">🖋</a> <a href="https://github.com/danilowoz/create-content-loader/commits?author=Maxgit3" title="Code">💻</a></td>
   </tr>
 </table>
 
