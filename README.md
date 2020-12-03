@@ -162,6 +162,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Maxgit3"><img src="https://avatars3.githubusercontent.com/u/52330733?v=4" width="100px;" alt=""/><br /><sub><b>Maxgit3</b></sub></a><br /><a href="#content-Maxgit3" title="Content">🖋</a> <a href="https://github.com/danilowoz/create-content-loader/commits?author=Maxgit3" title="Code">💻</a></td>
     <td align="center"><a href="https://thewashington.dev"><img src="https://avatars3.githubusercontent.com/u/5726140?v=4" width="100px;" alt=""/><br /><sub><b>Washington Soares</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=washingtonsoares" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/ravisankarchinnam"><img src="https://avatars3.githubusercontent.com/u/22351907?v=4" width="100px;" alt=""/><br /><sub><b>ravisankarchinnam</b></sub></a><br /><a href="#content-ravisankarchinnam" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/emrakc"><img src="https://avatars1.githubusercontent.com/u/19970170?v=4" width="100px;" alt=""/><br /><sub><b>Emrah Akçelik</b></sub></a><br /><a href="#content-emrakc" title="Content">🖋</a></td>
   </tr>
 </table>
 
