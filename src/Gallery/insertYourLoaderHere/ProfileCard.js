@@ -29,7 +29,7 @@ ProfileCard.metadata = {
   name: 'René Hinojosa',
   github: 'rene-ph',
   description: 'Profile Card',
-  filename: 'Profile Card',
+  filename: 'ProfileCard',
 }
 
 export default ProfileCard

@@ -18,7 +18,7 @@ NewFacebookLoader.metadata = {
   name: 'Ines Guerrero Sirker',
   github: 'inesgs12',
   description: 'Edited Facebook',
-  filename: 'NewFacebookLoader',
+  filename: 'NewFacebook',
 }
 
 export default NewFacebookLoader
