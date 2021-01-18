@@ -154,10 +154,11 @@ class Canvas extends Component {
     })
   }
 
-  removeItemFromKeyboard = () => {
+  removeItemFromKeyboard = event => {
     const hasItemSelected = Object.keys(this.state.coordsActiveItem).length > 0
 
     if (hasItemSelected) {
+      event.preventDefault()
       this.removeItem()
     }
   }
@@ -167,7 +168,7 @@ class Canvas extends Component {
       [KEY_CODES.DELETE]: this.removeItemFromKeyboard,
     }
 
-    actionsByKeyCode[event.keyCode]?.()
+    actionsByKeyCode[event.keyCode]?.(event)
   }
 
   setupKeyboardListeners = () => {
