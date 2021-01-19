@@ -41,10 +41,10 @@ const ResponsiveArticle = (props) => {
 }
 
 ResponsiveArticle.metadata = {
-  name: Ashiru Olawale, // My name
-  github: walebant, // Github username
-  description: A responsive article loader that fits every screen 🎉, // Little tagline
-  filename: ResponsiveArticle // filename of your loader
+  name: "Ashiru Olawale", // My name
+  github: "walebant", // Github username
+  description: "A responsive article loader that fits every screen 🎉" // Little tagline
+  filename: "ResponsiveArticle" // filename of your loader
 }
 
 export default ResponsiveArticle
