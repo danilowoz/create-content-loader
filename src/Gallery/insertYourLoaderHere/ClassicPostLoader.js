@@ -21,7 +21,7 @@ const ClassicPostLoader = props => {
 ClassicPostLoader.metadata = {
   name: 'Emrah Akcelik',
   github: 'emrakc',
-  description: 'Classic Post Loader.',
+  description: 'Classic Post Loader',
   filename: 'ClassicPostLoader',
 }
 

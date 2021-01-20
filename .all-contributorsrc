@@ -559,6 +559,25 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "devevignesh",
+      "name": "Vignesh Elangovan",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31436276?v=4",
+      "profile": "http://vigneshwaran.dev",
+      "contributions": [
+        "bug",
+        "content"
+      ]
+    },
+    {
+      "login": "itsmeshaheerali",
+      "name": "itsmeshaheerali",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/68652952?v=4",
+      "profile": "https://github.com/itsmeshaheerali",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
