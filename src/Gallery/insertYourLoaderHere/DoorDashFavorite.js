@@ -20,7 +20,7 @@ DoorDashFavorite.metadata = {
   name: 'Nic Bovee', // My name
   github: 'ghettifish', // Github username
   description: 'A simple favorite from the DoorDash local favorites.', // Little tagline
-  filename: 'DoorDashItem', // filename of your loader
+  filename: 'DoorDashFavorite', // filename of your loader
 }
 
 export default DoorDashFavorite

@@ -16,7 +16,7 @@ InstaStories.metadata = {
   name: 'LuisaBFS',
   github: 'luisabfs',
   description: 'Insta Stories',
-  filename: InstaStories,
+  filename: 'InstaStories',
 }
 
 export default InstaStories

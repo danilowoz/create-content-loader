@@ -29,7 +29,7 @@ HistoriesLoader.metadata = {
   name: 'Alan Hurtarte', // My name
   github: 'kenny08gt', // Github username
   description: 'Instagram histories. Picture + username', // Little tagline
-  filename: 'HistoriesLoader.js', // filename of your loader
+  filename: 'HistoriesLoader', // filename of your loader
 }
 
 export default HistoriesLoader
