@@ -166,6 +166,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://vigneshwaran.dev"><img src="https://avatars1.githubusercontent.com/u/31436276?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vignesh Elangovan</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/issues?q=author%3Adevevignesh" title="Bug reports">🐛</a> <a href="#content-devevignesh" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/itsmeshaheerali"><img src="https://avatars0.githubusercontent.com/u/68652952?v=4?s=100" width="100px;" alt=""/><br /><sub><b>itsmeshaheerali</b></sub></a><br /><a href="#content-itsmeshaheerali" title="Content">🖋</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://waledev.com/"><img src="https://avatars3.githubusercontent.com/u/47564977?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ashiru Olawale</b></sub></a><br /><a href="#content-walebant" title="Content">🖋</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
