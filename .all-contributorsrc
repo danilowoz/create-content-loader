@@ -587,6 +587,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "manudss",
+      "name": "Emmanuel De Saint Steban",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1046806?v=4",
+      "profile": "https://github.com/manudss",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
