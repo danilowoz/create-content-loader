@@ -13,6 +13,7 @@
 - ReactJS;
 - React Native;
 - VueJS;
+- Angular;
 - SVG/HTML;
 - Maybe Gif someday;
 
