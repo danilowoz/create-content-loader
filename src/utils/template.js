@@ -174,4 +174,34 @@ ${data.draw}
 `
 }
 
-export default { reactDom, reactNative, svg, vue }
+const angular = ({ data = {} }) => {
+  return `
+/** install **/ 
+yarn add @ngneat/content-loader or npm install @ngneat/content-loader
+/** Import in [MODULE_NAME].module.ts **/
+  import { ContentLoaderModule } from '@ngneat/content-loader';
+
+  @NgModule({
+    imports: [ContentLoaderModule]
+  })
+  export class AppModule {}
+
+/** Then add in this in your component html : [COMPONENT_NAME].component.html **/
+ 
+  <content-loader
+    viewBox="0 0 ${data.width} ${data.height}"
+    speed="${data.speed}"
+    backgroundColor="${data.backgroundColor}"
+    foregroundColor="${data.foregroundColor}" ${
+    data.rtl
+      ? `
+    [rtl]="true"`
+      : ''
+  }
+  >
+${data.draw}
+  </content-loader>
+`
+}
+
+export default { reactDom, reactNative, svg, vue, angular }

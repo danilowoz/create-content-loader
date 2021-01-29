@@ -307,6 +307,14 @@ class App extends Component {
                   </button>
 
                   <button
+                    onClick={() => this.handleMode('angular')}
+                    className={`app-editor__language-button ${this.state
+                      .mode === 'angular' && 'current'}`}
+                  >
+                    <span>Angular</span>
+                  </button>
+
+                  <button
                     onClick={() => this.handleMode('svg')}
                     className={`app-editor__language-button ${this.state
                       .mode === 'svg' && 'current'}`}
