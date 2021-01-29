@@ -168,7 +168,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/itsmeshaheerali"><img src="https://avatars0.githubusercontent.com/u/68652952?v=4?s=100" width="100px;" alt=""/><br /><sub><b>itsmeshaheerali</b></sub></a><br /><a href="#content-itsmeshaheerali" title="Content">🖋</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://waledev.com/"><img src="https://avatars3.githubusercontent.com/u/47564977?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ashiru Olawale</b></sub></a><br /><a href="#content-walebant" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/walebant"><img src="https://avatars3.githubusercontent.com/u/47564977?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ashiru Olawale</b></sub></a><br /><a href="#content-walebant" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/manudss"><img src="https://avatars.githubusercontent.com/u/1046806?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emmanuel De Saint Steban</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=manudss" title="Code">💻</a></td>
   </tr>
 </table>
 
