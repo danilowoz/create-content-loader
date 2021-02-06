@@ -4,8 +4,6 @@ import ReactGA from 'react-ga'
 import '../style/Header.css'
 import Helmet from 'react-helmet'
 
-import supportSrc from '../../assets/support.png'
-
 const pkg = require('../../../package.json')
 
 const Header = () => {
@@ -52,37 +50,13 @@ const Header = () => {
             react-content-loader@{pkg.dependencies['react-content-loader']}
           </a>
 
-          <form
-            action="https://www.paypal.com/cgi-bin/webscr"
-            method="post"
-            target="_top"
-            onClock={() => {
-              ReactGA.event({ category: 'Donation' })
-            }}
-          >
-            <input type="hidden" name="cmd" value="_s-xclick" />
-            <input
-              type="hidden"
-              name="hosted_button_id"
-              value="KCFSEKAULGEG2"
-            />
-            <input
-              width="181"
-              type="image"
-              src={supportSrc}
-              border="0"
-              name="submit"
-              title="PayPal - The safer, easier way to pay online!"
-              alt="Donate with PayPal button"
-            />
-            <img
-              alt=""
-              border="0"
-              src="https://www.paypal.com/en_US/i/scr/pixel.gif"
-              width="1"
-              height="1"
-            />
-          </form>
+          <iframe
+            src="https://github.com/sponsors/danilowoz/button"
+            title="Sponsor danilowoz"
+            height="35"
+            width="116"
+            style={{ border: 0 }}
+          />
         </div>
       </div>
     </>
