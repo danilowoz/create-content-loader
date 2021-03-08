@@ -67,7 +67,7 @@ const BootstrapCardDataTable = props => {
 BootstrapCardDataTable.metadata = {
   name: 'Shaheer Ali', 
   github: 'itsmeshaheerali', 
-  description: 'This loader exactly fit inside your bootrstrap card component no override haapens like existing DataTable Loader', 
+  description: 'This loader exactly fit inside your bootrstrap card component no override happens like existing DataTable Loader', 
   filename: 'BootstrapCardDataTable' 
 }
 
