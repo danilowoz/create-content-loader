@@ -3,13 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const DiscordLoader = props => {
   return (
-    <ContentLoader
-      height={1000}
-      width={700}
-      {...props}
-      backgroundColor="#d9d9ff"
-      foregroundColor="#eceeeb"
-    >
+    <ContentLoader height={1000} width={700} {...props}>
       <circle cx="25" cy="50" r="25" />
       <circle cx="25" cy="150" r="25" />
       <circle cx="25" cy="250" r="25" />

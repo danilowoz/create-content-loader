@@ -253,13 +253,13 @@ class App extends Component {
                     className={this.state.editingMode === 'code' && 'active'}
                     onClick={() => this.handleSvgMode('code')}
                   >
-                    Code
+                    Editor
                   </button>
                   <button
                     className={this.state.editingMode === 'snippet' && 'active'}
                     onClick={() => this.handleSvgMode('snippet')}
                   >
-                    Snippet
+                    From SVG to Loading
                   </button>
                   <button
                     className={this.state.editingMode === 'upload' && 'active'}
@@ -320,12 +320,6 @@ class App extends Component {
                       .mode === 'svg' && 'current'}`}
                   >
                     <span>SVG</span>
-                  </button>
-
-                  <button className="app-editor__language-button">
-                    <span>
-                      Gif <span>Soon</span>
-                    </span>
                   </button>
 
                   <span

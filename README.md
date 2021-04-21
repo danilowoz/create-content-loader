@@ -1,14 +1,16 @@
 <p align="center">
-  <img width="800px" align="center" src="https://user-images.githubusercontent.com/4838076/72096118-78a8a400-3311-11ea-8b8d-c69ef232ffcc.png" title="Create Content Loader" />
+  <a href="https://skeletonreact.com/">
+    <img width="800px" align="center" src="https://user-images.githubusercontent.com/4838076/115597774-8e0ccc00-a2d1-11eb-853d-f24cfe9d4fea.png" title="Create Content Loader" />
+  </a>
 </p>
 
 <p align="center">
-  <a href="https://danilowoz.github.io/create-content-loader/">danilowoz.com/create-content-loader</a>
+  <a href="https://skeletonreact.com/">skeletonreact.com/</a>
 </p>
 
 ## Introduction
 
-**[react-content-loader](https://github.com/danilowoz/react-content-loader) it is a SVG component to create placeholder loading, like Facebook cards loading or also known as skeleton UI.** So using this [online tool](https://danilowoz.github.io/create-content-loader/) you will be able to create your own loader easily. You just need to draw using the canvas and get the snippet ready for:
+**[react-content-loader](https://github.com/danilowoz/react-content-loader) it is a SVG component to create placeholder loading, like Facebook cards loading or also known as skeleton UI.** So using this [online tool](https://skeletonreact.com/) you will be able to create your own loader easily. You just need to draw using the canvas and get the snippet ready for:
 
 - ReactJS;
 - React Native;

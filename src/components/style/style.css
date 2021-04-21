@@ -504,6 +504,8 @@ body {
   font-size: var(--font-size__tiny);
   width: 100% !important;
   font-weight: normal;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .learn-more--link {
@@ -529,6 +531,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
