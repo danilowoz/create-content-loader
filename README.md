@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://skeletonreact.com/">skeletonreact.com/</a>
+  <a href="https://skeletonreact.com/">skeletonreact.com</a>
 </p>
 
 ## Introduction
@@ -22,19 +22,19 @@
 **Still not clear?**
 Read the documentation of [react-content-loader](https://github.com/danilowoz/react-content-loader)
 
-## Community loading
+## Your contribution is welcome
 
-**Have you made an amazing loading and you're proud of it? Your contribution is welcome.** Add your loading code in the gallery following the steps bellow and help the community grows.
+Add your loading code in the gallery following the steps bellow and help the community grows.
 
-## How to insert a loader?
+#### How to insert a loader?
 
-1. Build your custom amazing loader;
+1. Build your custom amazing loading component;
 2. Create a file with a custom name, [here](https://github.com/danilowoz/create-content-loader/tree/master/src/Gallery/insertYourLoaderHere);
 3. Use the following boilerplate (don't forget to fill the metadata);
 4. Insert the file in the gallery, [here](https://github.com/danilowoz/create-content-loader/blob/master/src/Gallery/insertYourLoaderHere/index.js);
 5. Open a pull request, don't you know how to do it? [Read this](https://help.github.com/pt/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request);
 
-## Boilerplate
+#### Boilerplate
 
 ```jsx
 import React from 'react'
@@ -55,10 +55,10 @@ const __NAME_OF_LOADER__ = props => {
 }
 
 __NAME_OF_LOADER__.metadata = {
-  name: __WRITEHERE__, // My name
-  github: __WRITEHERE__, // Github username
-  description: __WRITEHERE__, // Little tagline
-  filename: __WRITEHERE__, // filename of your loader
+  name: '__REPLACE_ME__', // My name
+  github: '__REPLACE_ME__', // Github username
+  description: '__REPLACE_ME__', // Little tagline
+  filename: '__REPLACE_ME__', // filename of your loader
 }
 
 export default __NAME_OF_LOADER__
