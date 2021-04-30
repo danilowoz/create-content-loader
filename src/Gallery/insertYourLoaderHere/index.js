@@ -1,3 +1,4 @@
+export { default as HeadBodyGrid } from './HeadBodyGrid'
 export { default as ResponsiveArticle } from './ResponsiveArticle'
 export { default as BootstrapCardDataTable } from './BootstrapCardDataTable'
 export { default as HackerNewsLoader } from './HackerNewsLoader'
