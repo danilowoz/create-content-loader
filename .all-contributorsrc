@@ -596,6 +596,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "didiermunezero",
+      "name": "Didien Munezero",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51176044?v=4",
+      "profile": "http://munezero.me",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
