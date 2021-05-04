@@ -172,6 +172,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/walebant"><img src="https://avatars3.githubusercontent.com/u/47564977?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ashiru Olawale</b></sub></a><br /><a href="#content-walebant" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/manudss"><img src="https://avatars.githubusercontent.com/u/1046806?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emmanuel De Saint Steban</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=manudss" title="Code">💻</a></td>
+    <td align="center"><a href="http://munezero.me"><img src="https://avatars.githubusercontent.com/u/51176044?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Didien Munezero</b></sub></a><br /><a href="#content-didiermunezero" title="Content">🖋</a></td>
   </tr>
 </table>
 
