@@ -1,7 +1,0 @@
-{
-  "extends": "@significa/eslint-config",
-  "rules": {
-    "react/prop-types": [0],
-    "import/order": [0]
-  }
-}
