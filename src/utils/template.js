@@ -176,9 +176,9 @@ ${data.draw}
 
 const angular = ({ data = {} }) => {
   const drawParser = data.draw
-      .replace(/rect/gm, 'svg:rect')
-      .replace(/circle/gm, 'svg:circle')
-      .replace(/path/gm, 'svg:path')
+    .replace(/rect/gm, 'svg:rect')
+    .replace(/circle/gm, 'svg:circle')
+    .replace(/path/gm, 'svg:path')
   return `
 /** install **/ 
 yarn add @ngneat/content-loader or npm install @ngneat/content-loader

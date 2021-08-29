@@ -11,10 +11,10 @@ const HeadBodyGrid = ({ ...rest }) => (
 )
 
 HeadBodyGrid.metadata = {
-    name: 'Didier Munezero',
-    github: 'didiermunezero',
-    description: 'Grid for content of head and body',
-    filename: 'BodyContent',
+  name: 'Didier Munezero',
+  github: 'didiermunezero',
+  description: 'Grid for content of head and body',
+  filename: 'BodyContent',
 }
 
-export default HeadBodyGrid;
+export default HeadBodyGrid
