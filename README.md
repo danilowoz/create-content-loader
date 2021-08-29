@@ -175,6 +175,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://munezero.me"><img src="https://avatars.githubusercontent.com/u/51176044?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Didien Munezero</b></sub></a><br /><a href="#content-didiermunezero" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/arfath77"><img src="https://avatars.githubusercontent.com/u/30872061?v=4?s=100" width="100px;" alt=""/><br /><sub><b>arfath77</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=arfath77" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/ManuelaGar"><img src="https://avatars.githubusercontent.com/u/35504015?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Manuela Garcia</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=ManuelaGar" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/sherpaPSX"><img src="https://avatars.githubusercontent.com/u/16719838?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sherpaPSX</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=sherpaPSX" title="Code">💻</a></td>
   </tr>
 </table>
 
