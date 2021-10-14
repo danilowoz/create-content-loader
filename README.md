@@ -176,6 +176,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/arfath77"><img src="https://avatars.githubusercontent.com/u/30872061?v=4?s=100" width="100px;" alt=""/><br /><sub><b>arfath77</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=arfath77" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/ManuelaGar"><img src="https://avatars.githubusercontent.com/u/35504015?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Manuela Garcia</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=ManuelaGar" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/sherpaPSX"><img src="https://avatars.githubusercontent.com/u/16719838?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sherpaPSX</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=sherpaPSX" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.abrahamcalsin.com"><img src="https://avatars.githubusercontent.com/u/77748010?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Abraham Calsin</b></sub></a><br /><a href="https://github.com/danilowoz/create-content-loader/commits?author=abrahamcalsin" title="Code">💻</a></td>
   </tr>
 </table>
 
