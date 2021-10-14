@@ -19,7 +19,7 @@
     "classnames": "^2.2.6",
     "clipboard": "^2.0.4",
     "fabric": "^3.6.3",
-    "gatsby": "3.12.1",
+    "gatsby": "3.13.1",
     "gatsby-plugin-google-analytics": "^2.1.36",
     "gatsby-plugin-manifest": "^2.2.42",
     "gatsby-plugin-offline": "^3.0.35",
