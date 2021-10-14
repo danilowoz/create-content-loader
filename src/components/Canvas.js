@@ -167,8 +167,9 @@ class Canvas extends Component {
     const actionsByKeyCode = {
       [KEY_CODES.DELETE]: this.removeItemFromKeyboard,
     }
-
+    /* eslint-disable */
     actionsByKeyCode[event.keyCode]?.(event)
+    /* eslint-enable */
   }
 
   setupKeyboardListeners = () => {
