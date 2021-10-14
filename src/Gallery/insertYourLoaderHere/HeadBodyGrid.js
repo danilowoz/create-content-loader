@@ -14,7 +14,7 @@ HeadBodyGrid.metadata = {
   name: 'Didier Munezero',
   github: 'didiermunezero',
   description: 'Grid for content of head and body',
-  filename: 'BodyContent',
+  filename: 'HeadBodyGrid',
 }
 
 export default HeadBodyGrid
