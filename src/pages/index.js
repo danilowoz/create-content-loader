@@ -84,9 +84,9 @@ class App extends Component {
 
   setLocalStorage = () => {
     if (global.window && global.window.localStorage) {
-      Object.keys(this.state).map(item =>
+      Object.keys(this.state).forEach(item => {
         localStorage.setItem(item, this.state[item])
-      )
+      })
     }
   }
 
@@ -231,13 +231,18 @@ class App extends Component {
   }
 
   render() {
+    const stateWithDefaults = {
+      ...this.state,
+      height: this.state.height || 0,
+      width: this.state.width || 0,
+    }
     const optMyCode = {
-      data: this.state,
+      data: stateWithDefaults,
       importDeclaration: false,
     }
 
     const liveCode = renderSnippet(optMyCode)
-    const snippetCode = template[this.state.mode](optMyCode)
+    const snippetCode = template[stateWithDefaults.mode](optMyCode)
 
     return (
       <>
@@ -250,74 +255,80 @@ class App extends Component {
               <div className="app-editor">
                 <div className="app-mode">
                   <button
-                    className={this.state.editingMode === 'code' && 'active'}
+                    className={
+                      stateWithDefaults.editingMode === 'code' && 'active'
+                    }
                     onClick={() => this.handleSvgMode('code')}
                   >
                     Editor
                   </button>
                   <button
-                    className={this.state.editingMode === 'snippet' && 'active'}
+                    className={
+                      stateWithDefaults.editingMode === 'snippet' && 'active'
+                    }
                     onClick={() => this.handleSvgMode('snippet')}
                   >
                     From SVG to Loading
                   </button>
                   <button
-                    className={this.state.editingMode === 'upload' && 'active'}
+                    className={
+                      stateWithDefaults.editingMode === 'upload' && 'active'
+                    }
                     onClick={() => this.handleSvgMode('upload')}
                   >
                     Upload SVG <span>New!</span>
                   </button>
                 </div>
 
-                {this.state.editingMode === 'upload' && (
+                {stateWithDefaults.editingMode === 'upload' && (
                   <Upload handleSvg={this.handleSvg} />
                 )}
 
-                {this.state.editingMode === 'snippet' && (
+                {stateWithDefaults.editingMode === 'snippet' && (
                   <UploadSnippet handleSvg={this.handleSvg} />
                 )}
 
-                {this.state.editingMode === 'code' && (
+                {stateWithDefaults.editingMode === 'code' && (
                   <Highlighter code={snippetCode} language="javascript" />
                 )}
 
                 <div className="app-editor__language-selector">
                   <button
                     onClick={() => this.handleMode('reactDom')}
-                    className={`app-editor__language-button ${this.state
-                      .mode === 'reactDom' && 'current'}`}
+                    className={`app-editor__language-button ${stateWithDefaults.mode ===
+                      'reactDom' && 'current'}`}
                   >
                     <span>React</span>
                   </button>
 
                   <button
                     onClick={() => this.handleMode('reactNative')}
-                    className={`app-editor__language-button ${this.state
-                      .mode === 'reactNative' && 'current'}`}
+                    className={`app-editor__language-button ${stateWithDefaults.mode ===
+                      'reactNative' && 'current'}`}
                   >
                     <span>React Native</span>
                   </button>
 
                   <button
                     onClick={() => this.handleMode('vue')}
-                    className={`app-editor__language-button ${this.state
-                      .mode === 'vue' && 'current'}`}
+                    className={`app-editor__language-button ${stateWithDefaults.mode ===
+                      'vue' && 'current'}`}
                   >
                     <span>Vue</span>
                   </button>
 
                   <button
                     onClick={() => this.handleMode('angular')}
-                    className={`app-editor__language-button ${this.state
-                      .mode === 'angular' && 'current'}`}
+                    className={`app-editor__language-button ${stateWithDefaults.mode ===
+                      'angular' && 'current'}`}
                   >
                     <span>Angular</span>
                   </button>
 
                   <button
                     onClick={() => this.handleMode('svg')}
-                    className={`app-editor__language-button ${this.state
-                      .mode === 'svg' && 'current'}`}
+                    className={`app-editor__language-button ${stateWithDefaults.mode ===
+                      'svg' && 'current'}`}
                   >
                     <span>SVG</span>
                   </button>
@@ -334,7 +345,7 @@ class App extends Component {
             </div>
 
             <div>
-              {this.state.renderCanvas && (
+              {stateWithDefaults.renderCanvas && (
                 <LiveProvider
                   code={liveCode}
                   scope={{ ContentLoader }}
@@ -343,7 +354,7 @@ class App extends Component {
                   disabled
                 >
                   <Canvas
-                    {...this.state}
+                    {...stateWithDefaults}
                     handleDraw={this.handleDraw}
                     handleSelectedItem={this.handleSelectedItem}
                     handleTool={this.handleTool}
@@ -352,8 +363,8 @@ class App extends Component {
                   >
                     <LivePreview
                       style={{
-                        width: `${this.state.width}px`,
-                        height: `${this.state.height}px`,
+                        width: `${stateWithDefaults.width}px`,
+                        height: `${stateWithDefaults.height}px`,
                         position: 'relative',
                       }}
                     />
