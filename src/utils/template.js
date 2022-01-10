@@ -162,8 +162,7 @@ const vue = ({ data = {} }) => {
 
 <template>
   <content-loader
-    :width="${data.width}"
-    :height="${data.height}"
+    viewBox="0 0 ${data.width} ${data.height}"
     :speed="${data.speed}"
     primaryColor="${data.backgroundColor}"
     secondaryColor="${data.foregroundColor}"
