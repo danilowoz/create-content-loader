@@ -1,3 +1,4 @@
+export { default as Sidebar } from './Sidebar'
 export { default as TaskList } from './TaskList'
 export { default as RepeatableTableRows } from './RepeatableTableRows'
 export { default as GlobalSidebar } from './GlobalSidebar'
