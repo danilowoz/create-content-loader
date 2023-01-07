@@ -58,3 +58,8 @@
 .app-header__aside > * {
   margin-left: 1.4em;
 }
+
+.donate-button {
+  text-decoration: none;
+  color: #fff;
+}
