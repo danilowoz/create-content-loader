@@ -32,6 +32,14 @@ const Header = () => {
 
         <div className="app-header__aside">
           <a
+            className="donate-button"
+            href="https://ko-fi.com/danilowoznica"
+            target="_blank"
+          >
+            👋 Buy me a coffee
+          </a>
+
+          <a
             className="github-button"
             href="https://github.com/danilowoz/react-content-loader"
             data-icon="octicon-star"
@@ -48,14 +56,6 @@ const Header = () => {
             }}
           >
             react-content-loader@{pkg.dependencies['react-content-loader']}
-          </a>
-
-          <a
-            className="donate-button"
-            href="https://ko-fi.com/danilowoznica"
-            target="_blank"
-          >
-            👋 Buy me a coffee
           </a>
         </div>
       </div>
