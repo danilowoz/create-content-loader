@@ -10,11 +10,11 @@ const HeaderLoader = props => {
       foregroundColor="#ecebeb"
       {...props}
     >
-        <rect x="0" y="20" rx="0" ry="0" width="280" height="100" /> 
-        <circle cx="140" cy="120" r="50" />
-        <rect x="290" y="20" rx="0" ry="0" width="100" height="50" /> 
-        <rect x="290" y="75" rx="0" ry="0" width="70" height="5" />
-        <rect x="290" y="85" rx="0" ry="0" width="40" height="6" />
+      <rect x="0" y="20" rx="0" ry="0" width="280" height="100" />
+      <circle cx="140" cy="120" r="50" />
+      <rect x="290" y="20" rx="0" ry="0" width="100" height="50" />
+      <rect x="290" y="75" rx="0" ry="0" width="70" height="5" />
+      <rect x="290" y="85" rx="0" ry="0" width="40" height="6" />
     </ContentLoader>
   )
 }

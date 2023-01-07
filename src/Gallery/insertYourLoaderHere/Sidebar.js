@@ -1,5 +1,5 @@
-import ContentLoader from "react-content-loader";
-import React from "react";
+import ContentLoader from 'react-content-loader'
+import React from 'react'
 
 const SidebarLoader = () => {
   return (
@@ -55,14 +55,14 @@ const SidebarLoader = () => {
       <rect x="491" y="478" rx="0" ry="0" width="2" height="58" />
       <rect x="41" y="494" rx="4" ry="4" width="5" height="22" />
     </ContentLoader>
-  );
-};
+  )
+}
 
 SidebarLoader.metadata = {
-  name: "Fahim Hasasn",
-  github: "fahim-tonmoy",
-  description: "A loading skeleton for your playlist.",
-  filename: "Sidebar",
-};
+  name: 'Fahim Hasasn',
+  github: 'fahim-tonmoy',
+  description: 'A loading skeleton for your playlist.',
+  filename: 'Sidebar',
+}
 
-export default SidebarLoader;
+export default SidebarLoader
