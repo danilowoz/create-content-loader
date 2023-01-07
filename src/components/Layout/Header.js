@@ -50,13 +50,13 @@ const Header = () => {
             react-content-loader@{pkg.dependencies['react-content-loader']}
           </a>
 
-          <iframe
-            src="https://github.com/sponsors/danilowoz/button"
-            title="Sponsor danilowoz"
-            height="35"
-            width="116"
-            style={{ border: 0 }}
-          />
+          <a
+            className="donate-button"
+            href="https://ko-fi.com/danilowoznica"
+            target="_blank"
+          >
+            👋 Buy me a coffee
+          </a>
         </div>
       </div>
     </>
