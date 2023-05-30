@@ -30,4 +30,4 @@ CategoryLoader.metadata = {
   filename: "CategoryLoader" 
 }
 
-export default __NAME_OF_LOADER__
+export default CategoryLoader
