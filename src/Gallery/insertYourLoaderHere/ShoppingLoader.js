@@ -1,7 +1,7 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const __NAME_OF_LOADER__ = props => {
+const ShoppingLoader = props => {
   return (
     <ContentLoader
       speed={2}
