@@ -32,7 +32,7 @@ const ShoppingLoader = props => {
   )
 }
 
-__NAME_OF_LOADER__.metadata = {
+ShoppingLoader.metadata = {
   name: 'Nitish sharma',
   github: 'Nitz2611',
   description: 'A loading skeleton for shopping website',
