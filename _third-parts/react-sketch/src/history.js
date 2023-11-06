@@ -125,7 +125,7 @@ class History {
       /* eslint-disable no-console */
       console.log(
         this.undoList,
-        ' -> ' + this.current + ' <- ',
+        ' -> a' + this.current + ' <- ',
         this.redoList.slice(0).reverse()
       )
     }
