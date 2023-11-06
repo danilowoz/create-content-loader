@@ -8,8 +8,6 @@ const ShopifyAdminLoader = props => {
       width={600}
       height={320}
       viewBox="0 0 600 320"
-      backgroundColor="#d6d6d6"
-      foregroundColor="#ecebeb"
       {...props}
     >
       <rect x="31" y="19" rx="7" ry="7" width="132" height="30" />
