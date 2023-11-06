@@ -28,7 +28,7 @@ const ShopifyAdminLoader = props => {
 ShopifyAdminLoader.metadata = {
   name: 'Fayed Ishtar Chowdhury',
   github: 'esterified',
-  description: 'A simple skeeleton for grid skeelton similar to Shopify Admin',
+  description: 'A simple skeleton for grid skeleton similar to Shopify Admin',
   filename: 'ShopifyAdminLoader',
 }
 
