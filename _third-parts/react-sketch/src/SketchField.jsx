@@ -1,7 +1,6 @@
 /*eslint no-unused-vars: 0*/
 
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import History from './history'
 import { uuid4 } from './utils'
 import Select from './select'
