@@ -4,7 +4,7 @@ import ReactGA from 'react-ga'
 import '../style/Header.css'
 import Helmet from 'react-helmet'
 
-const pkg = require('../../../package.json')
+import pkg from '../../../package.json'
 
 const Header = () => {
   return (
