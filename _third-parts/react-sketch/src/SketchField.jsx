@@ -12,52 +12,12 @@ import Circle from './circle'
 import Pan from './pan'
 import Tool from './tools'
 
-const fabric = require('fabric').fabric
+import { fabric } from 'fabric'
 
 /**
  * Sketch Tool based on FabricJS for React Applications
  */
 class SketchField extends PureComponent {
-  static propTypes = {
-    // the color of the line
-    lineColor: PropTypes.string,
-    // The width of the line
-    lineWidth: PropTypes.number,
-    // the fill color of the shape when applicable
-    fillColor: PropTypes.string,
-    // the background color of the sketch
-    backgroundColor: PropTypes.string,
-    // the opacity of the object
-    opacity: PropTypes.number,
-    // number of undo/redo steps to maintain
-    undoSteps: PropTypes.number,
-    // The tool to use, can be pencil, rectangle, circle, brush;
-    tool: PropTypes.string,
-    // image format when calling toDataURL
-    imageFormat: PropTypes.string,
-    // Sketch data for controlling sketch from
-    // outside the component
-    value: PropTypes.object,
-    // Set to true if you wish to force load the given value, even if it is  the same
-    forceValue: PropTypes.bool,
-    // Specify some width correction which will be applied on auto resize
-    widthCorrection: PropTypes.number,
-    // Specify some height correction which will be applied on auto resize
-    heightCorrection: PropTypes.number,
-    // Specify action on change
-    onChange: PropTypes.func,
-    // Default initial value
-    defaultValue: PropTypes.object,
-    // Sketch width
-    width: PropTypes.number,
-    // Sketch height
-    height: PropTypes.number,
-    // Class name to pass to container div of canvas
-    className: PropTypes.string,
-    // Style options to pass to container div of canvas
-    style: PropTypes.object,
-  }
-
   static defaultProps = {
     lineColor: 'black',
     lineWidth: 10,

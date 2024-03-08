@@ -21,9 +21,7 @@ import UploadSnippet from './components/Upload/UploadSnippet'
 import LearnMore from './components/LearnMore'
 
 const globalLocalStorage =
-  global.window && global.window.localStorage
-    ? global.window.localStorage
-    : { getItem: () => {} }
+  window && window.localStorage ? window.localStorage : { getItem: () => {} }
 
 class App extends Component {
   state = {
@@ -83,7 +81,7 @@ class App extends Component {
   }
 
   setLocalStorage = () => {
-    if (global.window && global.window.localStorage) {
+    if (window && window.localStorage) {
       Object.keys(this.state).forEach(item => {
         localStorage.setItem(item, this.state[item])
       })

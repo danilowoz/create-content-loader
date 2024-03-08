@@ -2,7 +2,7 @@
 
 import FabricCanvasTool from './fabrictool'
 
-const fabric = require('fabric').fabric
+import { fabric } from 'fabric'
 
 class Line extends FabricCanvasTool {
   configureCanvas(props) {
