@@ -5,25 +5,23 @@ import Clipboard from 'clipboard'
 import ReactGA from 'react-ga'
 import { debounce } from 'throttle-debounce'
 
-import Tools from '../../_third-parts/react-sketch/src/tools'
-import { facebook, instagram, code, bulletList } from '../utils/presets'
-import template, { renderSnippet } from '../utils/template'
-import Canvas from '../components/Canvas'
-import Config from '../components/Config'
-import Highlighter from '../components/Highlighter'
-import Header from '../components/Layout/Header'
-import Gallery from '../Gallery'
+import Tools from '../_third-parts/react-sketch/src/tools'
+import { facebook, instagram, code, bulletList } from './utils/presets'
+import template, { renderSnippet } from './utils/template'
+import Canvas from './components/Canvas'
+import Config from './components/Config'
+import Highlighter from './components/Highlighter'
+import Header from './components/Layout/Header'
+import Gallery from './Gallery'
 
-import '../components/style/style.css'
-import SEO from '../components/SEO'
-import Upload from '../components/Upload/Upload'
-import UploadSnippet from '../components/Upload/UploadSnippet'
-import LearnMore from '../components/LearnMore'
+import './components/style/style.css'
+import SEO from './components/SEO'
+import Upload from './components/Upload/Upload'
+import UploadSnippet from './components/Upload/UploadSnippet'
+import LearnMore from './components/LearnMore'
 
 const globalLocalStorage =
-  global.window && global.window.localStorage
-    ? global.window.localStorage
-    : { getItem: () => {} }
+  window && window.localStorage ? window.localStorage : { getItem: () => {} }
 
 class App extends Component {
   state = {
@@ -83,7 +81,7 @@ class App extends Component {
   }
 
   setLocalStorage = () => {
-    if (global.window && global.window.localStorage) {
+    if (window && window.localStorage) {
       Object.keys(this.state).forEach(item => {
         localStorage.setItem(item, this.state[item])
       })
