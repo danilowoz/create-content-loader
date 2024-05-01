@@ -26,7 +26,7 @@ const ChatGPT = (props) => {
   );
 };
 
-Chat.metadata = {
+ChatGPT.metadata = {
   name: "HAIDER Ali", // My name
   github: "https://github.com/HaiderAli170", // Github username
   description: "Chat GPT", // Little tagline
