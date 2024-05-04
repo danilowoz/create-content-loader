@@ -324,6 +324,14 @@ class App extends Component {
                   </button>
 
                   <button
+                    onClick={() => this.handleMode('qwik')}
+                    className={`app-editor__language-button ${stateWithDefaults.mode ===
+                      'qwik' && 'current'}`}
+                  >
+                    <span>Qwik</span>
+                  </button>
+
+                  <button
                     onClick={() => this.handleMode('svg')}
                     className={`app-editor__language-button ${stateWithDefaults.mode ===
                       'svg' && 'current'}`}
