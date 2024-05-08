@@ -1,0 +1,25 @@
+import React from 'react'
+import ContentLoader from 'react-content-loader'
+
+const Article = props => (
+  <ContentLoader 
+    speed={2}
+    width={32}
+    height={32}
+    viewBox="0 0 32 32"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb"
+    {...props}
+  >
+    <path d="M 5 26 h 22 a 1 1 0 10 2 H 5 a 1 1 0 10 -2 z M 17 5 v 16 a 1 1 0 1 -2 0 V 5 a 1 1 0 12 0 z m 4 4 v 12 a 1 1 0 1 -2 0 V 9 a 1 1 0 12 0 z M 9 15 v 6 a 1 1 0 1 -2 0 v -6 a 1 1 0 12 0 z m 16 0 v 6 a 1 1 0 1 -2 0 v -6 a 1 1 0 12 0 z m -12 -4 v 10 a 1 1 0 1 -2 0 V 11 a 1 1 0 112 0 z" />
+  </ContentLoader>
+)
+
+Article.metadata = {
+  name: 'PatrickEmc2',
+  github: 'P_Emc2',
+  description: 'Trading chart',
+  filename: 'Tradingchart',
+}
+
+export default Tradingchart
