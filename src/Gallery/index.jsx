@@ -38,7 +38,7 @@ const renderItem = (item, index) => {
 
         <a
           className="source"
-          href={`https://github.com/danilowoz/create-content-loader/blob/master/src/Gallery/insertYourLoaderHere/${filename}.js`}
+          href={`https://github.com/danilowoz/create-content-loader/blob/master/src/Gallery/insertYourLoaderHere/${filename}.jsx`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => {
