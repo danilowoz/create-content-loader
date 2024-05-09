@@ -207,4 +207,29 @@ ${drawParser}
 `
 }
 
-export default { reactDom, reactNative, svg, vue, angular }
+const qwik = ({ data = {} }) => {
+  return `import {component$} from "@builder.io/qwik";
+import {ContentLoader, type IContentLoaderProps} from "qwik-content-loader";
+
+export default component$<IContentLoaderProps>((props) => (
+  <ContentLoader ${
+    data.rtl
+      ? `
+    rtl`
+      : ''
+  }
+    speed={${data.speed}}
+    width={${data.width}}
+    height={${data.height}}
+    viewBox="0 0 ${data.width} ${data.height}"
+    backgroundColor="${data.backgroundColor}"
+    foregroundColor="${data.foregroundColor}"
+    {...props}
+  >
+${data.draw}
+  </ContentLoader>
+));
+`
+}
+
+export default { reactDom, reactNative, svg, vue, angular, qwik }
