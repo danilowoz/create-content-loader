@@ -18,7 +18,7 @@ const CalendarEventLoader = props => {
 }
 
 CalendarEventLoader.metadata = {
-  name: 'Calendar Event Loader', 
+  name: 'Erika', 
   github: 'elixirika', 
   description: 'Loader for calendar events', 
   filename: 'CalendarEventLoader',
