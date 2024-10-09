@@ -6,8 +6,8 @@ const CalendarEventLoader = props => {
     <ContentLoader
       height={100}
       width={1060}
-      backgroundColor="#d9d9d9"
-      foregroundColor="#ecebeb"
+      backgroundColor="#f5f5f5"
+      foregroundColor="#dbdbdb"
       {...props}
     >
       <rect x="10" y="10" rx="5" ry="5" width="100" height="20" /> {/* Date */}

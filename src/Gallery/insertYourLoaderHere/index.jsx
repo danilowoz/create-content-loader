@@ -82,4 +82,4 @@ export { default as ImageUpload } from './ImageUpload'
 export { default as HeaderLoader } from './HeaderLoader'
 export { default as Twitter } from './Twitter'
 export { default as ChatGPT } from './ChatGPT'
-
+export { default as CalendarEventLoader } from './CalendarEventLoader'
