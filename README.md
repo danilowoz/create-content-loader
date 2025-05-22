@@ -37,31 +37,39 @@ Add your loading code in the gallery following the steps bellow and help the com
 #### Boilerplate
 
 ```jsx
-import React from 'react'
-import ContentLoader from 'react-content-loader'
+import React from "react";
+import ContentLoader from "react-content-loader";
 
-const __NAME_OF_LOADER__ = props => {
-  return (
-    <ContentLoader
-      height={40}
-      width={1060}
-      backgroundColor="#d9d9d9"
-      foregroundColor="#ecebeb"
-      {...props}
-    >
-      // your loader
-    </ContentLoader>
-  )
-}
+const MyLoader = (props) => (
+  <ContentLoader
+    rtl
+    speed={1}
+    width={400}
+    height={150}
+    viewBox="0 0 400 150"
+    backgroundColor="#c0c0c0"
+    foregroundColor="#0080ff"
+    {...props}
+  >
+    <circle cx="10" cy="20" r="8" />
+    <rect x="25" y="15" rx="5" ry="5" width="220" height="10" />
+    <circle cx="10" cy="50" r="8" />
+    <rect x="25" y="45" rx="5" ry="5" width="220" height="10" />
+    <circle cx="10" cy="80" r="8" />
+    <rect x="25" y="75" rx="5" ry="5" width="220" height="10" />
+    <circle cx="10" cy="110" r="8" />
+    <rect x="25" y="105" rx="5" ry="5" width="220" height="10" />
+  </ContentLoader>
+);
+Unique.metadata = {
+  name: "Kartik Dhiman", // My name
+  github: "KDhiman123", // Github username
+  description: " Unique Loader Style", // Loader description
+  filename: "Unique", // filename of your loader
+};
 
-__NAME_OF_LOADER__.metadata = {
-  name: '__REPLACE_ME__', // My name
-  github: '__REPLACE_ME__', // Github username
-  description: '__REPLACE_ME__', // Little tagline
-  filename: '__REPLACE_ME__', // filename of your loader
-}
+export default Unique;
 
-export default __NAME_OF_LOADER__
 ```
 
 ---
