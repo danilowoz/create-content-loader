@@ -1,0 +1,79 @@
+import React from 'react'
+import ContentLoader from 'react-content-loader'
+
+export const ShowcaseLoader = () => {
+	const loaderStyle = `
+		.showcase-skeleton-card {
+			background: #fff;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.skeleton-image {
+			width: 100%;
+			height: 200px;
+			background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+			background-size: 200% 100%;
+			animation: shimmer 1.5s infinite;
+		}
+
+		.skeleton-content {
+			padding: 15px;
+		}
+
+		.skeleton-text {
+			background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+			background-size: 200% 100%;
+			animation: shimmer 1.5s infinite;
+			border-radius: 4px;
+			margin-bottom: 10px;
+		}
+
+		.skeleton-title {
+			height: 20px;
+			width: 85%;
+		}
+
+		.skeleton-subtitle {
+			height: 16px;
+			width: 65%;
+			margin-bottom: 15px;
+		}
+
+		.skeleton-button {
+			height: 36px;
+			width: 40%;
+			border-radius: 20px;
+		}
+
+		@keyframes shimmer {
+			0% { background-position: 200% 0; }
+			100% { background-position: -200% 0; }
+		}
+	`;
+
+	return (
+		<>
+			<style>{loaderStyle}</style>
+			<div className="showcase-loader-container" style={{ padding: '50px 0' }}>
+				<div className="container-fluid">
+					<div className="row">
+						{[0, 1, 2, 3].map((index) => (
+							<div className="col-md-3 col-sm-6 col-xs-12 mb-4" key={index}>
+								<div className="showcase-skeleton-card">
+									<div className="skeleton-image"></div>
+									<div className="skeleton-content">
+										<div className="skeleton-text skeleton-title"></div>
+										<div className="skeleton-text skeleton-subtitle"></div>
+										<div className="skeleton-text skeleton-button"></div>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</>
+	);
+};
